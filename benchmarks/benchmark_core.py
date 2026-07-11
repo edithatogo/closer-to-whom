@@ -25,13 +25,13 @@ class BenchmarkResult:
 
 
 def benchmark_demo(runs: int = 3, budget_seconds: float = 30.0) -> BenchmarkResult:
-    durations=[]
+    durations = []
     for index in range(runs):
-        target=ROOT / "artifacts" / "benchmark" / f"run-{index}"
-        started=time.perf_counter()
+        target = ROOT / "artifacts" / "benchmark" / f"run-{index}"
+        started = time.perf_counter()
         run_demo(output_dir=target, seed=20260711)
-        durations.append(time.perf_counter()-started)
-    median=statistics.median(durations)
+        durations.append(time.perf_counter() - started)
+    median = statistics.median(durations)
     return BenchmarkResult(
         name="synthetic-national-demo",
         median_seconds=median,
@@ -43,10 +43,10 @@ def benchmark_demo(runs: int = 3, budget_seconds: float = 30.0) -> BenchmarkResu
 
 
 def main() -> int:
-    result=benchmark_demo()
-    output=ROOT / "release" / "benchmark-receipt.json"
-    output.parent.mkdir(parents=True,exist_ok=True)
-    output.write_text(json.dumps(asdict(result),indent=2,sort_keys=True)+"\n")
+    result = benchmark_demo()
+    output = ROOT / "release" / "benchmark-receipt.json"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(asdict(result), indent=2, sort_keys=True) + "\n")
     print(output)
     return 0 if result.passed else 1
 

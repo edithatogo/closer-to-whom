@@ -1,0 +1,109 @@
+{
+  "$defs": {
+    "DataClassification": {
+      "description": "Repository data classification.",
+      "enum": [
+        "public_aggregate",
+        "synthetic",
+        "generated_aggregate",
+        "licensed",
+        "confidential"
+      ],
+      "title": "DataClassification",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Aggregate expected treatment demand for a public geography and stratum.",
+  "properties": {
+    "data_classification": {
+      "$ref": "#/$defs/DataClassification"
+    },
+    "demand_cell_id": {
+      "minLength": 1,
+      "title": "Demand Cell Id",
+      "type": "string"
+    },
+    "deprivation_quintile": {
+      "maximum": 5,
+      "minimum": 1,
+      "title": "Deprivation Quintile",
+      "type": "integer"
+    },
+    "district": {
+      "minLength": 1,
+      "title": "District",
+      "type": "string"
+    },
+    "ethnicity": {
+      "minLength": 1,
+      "title": "Ethnicity",
+      "type": "string"
+    },
+    "expected_courses": {
+      "minimum": 0.0,
+      "title": "Expected Courses",
+      "type": "number"
+    },
+    "geography_code": {
+      "minLength": 1,
+      "title": "Geography Code",
+      "type": "string"
+    },
+    "geography_level": {
+      "enum": [
+        "SA2",
+        "SA3",
+        "TA",
+        "REGION",
+        "SYNTHETIC"
+      ],
+      "title": "Geography Level",
+      "type": "string"
+    },
+    "latitude": {
+      "maximum": 90.0,
+      "minimum": -90.0,
+      "title": "Latitude",
+      "type": "number"
+    },
+    "longitude": {
+      "maximum": 180.0,
+      "minimum": -180.0,
+      "title": "Longitude",
+      "type": "number"
+    },
+    "region": {
+      "minLength": 1,
+      "title": "Region",
+      "type": "string"
+    },
+    "routing_point_id": {
+      "minLength": 1,
+      "title": "Routing Point Id",
+      "type": "string"
+    },
+    "rurality": {
+      "minLength": 1,
+      "title": "Rurality",
+      "type": "string"
+    }
+  },
+  "required": [
+    "demand_cell_id",
+    "geography_code",
+    "geography_level",
+    "routing_point_id",
+    "latitude",
+    "longitude",
+    "region",
+    "district",
+    "ethnicity",
+    "deprivation_quintile",
+    "rurality",
+    "expected_courses",
+    "data_classification"
+  ],
+  "title": "DemandCell",
+  "type": "object"
+}

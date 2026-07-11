@@ -24,13 +24,13 @@ def branch_count(node: ast.AST) -> int:
 
 
 def main() -> int:
-    failures=[]
+    failures = []
     for path in sorted(SOURCE.rglob("*.py")):
-        tree=ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
         for node in ast.walk(tree):
             if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                statements=statement_count(node)
-                branches=branch_count(node)
+                statements = statement_count(node)
+                branches = branch_count(node)
                 if statements > MAX_STATEMENTS or branches > MAX_BRANCHES:
                     failures.append(
                         f"{path.relative_to(ROOT)}:{node.lineno} {node.name}: "

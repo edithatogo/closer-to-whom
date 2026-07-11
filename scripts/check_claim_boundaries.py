@@ -30,7 +30,9 @@ def main() -> None:
             for pattern, message in PATTERNS.items():
                 for match in re.finditer(pattern, text, flags=re.IGNORECASE):
                     line = text.count("\n", 0, match.start()) + 1
-                    failures.append(f"{path.relative_to(ROOT)}:{line}: {message}: {match.group(0)!r}")
+                    failures.append(
+                        f"{path.relative_to(ROOT)}:{line}: {message}: {match.group(0)!r}"
+                    )
     if failures:
         raise SystemExit("\n".join(failures))
     print("Claim-boundary scan passed.")

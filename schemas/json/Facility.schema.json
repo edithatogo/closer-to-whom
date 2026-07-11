@@ -1,0 +1,169 @@
+{
+  "$defs": {
+    "CapabilityStatus": {
+      "description": "Publicly supportable capability state.",
+      "enum": [
+        "confirmed",
+        "plausible",
+        "unknown",
+        "excluded"
+      ],
+      "title": "CapabilityStatus",
+      "type": "string"
+    },
+    "DeliveryMode": {
+      "description": "Treatment delivery configuration.",
+      "enum": [
+        "iv_hospital",
+        "iv_satellite",
+        "sc_hospital",
+        "sc_community",
+        "sc_home",
+        "hybrid"
+      ],
+      "title": "DeliveryMode",
+      "type": "string"
+    },
+    "EvidenceGrade": {
+      "description": "Strength of public evidence for a service capability.",
+      "enum": [
+        "1_explicit_named_treatment",
+        "2_explicit_solid_tumour_sact",
+        "3_ambiguous_oncology_or_outreach",
+        "4_historical_or_indirect"
+      ],
+      "title": "EvidenceGrade",
+      "type": "string"
+    },
+    "Formulation": {
+      "description": "Anti-HER2 medicine formulation or combination.",
+      "enum": [
+        "trastuzumab_iv",
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "title": "Formulation",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Publicly documented or candidate service location.",
+  "properties": {
+    "capability_status": {
+      "$ref": "#/$defs/CapabilityStatus"
+    },
+    "delivery_modes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DeliveryMode"
+      },
+      "title": "Delivery Modes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "district": {
+      "minLength": 1,
+      "title": "District",
+      "type": "string"
+    },
+    "evidence_grade": {
+      "$ref": "#/$defs/EvidenceGrade"
+    },
+    "facility_id": {
+      "minLength": 1,
+      "pattern": "^[A-Z0-9][A-Z0-9_-]+$",
+      "title": "Facility Id",
+      "type": "string"
+    },
+    "facility_type": {
+      "title": "Facility Type",
+      "type": "string"
+    },
+    "formulations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Formulation"
+      },
+      "title": "Formulations",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "latitude": {
+      "maximum": 90.0,
+      "minimum": -90.0,
+      "title": "Latitude",
+      "type": "number"
+    },
+    "longitude": {
+      "maximum": 180.0,
+      "minimum": -180.0,
+      "title": "Longitude",
+      "type": "number"
+    },
+    "name": {
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "observed_capacity": {
+      "default": null,
+      "title": "Observed Capacity",
+      "type": "null"
+    },
+    "opening_hours_per_week": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Opening Hours Per Week"
+    },
+    "public_or_private": {
+      "enum": [
+        "public",
+        "private",
+        "candidate"
+      ],
+      "title": "Public Or Private",
+      "type": "string"
+    },
+    "redistribution_allowed": {
+      "default": true,
+      "title": "Redistribution Allowed",
+      "type": "boolean"
+    },
+    "region": {
+      "minLength": 1,
+      "title": "Region",
+      "type": "string"
+    },
+    "source_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Source Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "facility_id",
+    "name",
+    "region",
+    "district",
+    "latitude",
+    "longitude",
+    "facility_type",
+    "public_or_private",
+    "capability_status",
+    "evidence_grade",
+    "source_ids"
+  ],
+  "title": "Facility",
+  "type": "object"
+}

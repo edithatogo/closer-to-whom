@@ -17,7 +17,7 @@ def default_synthetic_pathways() -> tuple[Pathway, ...]:
         Pathway(
             pathway_id="early_trastuzumab_iv_demo",
             decision_cohort="early_her2_demo",
-            name="Early HER2-positive pathway — IV demonstration",
+            name="Early HER2-positive pathway - IV demonstration",
             indication="early",
             formulation=Formulation.TRASTUZUMAB_IV,
             visits=(
@@ -37,7 +37,7 @@ def default_synthetic_pathways() -> tuple[Pathway, ...]:
         Pathway(
             pathway_id="early_trastuzumab_sc_demo",
             decision_cohort="early_her2_demo",
-            name="Early HER2-positive pathway — SC demonstration",
+            name="Early HER2-positive pathway - SC demonstration",
             indication="early",
             formulation=Formulation.TRASTUZUMAB_SC,
             visits=(
@@ -56,7 +56,7 @@ def default_synthetic_pathways() -> tuple[Pathway, ...]:
         Pathway(
             pathway_id="metastatic_phesgo_demo",
             decision_cohort="metastatic_pertuzumab_demo",
-            name="Metastatic pertuzumab–trastuzumab SC demonstration",
+            name="Metastatic pertuzumab-trastuzumab SC demonstration",
             indication="metastatic",
             formulation=Formulation.PHESGO_SC,
             visits=(

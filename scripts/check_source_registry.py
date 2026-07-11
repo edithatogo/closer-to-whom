@@ -23,10 +23,12 @@ def records(payload: object) -> list[dict[str, Any]]:
             if isinstance(value, list):
                 return [item for item in value if isinstance(item, dict)]
         # keyed mapping fallback
-        result=[]
+        result = []
         for key, value in payload.items():
             if isinstance(value, dict):
-                item=dict(value); item.setdefault("id", key); result.append(item)
+                item = dict(value)
+                item.setdefault("id", key)
+                result.append(item)
         return result
     return []
 
@@ -54,7 +56,10 @@ def main() -> int:
             if parsed.scheme not in {"https", "http"} or not parsed.netloc:
                 failures.append(f"{identifier}: invalid URL {url!r}")
         data_class = str(first(item, "data_class", "classification", default="")).lower()
-        if any(token in data_class for token in ("individual", "patient", "confidential", "identifiable")):
+        if any(
+            token in data_class
+            for token in ("individual", "patient", "confidential", "identifiable")
+        ):
             failures.append(f"{identifier}: prohibited data class {data_class!r}")
         redistributable = bool(first(item, "redistributable", "publishable", default=False))
         licence = str(first(item, "licence", "license", "licence_status", default="")).lower()
@@ -65,7 +70,9 @@ def main() -> int:
         if live and not verified:
             failures.append(f"{identifier}: enabled before source verification")
         if "healthpoint" in identifier.lower() and redistributable and "licensed" not in licence:
-            failures.append(f"{identifier}: Healthpoint payload marked redistributable without explicit licence")
+            failures.append(
+                f"{identifier}: Healthpoint payload marked redistributable without explicit licence"
+            )
     if not items:
         failures.append("source registry contains no records")
     if failures:

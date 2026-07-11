@@ -52,9 +52,7 @@ def _optimisation_demo(bundle: dict[str, object]) -> dict[str, Any]:
     ).sort("demand_cell_id")
     pivot = pivot.select("demand_cell_id", *facility_ids)
     costs = pivot.select(facility_ids).to_numpy().astype(float)
-    weights_lookup = dict(
-        demand.select("demand_cell_id", "expected_courses").iter_rows()
-    )
+    weights_lookup = dict(demand.select("demand_cell_id", "expected_courses").iter_rows())
     weights = np.asarray([weights_lookup[item] for item in demand_ids], dtype=float)
     p_median = solve_location_allocation(costs, weights, site_count=4, objective="p_median")
     p_center = solve_location_allocation(costs, weights, site_count=4, objective="p_center")
@@ -105,7 +103,7 @@ def _decision_demo(summary: pl.DataFrame, *, seed: int) -> tuple[dict[str, Any],
     base_burden = matrix[:, 0] + matrix[:, 1] + matrix[:, 2]
     travel_multiplier = rng.lognormal(mean=0.0, sigma=0.15, size=draws)
     provider_multiplier = rng.lognormal(mean=0.0, sigma=0.20, size=draws)
-    net_benefit = np.empty((draws, len(labels)), dtype=float)
+    net_benefit: np.ndarray = np.empty((draws, len(labels)), dtype=float)
     for index in range(len(labels)):
         net_benefit[:, index] = -(
             base_burden[index] * travel_multiplier

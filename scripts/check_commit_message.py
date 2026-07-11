@@ -7,7 +7,9 @@ import re
 import sys
 from pathlib import Path
 
-PATTERN = re.compile(r"^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?: .{3,}$")
+PATTERN = re.compile(
+    r"^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?: .{3,}$"
+)
 
 
 def main() -> None:

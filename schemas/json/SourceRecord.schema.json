@@ -1,0 +1,118 @@
+{
+  "$defs": {
+    "EvidenceGrade": {
+      "description": "Strength of public evidence for a service capability.",
+      "enum": [
+        "1_explicit_named_treatment",
+        "2_explicit_solid_tumour_sact",
+        "3_ambiguous_oncology_or_outreach",
+        "4_historical_or_indirect"
+      ],
+      "title": "EvidenceGrade",
+      "type": "string"
+    },
+    "LicenceState": {
+      "description": "Redistribution status for a source.",
+      "enum": [
+        "open",
+        "public_not_redistributable",
+        "restricted",
+        "unknown"
+      ],
+      "title": "LicenceState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Provenance and licence record for an external source.",
+  "properties": {
+    "evidence_grade": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/EvidenceGrade"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "licence_state": {
+      "$ref": "#/$defs/LicenceState"
+    },
+    "notes": {
+      "default": "",
+      "title": "Notes",
+      "type": "string"
+    },
+    "publication_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Publication Date"
+    },
+    "publisher": {
+      "minLength": 1,
+      "title": "Publisher",
+      "type": "string"
+    },
+    "redistribution_allowed": {
+      "title": "Redistribution Allowed",
+      "type": "boolean"
+    },
+    "retrieved_on": {
+      "format": "date",
+      "title": "Retrieved On",
+      "type": "string"
+    },
+    "sha256": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Sha256"
+    },
+    "source_id": {
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9._-]+$",
+      "title": "Source Id",
+      "type": "string"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "url": {
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "title": "Url",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "publisher",
+    "url",
+    "retrieved_on",
+    "licence_state",
+    "redistribution_allowed"
+  ],
+  "title": "SourceRecord",
+  "type": "object"
+}

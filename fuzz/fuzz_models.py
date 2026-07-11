@@ -16,8 +16,8 @@ from closer_to_whom.models import Scenario
 
 def fuzz_one_input(payload: bytes) -> None:
     try:
-        decoded: Any=json.loads(payload.decode("utf-8",errors="strict"))
-    except (UnicodeDecodeError,json.JSONDecodeError):
+        decoded: Any = json.loads(payload.decode("utf-8", errors="strict"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
         return
     try:
         Scenario.model_validate(decoded)

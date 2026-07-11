@@ -35,7 +35,10 @@ def main() -> int:
     args = parser.parse_args()
 
     rows = _records(yaml.safe_load(REGISTRY.read_text(encoding="utf-8")))
-    match = next((row for row in rows if str(row.get("id", row.get("source_id", ""))) == args.source_id), None)
+    match = next(
+        (row for row in rows if str(row.get("id", row.get("source_id", ""))) == args.source_id),
+        None,
+    )
     if match is None:
         print(f"unknown source id: {args.source_id}", file=sys.stderr)
         return 2

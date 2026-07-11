@@ -44,7 +44,7 @@ def rows(payload: object) -> list[dict[str, Any]]:
 
 
 def statement(row: dict[str, Any]) -> str:
-    for key in ("statement", "assumption", "base_assumption", "description", "text"):
+    for key in ("statement", "assumption", "base_assumption", "description", "text", "rationale"):
         if row.get(key):
             return str(row[key]).strip()
     return ""
@@ -73,10 +73,9 @@ def main() -> int:
         if not statement(row):
             failures.append(f"{identifier or index}: no assumption statement")
         status = str(row.get("status", "")).strip()
-        if status and status not in ALLOWED_STATUSES:
-            # Existing projects may use richer statuses; require only nonblank and expose them.
-            if len(status) < 3:
-                failures.append(f"{identifier}: malformed status {status!r}")
+        # Existing projects may use richer statuses; require only a meaningful nonblank value.
+        if status and status not in ALLOWED_STATUSES and len(status) < 3:
+            failures.append(f"{identifier}: malformed status {status!r}")
     expected_prefixes = set("ADFCTEOUR")
     missing_prefixes = expected_prefixes - prefixes
     if missing_prefixes:

@@ -17,7 +17,9 @@ def test_cli_schema_and_demo(tmp_path: Path) -> None:
     demo = runner.invoke(app, ["demo", "--output", str(output), "--seed", "42"])
     assert demo.exit_code == 0
     assert (output / "manifest.json").exists()
-    verify = runner.invoke(app, ["verify", "--input-dir", str(output), "--output", str(tmp_path / "verify.json")])
+    verify = runner.invoke(
+        app, ["verify", "--input-dir", str(output), "--output", str(tmp_path / "verify.json")]
+    )
     assert verify.exit_code == 0
 
 

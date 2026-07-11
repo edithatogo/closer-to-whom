@@ -41,7 +41,9 @@ def fetch_to_private_arrow(
 ) -> Path:
     """Invoke healthpoint-rs into a git-ignored private path after licence checks."""
     if not grant.live_fetch_allowed:
-        raise PermissionError("Live Healthpoint acquisition requires an explicit local licence grant")
+        raise PermissionError(
+            "Live Healthpoint acquisition requires an explicit local licence grant"
+        )
     resolved = output_path.resolve()
     if "data/licensed" not in resolved.as_posix() and "data/private" not in resolved.as_posix():
         raise ValueError("Healthpoint output must remain under data/licensed or data/private")

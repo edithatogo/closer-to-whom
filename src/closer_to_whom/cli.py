@@ -7,7 +7,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, cast
 
 import polars as pl
 import typer
@@ -50,11 +50,12 @@ def doctor(
     table.add_column("Required")
     table.add_column("Status")
     table.add_column("Detail")
-    for item in payload["diagnostics"]:  # type: ignore[union-attr]
+    diagnostics = cast(list[dict[str, object]], payload["diagnostics"])
+    for item in diagnostics:
         table.add_row(
             str(item["diagnostic_id"]),
-            "yes" if item["required"] else "no",
-            "pass" if item["passed"] else "missing",
+            "yes" if bool(item["required"]) else "no",
+            "pass" if bool(item["passed"]) else "missing",
             str(item["detail"]),
         )
     console.print(table)

@@ -5,7 +5,7 @@ UV ?= uv
 SEED ?= 20260711
 OUT ?= artifacts/demo
 
-.PHONY: help bootstrap sync lock generate format lint typecheck test test-fast contracts governance security docs build demo benchmark clean-room verify full release archive clean
+.PHONY: help bootstrap sync sync-locked lock generate format lint typecheck test test-fast contracts governance security docs build demo benchmark clean-room check verify full release-gate release archive clean
 
 help: ## Show available targets
 	@awk 'BEGIN {FS = ":.*## "; printf "Usage: make <target>\n\n"} /^[a-zA-Z0-9_-]+:.*## / {printf "  %-18s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -13,7 +13,11 @@ help: ## Show available targets
 bootstrap: ## Install uv if needed and prepare the locked local environment
 	./scripts/bootstrap-local.sh
 
-sync: ## Synchronise all development and optional dependencies from the lock
+sync: ## Resolve and synchronise all development and optional dependencies
+	$(UV) sync --all-extras
+
+sync-locked: ## Synchronise from a committed uv.lock and fail if it is absent
+	test -f uv.lock
 	$(UV) sync --locked --all-extras
 
 lock: ## Refresh the dependency lock intentionally
@@ -43,7 +47,8 @@ test-fast: ## Fast local unit and property tests
 	HYPOTHESIS_PROFILE=dev $(UV) run pytest -q --no-cov
 
 test: ## Full test suite with branch coverage gate
-	HYPOTHESIS_PROFILE=ci_extended $(UV) run pytest
+	HYPOTHESIS_PROFILE=ci_extended $(UV) run pytest \
+		--cov=closer_to_whom --cov-branch --cov-report=term-missing --cov-fail-under=89
 
 contracts: ## Validate schemas, assumptions, source registry, generated files, and workflow contracts
 	$(UV) run python scripts/check_contracts.py
@@ -51,6 +56,7 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_assumption_coverage.py
 	$(UV) run python scripts/check_source_registry.py
 	$(UV) run python scripts/check_generated_files.py
+	$(UV) run python scripts/check_lockfile_portability.py
 	$(UV) run python scripts/check_version_consistency.py
 	$(UV) run python scripts/check_workflows.py
 	$(UV) run python scripts/check_workflow_hardening.py
@@ -74,7 +80,7 @@ build: ## Build wheel and source distribution
 
 demo: ## Generate deterministic synthetic nationwide demonstration outputs
 	$(UV) run python -m closer_to_whom demo --output $(OUT) --seed $(SEED)
-	$(UV) run python -m closer_to_whom verify $(OUT)
+	$(UV) run python -m closer_to_whom verify --input-dir $(OUT) --output $(OUT)/validation.json
 
 benchmark: ## Run portable correctness-first benchmark
 	$(UV) run python benchmarks/benchmark_core.py
@@ -82,10 +88,14 @@ benchmark: ## Run portable correctness-first benchmark
 clean-room: ## Build/install/reproduce in an isolated environment
 	$(UV) run python scripts/clean_room_verify.py
 
+check: lint typecheck test-fast contracts governance ## Run the fast local quality and governance gate
+
 verify: generate lint typecheck test contracts governance docs build demo ## Run the local publication-oriented verification set
 	$(UV) run python scripts/release_gate.py --profile local
 
 full: verify clean-room benchmark security ## Run all locally available gates
+
+release-gate: full ## Compatibility alias for the complete local release gate
 
 release: full ## Build complete release metadata after full verification
 	$(UV) run python scripts/create_release_manifest.py

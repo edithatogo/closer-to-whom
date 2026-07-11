@@ -86,9 +86,9 @@ def stochastic_acceptability(
     ranks[row_index, orders] = np.arange(alternatives)[None, :]
     acceptability = np.zeros((alternatives, alternatives), dtype=float)
     for alternative in range(alternatives):
-        acceptability[alternative] = np.bincount(
-            ranks[:, alternative], minlength=alternatives
-        ) / draws
+        acceptability[alternative] = (
+            np.bincount(ranks[:, alternative], minlength=alternatives) / draws
+        )
     return SmaaResult(
         rank_acceptability=acceptability,
         first_rank_probability=acceptability[:, 0],

@@ -1,0 +1,9 @@
+{
+  "available": true,
+  "cells": 256,
+  "draws": 512,
+  "maximum_absolute_error": 0.007929909719678108,
+  "maximum_relative_error": 2.143837233407802e-07,
+  "passed": true,
+  "status": "passed"
+}

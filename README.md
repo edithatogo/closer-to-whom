@@ -31,10 +31,10 @@ This repository estimates **potential geographic and economic accessibility** un
 
 ```bash
 # Preferred
-uv sync --all-extras
+uv sync --locked --all-extras
 uv run closer-to-whom doctor
 uv run closer-to-whom demo --output artifacts/demo
-uv run closer-to-whom verify --output artifacts/verification
+uv run closer-to-whom verify --input-dir artifacts/demo --output artifacts/demo/validation.json
 
 # Fast developer loop
 make check

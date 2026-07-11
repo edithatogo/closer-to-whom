@@ -1,0 +1,74 @@
+{
+  "fields": [
+    {
+      "name": "demand_cell_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "geography_code",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "geography_level",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "routing_point_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "latitude",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "longitude",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "region",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "district",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "ethnicity",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "deprivation_quintile",
+      "nullable": false,
+      "type": "int8"
+    },
+    {
+      "name": "rurality",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "expected_courses",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "data_classification",
+      "nullable": false,
+      "type": "string"
+    }
+  ],
+  "fingerprint": "0187317286a42e0be01ce2e5ea56691f91b0bfaead359ea21a5e071ed80ff1ea",
+  "metadata": {
+    "ctw:schema": "demand",
+    "ctw:version": "1.0.0"
+  }
+}

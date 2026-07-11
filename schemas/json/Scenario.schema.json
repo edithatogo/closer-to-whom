@@ -1,0 +1,166 @@
+{
+  "$defs": {
+    "AssignmentRule": {
+      "description": "Service-assignment rule used by a scenario.",
+      "enum": [
+        "central_only",
+        "domicile_district",
+        "nearest_eligible",
+        "optimised",
+        "fixed"
+      ],
+      "title": "AssignmentRule",
+      "type": "string"
+    },
+    "DeliveryMode": {
+      "description": "Treatment delivery configuration.",
+      "enum": [
+        "iv_hospital",
+        "iv_satellite",
+        "sc_hospital",
+        "sc_community",
+        "sc_home",
+        "hybrid"
+      ],
+      "title": "DeliveryMode",
+      "type": "string"
+    },
+    "Formulation": {
+      "description": "Anti-HER2 medicine formulation or combination.",
+      "enum": [
+        "trastuzumab_iv",
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "title": "Formulation",
+      "type": "string"
+    },
+    "ScenarioKind": {
+      "description": "Policy status attached to a scenario.",
+      "enum": [
+        "current_documented",
+        "licensed_funding_uncertain",
+        "commissioning_counterfactual",
+        "infrastructure_exploratory"
+      ],
+      "title": "ScenarioKind",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Policy counterfactual with explicit status and assignment rule.",
+  "properties": {
+    "active": {
+      "default": true,
+      "title": "Active",
+      "type": "boolean"
+    },
+    "allowed_delivery_modes": {
+      "items": {
+        "$ref": "#/$defs/DeliveryMode"
+      },
+      "minItems": 1,
+      "title": "Allowed Delivery Modes",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "allowed_formulations": {
+      "items": {
+        "$ref": "#/$defs/Formulation"
+      },
+      "minItems": 1,
+      "title": "Allowed Formulations",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "assignment_rule": {
+      "$ref": "#/$defs/AssignmentRule"
+    },
+    "candidate_site_count": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Candidate Site Count",
+      "type": "integer"
+    },
+    "capacity_envelope": {
+      "default": "none",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Capacity Envelope",
+      "type": "string"
+    },
+    "central_facility_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Central Facility Id"
+    },
+    "evidence_grade_threshold": {
+      "default": 2,
+      "maximum": 4,
+      "minimum": 1,
+      "title": "Evidence Grade Threshold",
+      "type": "integer"
+    },
+    "kind": {
+      "$ref": "#/$defs/ScenarioKind"
+    },
+    "name": {
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "patient_one_way_cap_km": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Patient One Way Cap Km"
+    },
+    "patient_one_way_cap_minutes": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Patient One Way Cap Minutes"
+    },
+    "scenario_id": {
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9_-]+$",
+      "title": "Scenario Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "name",
+    "kind",
+    "assignment_rule",
+    "allowed_delivery_modes",
+    "allowed_formulations"
+  ],
+  "title": "Scenario",
+  "type": "object"
+}

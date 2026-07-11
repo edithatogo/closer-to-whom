@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, TypeAlias
 
 import numpy as np
 import numpy.typing as npt
 
-FloatArray = npt.NDArray[np.float64]
+FloatArray: TypeAlias = npt.NDArray[np.float64]
 
 
 @dataclass(frozen=True, slots=True)
@@ -33,8 +33,7 @@ def course_cost_numpy(
     """Reference calculation for draw × cell aggregate course burden."""
 
     return administrations * (
-        distances_km * cost_per_km[:, None]
-        + travel_minutes * value_per_minute[:, None]
+        distances_km * cost_per_km[:, None] + travel_minutes * value_per_minute[:, None]
     )
 
 
@@ -62,8 +61,7 @@ def course_cost_jax(
         minute_value: Any,
     ) -> Any:
         return administrations_ * (
-            distance * kilometre_cost[:, None]
-            + travel * minute_value[:, None]
+            distance * kilometre_cost[:, None] + travel * minute_value[:, None]
         )
 
     result = kernel(
@@ -77,7 +75,8 @@ def course_cost_jax(
 
 
 def differential_check(
-    *, draws: int = 256,
+    *,
+    draws: int = 256,
     cells: int = 128,
     seed: int = 20260711,
     absolute_tolerance: float = 1e-5,
@@ -91,13 +90,9 @@ def differential_check(
     administrations = rng.integers(1, 30, size=(draws, cells)).astype(np.float64)
     kilometre_cost = rng.uniform(0.2, 1.5, size=draws).astype(np.float64)
     minute_value = rng.uniform(0.1, 2.0, size=draws).astype(np.float64)
-    expected = course_cost_numpy(
-        distance, travel, administrations, kilometre_cost, minute_value
-    )
+    expected = course_cost_numpy(distance, travel, administrations, kilometre_cost, minute_value)
     try:
-        observed = course_cost_jax(
-            distance, travel, administrations, kilometre_cost, minute_value
-        )
+        observed = course_cost_jax(distance, travel, administrations, kilometre_cost, minute_value)
     except RuntimeError:
         return DifferentialResult(
             available=False,

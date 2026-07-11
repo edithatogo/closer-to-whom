@@ -29,4 +29,6 @@ def ensure_unique_scenarios(scenarios: Iterable[Scenario]) -> None:
 
 def active_scenarios(scenarios: Iterable[Scenario]) -> tuple[Scenario, ...]:
     """Return active scenarios in stable order."""
-    return tuple(sorted((item for item in scenarios if item.active), key=lambda item: item.scenario_id))
+    return tuple(
+        sorted((item for item in scenarios if item.active), key=lambda item: item.scenario_id)
+    )

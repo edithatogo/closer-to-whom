@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import numpy as np
-from hypothesis import given, strategies as st
+from hypothesis import given
+from hypothesis import strategies as st
 
 from closer_to_whom.costs import calculate_course_burden
 from closer_to_whom.optimisation import solve_location_allocation
@@ -25,7 +26,9 @@ def test_haversine_symmetry(lat1: float, lon1: float, lat2: float, lon2: float) 
     st.floats(min_value=0, max_value=600, allow_nan=False, allow_infinity=False),
     st.integers(min_value=0, max_value=30),
 )
-def test_course_burden_nonnegative_and_monotone(distance: float, minutes: float, visits: int) -> None:
+def test_course_burden_nonnegative_and_monotone(
+    distance: float, minutes: float, visits: int
+) -> None:
     rates = synthetic_cost_rates()
     low = calculate_course_burden(
         one_way_km=distance,

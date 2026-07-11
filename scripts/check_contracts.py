@@ -43,9 +43,7 @@ def check_distributions() -> None:
     _require_unique(parameters, "parameter_id", "uncertainty parameter ID")
     for item in parameters:
         model_fields = {
-            key: value
-            for key, value in item.items()
-            if key in UncertaintyParameter.model_fields
+            key: value for key, value in item.items() if key in UncertaintyParameter.model_fields
         }
         UncertaintyParameter.model_validate(model_fields)
 

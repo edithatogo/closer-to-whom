@@ -27,8 +27,8 @@ def _load_frames(result_dir: Path) -> tuple[pl.DataFrame, pl.DataFrame]:
 def create_app(result_dir: Path | None = None) -> Any:
     """Create a Dash application without exposing raw or row-level inputs."""
     try:
-        from dash import Dash, Input, Output, dcc, html
         import plotly.graph_objects as go
+        from dash import Dash, Input, Output, dcc, html
     except ImportError as exc:  # pragma: no cover - optional deployment dependency
         raise RuntimeError("Install closer-to-whom[dashboard] to run the dashboard") from exc
 

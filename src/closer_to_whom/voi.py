@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from typing import cast
 
 import numpy as np
 
@@ -85,7 +86,7 @@ def evppi_quantile_bins(
     if len(edges) <= 2:
         return 0.0
     labels = np.digitize(parameter_draws, edges[1:-1], right=True)
-    return evppi_discrete_groups(net_benefit, labels)
+    return evppi_discrete_groups(net_benefit, cast(Sequence[str | int], labels))
 
 
 def evsi_from_posterior_net_benefit(
@@ -172,7 +173,9 @@ def perspective_net_benefit(
     sum. This function exists for VOI and does not replace disaggregated primary reporting.
     """
     if set(weights) - set(components):
-        raise ValueError(f"Weights reference unknown components: {sorted(set(weights) - set(components))}")
+        raise ValueError(
+            f"Weights reference unknown components: {sorted(set(weights) - set(components))}"
+        )
     shapes = {np.asarray(value).shape for value in components.values()}
     if len(shapes) != 1:
         raise ValueError("All consequence matrices must have the same shape")

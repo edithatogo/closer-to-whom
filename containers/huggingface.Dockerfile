@@ -18,7 +18,8 @@ RUN useradd --create-home --uid 1000 appuser
 WORKDIR /app
 COPY --from=builder /install /usr/local/lib/python3.12/site-packages
 COPY app.py ./
-COPY artifacts/demo ./artifacts/demo
+COPY artifacts ./artifacts
+RUN mkdir -p /app/artifacts/demo && chown -R appuser:appuser /app/artifacts
 USER appuser
 EXPOSE 7860
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \

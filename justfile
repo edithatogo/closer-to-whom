@@ -8,6 +8,10 @@ bootstrap:
     ./scripts/bootstrap-local.sh
 
 sync:
+    uv sync --all-extras
+
+sync-locked:
+    test -f uv.lock
     uv sync --locked --all-extras
 
 generate:
@@ -52,7 +56,7 @@ docs:
 
 demo out="artifacts/demo" seed="20260711":
     uv run python -m closer_to_whom demo --output {{out}} --seed {{seed}}
-    uv run python -m closer_to_whom verify {{out}}
+    uv run python -m closer_to_whom verify --input-dir {{out}} --output {{out}}/validation.json
 
 verify:
     uv run python scripts/release_gate.py --profile local

@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "description": "A visit component in a treatment pathway.",
+  "properties": {
+    "administration_minutes": {
+      "minimum": 0.0,
+      "title": "Administration Minutes",
+      "type": "number"
+    },
+    "count": {
+      "minimum": 0.0,
+      "title": "Count",
+      "type": "number"
+    },
+    "may_be_home": {
+      "default": false,
+      "title": "May Be Home",
+      "type": "boolean"
+    },
+    "observation_minutes": {
+      "minimum": 0.0,
+      "title": "Observation Minutes",
+      "type": "number"
+    },
+    "other_on_site_minutes": {
+      "default": 0.0,
+      "minimum": 0.0,
+      "title": "Other On Site Minutes",
+      "type": "number"
+    },
+    "requires_hospital": {
+      "default": false,
+      "title": "Requires Hospital",
+      "type": "boolean"
+    },
+    "requires_resuscitation": {
+      "default": false,
+      "title": "Requires Resuscitation",
+      "type": "boolean"
+    },
+    "visit_type_id": {
+      "minLength": 1,
+      "title": "Visit Type Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "visit_type_id",
+    "count",
+    "administration_minutes",
+    "observation_minutes"
+  ],
+  "title": "VisitType",
+  "type": "object"
+}

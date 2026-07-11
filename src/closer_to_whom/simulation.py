@@ -92,7 +92,9 @@ def simulate_scenario_pathway(
         one_way_km = float(assigned["one_way_km"])
         one_way_minutes = float(assigned["one_way_minutes"])
         provider_round_trip_km = one_way_km * 2.0 * home_visits
-        provider_minutes = (one_way_minutes * 2.0 + course_on_site_minutes / max(total_visits, 1.0)) * home_visits
+        provider_minutes = (
+            one_way_minutes * 2.0 + course_on_site_minutes / max(total_visits, 1.0)
+        ) * home_visits
         burden = calculate_course_burden(
             one_way_km=one_way_km,
             one_way_minutes=one_way_minutes,
@@ -146,7 +148,9 @@ def simulate_all(
     demand_tuple = tuple(demand_cells)
     facility_tuple = tuple(facilities)
     frames: list[pl.DataFrame] = []
-    for scenario in sorted((item for item in scenarios if item.active), key=lambda item: item.scenario_id):
+    for scenario in sorted(
+        (item for item in scenarios if item.active), key=lambda item: item.scenario_id
+    ):
         for pathway in sorted(pathways, key=lambda item: item.pathway_id):
             frame = simulate_scenario_pathway(
                 demand_cells=demand_tuple,

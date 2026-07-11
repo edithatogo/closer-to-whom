@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import TypeAlias
 
 import numpy as np
 import numpy.typing as npt
 from scipy.optimize import Bounds, LinearConstraint, milp
 from scipy.sparse import lil_matrix
 
-FloatArray = npt.NDArray[np.float64]
+FloatArray: TypeAlias = npt.NDArray[np.float64]
 
 
 @dataclass(frozen=True, slots=True)
@@ -35,7 +36,7 @@ def solve_p_median_milp(
     matrix = np.asarray(costs, dtype=np.float64)
     weights = np.asarray(demand, dtype=np.float64)
     if matrix.ndim != 2:
-        raise ValueError("costs must be a two-dimensional origin × facility matrix")
+        raise ValueError("costs must be a two-dimensional origin x facility matrix")
     origins, facilities = matrix.shape
     if weights.shape != (origins,):
         raise ValueError("demand must contain one non-negative value per origin")
@@ -83,16 +84,14 @@ def solve_p_median_milp(
     result = milp(
         c=objective,
         integrality=np.ones(total_variables, dtype=np.int8),
-        bounds=Bounds(np.zeros(total_variables), np.ones(total_variables)),
-        constraints=LinearConstraint(constraints.tocsr(), lower, upper),
+        bounds=Bounds(np.zeros(total_variables), np.ones(total_variables)),  # pyright: ignore[reportArgumentType]
+        constraints=LinearConstraint(constraints.tocsr(), lower, upper),  # pyright: ignore[reportArgumentType]
         options={"time_limit": time_limit_seconds, "presolve": True},
     )
     if result.x is None:
         raise RuntimeError(f"p-median solver returned no solution: {result.message}")
     selected = tuple(
-        int(index)
-        for index, value in enumerate(result.x[assignment_variables:])
-        if value > 0.5
+        int(index) for index, value in enumerate(result.x[assignment_variables:]) if value > 0.5
     )
     assignment_matrix = result.x[:assignment_variables].reshape(origins, facilities)
     assignments = tuple(int(index) for index in assignment_matrix.argmax(axis=1))

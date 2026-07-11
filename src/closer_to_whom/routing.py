@@ -34,6 +34,7 @@ class RouteEngine(Protocol):
     @property
     def identity(self) -> str:
         """Return an engine and version identity."""
+        ...
 
     def route(
         self,
@@ -43,6 +44,7 @@ class RouteEngine(Protocol):
         destination_longitude: float,
     ) -> RouteEstimate:
         """Estimate one-way distance and duration."""
+        ...
 
 
 def haversine_km(
@@ -64,7 +66,12 @@ def haversine_km(
 
 def haversine_matrix_km(origins: np.ndarray, destinations: np.ndarray) -> np.ndarray:
     """Vectorised pairwise great-circle distance matrix."""
-    if origins.ndim != 2 or destinations.ndim != 2 or origins.shape[1] != 2 or destinations.shape[1] != 2:
+    if (
+        origins.ndim != 2
+        or destinations.ndim != 2
+        or origins.shape[1] != 2
+        or destinations.shape[1] != 2
+    ):
         raise ValueError("Origins and destinations must have shape (n, 2)")
     lat1 = np.radians(origins[:, 0])[:, None]
     lon1 = np.radians(origins[:, 1])[:, None]
@@ -109,12 +116,15 @@ class OfflineApproximationEngine:
         destination_longitude: float,
     ) -> RouteEstimate:
         """Approximate a road route from great-circle distance."""
-        distance = haversine_km(
-            origin_latitude,
-            origin_longitude,
-            destination_latitude,
-            destination_longitude,
-        ) * self.road_circuity
+        distance = (
+            haversine_km(
+                origin_latitude,
+                origin_longitude,
+                destination_latitude,
+                destination_longitude,
+            )
+            * self.road_circuity
+        )
         duration = distance / self.average_speed_kmh * 60.0 + self.fixed_access_minutes
         return RouteEstimate(distance, duration, "offline-approximation", self.version, True)
 
@@ -132,8 +142,12 @@ def build_route_matrix(
     if missing := required_facilities - set(facilities.columns):
         raise ValueError(f"Facilities missing route columns: {sorted(missing)}")
     rows: list[dict[str, str | float | bool]] = []
-    for origin in demand.select(sorted(required_demand)).unique().sort("demand_cell_id").iter_rows(named=True):
-        for destination in facilities.select(sorted(required_facilities)).sort("facility_id").iter_rows(named=True):
+    for origin in (
+        demand.select(sorted(required_demand)).unique().sort("demand_cell_id").iter_rows(named=True)
+    ):
+        for destination in (
+            facilities.select(sorted(required_facilities)).sort("facility_id").iter_rows(named=True)
+        ):
             route = engine.route(
                 float(origin["latitude"]),
                 float(origin["longitude"]),

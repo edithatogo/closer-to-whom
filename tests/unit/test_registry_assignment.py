@@ -40,7 +40,12 @@ def test_load_facilities_round_trip(bundle: dict[str, object], tmp_path: Path) -
         pl.col("delivery_modes").list.join("|"),
     ).with_columns(
         pl.col("evidence_grade").replace_strict(
-            {1: "1_explicit_named_treatment", 2: "2_explicit_solid_tumour_sact", 3: "3_ambiguous_oncology_or_outreach", 4: "4_historical_or_indirect"}
+            {
+                1: "1_explicit_named_treatment",
+                2: "2_explicit_solid_tumour_sact",
+                3: "3_ambiguous_oncology_or_outreach",
+                4: "4_historical_or_indirect",
+            }
         )
     )
     path = tmp_path / "facilities.csv"
@@ -66,4 +71,6 @@ def test_assign_no_candidates_raises(bundle: dict[str, object]) -> None:
     demand = demand_cells_to_frame(bundle["demand"])  # type: ignore[arg-type]
     scenario = synthetic_scenarios()[2]
     with pytest.raises(ValueError, match="no eligible"):
-        assign_services(demand, pl.DataFrame({"facility_id": [], "district": []}), pl.DataFrame(), scenario)
+        assign_services(
+            demand, pl.DataFrame({"facility_id": [], "district": []}), pl.DataFrame(), scenario
+        )

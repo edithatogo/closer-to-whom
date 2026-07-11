@@ -3,15 +3,21 @@
 
 from __future__ import annotations
 
+import argparse
 import importlib.metadata
 import json
 from pathlib import Path
 
 
-def main() -> None:
-    components = []
-    for distribution in sorted(importlib.metadata.distributions(), key=lambda item: item.metadata["Name"].lower()):
-        name = distribution.metadata["Name"]
+def build_sbom() -> dict[str, object]:
+    """Return a deterministic CycloneDX-compatible software inventory."""
+    components: list[dict[str, str]] = []
+    distributions = sorted(
+        importlib.metadata.distributions(),
+        key=lambda item: (item.metadata.get("Name") or "").lower(),
+    )
+    for distribution in distributions:
+        name = distribution.metadata.get("Name")
         if not name:
             continue
         components.append(
@@ -22,17 +28,37 @@ def main() -> None:
                 "purl": f"pkg:pypi/{name.lower()}@{distribution.version}",
             }
         )
-    payload = {
+    return {
         "bomFormat": "CycloneDX",
         "specVersion": "1.5",
         "version": 1,
-        "metadata": {"component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}},
+        "metadata": {
+            "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}
+        },
         "components": components,
     }
-    output = Path("release/sbom.cdx.json")
-    output.parent.mkdir(exist_ok=True)
-    output.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(output)
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("release/sbom.cdx.json"),
+        help="Destination path for the generated CycloneDX JSON document.",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    """Write the software bill of materials to the requested path."""
+    args = parse_args()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(
+        json.dumps(build_sbom(), indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    print(args.output)
 
 
 if __name__ == "__main__":

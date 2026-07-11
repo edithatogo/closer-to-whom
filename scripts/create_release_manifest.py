@@ -17,7 +17,10 @@ def main() -> None:
         ["git", "-C", str(ROOT), "ls-files"], check=True, capture_output=True, text=True
     ).stdout.splitlines()
     files = {
-        relative: {"sha256": sha256_file(ROOT / relative), "size_bytes": (ROOT / relative).stat().st_size}
+        relative: {
+            "sha256": sha256_file(ROOT / relative),
+            "size_bytes": (ROOT / relative).stat().st_size,
+        }
         for relative in tracked
         if (ROOT / relative).is_file()
     }

@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import filecmp
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -47,18 +46,26 @@ def main() -> int:
         arrow_out = temp / "arrow"
         assumptions_out = temp / "assumptions-appendix.md"
 
-        _run([sys.executable, "-c", (
-            "from pathlib import Path; "
-            "from scripts.generate_json_schemas import generate; "
-            f"generate(Path({str(json_out)!r}))"
-        )])
+        _run(
+            [
+                sys.executable,
+                "-c",
+                (
+                    "from pathlib import Path; "
+                    "from scripts.generate_json_schemas import generate; "
+                    f"generate(Path({str(json_out)!r}))"
+                ),
+            ]
+        )
         _run([sys.executable, "scripts/generate_schema_registry.py", "--output", str(arrow_out)])
-        _run([
-            sys.executable,
-            "scripts/generate_assumptions_appendix.py",
-            "--output",
-            str(assumptions_out),
-        ])
+        _run(
+            [
+                sys.executable,
+                "scripts/generate_assumptions_appendix.py",
+                "--output",
+                str(assumptions_out),
+            ]
+        )
 
         failures.extend(_compare_tree(ROOT / "schemas" / "json", json_out))
         failures.extend(_compare_tree(ROOT / "schemas" / "arrow", arrow_out))

@@ -53,9 +53,7 @@ def implied_capacity(
         raise ValueError(f"Results missing capacity columns: {sorted(missing)}")
     workload = results.with_columns(
         (pl.col("expected_courses") * pl.col("patient_visits")).alias("annual_patient_visits"),
-        (pl.col("expected_courses") * pl.col("provider_home_visits")).alias(
-            "annual_home_visits"
-        ),
+        (pl.col("expected_courses") * pl.col("provider_home_visits")).alias("annual_home_visits"),
         (pl.col("expected_courses") * pl.col("course_on_site_minutes")).alias(
             "annual_on_site_minutes"
         ),
@@ -84,9 +82,9 @@ def implied_capacity(
                 pl.col("annual_chair_hours")
                 / (cfg.productive_hours_per_fte_year * cfg.chair_utilisation_target)
             ).alias("implied_chair_fte_equivalent"),
-            (
-                pl.col("annual_active_nursing_hours") / cfg.productive_hours_per_fte_year
-            ).alias("implied_nursing_fte"),
+            (pl.col("annual_active_nursing_hours") / cfg.productive_hours_per_fte_year).alias(
+                "implied_nursing_fte"
+            ),
             (pl.col("mean_patient_visits_per_day") * cfg.peak_to_mean_factor).alias(
                 "peak_equivalent_visits_per_day"
             ),

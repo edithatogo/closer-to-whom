@@ -39,10 +39,14 @@ def assign_services(
 
     if scenario.assignment_rule is AssignmentRule.DOMICILE_DISTRICT:
         candidates = candidates.with_columns(
-            (pl.col("district") != pl.col("demand_district")).cast(pl.Int8).alias("outside_district")
+            (pl.col("district") != pl.col("demand_district"))
+            .cast(pl.Int8)
+            .alias("outside_district")
         )
         return (
-            candidates.sort(["demand_cell_id", "outside_district", "one_way_minutes", "facility_id"])
+            candidates.sort(
+                ["demand_cell_id", "outside_district", "one_way_minutes", "facility_id"]
+            )
             .group_by("demand_cell_id", maintain_order=True)
             .first()
             .drop("outside_district")

@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from pathlib import Path
+from typing import Literal, cast
 
 import polars as pl
 
 from closer_to_whom.models import Facility
-from closer_to_whom.types import CapabilityStatus, DeliveryMode, Formulation
+from closer_to_whom.types import CapabilityStatus, DeliveryMode, EvidenceGrade, Formulation
 
 _REQUIRED_COLUMNS = {
     "facility_id",
@@ -53,11 +54,15 @@ def load_facilities(path: Path) -> tuple[Facility, ...]:
                 latitude=float(row["latitude"]),
                 longitude=float(row["longitude"]),
                 facility_type=str(row["facility_type"]),
-                public_or_private=str(row["public_or_private"]),
+                public_or_private=cast(
+                    Literal["public", "private", "candidate"], str(row["public_or_private"])
+                ),
                 capability_status=CapabilityStatus(str(row["capability_status"])),
-                evidence_grade=str(row["evidence_grade"]),
+                evidence_grade=EvidenceGrade(str(row["evidence_grade"])),
                 source_ids=_split_list(row["source_ids"]),
-                formulations=frozenset(Formulation(item) for item in _split_list(row["formulations"])),
+                formulations=frozenset(
+                    Formulation(item) for item in _split_list(row["formulations"])
+                ),
                 delivery_modes=frozenset(
                     DeliveryMode(item) for item in _split_list(row["delivery_modes"])
                 ),

@@ -174,7 +174,9 @@ def greedy_p_median(
     )
 
 
-def pareto_frontier(points: tuple[ParetoPoint, ...], *, minimise: tuple[bool, ...]) -> tuple[ParetoPoint, ...]:
+def pareto_frontier(
+    points: tuple[ParetoPoint, ...], *, minimise: tuple[bool, ...]
+) -> tuple[ParetoPoint, ...]:
     """Return non-dominated points for mixed minimise/maximise objectives."""
     if not points:
         return ()
@@ -195,8 +197,12 @@ def pareto_frontier(points: tuple[ParetoPoint, ...], *, minimise: tuple[bool, ..
         for other_index, other in enumerate(transformed):
             if other_index == index:
                 continue
-            weakly_better = all(left <= right + 1e-12 for left, right in zip(other, target, strict=True))
-            strictly_better = any(left < right - 1e-12 for left, right in zip(other, target, strict=True))
+            weakly_better = all(
+                left <= right + 1e-12 for left, right in zip(other, target, strict=True)
+            )
+            strictly_better = any(
+                left < right - 1e-12 for left, right in zip(other, target, strict=True)
+            )
             if weakly_better and strictly_better:
                 dominated = True
                 break

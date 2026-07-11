@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Callable
 
 import polars as pl
 
@@ -85,7 +85,9 @@ def check_home_shifts_burden(results: pl.DataFrame) -> CheckResult:
     )
 
 
-def validate_results(results: pl.DataFrame, *, output: Path | None = None) -> tuple[CheckResult, ...]:
+def validate_results(
+    results: pl.DataFrame, *, output: Path | None = None
+) -> tuple[CheckResult, ...]:
     """Run all result-cube invariants and optionally write a receipt."""
     checks = (
         check_non_negative_results(results),

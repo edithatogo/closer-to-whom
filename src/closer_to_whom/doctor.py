@@ -53,7 +53,7 @@ def run_doctor(repo: Path) -> tuple[Diagnostic, ...]:
             Diagnostic(
                 f"command.{command}",
                 shutil.which(command) is not None,
-                command in {"git"},
+                command == "git",
                 shutil.which(command) or "not found",
             )
         )

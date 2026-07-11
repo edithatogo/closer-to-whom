@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 import tempfile
 import time
 import urllib.error
@@ -53,7 +52,9 @@ def _host_allowed(url: str, hosts: tuple[str, ...]) -> bool:
     from urllib.parse import urlsplit
 
     hostname = (urlsplit(url).hostname or "").lower()
-    return any(hostname == allowed.lower() or hostname.endswith(f".{allowed.lower()}") for allowed in hosts)
+    return any(
+        hostname == allowed.lower() or hostname.endswith(f".{allowed.lower()}") for allowed in hosts
+    )
 
 
 def _stream_to_temp(response: object, destination: Path, max_bytes: int) -> tuple[int, str]:
@@ -72,7 +73,7 @@ def _stream_to_temp(response: object, destination: Path, max_bytes: int) -> tupl
                 raise SourceFetchError(f"source exceeds declared maximum of {max_bytes} bytes")
             digest.update(chunk)
             handle.write(chunk)
-    os.replace(temp_path, destination)
+    temp_path.replace(destination)
     return total, digest.hexdigest()
 
 
@@ -102,7 +103,7 @@ def fetch_public_source(
         method="GET",
     )
     try:
-        with urllib.request.urlopen(request, timeout=policy.timeout_seconds) as response:  # noqa: S310
+        with urllib.request.urlopen(request, timeout=policy.timeout_seconds) as response:
             status = getattr(response, "status", 200)
             if status != 200:
                 raise SourceFetchError(f"unexpected HTTP status {status}")

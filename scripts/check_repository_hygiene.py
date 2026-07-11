@@ -26,7 +26,11 @@ def main() -> int:
         path = ROOT / relative
         if path.name in FORBIDDEN_NAMES or path.suffix.lower() in FORBIDDEN_SUFFIXES:
             failures.append(f"forbidden tracked file: {relative}")
-        if path.is_file() and path.stat().st_size > MAX_FILE_BYTES and not relative.startswith(LARGE_ALLOWLIST_PREFIXES):
+        if (
+            path.is_file()
+            and path.stat().st_size > MAX_FILE_BYTES
+            and not relative.startswith(LARGE_ALLOWLIST_PREFIXES)
+        ):
             failures.append(f"unexpected tracked file >10 MiB: {relative}")
         if relative.startswith((".venv/", "site/", "dist/", "artifacts/demo/")):
             failures.append(f"generated/runtime directory tracked: {relative}")

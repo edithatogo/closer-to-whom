@@ -1,0 +1,109 @@
+{
+  "fields": [
+    {
+      "name": "scenario_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "pathway_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "demand_cell_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "facility_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "ethnicity",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "deprivation_quintile",
+      "nullable": false,
+      "type": "int8"
+    },
+    {
+      "name": "rurality",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "expected_courses",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "one_way_km",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "one_way_minutes",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "course_travel_km",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "course_travel_minutes",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "course_on_site_minutes",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "patient_direct_cost_nzd",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "patient_whanau_cost_nzd",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "payer_cost_nzd",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "provider_cost_nzd",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "societal_cost_nzd",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "model_version",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "assumptions_fingerprint",
+      "nullable": false,
+      "type": "string"
+    }
+  ],
+  "fingerprint": "f6a9e30ac2efc20cdb14f2c30a1e7113d09e85032072e5a210803546042b3828",
+  "metadata": {
+    "ctw:schema": "result",
+    "ctw:version": "1.0.0"
+  }
+}

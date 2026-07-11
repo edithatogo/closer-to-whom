@@ -51,9 +51,15 @@ def scenario_summary(results: pl.DataFrame) -> pl.DataFrame:
         }
         row.update(
             {
-                "p50_course_travel_minutes": weighted_quantile(group, "course_travel_minutes", 0.50),
-                "p90_course_travel_minutes": weighted_quantile(group, "course_travel_minutes", 0.90),
-                "p95_course_travel_minutes": weighted_quantile(group, "course_travel_minutes", 0.95),
+                "p50_course_travel_minutes": weighted_quantile(
+                    group, "course_travel_minutes", 0.50
+                ),
+                "p90_course_travel_minutes": weighted_quantile(
+                    group, "course_travel_minutes", 0.90
+                ),
+                "p95_course_travel_minutes": weighted_quantile(
+                    group, "course_travel_minutes", 0.95
+                ),
             }
         )
         tails.append(row)
@@ -76,7 +82,7 @@ def compare_to_baseline(
     )
     if baseline.is_empty():
         raise ValueError(f"Baseline scenario not present: {baseline_scenario_id}")
-    compared = (
+    return (
         results.join(baseline, on=keys, how="inner", validate="m:1")
         .with_columns((pl.col(outcome) - pl.col("baseline_value")).alias("difference"))
         .with_columns(
@@ -88,7 +94,6 @@ def compare_to_baseline(
             .alias("direction")
         )
     )
-    return compared
 
 
 def better_worse_summary(compared: pl.DataFrame) -> pl.DataFrame:

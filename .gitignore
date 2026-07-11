@@ -8,6 +8,7 @@ __pycache__/
 .ruff_cache/
 .hypothesis/
 .coverage*
+coverage.xml
 htmlcov/
 .nox/
 .venv/
@@ -30,8 +31,6 @@ data/private/
 data/derived/**
 !data/derived/.gitkeep
 artifacts/**
-!artifacts/demo/
-!artifacts/demo/.gitkeep
 !artifacts/README.md
 
 # IDE / OS
@@ -51,3 +50,12 @@ site/
 
 # Benchmarks
 .benchmarks/
+
+# Local release receipts and generated handover metadata
+release/local-status/
+release/publication-readiness.json
+release/upstream-handoff.json
+release/source-manifest.json
+release/sbom.cdx.json
+release/receipts/logs/
+release/verification-junit.xml

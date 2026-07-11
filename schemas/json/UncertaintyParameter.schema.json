@@ -1,0 +1,135 @@
+{
+  "additionalProperties": false,
+  "description": "A scalar uncertain parameter and its sampling rule.",
+  "properties": {
+    "alpha": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Alpha"
+    },
+    "base": {
+      "title": "Base",
+      "type": "number"
+    },
+    "beta": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Beta"
+    },
+    "distribution": {
+      "enum": [
+        "fixed",
+        "beta",
+        "gamma",
+        "lognormal",
+        "normal",
+        "uniform",
+        "discrete"
+      ],
+      "title": "Distribution",
+      "type": "string"
+    },
+    "lower": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lower"
+    },
+    "parameter_id": {
+      "minLength": 1,
+      "title": "Parameter Id",
+      "type": "string"
+    },
+    "probabilities": {
+      "default": [],
+      "items": {
+        "type": "number"
+      },
+      "title": "Probabilities",
+      "type": "array"
+    },
+    "scale": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scale"
+    },
+    "shape": {
+      "anyOf": [
+        {
+          "minimum": 0.0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Shape"
+    },
+    "source_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    },
+    "upper": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Upper"
+    },
+    "values": {
+      "default": [],
+      "items": {
+        "type": "number"
+      },
+      "title": "Values",
+      "type": "array"
+    }
+  },
+  "required": [
+    "parameter_id",
+    "distribution",
+    "base"
+  ],
+  "title": "UncertaintyParameter",
+  "type": "object"
+}

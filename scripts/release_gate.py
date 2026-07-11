@@ -69,13 +69,16 @@ def capability_available(capability: str | None) -> bool:
     if capability is None:
         return True
     if capability == "jax":
-        return subprocess.run(
-            [sys.executable, "-c", "import jax"],
-            cwd=ROOT,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            check=False,
-        ).returncode == 0
+        return (
+            subprocess.run(
+                [sys.executable, "-c", "import jax"],
+                cwd=ROOT,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                check=False,
+            ).returncode
+            == 0
+        )
     return shutil.which(capability) is not None
 
 
@@ -87,41 +90,173 @@ def uv_command(*parts: str) -> tuple[str, ...]:
 def gates() -> tuple[Gate, ...]:
     py = uv_command("python")
     return (
-        Gate("compile", (*py, "-m", "compileall", "-q", "src", "scripts", "tests"), timeout_seconds=120),
+        Gate(
+            "compile",
+            (*py, "-m", "compileall", "-q", "src", "scripts", "tests"),
+            timeout_seconds=120,
+        ),
         Gate("generated-files", (*py, "scripts/check_generated_files.py"), timeout_seconds=120),
-        Gate("machine-readability", (*py, "scripts/check_machine_readability.py"), timeout_seconds=120),
+        Gate(
+            "lockfile-portability",
+            (*py, "scripts/check_lockfile_portability.py"),
+            timeout_seconds=120,
+        ),
+        Gate(
+            "machine-readability",
+            (*py, "scripts/check_machine_readability.py"),
+            timeout_seconds=120,
+        ),
         Gate("model-contracts", (*py, "scripts/check_contracts.py"), timeout_seconds=120),
-        Gate("assumption-contract", (*py, "scripts/check_assumption_coverage.py"), timeout_seconds=120),
+        Gate(
+            "assumption-contract",
+            (*py, "scripts/check_assumption_coverage.py"),
+            timeout_seconds=120,
+        ),
         Gate("source-registry", (*py, "scripts/check_source_registry.py"), timeout_seconds=120),
         Gate("protocol-consistency", (*py, "scripts/check_protocol.py"), timeout_seconds=120),
         Gate("claim-boundaries", (*py, "scripts/check_claim_boundaries.py"), timeout_seconds=120),
-        Gate("privacy-and-licences", (*py, "scripts/check_privacy_and_licences.py"), timeout_seconds=120),
-        Gate("repository-hygiene", (*py, "scripts/check_repository_hygiene.py"), timeout_seconds=120),
+        Gate(
+            "privacy-and-licences",
+            (*py, "scripts/check_privacy_and_licences.py"),
+            timeout_seconds=120,
+        ),
+        Gate(
+            "repository-hygiene", (*py, "scripts/check_repository_hygiene.py"), timeout_seconds=120
+        ),
         Gate("workflow-structure", (*py, "scripts/check_workflows.py"), timeout_seconds=120),
-        Gate("workflow-hardening", (*py, "scripts/check_workflow_hardening.py"), timeout_seconds=120),
-        Gate("version-consistency", (*py, "scripts/check_version_consistency.py"), timeout_seconds=120),
+        Gate(
+            "workflow-hardening", (*py, "scripts/check_workflow_hardening.py"), timeout_seconds=120
+        ),
+        Gate(
+            "version-consistency",
+            (*py, "scripts/check_version_consistency.py"),
+            timeout_seconds=120,
+        ),
         Gate("ruff", (*uv_command("ruff"), "check", "."), timeout_seconds=180),
         Gate("ruff-format", (*uv_command("ruff"), "format", "--check", "."), timeout_seconds=180),
-        Gate("tests-fast", (*uv_command("pytest"), "-q", "--no-cov"), profiles=("push",), timeout_seconds=600),
-        Gate("tests-coverage", (*uv_command("pytest"),), profiles=("local", "full"), timeout_seconds=1200),
-        Gate("mypy", (*uv_command("mypy"), "src/closer_to_whom"), profiles=("local", "full"), timeout_seconds=600),
+        Gate(
+            "tests-fast",
+            (*uv_command("pytest"), "-q", "--no-cov"),
+            profiles=("push",),
+            timeout_seconds=600,
+        ),
+        Gate(
+            "tests-coverage",
+            (*uv_command("pytest"),),
+            profiles=("local", "full"),
+            timeout_seconds=1200,
+        ),
+        Gate(
+            "mypy",
+            (*uv_command("mypy"), "src/closer_to_whom"),
+            profiles=("local", "full"),
+            timeout_seconds=600,
+        ),
         Gate("pyright", (*uv_command("pyright"),), profiles=("local", "full"), timeout_seconds=600),
-        Gate("codespell", (*uv_command("codespell"), "."), profiles=("local", "full"), timeout_seconds=300),
-        Gate("docs", (*uv_command("mkdocs"), "build", "--strict"), profiles=("local", "full"), timeout_seconds=600),
-        Gate("package-build", (*py, "-m", "build"), profiles=("local", "full"), timeout_seconds=600),
-        Gate("package-smoke", (*py, "scripts/smoke_install.py"), profiles=("local", "full"), timeout_seconds=600),
-        Gate("deterministic-demo", (*py, "scripts/check_reproducibility.py"), profiles=("local", "full"), timeout_seconds=900),
-        Gate("publication-readiness", (*py, "scripts/publication_readiness.py"), profiles=("local", "full"), timeout_seconds=180),
-        Gate("secret-scan", (*py, "scripts/secret_scan.py"), profiles=("local", "full"), timeout_seconds=180),
-        Gate("complexity-budget", (*py, "scripts/check_complexity_budget.py"), profiles=("full",), required=False, timeout_seconds=180),
-        Gate("dependency-audit", (*uv_command("pip-audit"),), profiles=("full",), required=False, timeout_seconds=600),
-        Gate("deptry", (*uv_command("deptry"), "src"), profiles=("full",), required=False, timeout_seconds=300),
-        Gate("vulture", (*uv_command("vulture"), "src", "scripts", "--min-confidence", "90"), profiles=("full",), required=False, timeout_seconds=300),
-        Gate("benchmark", (*py, "benchmarks/benchmark_core.py"), profiles=("full",), required=False, timeout_seconds=900),
-        Gate("clean-room", (*py, "scripts/clean_room_verify.py"), profiles=("full",), timeout_seconds=1200),
-        Gate("jax-differential", (*py, "scripts/jax_differential.py"), profiles=("local", "full"), required=False, capability="jax", timeout_seconds=600),
-        Gate("mojo-canary", (*py, "-m", "closer_to_whom", "mojo-canary", "--require"), profiles=("full",), required=False, capability="mojo", timeout_seconds=300),
-        Gate("docker-build", ("docker", "build", "-t", "closer-to-whom:verification", "."), profiles=("full",), required=False, capability="docker", timeout_seconds=1800),
+        Gate(
+            "codespell",
+            (*uv_command("codespell"), "."),
+            profiles=("local", "full"),
+            timeout_seconds=300,
+        ),
+        Gate(
+            "docs",
+            (*uv_command("mkdocs"), "build", "--strict"),
+            profiles=("local", "full"),
+            timeout_seconds=600,
+        ),
+        Gate(
+            "package-build", (*py, "-m", "build"), profiles=("local", "full"), timeout_seconds=600
+        ),
+        Gate(
+            "package-smoke",
+            (*py, "scripts/smoke_install.py"),
+            profiles=("local", "full"),
+            timeout_seconds=600,
+        ),
+        Gate(
+            "deterministic-demo",
+            (*py, "scripts/check_reproducibility.py"),
+            profiles=("local", "full"),
+            timeout_seconds=900,
+        ),
+        Gate(
+            "publication-readiness",
+            (*py, "scripts/publication_readiness.py"),
+            profiles=("local", "full"),
+            timeout_seconds=180,
+        ),
+        Gate(
+            "secret-scan",
+            (*py, "scripts/secret_scan.py"),
+            profiles=("local", "full"),
+            timeout_seconds=180,
+        ),
+        Gate(
+            "complexity-budget",
+            (*py, "scripts/check_complexity_budget.py"),
+            profiles=("full",),
+            required=False,
+            timeout_seconds=180,
+        ),
+        Gate(
+            "dependency-audit",
+            (*uv_command("pip-audit"),),
+            profiles=("full",),
+            required=False,
+            timeout_seconds=600,
+        ),
+        Gate(
+            "deptry",
+            (*uv_command("deptry"), "src"),
+            profiles=("full",),
+            required=False,
+            timeout_seconds=300,
+        ),
+        Gate(
+            "vulture",
+            (*uv_command("vulture"), "src", "scripts", "--min-confidence", "90"),
+            profiles=("full",),
+            required=False,
+            timeout_seconds=300,
+        ),
+        Gate(
+            "benchmark",
+            (*py, "benchmarks/benchmark_core.py"),
+            profiles=("full",),
+            required=False,
+            timeout_seconds=900,
+        ),
+        Gate(
+            "clean-room",
+            (*py, "scripts/clean_room_verify.py"),
+            profiles=("full",),
+            timeout_seconds=1200,
+        ),
+        Gate(
+            "jax-differential",
+            (*py, "scripts/jax_differential.py"),
+            profiles=("local", "full"),
+            required=False,
+            capability="jax",
+            timeout_seconds=600,
+        ),
+        Gate(
+            "mojo-canary",
+            (*py, "-m", "closer_to_whom", "mojo-canary", "--require"),
+            profiles=("full",),
+            required=False,
+            capability="mojo",
+            timeout_seconds=300,
+        ),
+        Gate(
+            "docker-build",
+            ("docker", "build", "-t", "closer-to-whom:verification", "."),
+            profiles=("full",),
+            required=False,
+            capability="docker",
+            timeout_seconds=1800,
+        ),
     )
 
 

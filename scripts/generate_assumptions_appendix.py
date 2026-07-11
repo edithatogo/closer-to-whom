@@ -56,10 +56,13 @@ def generate(output: Path) -> Path:
     ]
     for item in rows:
         statement = (
-            _cell(item, "statement")
-            or _cell(item, "assumption")
-            or _cell(item, "description")
+            _cell(item, "statement") or _cell(item, "assumption") or _cell(item, "description")
         )
+        if not statement:
+            name = _cell(item, "name")
+            value = _cell(item, "value")
+            rationale = _cell(item, "rationale")
+            statement = f"{name} = {value}. {rationale}".strip()
         uncertainty = _cell(item, "uncertainty") or _cell(item, "sensitivity")
         lines.append(
             f"| {_cell(item, 'id')} | {statement} | {_cell(item, 'status')} | "

@@ -24,7 +24,9 @@ def equity_summary(
     tails: list[dict[str, str | float | int]] = []
     for key, group in results.group_by(group_columns, maintain_order=True):
         values = key if isinstance(key, tuple) else (key,)
-        row = dict(zip(group_columns, values, strict=True))
+        row: dict[str, str | float | int] = {
+            column: str(value) for column, value in zip(group_columns, values, strict=True)
+        }
         row["p90"] = weighted_quantile(group, outcome, 0.90)
         row["p95"] = weighted_quantile(group, outcome, 0.95)
         tails.append(row)
@@ -78,7 +80,9 @@ def worst_served_share(
                 "scenario_id": str(scenario_id),
                 "pathway_id": str(pathway_id),
                 "threshold": threshold,
-                "tail_expected_courses": float(tail.select(pl.col("expected_courses").sum()).item()),
+                "tail_expected_courses": float(
+                    tail.select(pl.col("expected_courses").sum()).item()
+                ),
             }
         )
     return pl.DataFrame(rows).sort(["scenario_id", "pathway_id"])

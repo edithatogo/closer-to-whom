@@ -14,11 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> None:
     sources = yaml.safe_load((ROOT / "data/public/source-registry.yaml").read_text())
     assumptions = yaml.safe_load((ROOT / "assumptions/assumptions.yaml").read_text())
-    candidate_sources = [item["source_id"] for item in sources["sources"] if str(item["status"]).startswith("candidate")]
+    candidate_sources = [
+        item["source_id"]
+        for item in sources["sources"]
+        if str(item["status"]).startswith("candidate")
+    ]
     non_frozen = [
         item["id"]
         for item in assumptions["assumptions"]
-        if item["status"] in {
+        if item["status"]
+        in {
             "illustrative",
             "synthetic_fixture",
             "placeholder_requires_source_freeze",

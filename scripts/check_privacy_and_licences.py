@@ -11,9 +11,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 PROHIBITED_TRACKED_PREFIXES = ("data/raw/", "data/private/", "data/licensed/")
-SENSITIVE_HEADER = re.compile(r"(^|[,;\t])\s*(nhi|patient_?id|full_?name|residential_?address)\s*([,;\t]|$)", re.I)
+SENSITIVE_HEADER = re.compile(
+    r"(^|[,;\t])\s*(nhi|patient_?id|full_?name|residential_?address)\s*([,;\t]|$)", re.IGNORECASE
+)
 NHI_LIKE = re.compile(r"\b[A-HJ-NP-Z]{3}[0-9]{4}\b")
 TEXT_SUFFIXES = {".csv", ".tsv", ".json", ".yaml", ".yml", ".md", ".txt", ".py", ".toml"}
+NHI_SCAN_PREFIXES = ("data/", "artifacts/", "release/", "tests/fixtures/", "inputs/")
 
 
 def tracked_files() -> list[str]:
@@ -35,8 +38,10 @@ def main() -> None:
         first_line = text.splitlines()[0] if text.splitlines() else ""
         if SENSITIVE_HEADER.search(first_line):
             failures.append(f"Sensitive row-level header in {relative}")
-        # Exempt documentation that describes the pattern itself.
-        if "check_privacy_and_licences.py" not in relative and NHI_LIKE.search(text):
+        # Restrict identifier scanning to data-bearing paths. Source code and configuration
+        # legitimately contain tokens such as GCH2023 and Ruff rule identifiers that match
+        # the coarse lexical pattern but cannot be patient records.
+        if relative.startswith(NHI_SCAN_PREFIXES) and NHI_LIKE.search(text):
             failures.append(f"NHI-like token in {relative}")
 
     sources = yaml.safe_load((ROOT / "data/public/source-registry.yaml").read_text())

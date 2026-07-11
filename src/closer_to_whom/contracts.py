@@ -111,7 +111,9 @@ def validate_table(table: pa.Table, expected: pa.Schema) -> tuple[ValidationIssu
     expected_names = set(expected.names)
     actual_names = set(table.column_names)
     for missing in sorted(expected_names - actual_names):
-        issues.append(ValidationIssue("missing_column", f"Missing required column: {missing}", missing))
+        issues.append(
+            ValidationIssue("missing_column", f"Missing required column: {missing}", missing)
+        )
     for extra in sorted(actual_names - expected_names):
         issues.append(ValidationIssue("extra_column", f"Unexpected column: {extra}", extra))
     if issues:

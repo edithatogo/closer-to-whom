@@ -1,0 +1,20 @@
+{
+  "schema_registry_version": "1.0.0",
+  "schemas": {
+    "demand": {
+      "fingerprint": "0187317286a42e0be01ce2e5ea56691f91b0bfaead359ea21a5e071ed80ff1ea",
+      "ipc": "demand.schema.arrow",
+      "json": "demand.schema.json"
+    },
+    "facility": {
+      "fingerprint": "8337ecbed8098c998a2a2ce59cca0310255121c14c08ee9b269d1fce9f507a79",
+      "ipc": "facility.schema.arrow",
+      "json": "facility.schema.json"
+    },
+    "result": {
+      "fingerprint": "f6a9e30ac2efc20cdb14f2c30a1e7113d09e85032072e5a210803546042b3828",
+      "ipc": "result.schema.arrow",
+      "json": "result.schema.json"
+    }
+  }
+}

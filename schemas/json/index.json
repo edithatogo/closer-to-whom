@@ -1,0 +1,50 @@
+{
+  "models": [
+    {
+      "model": "SourceRecord",
+      "path": "SourceRecord.schema.json",
+      "title": "SourceRecord"
+    },
+    {
+      "model": "Facility",
+      "path": "Facility.schema.json",
+      "title": "Facility"
+    },
+    {
+      "model": "DemandCell",
+      "path": "DemandCell.schema.json",
+      "title": "DemandCell"
+    },
+    {
+      "model": "VisitType",
+      "path": "VisitType.schema.json",
+      "title": "VisitType"
+    },
+    {
+      "model": "Pathway",
+      "path": "Pathway.schema.json",
+      "title": "Pathway"
+    },
+    {
+      "model": "Scenario",
+      "path": "Scenario.schema.json",
+      "title": "Scenario"
+    },
+    {
+      "model": "CostRates",
+      "path": "CostRates.schema.json",
+      "title": "CostRates"
+    },
+    {
+      "model": "UncertaintyParameter",
+      "path": "UncertaintyParameter.schema.json",
+      "title": "UncertaintyParameter"
+    },
+    {
+      "model": "ResearchDesign",
+      "path": "ResearchDesign.schema.json",
+      "title": "ResearchDesign"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

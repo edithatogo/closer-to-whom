@@ -17,9 +17,7 @@ EXCLUDED_PREFIXES = (".venv/", "dist/", "site/", "artifacts/demo/")
 
 
 def tracked_files() -> list[Path]:
-    result = subprocess.run(
-        ["git", "ls-files", "-z"], cwd=ROOT, check=True, capture_output=True
-    )
+    result = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, check=True, capture_output=True)
     return [ROOT / item.decode() for item in result.stdout.split(b"\0") if item]
 
 

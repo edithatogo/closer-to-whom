@@ -46,10 +46,16 @@ def _uniform_design(draws: int, dimensions: int, *, seed: int, method: str) -> n
     if method == "pseudo":
         return np.random.default_rng(seed).random((draws, dimensions))
     if method == "latin_hypercube":
-        return qmc.LatinHypercube(d=dimensions, seed=seed).random(draws)
+        return qmc.LatinHypercube(d=dimensions, seed=seed).random(  # pyright: ignore[reportCallIssue]
+            draws
+        )
     if method == "sobol":
         power = math.ceil(math.log2(draws))
-        return qmc.Sobol(d=dimensions, scramble=True, seed=seed).random_base2(power)[:draws]
+        return qmc.Sobol(  # pyright: ignore[reportCallIssue]
+            d=dimensions,
+            scramble=True,
+            seed=seed,  # pyright: ignore[reportCallIssue]
+        ).random_base2(power)[:draws]
     raise ValueError(f"Unknown sampling method: {method}")
 
 
@@ -59,13 +65,16 @@ def _inverse_sample(parameter: UncertaintyParameter, uniforms: np.ndarray) -> np
     if parameter.distribution == "fixed":
         return np.full_like(u, parameter.base, dtype=float)
     if parameter.distribution == "uniform":
-        assert parameter.lower is not None and parameter.upper is not None
+        assert parameter.lower is not None
+        assert parameter.upper is not None
         return parameter.lower + u * (parameter.upper - parameter.lower)
     if parameter.distribution == "beta":
-        assert parameter.alpha is not None and parameter.beta is not None
+        assert parameter.alpha is not None
+        assert parameter.beta is not None
         return stats.beta.ppf(u, parameter.alpha, parameter.beta)
     if parameter.distribution == "gamma":
-        assert parameter.shape is not None and parameter.scale is not None
+        assert parameter.shape is not None
+        assert parameter.scale is not None
         return stats.gamma.ppf(u, parameter.shape, scale=parameter.scale)
     if parameter.distribution == "lognormal":
         if parameter.lower is None or parameter.upper is None:
@@ -76,9 +85,9 @@ def _inverse_sample(parameter: UncertaintyParameter, uniforms: np.ndarray) -> np
             raise ValueError("Normal parameters use lower=mean and upper=standard deviation")
         return stats.norm.ppf(u, loc=parameter.lower, scale=parameter.upper)
     if parameter.distribution == "discrete":
-        cumulative = np.cumsum(np.asarray(parameter.probabilities, dtype=float))
+        cumulative: np.ndarray = np.cumsum(np.asarray(parameter.probabilities, dtype=float))
         indices = np.searchsorted(cumulative, u, side="right")
-        values = np.asarray(parameter.values, dtype=float)
+        values: np.ndarray = np.asarray(parameter.values, dtype=float)
         return values[np.minimum(indices, len(values) - 1)]
     raise AssertionError("Validated parameter has an unsupported distribution")
 
@@ -98,7 +107,10 @@ def sample_parameters(
         raise ValueError("Uncertainty parameter IDs must be unique")
     uniform = _uniform_design(draws, len(parameters), seed=seed, method=method)
     sampled = np.column_stack(
-        [_inverse_sample(parameter, uniform[:, index]) for index, parameter in enumerate(parameters)]
+        [
+            _inverse_sample(parameter, uniform[:, index])
+            for index, parameter in enumerate(parameters)
+        ]
     )
     return ids, sampled
 
@@ -165,5 +177,5 @@ def percentile_interval(values: np.ndarray, *, level: float = 0.95) -> tuple[flo
     if not 0.0 < level < 1.0:
         raise ValueError("Interval level must lie between zero and one")
     alpha = (1.0 - level) / 2.0
-    low, high = np.quantile(values, [alpha, 1.0 - alpha])
-    return float(low), float(high)
+    quantiles = np.asarray(np.quantile(values, [alpha, 1.0 - alpha]), dtype=float)
+    return float(quantiles[0]), float(quantiles[1])

@@ -8,10 +8,22 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+EXEMPTIONS: dict[str, set[str]] = {
+    # This checker must name the private-host patterns it is designed to reject.
+    "scripts/check_lockfile_portability.py": {"nonportable_internal_registry"},
+}
+
 PATTERNS = {
     "private_key": re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     "github_token": re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{30,}\b"),
-    "generic_api_key": re.compile(r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*['\"][A-Za-z0-9+/=_-]{24,}['\"]"),
+    "generic_api_key": re.compile(
+        r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*['\"][A-Za-z0-9+/=_-]{24,}['\"]"
+    ),
+    "embedded_url_credentials": re.compile(r"https?://[^/\s:@]+:[^@\s/]+@"),
+    "nonportable_internal_registry": re.compile(
+        r"(?:packages\.applied-caas-gateway\d+\.internal\.api\.openai\.org|"
+        r"internal\.api\.openai\.org)"
+    ),
 }
 
 
@@ -26,6 +38,8 @@ def main() -> None:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         for name, pattern in PATTERNS.items():
+            if name in EXEMPTIONS.get(relative, set()):
+                continue
             if pattern.search(text):
                 failures.append(f"{relative}: possible {name}")
     if failures:

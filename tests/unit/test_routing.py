@@ -20,7 +20,9 @@ def test_haversine_identity_and_known_scale() -> None:
 
 
 def test_haversine_matrix_shape_and_validation() -> None:
-    matrix = haversine_matrix_km(np.array([[-41.0, 174.0]]), np.array([[-42.0, 174.0], [-43.0, 172.0]]))
+    matrix = haversine_matrix_km(
+        np.array([[-41.0, 174.0]]), np.array([[-42.0, 174.0], [-43.0, 172.0]])
+    )
     assert matrix.shape == (1, 2)
     with pytest.raises(ValueError, match="shape"):
         haversine_matrix_km(np.array([-41.0, 174.0]), np.array([[-42.0, 174.0]]))

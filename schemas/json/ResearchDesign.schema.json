@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "description": "Candidate future research design for EVSI and ENBS.",
+  "properties": {
+    "estimated_cost_nzd": {
+      "minimum": 0.0,
+      "title": "Estimated Cost Nzd",
+      "type": "number"
+    },
+    "implementation_years": {
+      "minimum": 0.0,
+      "title": "Implementation Years",
+      "type": "number"
+    },
+    "name": {
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "notes": {
+      "default": "",
+      "title": "Notes",
+      "type": "string"
+    },
+    "research_id": {
+      "minLength": 1,
+      "title": "Research Id",
+      "type": "string"
+    },
+    "resolves_parameter_groups": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Resolves Parameter Groups",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_id",
+    "name",
+    "resolves_parameter_groups",
+    "estimated_cost_nzd",
+    "implementation_years"
+  ],
+  "title": "ResearchDesign",
+  "type": "object"
+}

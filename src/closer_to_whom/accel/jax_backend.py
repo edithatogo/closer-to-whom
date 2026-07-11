@@ -89,7 +89,10 @@ def differential_check(*, seed: int = 0, size: int = 1024, tolerance: float = 1e
     )
     reference = course_travel_numpy(*inputs)
     accelerated = course_travel_jax(*inputs)
-    maximum = max(float(np.max(np.abs(left - right))) for left, right in zip(reference, accelerated, strict=True))
+    maximum = max(
+        float(np.max(np.abs(left - right)))
+        for left, right in zip(reference, accelerated, strict=True)
+    )
     if maximum > tolerance:
         raise AssertionError(f"JAX differential error {maximum} exceeds tolerance {tolerance}")
     return maximum

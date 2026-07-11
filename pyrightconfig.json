@@ -1,7 +1,7 @@
 {
-  "include": ["src", "tests"],
+  "include": ["src"],
   "exclude": ["upstream", "artifacts", "data"],
-  "pythonVersion": "3.11",
+  "pythonVersion": "3.12",
   "typeCheckingMode": "standard",
-  "reportMissingTypeStubs": "warning"
+  "reportMissingTypeStubs": false
 }

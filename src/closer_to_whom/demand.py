@@ -92,7 +92,9 @@ def allocate_to_routing_points(
         raise ValueError(f"Area demand missing columns: {sorted(missing)}")
     if missing := required_weights - set(routing_weights.columns):
         raise ValueError(f"Routing weights missing columns: {sorted(missing)}")
-    sums = routing_weights.group_by("geography_code").agg(pl.col("weight").sum().alias("sum_weight"))
+    sums = routing_weights.group_by("geography_code").agg(
+        pl.col("weight").sum().alias("sum_weight")
+    )
     bad = sums.filter((pl.col("sum_weight") - 1.0).abs() > 1e-9)
     if bad.height:
         raise ValueError("Routing-point weights must sum to one within each geography")

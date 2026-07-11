@@ -77,10 +77,11 @@ class Facility(StrictModel):
     @model_validator(mode="after")
     def confirmed_needs_capability(self) -> Facility:
         """Require explicit capability for confirmed facilities."""
-        if self.capability_status is CapabilityStatus.CONFIRMED:
-            if not self.formulations or not self.delivery_modes:
-                msg = "Confirmed facilities require at least one formulation and delivery mode"
-                raise ValueError(msg)
+        if self.capability_status is CapabilityStatus.CONFIRMED and (
+            not self.formulations or not self.delivery_modes
+        ):
+            msg = "Confirmed facilities require at least one formulation and delivery mode"
+            raise ValueError(msg)
         return self
 
 

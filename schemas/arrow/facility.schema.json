@@ -1,0 +1,84 @@
+{
+  "fields": [
+    {
+      "name": "facility_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "region",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "district",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "latitude",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "longitude",
+      "nullable": false,
+      "type": "double"
+    },
+    {
+      "name": "facility_type",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "public_or_private",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "capability_status",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "evidence_grade",
+      "nullable": false,
+      "type": "int8"
+    },
+    {
+      "name": "source_ids",
+      "nullable": false,
+      "type": "list<item: string>"
+    },
+    {
+      "name": "formulations",
+      "nullable": false,
+      "type": "list<item: string>"
+    },
+    {
+      "name": "delivery_modes",
+      "nullable": false,
+      "type": "list<item: string>"
+    },
+    {
+      "name": "opening_hours_per_week",
+      "nullable": true,
+      "type": "double"
+    },
+    {
+      "name": "redistribution_allowed",
+      "nullable": false,
+      "type": "bool"
+    }
+  ],
+  "fingerprint": "8337ecbed8098c998a2a2ce59cca0310255121c14c08ee9b269d1fce9f507a79",
+  "metadata": {
+    "ctw:schema": "facility",
+    "ctw:version": "1.0.0"
+  }
+}

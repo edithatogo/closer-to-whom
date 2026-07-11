@@ -1,0 +1,77 @@
+{
+  "additionalProperties": false,
+  "description": "Economic assumptions used to value a journey.",
+  "properties": {
+    "companion_probability": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Companion Probability",
+      "type": "number"
+    },
+    "companion_time_value_per_hour": {
+      "minimum": 0.0,
+      "title": "Companion Time Value Per Hour",
+      "type": "number"
+    },
+    "currency": {
+      "const": "NZD",
+      "default": "NZD",
+      "title": "Currency",
+      "type": "string"
+    },
+    "nta_reimbursement_per_km": {
+      "minimum": 0.0,
+      "title": "Nta Reimbursement Per Km",
+      "type": "number"
+    },
+    "parking_cost_per_visit": {
+      "minimum": 0.0,
+      "title": "Parking Cost Per Visit",
+      "type": "number"
+    },
+    "patient_time_value_per_hour": {
+      "minimum": 0.0,
+      "title": "Patient Time Value Per Hour",
+      "type": "number"
+    },
+    "provider_time_value_per_hour": {
+      "minimum": 0.0,
+      "title": "Provider Time Value Per Hour",
+      "type": "number"
+    },
+    "provider_vehicle_cost_per_km": {
+      "minimum": 0.0,
+      "title": "Provider Vehicle Cost Per Km",
+      "type": "number"
+    },
+    "public_transport_fare_per_round_trip": {
+      "minimum": 0.0,
+      "title": "Public Transport Fare Per Round Trip",
+      "type": "number"
+    },
+    "vehicle_broad_cost_per_km": {
+      "minimum": 0.0,
+      "title": "Vehicle Broad Cost Per Km",
+      "type": "number"
+    },
+    "vehicle_running_cost_per_km": {
+      "minimum": 0.0,
+      "title": "Vehicle Running Cost Per Km",
+      "type": "number"
+    }
+  },
+  "required": [
+    "vehicle_running_cost_per_km",
+    "vehicle_broad_cost_per_km",
+    "nta_reimbursement_per_km",
+    "public_transport_fare_per_round_trip",
+    "parking_cost_per_visit",
+    "patient_time_value_per_hour",
+    "companion_time_value_per_hour",
+    "companion_probability",
+    "provider_time_value_per_hour",
+    "provider_vehicle_cost_per_km"
+  ],
+  "title": "CostRates",
+  "type": "object"
+}
