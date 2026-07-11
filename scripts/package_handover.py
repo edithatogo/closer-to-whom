@@ -73,7 +73,9 @@ def _verify_zip(path: Path, expected_prefix: str) -> None:
 
 
 def _verify_bundle(path: Path, commit: str, tag: str) -> None:
-    _run("git", "bundle", "verify", str(path), cwd=path.parent)
+    # `git bundle verify` checks prerequisite applicability against the current
+    # repository, so it must run from a repository rather than the output dir.
+    _run("git", "bundle", "verify", str(path), cwd=ROOT)
     with tempfile.TemporaryDirectory(prefix="ctw-bundle-verify-") as temp_dir:
         clone = Path(temp_dir) / "clone"
         _run("git", "clone", "--quiet", str(path), str(clone), cwd=path.parent)
