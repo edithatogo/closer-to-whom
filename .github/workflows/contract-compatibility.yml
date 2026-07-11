@@ -1,0 +1,31 @@
+name: Contract compatibility
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths:
+      - "src/closer_to_whom/models.py"
+      - "src/closer_to_whom/contracts.py"
+      - "schemas/**"
+      - "scripts/generate_*"
+      - ".github/workflows/contract-compatibility.yml"
+
+concurrency:
+  group: contract-compatibility-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generated-and-schema-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked --all-extras
+      - run: uv run python scripts/check_contracts.py
+      - run: uv run python scripts/check_generated_files.py
+      - run: uv run python scripts/check_machine_readability.py

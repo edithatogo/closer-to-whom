@@ -1,0 +1,53 @@
+schema_version: 1.0.0
+policy_id: CTW-VERIFY-001
+principles:
+  - skipped_optional_capability_is_not_passed
+  - generated_files_are_committed_and_drift_checked
+  - synthetic_results_are_never_scientific_findings
+  - unknown_public_evidence_is_not_absence
+  - release_receipts_are_content_addressed
+  - every_acceleration_path_has_a_deterministic_oracle
+required_for_pull_request:
+  - compile
+  - generated-files
+  - machine-readability
+  - model-contracts
+  - assumption-contract
+  - source-registry
+  - protocol-consistency
+  - claim-boundaries
+  - privacy-and-licences
+  - repository-hygiene
+  - workflow-structure
+  - workflow-hardening
+  - ruff
+  - ruff-format
+  - tests-fast
+required_for_local_handover:
+  - all_pull_request_gates
+  - tests-coverage
+  - mypy
+  - pyright
+  - codespell
+  - docs
+  - package-build
+  - package-smoke
+  - deterministic-demo
+  - publication-readiness
+  - secret-scan
+required_for_publication_candidate:
+  - all_local_handover_gates
+  - clean-room
+  - dependency-audit
+  - SBOM
+  - build_provenance
+  - service_census_freeze
+  - clinical_source_freeze
+  - equity_interpretation_review
+  - ethics_scope_record
+  - source_licence_review
+optional_capability_gates:
+  - jax-differential
+  - mojo-canary
+  - docker-build
+  - julia-optimisation-differential

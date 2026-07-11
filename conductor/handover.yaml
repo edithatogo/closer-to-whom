@@ -1,0 +1,33 @@
+schema_version: 1.0.0
+handover_id: CTW-HANDOVER-002
+status: prepared
+canonical_branch: main
+agent_read_order:
+  - AGENTS.md
+  - conductor/state.yaml
+  - conductor/task-graph.json
+  - protocol/protocol.yaml
+  - protocol/claim-boundaries.yaml
+  - assumptions/assumptions.yaml
+  - data/public/source-registry.yaml
+  - schemas/arrow/index.json
+  - schemas/json/index.json
+  - HANDOVER.md
+local_first_commands:
+  - ./scripts/bootstrap-local.sh
+  - uv run python -m closer_to_whom doctor --json
+  - uv run python scripts/release_gate.py --profile local
+non_negotiable_boundaries:
+  - public_aggregate_non_identifiable_inputs_only
+  - no_actual_service_or_patient_claims_from_synthetic_fixtures
+  - healthpoint_fail_closed_without_licence
+  - oia_optional_not_dependency
+  - no_capacity_claim_without_public_evidence
+  - clinical_safety_hard_constraints
+  - microdata_requires_separate_future_protocol
+active_critical_path:
+  - CTW-010-national-service-census
+  - CTW-011-public-demand-geography
+  - CTW-012-clinical-pathway-source-freeze
+  - CTW-013-public-travel-cost-source-freeze
+  - CTW-014-calibration-and-validation-plan

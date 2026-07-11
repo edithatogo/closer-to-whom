@@ -1,0 +1,15 @@
+model:
+  - changed-files:
+      - any-glob-to-any-file: ["src/closer_to_whom/**", "assumptions/**", "scenarios/**"]
+data:
+  - changed-files:
+      - any-glob-to-any-file: ["data/**", "schemas/**", "protocol/service-census-search.yaml"]
+ci:
+  - changed-files:
+      - any-glob-to-any-file: [".github/workflows/**", "noxfile.py", "pyproject.toml", "uv.lock"]
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**", "manuscript/**", "*.md"]
+security:
+  - changed-files:
+      - any-glob-to-any-file: ["SECURITY.md", "docs/threat-model.md", "scripts/secret_scan.py"]

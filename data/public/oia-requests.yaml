@@ -1,0 +1,27 @@
+schema_version: "1.0.0"
+optional: true
+not_a_model_dependency: true
+requests:
+  - request_id: anti-her2-sites
+    status: draft
+    agency: Health New Zealand
+    scope:
+      - Sites administering IV trastuzumab during a specified completed financial year
+      - Sites administering PHESGO during a specified completed financial year
+      - Annual aggregate administrations by site where releasable
+      - Whether home or community administration is commissioned
+    minimisation:
+      - No patient-level information
+      - No small-cell demographic breakdowns
+      - Existing reports or extracts preferred
+  - request_id: public-capacity-descriptors
+    status: draft
+    agency: Health New Zealand
+    scope:
+      - Published or releasable operating hours
+      - Aggregate treatment spaces or chairs
+      - Publicly defined capability categories
+    minimisation:
+      - No rosters
+      - No individual clinician information
+      - No commercially sensitive procurement data

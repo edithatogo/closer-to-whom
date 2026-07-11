@@ -1,0 +1,48 @@
+site_name: Closer to whom?
+site_description: Public-data geospatial policy simulation of anti-HER2 treatment access in Aotearoa New Zealand
+repo_url: https://github.com/edithatogo/closer-to-whom
+repo_name: edithatogo/closer-to-whom
+strict: true
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Model card: model-card.md
+  - Architecture: architecture.md
+  - Methods:
+      - Service census: methods/service-census.md
+      - Demand and geography: methods/demand-and-geography.md
+      - Travel and costs: methods/travel-and-costs.md
+      - Optimisation and MCDA: methods/optimisation-mcda.md
+      - Uncertainty and VOI: methods/uncertainty-voi.md
+  - Governance:
+      - Data and licence policy: data-governance.md
+      - Ethics and scope: ethics-and-scope.md
+      - Clinical safety: clinical-safety.md
+      - Threat model: threat-model.md
+  - Operations:
+      - Testing: operations/testing.md
+      - Release runbook: operations/release.md
+      - Dashboard: operations/dashboard.md
+  - Publication:
+      - Strategy: publication/strategy.md
+      - NZMJ protocol: publication/nzmj-protocol.md
+      - Assumptions appendix: publication/assumptions-appendix.md
+  - API: reference/api.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables

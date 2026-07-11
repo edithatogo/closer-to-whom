@@ -1,0 +1,9 @@
+schema_version: "1.0.0"
+track_id: CTW-030-clinical-pathway-freeze
+status: planned
+objective: Freeze indication-specific IV, SC, PHESGO, community, home, and hybrid pathway contracts.
+acceptance_criteria:
+  - Each pathway has medicine, formulation, indication, funding state, schedule, resource, monitoring, and setting constraints.
+  - Initial and maintenance phases are distinguishable.
+  - Home is healthcare-professional administered.
+  - Clinical reviewers and unresolved ambiguity are recorded.

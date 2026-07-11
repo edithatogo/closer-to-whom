@@ -1,0 +1,17 @@
+{
+  "name": "closer-to-whom",
+  "build": {"dockerfile": "../Dockerfile", "context": ".."},
+  "remoteUser": "root",
+  "postCreateCommand": "uv sync --all-extras && uv run pre-commit install --install-hooks",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "ms-python.mypy-type-checker",
+        "tamasfe.even-better-toml",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}

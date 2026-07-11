@@ -1,0 +1,24 @@
+schema_version: 1.0.0
+required_dashboard_banner: >-
+  Public-data policy simulation. Not a forecast of individual care, actual
+  service use, current capacity, waiting time, or clinical outcomes.
+allowed_claim_classes:
+  - source_documented_service_claim
+  - modelled_potential_access
+  - expected_aggregate_demand
+  - scenario_comparison
+  - implied_capacity_requirement
+  - uncertainty_and_research_value
+forbidden_claim_classes_without_new_evidence:
+  - actual_patient_journey
+  - actual_patient_preference
+  - actual_service_capacity
+  - actual_waiting_time
+  - causal_attendance_effect
+  - causal_clinical_outcome_effect
+  - individual_equity_classification
+language_substitutions:
+  patient_count: expected treatment-course demand
+  has_no_service: no qualifying public evidence was identified
+  local_is_better: lower modelled burden under the stated scenario
+  optimal_network: preferred network for the stated objectives and constraints

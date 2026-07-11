@@ -1,0 +1,47 @@
+name: Supply-chain attestations
+
+permissions:
+  contents: read
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+concurrency:
+  group: supply-chain-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked --all-extras
+      - run: uv run python -m build
+      - run: uv run python scripts/generate_sbom.py --output release/sbom.cdx.json
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: dist/*
+      - uses: actions/attest-sbom@v2
+        with:
+          subject-path: dist/*
+          sbom-path: release/sbom.cdx.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supply-chain-materials
+          path: |
+            dist/*
+            release/sbom.cdx.json
+          if-no-files-found: error
+          retention-days: 30

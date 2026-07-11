@@ -1,0 +1,64 @@
+---
+title: "Closer to whom? Modelled access, equity, and travel-cost effects of alternative anti-HER2 delivery configurations in Aotearoa New Zealand"
+format:
+  html: default
+  docx: default
+abstract: |
+  **Aims:** To estimate how alternative clinically feasible anti-HER2 delivery configurations change potential geographic and economic access using public, aggregate data.
+
+  **Methods:** We developed a national geospatial policy simulation combining a systematically curated service census, aggregate expected treatment demand, multimodal travel and cost estimation, distributional analysis, implied capacity, deterministic and probabilistic uncertainty analysis, and value of information.
+
+  **Results:** Placeholder until the public service census, pathway source freeze, calibration, and publication release gate are complete.
+
+  **Conclusions:** Placeholder. No policy conclusion is permitted from synthetic fixtures.
+---
+
+# Introduction
+
+“Closer to home” is an appealing service objective, but administrative locality, geographic proximity, and realised accessibility are not equivalent. This study asks who is expected to be better or worse off under alternative delivery configurations, rather than whether mean regional distance falls.
+
+# Methods
+
+## Design and claim boundary
+
+This is an ex-ante, aggregate policy simulation using public, non-identifiable data. It estimates potential accessibility under explicit assumptions and does not estimate actual journeys, preferences, service capacity, waiting, attendance, treatment completion, or clinical outcomes.
+
+## Service census
+
+See `protocol/service-census-search.yaml` and the frozen evidence registry.
+
+## Demand, pathways, travel, and cost
+
+See the statistical analysis plan and decision-model specification.
+
+## Equity, uncertainty, and research value
+
+Equity is an objective and distributional outcome. The model includes deterministic, probabilistic, structural, and spatial uncertainty and asks whether additional aggregate or microdata research has positive expected net benefit.
+
+# Results
+
+> Publication gate: do not populate from synthetic demonstrations.
+
+# Discussion
+
+## Clinical relevance
+
+## Policy implications
+
+## Strengths and limitations
+
+# Ethics and governance
+
+Draft wording only: public, aggregate, non-identifiable data; no participants, intervention, contact, confidential records, or linkage. Obtain and cite the final scope determination before submission.
+
+# Data and code availability
+
+To be completed from the tagged release and source-licence manifest.
+
+# Funding and competing interests
+
+To be completed by authors.
+
+# AI assistance disclosure
+
+To be completed in accordance with journal requirements; human authors remain responsible for all sources, analyses, code, and claims.

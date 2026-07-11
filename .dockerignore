@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+htmlcov
+data/raw
+data/private
+data/licensed
+data/derived
+artifacts
+upstream
+*.bundle
+*.zip

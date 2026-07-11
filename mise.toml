@@ -1,0 +1,10 @@
+[tools]
+python = "3.12"
+uv = "latest"
+rust = "stable"
+
+[tasks.check]
+run = "make check"
+
+[tasks.release]
+run = "make release-gate"

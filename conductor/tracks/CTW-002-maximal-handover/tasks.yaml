@@ -1,0 +1,27 @@
+schema_version: 1.0.0
+track_id: CTW-002-maximal-handover
+tasks:
+  - id: CTW-002-01
+    title: Preserve inherited Git and Conductor history
+    status: completed
+  - id: CTW-002-02
+    title: Implement typed public aggregate model and data contracts
+    status: completed
+  - id: CTW-002-03
+    title: Implement national scenario, cost, equity, capacity, optimisation, MCDA, uncertainty, resilience, and VOI foundations
+    status: completed
+  - id: CTW-002-04
+    title: Implement optional JAX and Mojo differential harnesses
+    status: completed
+  - id: CTW-002-05
+    title: Implement source, licence, Healthpoint, OIA, and upstream-library fail-closed boundaries
+    status: completed
+  - id: CTW-002-06
+    title: Implement maximal code, contract, property, differential, security, supply-chain, docs, and reproducibility harnesses
+    status: completed
+  - id: CTW-002-07
+    title: Generate and verify local release artefacts
+    status: in_progress
+  - id: CTW-002-08
+    title: Package source ZIP, Git bundle, checksums, and Codex handover prompt
+    status: pending

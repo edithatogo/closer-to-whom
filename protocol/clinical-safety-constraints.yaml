@@ -1,0 +1,23 @@
+schema_version: 1.0.0
+status: provisional_pending_clinical_source_freeze
+rules:
+  - id: CS01
+    rule: Clinical eligibility is a hard constraint, never an MCDA trade-off.
+  - id: CS02
+    rule: Subcutaneous administration is modelled as healthcare-professional administered unless an authoritative product source states otherwise.
+  - id: CS03
+    rule: PHESGO is not treated as interchangeable with trastuzumab alone across all pathways.
+  - id: CS04
+    rule: Initial and higher-risk administration settings must satisfy the modelled emergency-response requirement.
+  - id: CS05
+    rule: Concurrent systemic therapy, oncology review, cardiac monitoring, pharmacy, cold-chain, documentation, and escalation visits remain explicit residual pathway components.
+  - id: CS06
+    rule: Funding status, regulatory status, and service commissioning status are separate fields.
+  - id: CS07
+    rule: Community and home delivery are labelled policy counterfactuals unless current public commissioning evidence is frozen.
+review:
+  required_before_publication:
+    - medical_oncology
+    - oncology_pharmacy_or_medicine_governance
+    - nursing_or_SACT_service
+    - Maori_health_interpretation

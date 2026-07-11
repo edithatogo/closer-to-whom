@@ -1,0 +1,20 @@
+pre-commit:
+  parallel: true
+  commands:
+    ruff:
+      glob: "*.py"
+      run: uv run ruff check --fix {staged_files} && uv run ruff format {staged_files}
+      stage_fixed: true
+    machine-contracts:
+      run: uv run python scripts/check_machine_readability.py
+    privacy:
+      run: uv run python scripts/check_privacy_and_licences.py
+commit-msg:
+  commands:
+    conventional:
+      run: uv run python scripts/check_commit_message.py {1}
+pre-push:
+  parallel: false
+  commands:
+    fast-gate:
+      run: uv run python scripts/release_gate.py --profile push

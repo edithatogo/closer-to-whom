@@ -1,0 +1,15 @@
+schema_version: 1.0.0
+stages:
+  development:
+    command: uv run python scripts/release_gate.py --profile push
+  local_handover:
+    command: uv run python scripts/release_gate.py --profile local
+  publication_candidate:
+    command: uv run python scripts/release_gate.py --profile full
+    additional_manual_gates:
+      - national_service_census_reviewed_and_frozen
+      - pathway_and_funding_sources_reviewed_and_frozen
+      - public_demand_calibration_complete
+      - Maori_health_and_equity_interpretation_review_recorded
+      - HDEC_or_institutional_scope_record_available
+      - manuscript_outputs_not_derived_from_synthetic_fixtures

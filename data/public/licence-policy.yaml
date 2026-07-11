@@ -1,0 +1,23 @@
+schema_version: "1.0.0"
+default: deny_redistribution
+rules:
+  - classification: synthetic
+    repository: allowed
+    public_dashboard: allowed
+  - classification: public_open
+    repository: allowed_only_with_recorded_licence
+    public_dashboard: allowed_only_with_recorded_licence
+  - classification: public_not_redistributable
+    repository: metadata_and_fetch_script_only
+    public_dashboard: derived_aggregate_only_if_permitted
+  - classification: licensed
+    repository: prohibited
+    public_dashboard: prohibited_without_explicit_grant
+  - classification: confidential
+    repository: prohibited
+    public_dashboard: prohibited
+healthpoint:
+  live_payload_default: prohibited
+  local_private_processing: requires_access_and_analysis_grant
+  repository_redistribution: requires_explicit_grant
+  dashboard_use: requires_separate_explicit_grant

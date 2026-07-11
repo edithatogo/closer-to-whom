@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+model_id: CTW-NZ-001-DM
+time_horizons_years: [1, 5, 10]
+perspectives:
+  - patient_out_of_pocket
+  - patient_and_whanau
+  - public_payer
+  - provider
+  - societal
+hard_constraints:
+  - clinical_eligibility
+  - medicine_funding_or_explicit_policy_counterfactual_label
+  - healthcare_professional_administration_where_required
+  - resuscitation_and_escalation_capability_for_initial_or_high_risk_doses
+  - public_source_licence_and_redistribution_gate
+  - aggregate_output_privacy_gate
+objective_components:
+  - travel_time
+  - direct_travel_cost
+  - provider_resource_cost
+  - equity_penalty
+  - unmet_coverage
+  - resilience_penalty
+normative_weights:
+  source: explicit_policy_viewpoints_or_distributions
+  single_consensus_weight_set_claimed: false
+research_designs:
+  - further_public_search
+  - OIA_aggregate_information
+  - aggregate_service_level_study
+  - confidential_microdata_study
+  - patient_survey
+microdata_iteration_rule:
+  required_conditions:
+    - positive_population_ENBS
+    - material_probability_of_changing_preferred_configuration
+    - potential_to_change_equity_conclusion
+    - lower_cost_information_cannot_resolve_same_uncertainty

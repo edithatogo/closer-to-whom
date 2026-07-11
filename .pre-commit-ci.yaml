@@ -1,0 +1,4 @@
+autofix_prs: true
+autoupdate_schedule: monthly
+autoupdate_commit_msg: "chore(deps): update pre-commit hooks"
+submodules: false

@@ -1,0 +1,113 @@
+schema_version: "1.0.0"
+scenarios:
+  - scenario_id: s0_auckland_only_iv
+    name: Auckland-only IV counterfactual
+    kind: infrastructure_exploratory
+    assignment_rule: central_only
+    allowed_delivery_modes: [iv_hospital]
+    allowed_formulations: [trastuzumab_iv]
+    evidence_grade_threshold: 1
+    central_facility_id: NZ_FACILITY_ID_TO_FREEZE
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s1_domicile_district_iv
+    name: Domicile-district IV assignment
+    kind: commissioning_counterfactual
+    assignment_rule: domicile_district
+    allowed_delivery_modes: [iv_hospital, iv_satellite]
+    allowed_formulations: [trastuzumab_iv]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s2_nearest_eligible_iv
+    name: Nearest publicly documented eligible IV service
+    kind: current_documented
+    assignment_rule: nearest_eligible
+    allowed_delivery_modes: [iv_hospital, iv_satellite]
+    allowed_formulations: [trastuzumab_iv]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s3_additional_iv_satellites
+    name: Optimised additional IV satellite sites
+    kind: infrastructure_exploratory
+    assignment_rule: optimised
+    allowed_delivery_modes: [iv_hospital, iv_satellite]
+    allowed_formulations: [trastuzumab_iv]
+    evidence_grade_threshold: 3
+    candidate_site_count: 3
+    capacity_envelope: none
+    active: true
+  - scenario_id: s4_hospital_sc_trastuzumab
+    name: Hospital-based standalone subcutaneous trastuzumab
+    kind: licensed_funding_uncertain
+    assignment_rule: nearest_eligible
+    allowed_delivery_modes: [sc_hospital]
+    allowed_formulations: [trastuzumab_sc]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s5_hospital_phesgo
+    name: Hospital or satellite PHESGO
+    kind: current_documented
+    assignment_rule: nearest_eligible
+    allowed_delivery_modes: [sc_hospital]
+    allowed_formulations: [phesgo_sc]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s6_community_sc
+    name: GP or community healthcare-professional SC administration
+    kind: commissioning_counterfactual
+    assignment_rule: optimised
+    allowed_delivery_modes: [sc_community]
+    allowed_formulations: [trastuzumab_sc, phesgo_sc]
+    evidence_grade_threshold: 3
+    candidate_site_count: 20
+    capacity_envelope: medium
+    active: true
+  - scenario_id: s7_home_sc
+    name: Home or mobile healthcare-professional SC administration
+    kind: commissioning_counterfactual
+    assignment_rule: optimised
+    allowed_delivery_modes: [sc_home]
+    allowed_formulations: [trastuzumab_sc, phesgo_sc]
+    evidence_grade_threshold: 3
+    candidate_site_count: 0
+    capacity_envelope: medium
+    active: true
+  - scenario_id: s8_hybrid
+    name: Central initiation with local or home maintenance
+    kind: commissioning_counterfactual
+    assignment_rule: optimised
+    allowed_delivery_modes: [hybrid, sc_hospital, sc_community, sc_home]
+    allowed_formulations: [trastuzumab_sc, phesgo_sc]
+    evidence_grade_threshold: 3
+    candidate_site_count: 10
+    capacity_envelope: medium
+    active: true
+  - scenario_id: s9_travel_support
+    name: Existing network plus parking, shuttle or travel support
+    kind: commissioning_counterfactual
+    assignment_rule: nearest_eligible
+    allowed_delivery_modes: [iv_hospital, iv_satellite]
+    allowed_formulations: [trastuzumab_iv]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: none
+    active: true
+  - scenario_id: s10_site_outage
+    name: Temporary loss of a major treatment site
+    kind: infrastructure_exploratory
+    assignment_rule: optimised
+    allowed_delivery_modes: [iv_hospital, iv_satellite, sc_hospital]
+    allowed_formulations: [trastuzumab_iv, trastuzumab_sc, phesgo_sc]
+    evidence_grade_threshold: 2
+    candidate_site_count: 0
+    capacity_envelope: high
+    active: true

@@ -1,0 +1,38 @@
+---
+title: "Robust and equity-constrained location-allocation of anti-HER2 treatment services in Aotearoa New Zealand"
+format:
+  html: default
+  docx: default
+---
+
+# Abstract
+
+Placeholder pending model and data freeze.
+
+# Introduction
+
+# Methods
+
+## Public-data service network and aggregate demand
+
+## Multimodal generalised burden
+
+## Robust and multiobjective location-allocation
+
+## Implied capacity
+
+## Stochastic multicriteria acceptability
+
+## Deterministic, probabilistic, structural, and spatial uncertainty
+
+## Value of information and research design
+
+## Verification, calibration, and claim boundaries
+
+# Results
+
+> Publication gate: synthetic demonstration results are not scientific findings.
+
+# Discussion
+
+# Reproducibility and software availability

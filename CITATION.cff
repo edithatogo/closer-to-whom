@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: Closer to whom?
+message: Please cite the software release and the accompanying study.
+type: software
+version: 0.2.0
+date-released: 2026-07-11
+authors:
+- family-names: Dylan
+repository-code: https://github.com/edithatogo/closer-to-whom
+license: MIT
+keywords:
+- health-services research
+- cancer
+- geospatial simulation
+- equity
+- value of information

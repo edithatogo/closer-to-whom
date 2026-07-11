@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+criteria:
+  - id: patient_travel_time
+    direction: minimise
+    hard_constraint: false
+  - id: patient_direct_cost
+    direction: minimise
+    hard_constraint: false
+  - id: equity_tail_burden
+    direction: minimise
+    hard_constraint: false
+  - id: provider_resource
+    direction: minimise
+    hard_constraint: false
+  - id: resilience
+    direction: maximise
+    hard_constraint: false
+  - id: clinical_safety
+    direction: satisfy
+    hard_constraint: true
+  - id: regulatory_feasibility
+    direction: satisfy
+    hard_constraint: true
+profiles:
+  - id: patient_whanau
+    status: illustrative_viewpoint
+    weights:
+      patient_travel_time: 0.35
+      patient_direct_cost: 0.30
+      equity_tail_burden: 0.20
+      provider_resource: 0.05
+      resilience: 0.10
+  - id: equity_priority
+    status: illustrative_viewpoint
+    weights:
+      patient_travel_time: 0.20
+      patient_direct_cost: 0.15
+      equity_tail_burden: 0.45
+      provider_resource: 0.05
+      resilience: 0.15
+  - id: provider
+    status: illustrative_viewpoint
+    weights:
+      patient_travel_time: 0.15
+      patient_direct_cost: 0.10
+      equity_tail_burden: 0.15
+      provider_resource: 0.45
+      resilience: 0.15

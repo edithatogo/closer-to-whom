@@ -1,0 +1,48 @@
+schema_version: 1.0.0
+search_id: CTW-NZ-SERVICE-CENSUS
+study_type: systematic_public_source_census
+coverage: national
+sources:
+  - Health_New_Zealand_service_and_facility_pages
+  - Health_New_Zealand_public_code_tables
+  - Te_Aho_o_Te_Kahu
+  - Pharmac_schedule_decisions_and_consultations
+  - Medsafe_data_sheets
+  - public_service_specifications_plans_reports_and_OIA_releases
+  - archived_former_DHB_pages
+  - peer_reviewed_service_descriptions
+  - licensed_Healthpoint_exports_when_permitted
+concepts:
+  service:
+    - oncology
+    - medical oncology
+    - chemotherapy
+    - systemic anti-cancer therapy
+    - targeted therapy
+    - biological therapy
+    - infusion
+    - medical day unit
+    - trastuzumab
+    - Herceptin
+    - pertuzumab
+    - PHESGO
+    - outreach
+    - satellite
+    - home administration
+  geography:
+    derivation: every_region_district_hospital_and_locality
+inclusion:
+  - public_source_with_retrievable_provenance
+  - facility_or_delivery_model_relevant_to_systemic_anti_cancer_treatment
+  - source_date_and_retrieval_date_recorded
+exclusion:
+  - unsupported_search_snippet_only
+  - confidential_or_non_public_information
+  - source_without_usable_provenance
+  - facility_presence_used_as_proof_of_drug_specific_capability
+review:
+  dual_review_for_grade_1_claims: true
+  disagreement_resolution: adjudication_and_recorded_reason
+update:
+  mode: living_registry
+  scheduled_frequency: monthly_during_development_then_quarterly

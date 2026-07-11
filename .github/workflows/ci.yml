@@ -1,0 +1,71 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test-matrix:
+    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Install project
+        run: uv sync --extra dev
+      - name: Unit, property, and contract tests
+        run: uv run pytest -q tests/unit tests/property tests/contract
+  full:
+    timeout-minutes: 35
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install uv
+      - run: uv sync --all-extras
+      - name: Static quality
+        run: |
+          uv run ruff format --check src tests scripts
+          uv run ruff check src tests scripts
+          uv run mypy src
+          uv run pyright src
+      - name: Test with coverage
+        run: uv run pytest -q --cov=closer_to_whom --cov-report=xml --cov-report=term-missing --cov-fail-under=92
+      - name: Contracts and boundaries
+        run: |
+          uv run python scripts/check_contracts.py
+          uv run python scripts/check_claim_boundaries.py
+          uv run python scripts/check_privacy_and_licences.py
+          uv run python scripts/secret_scan.py
+      - name: Reproducibility
+        run: uv run python scripts/check_reproducibility.py
+      - name: JAX differential
+        run: uv run python scripts/jax_differential.py
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage.xml
+          if-no-files-found: error

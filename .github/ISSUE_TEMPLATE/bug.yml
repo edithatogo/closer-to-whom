@@ -1,0 +1,30 @@
+name: Software defect
+about: Report a reproducible model or tooling defect
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include personal health information, credentials, or licensed payloads.
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction and environment
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Claim, decision, clinical, equity, or privacy impact

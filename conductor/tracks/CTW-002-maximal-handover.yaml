@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+track_id: CTW-002-maximal-handover
+status: active
+owner: Dylan
+objective: >-
+  Implement the maximum feasible software, harness, CI/CD, documentation, agent-contract, synthetic
+  model, and local handover capability in the current environment.
+acceptance_criteria:
+  - Git history retained and a handover tag created.
+  - Functional aggregate synthetic end-to-end pipeline produces deterministic Arrow/Parquet outputs.
+  - Core travel cost, equity, implied capacity, optimisation, MCDA, DSA/PSA, and VOI foundations are tested.
+  - Polars/Arrow are canonical and JAX differential tests exist.
+  - Mojo has an executable canary and explicit promotion gates.
+  - CI covers supported Python versions, contracts, security, docs, reproducibility, package, and dashboard.
+  - Privacy, licence, provenance, and claim boundaries fail closed.
+  - Hugging Face Docker Space uses aggregate precomputed outputs only.
+  - Local handover, release runbook, model card, threat model, and publication protocol are complete.
+  - Release ZIP, Git bundle, checksums, source manifest, and Codex prompt are generated.
+verification:
+  command: make release-gate
+  receipt: release/verification-receipt.json
+  handover_receipt: conductor/receipts/CTW-002-maximal-handover.json
+known_external_gates:
+  - live public service census
+  - source licensing adjudication
+  - clinical review
+  - Māori/equity governance
+  - HDEC/institutional scope determination
+  - authenticated remote GitHub administration

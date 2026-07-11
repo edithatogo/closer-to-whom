@@ -1,0 +1,59 @@
+schema_version: 1.0.0
+sap_id: CTW-NZ-001-SAP
+status: development
+analysis_population: aggregate_expected_course_cells
+estimand_language:
+  allowed:
+    - expected
+    - modelled
+    - potential
+    - scenario
+    - under_assumptions
+  prohibited_without_external_validation:
+    - actual_patient_experience
+    - causal_effect
+    - observed_service_capacity
+    - actual_waiting_time
+    - clinical_outcome_effect
+baseline_scenario: nearest_documented_eligible_iv_site
+weight: expected_courses
+continuous_outputs:
+  - weighted_mean
+  - weighted_median
+  - weighted_p90
+  - weighted_p95
+  - minimum
+  - maximum
+comparative_outputs:
+  - weighted_mean_difference
+  - expected_share_better_off
+  - expected_share_worse_off
+  - threshold_crossing_probability
+  - equity_gap_change
+threshold_scenarios:
+  per_visit_minutes: [15, 30, 60]
+  per_course_hours: [2, 5, 10]
+  per_course_nzd: [25, 50, 100, 250]
+uncertainty:
+  deterministic:
+    one_way: true
+    two_way: true
+    tornado_plots: true
+  probabilistic:
+    minimum_draws_development: 1024
+    minimum_draws_publication: 16384
+    quasi_monte_carlo: sobol_scrambled
+    random_seed_policy: fixed_and_recorded
+  structural:
+    pool_into_single_interval: false
+    report_each_structure: true
+multiple_comparisons:
+  approach: descriptive_decision_analysis_not_null_hypothesis_testing
+missing_public_information:
+  state: unknown
+  never_impute_as_absence: true
+reporting:
+  uncertainty_intervals: 95_percent_simulation_intervals
+  distributions_not_means_only: true
+  denominators_explicit: true
+  ecological_limitations_prominent: true

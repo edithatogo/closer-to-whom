@@ -1,0 +1,16 @@
+changelog:
+  exclude:
+    labels: [skip-changelog, duplicate, invalid]
+  categories:
+    - title: Breaking changes
+      labels: [breaking]
+    - title: Scientific model and methods
+      labels: [model, methods, optimisation, uncertainty, voi]
+    - title: Data and evidence
+      labels: [data, evidence, provenance]
+    - title: Engineering and automation
+      labels: [engineering, ci, dependencies]
+    - title: Documentation
+      labels: [documentation]
+    - title: Other changes
+      labels: ["*"]

@@ -1,0 +1,44 @@
+schema_version: "1.0.0"
+parameters:
+  - parameter_id: road_circuity
+    distribution: uniform
+    base: 1.25
+    lower: 1.10
+    upper: 1.60
+    source_ids: [synthetic.parameter-fixture]
+    group: routing
+  - parameter_id: average_speed_kmh
+    distribution: uniform
+    base: 65.0
+    lower: 40.0
+    upper: 85.0
+    source_ids: [synthetic.parameter-fixture]
+    group: routing
+  - parameter_id: her2_probability
+    distribution: beta
+    base: 0.175
+    alpha: 69.125
+    beta: 325.875
+    source_ids: [candidate.pharmac-anti-her2]
+    group: epidemiology
+  - parameter_id: companion_probability
+    distribution: beta
+    base: 0.45
+    alpha: 9.0
+    beta: 11.0
+    source_ids: [synthetic.parameter-fixture]
+    group: patient_burden
+  - parameter_id: patient_time_value
+    distribution: gamma
+    base: 25.0
+    shape: 6.25
+    scale: 4.0
+    source_ids: [synthetic.parameter-fixture]
+    group: valuation
+  - parameter_id: metastatic_administrations
+    distribution: discrete
+    base: 12.0
+    values: [6.0, 12.0, 18.0, 24.0]
+    probabilities: [0.15, 0.40, 0.30, 0.15]
+    source_ids: [synthetic.clinical-fixture]
+    group: pathway

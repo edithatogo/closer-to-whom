@@ -1,0 +1,257 @@
+schema_version: "1.0.0"
+model_release: "0.2.0"
+claim_boundary: >-
+  Base values are software-development defaults or transparent policy scenarios until the public
+  source census and clinical parameter freeze are complete. They are not estimates of observed
+  New Zealand service use or capacity.
+assumptions:
+  - id: A01
+    domain: governance
+    name: permitted_data
+    value: public_aggregate_only
+    status: hard_constraint
+    source_ids: [protocol.public-data]
+    uncertainty: none
+    rationale: No individual, confidential, or non-public operational data are permitted.
+  - id: A02
+    domain: interpretation
+    name: estimand
+    value: potential_access
+    status: hard_constraint
+    source_ids: [protocol.public-data]
+    uncertainty: structural
+    rationale: The model estimates potential rather than realised access.
+  - id: D01
+    domain: demand
+    name: principal_geography
+    value: SA2
+    status: planned_public_input
+    source_ids: [candidate.statsnz-geographies]
+    uncertainty: spatial
+    rationale: SA2 balances public availability, interpretability, and disclosure protection.
+  - id: D02
+    domain: demand
+    name: within_area_allocation
+    value: population_weighted_multiple_points
+    status: planned_method
+    source_ids: [protocol.public-data]
+    uncertainty: spatial
+    rationale: Multiple routing points reduce centroid bias in large areas.
+  - id: D03
+    domain: demand
+    name: her2_positive_probability
+    value: 0.175
+    unit: proportion
+    status: placeholder_requires_source_freeze
+    source_ids: [candidate.pharmac-anti-her2]
+    uncertainty: beta
+    lower: 0.15
+    upper: 0.20
+    rationale: Midpoint of a public range used only until pathway-specific calibration.
+  - id: D04
+    domain: demand
+    name: treatment_uptake
+    value: 0.85
+    unit: proportion
+    status: illustrative
+    source_ids: [synthetic.parameter-fixture]
+    uncertainty: beta
+    lower: 0.60
+    upper: 1.00
+    rationale: Wide uncertainty prevents false precision before public calibration.
+  - id: F01
+    domain: facilities
+    name: conservative_evidence_threshold
+    value: 2
+    unit: evidence_grade
+    status: protocol_rule
+    source_ids: [protocol.service-census]
+    uncertainty: structural
+    rationale: Primary analysis requires current explicit named treatment or solid-tumour SACT evidence.
+  - id: F02
+    domain: facilities
+    name: undocumented_capability
+    value: unknown
+    status: hard_constraint
+    source_ids: [protocol.service-census]
+    uncertainty: structural
+    rationale: Lack of public evidence is not evidence of absence.
+  - id: F03
+    domain: capacity
+    name: observed_capacity
+    value: unavailable
+    status: structural_limitation
+    source_ids: [protocol.public-data]
+    uncertainty: structural
+    rationale: The model estimates implied capacity and tests explicit capacity envelopes.
+  - id: C01
+    domain: clinical
+    name: early_iv_demo_administrations
+    value: 18
+    unit: administrations_per_course
+    status: synthetic_fixture
+    source_ids: [synthetic.clinical-fixture]
+    uncertainty: discrete
+    lower: 12
+    upper: 18
+    rationale: Demonstrates cumulative travel; publication value requires clinical source and review.
+  - id: C02
+    domain: clinical
+    name: home_self_administration
+    value: excluded
+    status: hard_constraint
+    source_ids: [protocol.clinical-safety]
+    uncertainty: none
+    rationale: Home scenarios are healthcare-professional administered.
+  - id: C03
+    domain: clinical
+    name: initial_higher_risk_doses
+    value: hospital_capable_setting
+    status: hard_constraint
+    source_ids: [protocol.clinical-safety]
+    uncertainty: pathway_specific
+    rationale: Initial and clinically constrained administrations remain at eligible facilities.
+  - id: T01
+    domain: routing
+    name: publication_route_method
+    value: versioned_road_and_public_transport_engines
+    status: planned_method
+    source_ids: [protocol.routing]
+    uncertainty: structural
+    rationale: Straight-line distance is not the publication access measure.
+  - id: T02
+    domain: routing
+    name: synthetic_road_circuity
+    value: 1.25
+    unit: multiplier
+    status: synthetic_fixture
+    source_ids: [synthetic.parameter-fixture]
+    uncertainty: uniform
+    lower: 1.10
+    upper: 1.60
+    rationale: Offline software tests only; never a policy estimate.
+  - id: T03
+    domain: routing
+    name: synthetic_average_speed
+    value: 65
+    unit: km_per_hour
+    status: synthetic_fixture
+    source_ids: [synthetic.parameter-fixture]
+    uncertainty: uniform
+    lower: 40
+    upper: 85
+    rationale: Offline software tests only.
+  - id: K01
+    domain: cost
+    name: vehicle_running_cost
+    value: 0.37
+    unit: NZD_per_km
+    price_year: 2025_26
+    status: requires_analysis_date_refresh
+    source_ids: [candidate.ird-kilometre-rates]
+    uncertainty: deterministic_scenario
+    lower: 0.30
+    upper: 1.20
+    rationale: Marginal running-cost base with broader-cost scenario.
+  - id: K02
+    domain: cost
+    name: nta_reimbursement
+    value: 0.44
+    unit: NZD_per_km
+    status: temporary_rate_requires_date_check
+    source_ids: [candidate.healthnz-nta]
+    uncertainty: deterministic_scenario
+    lower: 0.34
+    upper: 0.44
+    rationale: Report gross burden, reimbursement, and societal resource cost separately.
+  - id: K03
+    domain: cost
+    name: patient_time_value
+    value: 25
+    unit: NZD_per_hour
+    status: illustrative
+    source_ids: [synthetic.parameter-fixture]
+    uncertainty: gamma
+    lower: 10
+    upper: 50
+    rationale: Primary reporting keeps time separate; monetisation is secondary.
+  - id: E01
+    domain: equity
+    name: rurality_measure
+    value: GCH2023
+    status: planned_public_input
+    source_ids: [candidate.gch2023]
+    uncertainty: structural
+    rationale: Rurality is a stratifier; network travel remains the access measure.
+  - id: E02
+    domain: equity
+    name: deprivation_measure
+    value: NZDep2023
+    status: planned_public_input
+    source_ids: [candidate.nzdep2023]
+    uncertainty: ecological
+    rationale: Area deprivation is not interpreted as an individual attribute.
+  - id: E03
+    domain: equity
+    name: equity_weights
+    value: scenario_range
+    status: normative_uncertainty
+    source_ids: [protocol.mcda]
+    uncertainty: stochastic_mcda
+    rationale: No single weight set is represented as stakeholder-derived without governance.
+  - id: O01
+    domain: optimisation
+    name: safety_constraints
+    value: non_compensatory
+    status: hard_constraint
+    source_ids: [protocol.clinical-safety]
+    uncertainty: none
+    rationale: Clinical eligibility and safety cannot be traded against travel convenience.
+  - id: O02
+    domain: optimisation
+    name: uncapacitated_interpretation
+    value: potential_geography_and_implied_capacity
+    status: hard_constraint
+    source_ids: [protocol.capacity]
+    uncertainty: structural
+    rationale: Results do not claim current operational feasibility.
+  - id: U01
+    domain: uncertainty
+    name: psa_sampling
+    value: scrambled_sobol
+    status: method
+    source_ids: [protocol.uncertainty]
+    uncertainty: none
+    rationale: Low-discrepancy draws improve coverage for repeated model evaluation.
+  - id: U02
+    domain: uncertainty
+    name: structural_uncertainty
+    value: reported_separately
+    status: hard_constraint
+    source_ids: [protocol.uncertainty]
+    uncertainty: none
+    rationale: Structural alternatives are not collapsed into false-precision intervals.
+  - id: V01
+    domain: value_of_information
+    name: microdata_decision_rule
+    value: positive_ENBS_and_decision_relevance
+    status: method
+    source_ids: [protocol.voi]
+    uncertainty: decision
+    rationale: Granular research is justified only when it may change a material decision or equity conclusion.
+  - id: R01
+    domain: reproducibility
+    name: canonical_exchange
+    value: Arrow_Parquet
+    status: architecture
+    source_ids: [protocol.architecture]
+    uncertainty: none
+    rationale: Language-neutral contracts enable Python, Rust, Julia, Mojo, and JAX components.
+  - id: R02
+    domain: licensing
+    name: healthpoint_payloads
+    value: fail_closed
+    status: hard_constraint
+    source_ids: [protocol.licensing]
+    uncertainty: none
+    rationale: Live payloads remain private unless redistribution and dashboard permissions are explicit.

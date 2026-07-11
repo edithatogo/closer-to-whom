@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+policy: adapters_first_upstream_when_reusable
+libraries:
+  - name: sourceright
+    repository: https://github.com/edithatogo/sourceright
+    issue: upstream/issues/sourceright-evidence-licence-arrow.md
+    local_adapter: src/closer_to_whom/integrations/sourceright_adapter.py
+    status: issue_ready_adapter_implemented
+  - name: authentext
+    repository: https://github.com/edithatogo/authentext
+    issue: upstream/issues/authentext-claim-boundary-policy.md
+    local_adapter: scripts/check_claim_boundaries.py
+    status: issue_ready_compatibility_implemented
+  - name: innovate
+    repository: https://github.com/edithatogo/innovate
+    issue: upstream/issues/innovate-bounded-adoption-arrow.md
+    local_adapter: src/closer_to_whom/integrations/adoption.py
+    status: issue_ready_fallback_implemented
+  - name: voiage
+    repository: https://github.com/edithatogo/voiage
+    issue: upstream/issues/voiage-research-design-structural-voi.md
+    local_adapter: src/closer_to_whom/integrations/voiage_adapter.py
+    status: issue_ready_fallback_implemented
+  - name: kairos
+    repository: https://github.com/edithatogo/kairos
+    issue: upstream/issues/kairos-capacity-envelope-arrow.md
+    local_adapter: src/closer_to_whom/capacity.py
+    status: issue_ready_project_oracle_implemented
+  - name: mars
+    repository: https://github.com/edithatogo/mars
+    issue: upstream/issues/mars-evppi-surrogate-diagnostics.md
+    local_adapter: src/closer_to_whom/voi.py
+    status: issue_ready_baseline_implemented
+  - name: open_social_data
+    repository: https://github.com/edithatogo/open_social_data
+    issue: upstream/issues/open-social-data-licence-snapshot-manifest.md
+    local_adapter: data/public/source-registry.yaml
+    status: issue_ready_contract_implemented
+  - name: healthpoint-rs
+    repository: https://github.com/edithatogo/healthpoint-rs
+    issue: upstream/issues/healthpoint-rs-evidence-export.md
+    local_adapter: src/closer_to_whom/integrations/healthpoint.py
+    status: issue_ready_fail_closed_adapter_implemented
+  - name: fyi-cli
+    repository: https://github.com/edithatogo/fyi-cli
+    issue: upstream/issues/fyi-cli-machine-receipts.md
+    local_adapter: src/closer_to_whom/integrations/fyi.py
+    status: optional_issue_ready
+remote_state: unverified_in_this_environment

@@ -1,0 +1,1 @@
+"""Aggregate-only dashboard package."""

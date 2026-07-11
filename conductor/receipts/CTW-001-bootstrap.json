@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-001-bootstrap",
+  "status": "completed",
+  "evidence": [
+    "Inherited Git repository and prior bootstrap artefacts",
+    "Initial protocol, architecture, and upstream integration planning"
+  ],
+  "note": "This receipt records inherited work; CTW-002 independently verifies the current handover release."
+}

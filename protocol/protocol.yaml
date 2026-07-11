@@ -1,0 +1,80 @@
+schema_version: 1.0.0
+protocol_id: CTW-NZ-001
+title: "Closer to whom? A public-data geospatial policy simulation of anti-HER2 treatment in Aotearoa New Zealand"
+version: 0.2.0
+status: development
+geography: Aotearoa New Zealand
+study_type: aggregate_ex_ante_policy_evaluation
+human_participants: false
+confidential_data: false
+microdata: false
+primary_decision_question: >-
+  Which clinically feasible anti-HER2 delivery configuration minimises expected
+  treatment-course travel burden while making distributional, equity,
+  infrastructure, uncertainty, and research-value trade-offs explicit?
+claim_boundary: >-
+  The model estimates potential accessibility under explicit public-data
+  assumptions. It does not estimate actual patient journeys, service use,
+  preferences, capacity, waiting, adherence, clinical outcomes, or causal effects.
+population:
+  unit: aggregate_expected_treatment_courses
+  primary_geography: SA2_or_public_successor_geography
+  strata:
+    - age_group
+    - total_response_ethnicity
+    - NZDep_quintile
+    - GCH_category
+    - public_transport_or_vehicle_access_proxy
+pathways:
+  - early_HER2_positive_breast_cancer
+  - metastatic_HER2_positive_breast_cancer
+  - trastuzumab_IV
+  - trastuzumab_SC_policy_counterfactual
+  - PHESGO_eligible_pathway
+scenarios_catalogue: scenarios/scenario-catalogue.yaml
+primary_outcomes:
+  - cumulative_round_trip_door_to_door_travel_time_per_course
+  - direct_patient_and_whanau_travel_cost_per_course
+  - expected_share_of_demand_better_off
+  - expected_share_of_demand_worse_off
+secondary_outcomes:
+  - weighted_median_and_p90_p95_burden
+  - thresholds_30_60_90_minutes
+  - excess_burden_relative_to_least_burden_feasible_site
+  - implied_site_administrations_and_resource_requirements
+  - equity_gaps_and_worst_served_tail
+  - resilience_to_site_outage
+  - expected_value_of_information
+analysis:
+  optimisation:
+    - p_median
+    - p_centre
+    - maximal_coverage
+    - robust_location_allocation
+    - multiobjective_pareto_frontier
+  mcda:
+    method: stochastic_multicriteria_acceptability
+    safety_constraints_compensatory: false
+  uncertainty:
+    - deterministic_sensitivity_analysis
+    - probabilistic_sensitivity_analysis
+    - structural_scenario_analysis
+    - spatial_uncertainty
+  value_of_information:
+    - EVPI
+    - EVPPI
+    - EVSI
+    - ENBS
+    - break_even_research_cost
+public_data_only: true
+capacity_handling:
+  observed_capacity_required: false
+  output: implied_capacity_and_capacity_envelopes
+publication_plan:
+  paper_1:
+    target: NZMJ
+    focus: clinical_and_policy_relevance
+  paper_2:
+    target: health_services_decision_science
+    focus: optimisation_mcda_uncertainty_voi
+  software_data_paper: optional

@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.hypothesis/
+.coverage*
+htmlcov/
+.nox/
+.venv/
+venv/
+dist/
+build/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Data boundaries
+# Raw and licensed payloads are never committed.
+data/raw/
+data/licensed/
+data/private/
+data/derived/**
+!data/derived/.gitkeep
+artifacts/**
+!artifacts/demo/
+!artifacts/demo/.gitkeep
+!artifacts/README.md
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Rust / Mojo
+**/target/
+.mojopkg/
+
+# Quarto / MkDocs
+.quarto/
+_site/
+site/
+
+# Benchmarks
+.benchmarks/

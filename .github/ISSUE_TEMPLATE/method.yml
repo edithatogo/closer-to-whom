@@ -1,0 +1,23 @@
+name: Method or scenario proposal
+about: Propose a new method, assumption, scenario, or decision criterion
+title: "method: "
+labels: [methodology]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Decision question and estimand
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed implementation
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Validation, equity, clinical, licensing, and interpretation risks
+    validations:
+      required: true

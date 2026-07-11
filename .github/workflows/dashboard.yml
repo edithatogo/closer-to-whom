@@ -1,0 +1,35 @@
+name: Dashboard container
+on:
+  pull_request:
+    paths: ["src/closer_to_whom/dashboard/**", "containers/**", "app.py", "artifacts/demo/**"]
+  push:
+    branches: [main]
+    paths: ["src/closer_to_whom/dashboard/**", "containers/**", "app.py", "artifacts/demo/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: dashboard-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build-smoke:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install uv
+      - run: uv sync --all-extras
+      - run: uv run closer-to-whom demo --output artifacts/demo
+      - run: uv run python scripts/dashboard_smoke.py
+      - name: Build image
+        run: docker build -f containers/huggingface.Dockerfile -t closer-to-whom-space:${{ github.sha }} .
+      - name: Scan image contents for prohibited paths
+        run: |
+          docker run --rm --entrypoint sh closer-to-whom-space:${{ github.sha }} -c \
+            'test ! -e /app/data/raw && test ! -e /app/data/licensed && test ! -e /app/data/private'

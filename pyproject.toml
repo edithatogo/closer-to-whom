@@ -1,0 +1,208 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "closer-to-whom"
+version = "0.2.0"
+description = "Public-data geospatial policy simulation of anti-HER2 cancer treatment access in Aotearoa New Zealand"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Dylan" }]
+keywords = ["health-services", "geospatial", "equity", "cancer", "Aotearoa-New-Zealand", "simulation", "value-of-information"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Healthcare Industry",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+dependencies = [
+  "numpy>=2.1",
+  "polars>=1.24",
+  "pyarrow>=18",
+  "pydantic>=2.10",
+  "pydantic-settings>=2.7",
+  "typer>=0.15",
+  "rich>=13.9",
+  "orjson>=3.10",
+  "PyYAML>=6.0.2",
+  "platformdirs>=4.3",
+  "structlog>=24.4",
+  "scipy>=1.14",
+]
+
+[project.optional-dependencies]
+accel = [
+  "jax>=0.5; python_version < '3.14'",
+  "jaxlib>=0.5; python_version < '3.14'",
+]
+geo = [
+  "geopandas>=1.0",
+  "shapely>=2.0",
+  "pyogrio>=0.10",
+  "h3>=4.1",
+  "duckdb>=1.2",
+]
+optimisation = [
+  "highspy>=1.8",
+  "ortools>=9.11",
+]
+dashboard = [
+  "dash>=2.18",
+  "plotly>=5.24",
+  "gunicorn>=23",
+]
+docs = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.6",
+  "mkdocstrings[python]>=0.27",
+  "mkdocs-gen-files>=0.5",
+  "mkdocs-literate-nav>=0.6",
+]
+dev = [
+  "build>=1.2",
+  "codespell>=2.4",
+  "coverage[toml]>=7.6",
+  "deptry>=0.21",
+  "hypothesis>=6.124",
+  "interrogate>=1.7",
+  "mypy>=1.14",
+  "nox>=2025.2.9",
+  "pip-audit>=2.7",
+  "pre-commit>=4.0",
+  "pyright>=1.1.390",
+  "pytest>=8.3",
+  "pytest-cov>=6.0",
+  "pytest-timeout>=2.3",
+  "pytest-xdist>=3.6",
+  "ruff>=0.9",
+  "tomli-w>=1.2",
+  "vulture>=2.14",
+  "zizmor>=1.3",
+]
+all = [
+  "closer-to-whom[accel,geo,optimisation,dashboard,docs,dev]",
+]
+
+[project.urls]
+Repository = "https://github.com/edithatogo/closer-to-whom"
+Documentation = "https://edithatogo.github.io/closer-to-whom/"
+Issues = "https://github.com/edithatogo/closer-to-whom/issues"
+
+[project.scripts]
+closer-to-whom = "closer_to_whom.cli:app"
+ctw = "closer_to_whom.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/closer_to_whom"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests", "scripts"]
+exclude = ["upstream", "artifacts", "data/derived"]
+
+[tool.ruff.lint]
+select = [
+  "A", "ANN", "ARG", "ASYNC", "B", "BLE", "C4", "C90", "DTZ", "E", "EM", "ERA",
+  "EXE", "F", "FA", "FBT", "FLY", "FURB", "G", "I", "ICN", "INP", "INT", "ISC",
+  "LOG", "N", "NPY", "PERF", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "Q", "RET",
+  "RSE", "RUF", "S", "SIM", "SLF", "SLOT", "T10", "T20", "TC", "TID", "TRY", "UP", "W", "YTT",
+]
+ignore = [
+  "ANN401", "COM812", "ISC001", "PLR0913", "PLR2004", "S101", "TRY003",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["ANN", "ARG", "FBT", "PLR2004", "S101", "SLF001"]
+"scripts/**/*.py" = ["T201"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["closer_to_whom"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+  "--strict-config", "--strict-markers", "--showlocals", "--tb=short",
+  "--durations=20", "--timeout=60", "-p", "no:randomly",
+]
+testpaths = ["tests"]
+markers = [
+  "slow: slower tests excluded from the default developer loop",
+  "integration: cross-component integration tests",
+  "network: tests requiring the public internet",
+  "jax: tests requiring JAX",
+  "dashboard: dashboard smoke tests",
+  "mojo: tests requiring a Mojo toolchain",
+]
+filterwarnings = ["error", "ignore:.*distutils.*:DeprecationWarning"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["closer_to_whom"]
+omit = ["src/closer_to_whom/dashboard/app.py"]
+
+[tool.coverage.report]
+fail_under = 92
+show_missing = true
+skip_covered = true
+exclude_lines = [
+  "pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError", "if __name__ == .__main__.:",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+warn_unused_configs = true
+show_error_codes = true
+pretty = true
+plugins = ["pydantic.mypy"]
+exclude = ["upstream", "artifacts"]
+
+[[tool.mypy.overrides]]
+module = ["jax.*", "scipy.*", "dash.*", "plotly.*", "highspy.*", "ortools.*"]
+ignore_missing_imports = true
+
+[tool.pyright]
+include = ["src", "tests"]
+exclude = ["upstream", "artifacts", "data"]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+reportMissingTypeStubs = "warning"
+
+[tool.codespell]
+ignore-words-list = "hdec,te,aho,whanau,maori,pharmac,phesgo,trastuzumab,nzmj,healthpoint,sourceright,authentext,voiage,kairos"
+skip = "*.lock,*.svg,*.jsonl,upstream/*,artifacts/*"
+
+[tool.deptry]
+known_first_party = ["closer_to_whom"]
+extend_exclude = ["scripts", "tests"]
+
+[tool.interrogate]
+fail-under = 90
+exclude = ["tests", "scripts"]
+ignore-init-method = true
+ignore-module = false
+verbose = 1
+
+[tool.vulture]
+min_confidence = 85
+paths = ["src", "scripts"]
+exclude = ["src/closer_to_whom/dashboard/app.py"]
+
+[tool.hypothesis]
+deadline = 1000

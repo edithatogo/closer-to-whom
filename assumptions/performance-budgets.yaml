@@ -1,0 +1,12 @@
+schema_version: "1.0.0"
+budgets:
+  synthetic_demo_seconds: 20
+  unit_contract_suite_seconds: 60
+  national_route_batch_memory_gib: 16
+  dashboard_initial_response_seconds: 3
+  mojo_promotion_min_speedup: 1.5
+  jax_differential_absolute_tolerance: 1.0e-10
+  result_digest_reproducibility: exact
+notes:
+  - National budgets are initial engineering targets and require local benchmarking.
+  - Numerical speed never overrides deterministic equivalence or claim-boundary checks.

@@ -1,0 +1,17 @@
+services:
+  model:
+    build: .
+    volumes:
+      - ./artifacts:/workspace/artifacts
+    command: ["demo", "--output", "artifacts/local"]
+  dashboard:
+    build:
+      context: .
+      dockerfile: containers/huggingface.Dockerfile
+    ports:
+      - "7860:7860"
+    environment:
+      CTW_RESULT_DIR: /app/artifacts/demo
+    read_only: true
+    tmpfs:
+      - /tmp

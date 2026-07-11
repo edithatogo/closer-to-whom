@@ -1,0 +1,26 @@
+schema_version: "1.0.0"
+research_designs:
+  - research_id: enhanced_public_search
+    name: Expanded systematic public service census
+    resolves_parameter_groups: [facility_capability, opening_hours, parking]
+    estimated_cost_nzd: 15000
+    implementation_years: 0.25
+    status: feasible_without_hdec
+  - research_id: oia_aggregate_service_data
+    name: OIA programme for site lists and aggregate administrations
+    resolves_parameter_groups: [facility_capability, aggregate_volume, public_capacity]
+    estimated_cost_nzd: 30000
+    implementation_years: 0.75
+    status: optional_not_dependency
+  - research_id: aggregate_operational_study
+    name: Service-level aggregate operational validation
+    resolves_parameter_groups: [site_workload, opening_hours, queueing]
+    estimated_cost_nzd: 120000
+    implementation_years: 1.0
+    status: future
+  - research_id: microdata_study
+    name: De-identified origins, actual site, regimen, cycles, attendance and delays
+    resolves_parameter_groups: [origins, realised_choice, treatment_course, attendance, delays]
+    estimated_cost_nzd: 500000
+    implementation_years: 2.0
+    status: contingent_on_positive_enbs

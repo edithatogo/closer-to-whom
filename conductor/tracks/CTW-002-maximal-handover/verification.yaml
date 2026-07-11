@@ -1,0 +1,8 @@
+schema_version: 1.0.0
+track_id: CTW-002-maximal-handover
+command: uv run python scripts/release_gate.py --profile full
+receipt: release/verification-receipt.json
+required_claim_boundary: >-
+  Verification applies to code, contracts, synthetic fixtures, and reproducibility
+  in the recorded environment; it does not validate actual New Zealand cancer
+  services, patient journeys, operational capacity, or clinical outcomes.

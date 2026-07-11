@@ -1,0 +1,25 @@
+schema_version: "1.0.0"
+project_id: closer-to-whom
+name: Closer to whom?
+version: "0.2.0"
+mission: >-
+  Produce a national, public-data, aggregate, reproducible policy simulation of anti-HER2 cancer
+  treatment configurations in Aotearoa New Zealand, with distributional access, equity, implied
+  capacity, optimisation, MCDA, uncertainty, and value-of-information outputs.
+canonical_language: en-NZ
+canonical_data_plane: Arrow/Parquet
+primary_runtime: Python/Polars
+optional_backends: [JAX/XLA, Mojo, Rust, Julia/JuMP]
+public_dashboard: Hugging Face Docker Space
+publication_targets: [NZMJ clinical paper, decision-science methods paper, optional software/data paper]
+non_goals:
+  - individual clinical decisions
+  - confidential data processing in the open repository
+  - claims about actual service capacity or patient behaviour
+  - self-administration modelling
+hard_constraints:
+  - public aggregate or synthetic data only
+  - undocumented capability remains unknown
+  - clinical safety is non-compensatory
+  - licensed payloads fail closed
+  - machine-readable provenance and assumptions

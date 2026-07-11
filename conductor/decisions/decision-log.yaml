@@ -1,0 +1,42 @@
+schema_version: "1.0.0"
+decisions:
+  - id: DEC-001
+    date: 2026-07-11
+    status: accepted
+    decision: Use all of New Zealand as the principal geography.
+    rationale: National analysis is policy relevant and supports infrastructure planning; Northern remains historical motivation and a possible subgroup.
+  - id: DEC-002
+    date: 2026-07-11
+    status: accepted
+    decision: Restrict the open phase to public aggregate data.
+    rationale: Enables independent reproducibility and an out-of-scope policy-evaluation framing while acknowledging simulated limitations.
+  - id: DEC-003
+    date: 2026-07-11
+    status: accepted
+    decision: Use Polars and Arrow as the canonical data plane.
+    rationale: Supports performance, schema contracts, and multi-language backends.
+  - id: DEC-004
+    date: 2026-07-11
+    status: accepted
+    decision: Support JAX now and develop Mojo behind promotion gates.
+    rationale: Preserve bleeding-edge acceleration without making an immature toolchain a single point of failure.
+  - id: DEC-005
+    date: 2026-07-11
+    status: accepted
+    decision: Combine optimisation with MCDA rather than substituting one for the other.
+    rationale: Optimisation identifies efficient candidates; MCDA exposes normative trade-offs.
+  - id: DEC-006
+    date: 2026-07-11
+    status: accepted
+    decision: Treat lack of capacity data as a model output question.
+    rationale: Estimate implied capacity and test envelopes rather than inventing current operations.
+  - id: DEC-007
+    date: 2026-07-11
+    status: accepted
+    decision: Make microdata escalation a VOI decision.
+    rationale: Further research is justified by expected decision value, equity relevance, and net benefit rather than granularity alone.
+  - id: DEC-008
+    date: 2026-07-11
+    status: accepted
+    decision: Serve only precomputed aggregate cubes in the public Space.
+    rationale: Improves security, reproducibility, licensing compliance, and latency.

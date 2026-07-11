@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.parquet binary
+*.arrow binary
+*.feather binary
+*.png binary
+*.jpg binary
+*.pdf binary
+*.zip binary
+*.bundle binary
+*.patch text eol=lf

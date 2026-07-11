@@ -1,0 +1,25 @@
+schema_version: "1.0.0"
+project_id: closer-to-whom
+updated_at: 2026-07-11
+version: "0.2.0"
+active_track: CTW-002-maximal-handover
+phase: software_handover
+software_status: implementation_complete_pending_local_toolchain_verification
+model_status: synthetic_demonstration_only
+publication_status: blocked_on_evidence_and_governance
+current_claim_boundary: >-
+  Software and synthetic fixtures are implemented and verifiable; no policy estimate is publication
+  ready until the national public service census, clinical pathway review, public-data calibration,
+  national routing, governance review, and ethics-scope documentation are complete.
+next_tracks:
+  - CTW-010-national-service-census
+  - CTW-020-public-demand-and-geography
+  - CTW-030-clinical-pathway-freeze
+  - CTW-040-national-routing-and-costs
+  - CTW-050-national-analysis
+  - CTW-060-publication-and-space
+external_dependencies:
+  - clinical review
+  - Māori and equity governance review
+  - public source and licence adjudication
+  - local credentials for optional integrations

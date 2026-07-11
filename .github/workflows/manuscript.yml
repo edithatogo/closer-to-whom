@@ -1,0 +1,39 @@
+name: Manuscript scaffolds
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths:
+      - "manuscript/**"
+      - "docs/publication/**"
+      - "assumptions/**"
+      - ".github/workflows/manuscript.yml"
+  push:
+    branches: [main]
+    paths:
+      - "manuscript/**"
+      - "docs/publication/**"
+      - "assumptions/**"
+  workflow_dispatch:
+
+concurrency:
+  group: manuscript-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: manuscript
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manuscript-scaffolds
+          path: release/manuscript
+          if-no-files-found: error

@@ -1,0 +1,14 @@
+project:
+  type: manuscript
+  output-dir: ../release/manuscript
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+bibliography: references.bib
+format:
+  html:
+    toc: true
+  docx: default
+  pdf:
+    documentclass: article

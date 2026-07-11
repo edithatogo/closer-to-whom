@@ -1,0 +1,19 @@
+schema_version: "1.0.0"
+track_id: LIB-010-upstream-contracts
+status: active
+objective: Move reusable functionality into the user's libraries while retaining compatibility fallbacks.
+libraries:
+  - sourceright
+  - authentext
+  - innovate
+  - voiage
+  - kairos
+  - mars
+  - open_social_data
+  - healthpoint-rs
+  - fyi-cli
+acceptance_criteria:
+  - Each library has an issue body, proposed interface, acceptance tests, and compatibility adapter.
+  - Patch-ready changes are isolated from project-specific policy semantics.
+  - Repository works before upstream release.
+  - Remote issue/PR state is verified locally before publication claims.

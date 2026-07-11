@@ -1,0 +1,34 @@
+name: Source or service-registry correction
+about: Propose a correction to public evidence or facility classification
+title: "source: "
+labels: [evidence, needs-adjudication]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Public source URL
+    validations:
+      required: true
+  - type: input
+    id: represented-date
+    attributes:
+      label: Date represented by the source
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Exact capability or policy claim supported
+    validations:
+      required: true
+  - type: dropdown
+    id: grade
+    attributes:
+      label: Proposed evidence grade
+      options: ["1", "2", "3", "4", "uncertain"]
+    validations:
+      required: true
+  - type: textarea
+    id: licence
+    attributes:
+      label: Access and redistribution considerations
