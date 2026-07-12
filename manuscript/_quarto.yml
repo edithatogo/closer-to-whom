@@ -1,6 +1,9 @@
 project:
-  type: manuscript
+  type: default
   output-dir: ../release/manuscript
+  render:
+    - methods/index.qmd
+    - nzmj/index.qmd
 execute:
   freeze: auto
   echo: false
