@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Materialise an evidence-graded facility census without weakening claim boundaries."""
 
 from __future__ import annotations

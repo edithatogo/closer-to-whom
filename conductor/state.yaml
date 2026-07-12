@@ -30,7 +30,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 79
+  tests: 84
   optional_not_run:
     - Docker container health check
     - Mojo canary

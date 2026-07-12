@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Materialise public aggregate demand cells with reproducible routing weights."""
 
 from __future__ import annotations

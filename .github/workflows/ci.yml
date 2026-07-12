@@ -30,7 +30,7 @@ jobs:
       - name: Install project
         run: uv sync --locked --extra dev
       - name: Unit, property, and contract tests
-        run: uv run pytest -q tests/unit tests/property tests/contract
+        run: uv run pytest -q --no-cov tests/unit tests/property tests/contract
   full:
     timeout-minutes: 35
     runs-on: ubuntu-latest

@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+repository: edithatogo/closer-to-whom
+project_number: 25
+project_url: https://github.com/users/edithatogo/projects/25
+visibility: public
+ruleset:
+  name: main-high-assurance
+  id: 18829292
+  enforcement: active
+parent_issues:
+  CTW-010-national-service-census: 2
+  CTW-020-public-demand-and-geography: 3
+  CTW-030-clinical-pathway-freeze: 4
+  governance-and-ethics: 5
+  LIB-010-upstream-contracts: 6
+implementation_pr: 8
+subissues:
+  CTW-010-national-service-census: [9, 10]
+  CTW-020-public-demand-and-geography: [11, 12]
+  CTW-030-clinical-pathway-freeze: [13, 14]
+  governance-and-ethics: [15, 16]
+  LIB-010-upstream-contracts: [17, 18]
+status_semantics:
+  Todo: planned but not started
+  In Progress: active implementation or external review
+  Done: completed with repository and external evidence receipts
+claim_boundary: >-
+  Project items coordinate work only. Issue closure, project status, and local tests do not establish
+  actual service capability, demand, capacity, clinical eligibility, patient outcomes, or publication readiness.

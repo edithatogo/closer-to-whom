@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Audit pathway safety invariants and report the clinical-review blocker explicitly."""
 
 from __future__ import annotations
