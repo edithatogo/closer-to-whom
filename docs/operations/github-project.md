@@ -5,7 +5,8 @@ is the GitHub coordination layer for the local Conductor control plane.
 
 ## Hierarchy
 
-Parent issues represent the five externally gated workstreams. Native GitHub subissues represent
+Parent issues represent the nine Conductor workstreams, including the five original external
+blockers and the four downstream dependency-gated tracks. Native GitHub subissues represent
 their executable tasks. Pull request [#8](https://github.com/edithatogo/closer-to-whom/pull/8)
 contains the first implementation slice. The machine-readable mapping is
 `conductor/github-project.yaml`.
@@ -23,6 +24,7 @@ merged branches are deleted automatically.
 Dependabot security updates, secret scanning, and push protection are enabled. GitHub reports
 non-provider secret patterns and validity checks as unavailable/disabled for this repository/account;
 that residual control gap remains explicit rather than being represented as enabled.
+GitHub Discussions are enabled for repository-level questions and decisions.
 
 All workflow action references are pinned to verified immutable commit SHAs. Workflow permissions are
 least-privilege by default, with security-event, OIDC, and attestation permissions scoped to the jobs
