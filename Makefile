@@ -91,6 +91,9 @@ public-demand: ## Materialise public aggregate demand and geography inputs
 clinical-pathway-audit: ## Audit synthetic pathway safety invariants and review blockers
 	$(UV) run python scripts/check_clinical_pathway_freeze.py
 
+route-costs: ## Materialise deterministic route matrices with fail-closed fallbacks
+	$(UV) run python scripts/materialize_route_costs.py
+
 benchmark: ## Run portable correctness-first benchmark
 	$(UV) run python benchmarks/benchmark_core.py
 

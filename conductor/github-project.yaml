@@ -13,6 +13,10 @@ parent_issues:
   CTW-030-clinical-pathway-freeze: 4
   governance-and-ethics: 5
   LIB-010-upstream-contracts: 6
+  CTW-040-national-routing-and-costs: 19
+  CTW-050-national-analysis: 20
+  CTW-060-publication-and-space: 21
+  CTW-070-microdata-voi-decision: 22
 implementation_pr: 8
 subissues:
   CTW-010-national-service-census: [9, 10]
@@ -20,6 +24,10 @@ subissues:
   CTW-030-clinical-pathway-freeze: [13, 14]
   governance-and-ethics: [15, 16]
   LIB-010-upstream-contracts: [17, 18]
+  CTW-040-national-routing-and-costs: [23, 24]
+  CTW-050-national-analysis: [25, 26]
+  CTW-060-publication-and-space: [27, 28]
+  CTW-070-microdata-voi-decision: [29, 30]
 status_semantics:
   Todo: planned but not started
   In Progress: active implementation or external review

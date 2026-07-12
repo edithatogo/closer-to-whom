@@ -1,0 +1,7 @@
+schema_version: "1.0.0"
+track_id: CTW-060-publication-and-space
+status: blocked
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/21
+objective: Publish only precomputed aggregate dashboard outputs and governed manuscript artefacts after all evidence gates.
+dependencies: [CTW-050-national-analysis]
+claim_boundary: Dashboard and manuscript outputs must retain synthetic/public aggregate boundaries and unresolved limitations.

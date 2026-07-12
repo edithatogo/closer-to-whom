@@ -18,6 +18,7 @@ next_tracks:
   - CTW-040-national-routing-and-costs
   - CTW-050-national-analysis
   - CTW-060-publication-and-space
+  - CTW-070-microdata-voi-decision
 external_dependencies:
   - "CTW-010 / GitHub issue #2: national service census and licence adjudication"
   - "CTW-020 / GitHub issue #3: public demand and geography dataset freeze"

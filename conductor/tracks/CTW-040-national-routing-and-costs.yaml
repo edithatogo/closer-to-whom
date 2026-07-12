@@ -1,0 +1,17 @@
+schema_version: "1.0.0"
+track_id: CTW-040-national-routing-and-costs
+status: active
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/19
+objective: Build reproducible national routing and course-level burden estimates after service and demand freezes.
+inputs:
+  - data/derived/facility-registry.parquet
+  - data/derived/demand-cells.parquet
+  - protocol/statistical-analysis-plan.yaml
+outputs:
+  - data/derived/route-matrix.parquet
+  - reports/routing-costs-flow.json
+acceptance_criteria:
+  - Route engine, version, cache key, approximation state, and retrieval date are recorded.
+  - Car, public transport, ferry, walking/waiting/transfer, parking, fares, accommodation, and provider travel are explicit where applicable.
+  - National output remains blocked while service/demand registries are empty.
+  - Offline approximation is never presented as road-network evidence.

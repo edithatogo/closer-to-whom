@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "Offline approximation routes are development fallbacks, not road-network evidence; no national burden or service claim is made while upstream registries are empty.",
+  "demand_rows": 0,
+  "facility_rows": 0,
+  "generated_at": "2026-07-12T11:47:54.728684+00:00",
+  "parquet_fingerprint": "ccd97397601c3569651694e60391306575fb4fbf7d96708c7064e7832963e71c",
+  "route_engine": null,
+  "route_is_approximation": true,
+  "route_rows": 0,
+  "schema_version": "1.0.0",
+  "status": "blocked_pending_demand_and_service_registries"
+}

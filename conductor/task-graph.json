@@ -8,7 +8,7 @@
     {"id": "CTW-010-national-service-census", "status": "active", "kind": "evidence"},
     {"id": "CTW-020-public-demand-and-geography", "status": "active", "kind": "data"},
     {"id": "CTW-030-clinical-pathway-freeze", "status": "active", "kind": "clinical"},
-    {"id": "CTW-040-national-routing-and-costs", "status": "planned", "kind": "analysis"},
+    {"id": "CTW-040-national-routing-and-costs", "status": "active", "kind": "analysis"},
     {"id": "CTW-050-national-analysis", "status": "blocked", "kind": "analysis"},
     {"id": "CTW-060-publication-and-space", "status": "blocked", "kind": "release"},
     {"id": "CTW-070-microdata-voi-decision", "status": "blocked", "kind": "decision"}
