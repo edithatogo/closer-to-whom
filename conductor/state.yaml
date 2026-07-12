@@ -38,4 +38,8 @@ verification_status:
     - Bandit executable (not installed locally; security target continued by declared fallback)
 release_status:
   candidate_tag: not_created
-  reason: full release profile was not completed within the local execution window; local release gate passed
+  reason: >-
+    No release candidate was created. The historical local verification receipt passed at 89.56%
+    coverage; the latest full release-gate attempts reached coverage tests but exceeded the 60-second
+    per-test timeout in the Windows/OneDrive workspace during subprocess-backed tests. GitHub clean
+    Linux assurance gates are green.
