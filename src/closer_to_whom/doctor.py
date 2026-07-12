@@ -49,12 +49,13 @@ def run_doctor(repo: Path) -> tuple[Diagnostic, ...]:
             )
         )
     for command in ("git", "uv", "docker", "quarto", "cargo", "mojo"):
+        executable = shutil.which(command)
         diagnostics.append(
             Diagnostic(
                 f"command.{command}",
-                shutil.which(command) is not None,
+                executable is not None,
                 command == "git",
-                shutil.which(command) or "not found",
+                executable or "not found",
             )
         )
     for capability in integration_capabilities():
