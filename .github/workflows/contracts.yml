@@ -9,6 +9,10 @@ on:
       - "conductor/**"
       - "docs/publication/**"
       - "scripts/check_*"
+      - ".github/workflows/**"
+      - "Dockerfile"
+      - "pyproject.toml"
+      - "uv.lock"
   workflow_dispatch:
 permissions:
   contents: read
