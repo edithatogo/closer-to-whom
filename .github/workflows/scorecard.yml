@@ -7,8 +7,6 @@ on:
     branches: [main]
 permissions:
   contents: read
-  security-events: write
-  id-token: write
 concurrency:
   group: scorecard-${{ github.ref }}
   cancel-in-progress: true
@@ -16,15 +14,19 @@ jobs:
   analysis:
     timeout-minutes: 20
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           persist-credentials: false
-      - uses: ossf/scorecard-action@v2.4.0
+      - uses: ossf/scorecard-action@62b2cac7ed8198b15735ed49ab1e5cf35480ba46
         with:
           results_file: results.sarif
           results_format: sarif
           publish_results: true
-      - uses: github/codeql-action/upload-sarif@v3
+      - uses: github/codeql-action/upload-sarif@02c5e83432fe5497fd85b873b6c9f16a8578e1d9
         with:
           sarif_file: results.sarif

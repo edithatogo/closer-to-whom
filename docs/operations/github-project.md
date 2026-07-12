@@ -23,3 +23,8 @@ merged branches are deleted automatically.
 Dependabot security updates, secret scanning, and push protection are enabled. GitHub reports
 non-provider secret patterns and validity checks as unavailable/disabled for this repository/account;
 that residual control gap remains explicit rather than being represented as enabled.
+
+All workflow action references are pinned to verified immutable commit SHAs. Workflow permissions are
+least-privilege by default, with security-event, OIDC, and attestation permissions scoped to the jobs
+that require them. Docker/dashboard jobs do not receive package-write permission unless a future
+publishing workflow explicitly needs it.
