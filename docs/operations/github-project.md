@@ -8,7 +8,8 @@ is the GitHub coordination layer for the local Conductor control plane.
 Parent issues represent the nine Conductor workstreams, including the five original external
 blockers and the four downstream dependency-gated tracks. Native GitHub subissues represent
 their executable tasks. Pull request [#8](https://github.com/edithatogo/closer-to-whom/pull/8)
-contains the first implementation slice. The machine-readable mapping is
+contains the merged first implementation slice. Residual operational and security work is tracked
+as labelled action issues #31-#33 and included in the same Project. The machine-readable mapping is
 `conductor/github-project.yaml`.
 
 Local `conductor/state.yaml`, `conductor/task-graph.json`, track files, and receipts remain the

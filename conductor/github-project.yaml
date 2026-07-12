@@ -18,6 +18,10 @@ parent_issues:
   CTW-060-publication-and-space: 21
   CTW-070-microdata-voi-decision: 22
 implementation_pr: 8
+post_merge_actions:
+  OPS-010-python314-container: 31
+  OPS-020-node24-action-pins: 32
+  SEC-010-secret-scanning-controls: 33
 subissues:
   CTW-010-national-service-census: [9, 10]
   CTW-020-public-demand-and-geography: [11, 12]
