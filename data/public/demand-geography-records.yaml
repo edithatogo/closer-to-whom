@@ -1,0 +1,6 @@
+schema_version: "1.0.0"
+freeze_date: null
+claim_boundary: >-
+  Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
+  demand, preferences, outcomes, or travel behaviour.
+records: []

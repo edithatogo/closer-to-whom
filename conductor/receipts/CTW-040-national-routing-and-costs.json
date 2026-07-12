@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-040-national-routing-and-costs",
+  "status": "active_blocked_on_upstream_registries",
+  "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/19",
+  "materializer": "scripts/materialize_route_costs.py",
+  "report": "reports/routing-costs-flow.json",
+  "verification": "tests/unit/test_route_cost_materializer.py",
+  "claim_boundary": "The empty route matrix is a blocked software state, not evidence of travel burden."
+}

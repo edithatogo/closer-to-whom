@@ -18,21 +18,28 @@ next_tracks:
   - CTW-040-national-routing-and-costs
   - CTW-050-national-analysis
   - CTW-060-publication-and-space
+  - CTW-070-microdata-voi-decision
 external_dependencies:
-  - clinical review
-  - Māori and equity governance review
-  - public source and licence adjudication
+  - "CTW-010 / GitHub issue #2: national service census and licence adjudication"
+  - "CTW-020 / GitHub issue #3: public demand and geography dataset freeze"
+  - "CTW-030 / GitHub issue #4: clinical pathway review and freeze"
+  - "GitHub issue #5: Māori/equity governance and ethics-scope determination"
+  - "LIB-010 / GitHub issue #6: upstream ecosystem contracts"
   - local credentials for optional integrations
 verification_status:
   profile: local
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 79
+  tests: 85
   optional_not_run:
     - Docker container health check
     - Mojo canary
     - Bandit executable (not installed locally; security target continued by declared fallback)
 release_status:
   candidate_tag: not_created
-  reason: full release profile was not completed within the local execution window; local release gate passed
+  reason: >-
+    No release candidate was created. The historical local verification receipt passed at 89.56%
+    coverage; the latest full release-gate attempts reached coverage tests but exceeded the 60-second
+    per-test timeout in the Windows/OneDrive workspace during subprocess-backed tests. GitHub clean
+    Linux assurance gates are green.

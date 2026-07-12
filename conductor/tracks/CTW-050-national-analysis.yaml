@@ -1,0 +1,7 @@
+schema_version: "1.0.0"
+track_id: CTW-050-national-analysis
+status: blocked
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/20
+objective: Execute national scenario, optimisation, uncertainty, MCDA, and VOI analyses after upstream freezes.
+dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs]
+claim_boundary: No policy estimate is publication-ready without evidence, clinical, equity, ethics, licensing, and reproducibility gates.
