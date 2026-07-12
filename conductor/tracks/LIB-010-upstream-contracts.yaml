@@ -1,6 +1,7 @@
 schema_version: "1.0.0"
 track_id: LIB-010-upstream-contracts
 status: active
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/6
 objective: Move reusable functionality into the user's libraries while retaining compatibility fallbacks.
 libraries:
   - sourceright

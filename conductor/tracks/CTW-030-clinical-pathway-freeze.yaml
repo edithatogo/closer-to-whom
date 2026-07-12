@@ -1,6 +1,7 @@
 schema_version: "1.0.0"
 track_id: CTW-030-clinical-pathway-freeze
 status: planned
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/4
 objective: Freeze indication-specific IV, SC, PHESGO, community, home, and hybrid pathway contracts.
 acceptance_criteria:
   - Each pathway has medicine, formulation, indication, funding state, schedule, resource, monitoring, and setting constraints.

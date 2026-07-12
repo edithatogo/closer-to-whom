@@ -1,6 +1,7 @@
 schema_version: "1.0.0"
 track_id: CTW-020-public-demand-and-geography
 status: planned
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/3
 objective: Build aggregate expected-demand cells and within-area spatial draws from public data.
 acceptance_criteria:
   - No individual-like records are created.

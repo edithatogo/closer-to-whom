@@ -1,0 +1,8 @@
+schema_version: "1.0.0"
+freeze_date: null
+claim_boundary: >-
+  Empty adjudication template. This file does not assert that any New Zealand facility provides any
+  named treatment or formulation. Records may be added only after source capture, licence review,
+  evidence grading, and dual review where clinically material.
+records: []
+disagreements: []

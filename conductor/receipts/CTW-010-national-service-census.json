@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-010-national-service-census",
+  "status": "active_blocked_on_external_evidence",
+  "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/2",
+  "implementation": {
+    "materializer": "scripts/materialize_service_census.py",
+    "input_template": "data/public/service-census-records.yaml",
+    "flow_report": "reports/service-census-flow.json",
+    "disagreement_report": "reports/service-census-disagreements.csv",
+    "registry_output": "data/derived/facility-registry.parquet",
+    "observed_facility_count": 0
+  },
+  "verification": {
+    "command": "make check",
+    "status": "passed",
+    "tests": 81,
+    "claim_boundary": "The empty template is not evidence that no service exists; undocumented capability remains unknown."
+  },
+  "blocker": "External source capture, licence adjudication, evidence grading, and dual clinical review are still required before any facility record can be included."
+}

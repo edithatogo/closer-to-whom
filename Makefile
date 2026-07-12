@@ -82,6 +82,9 @@ demo: ## Generate deterministic synthetic nationwide demonstration outputs
 	$(UV) run python -m closer_to_whom demo --output $(OUT) --seed $(SEED)
 	$(UV) run python -m closer_to_whom verify --input-dir $(OUT) --output $(OUT)/validation.json
 
+service-census: ## Materialise the fail-closed public service census registry
+	$(UV) run python scripts/materialize_service_census.py
+
 benchmark: ## Run portable correctness-first benchmark
 	$(UV) run python benchmarks/benchmark_core.py
 
