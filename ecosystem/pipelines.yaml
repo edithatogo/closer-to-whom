@@ -1,0 +1,216 @@
+schema_version: 1.0.0
+project: closer-to-whom
+policy: repositories are composed through Arrow/Parquet, JSON/YAML, CLI, MCP, or publication manifests rather than
+  vendored code
+pipelines:
+- id: evidence-census
+  purpose: Build the national public-source service census and evidence graph
+  repositories:
+  - open_social_data
+  - healthpoint-rs
+  - dnz
+  - digitalnz
+  - pydnz
+  - unofficial_formslibrary
+  - nzmedicines
+  - fe-reader
+  - sourceright
+  - scimapping
+  - pybibx
+  - PRISMA2020
+  - PRISMA.jl
+  - prisma-flow-diagram
+  - corpus-legislation-nz
+  - corpus-nz-hansard
+  - corpus-cases-medilegal-nz
+  - nlp-policy-nz
+  - nz-covid-data
+  - nz_health_appropriations
+  - synergy-dataset
+  - Blackstone
+  exchange:
+  - Arrow IPC
+  - Parquet
+  - CSL-JSON
+  - PROV-compatible JSON
+  gate: licence, source date, evidence grade, and redistribution status required
+- id: policy-conformance
+  purpose: Represent funding, eligibility, safety, and policy assumptions as executable but reviewable contracts
+  repositories:
+  - rac-conformance
+  - rulespec-nz
+  - axiom-rules-engine
+  - policyengine-core
+  - openfisca-core
+  - openfisca-aotearoa
+  - openfisca-aotearoa-br
+  - openfisca-aotearoa-betterules
+  - nz-legislation
+  - anz-legislation
+  - UOGTO
+  - foi-o
+  - api-standards
+  - api-standards-conformance
+  - standards_check
+  - theyworkforyou-uk
+  - theyvoteforyou
+  - pombola
+  exchange:
+  - JSON Schema
+  - Arrow
+  - RuleSpec-like YAML
+  - SHACL/OWL where appropriate
+  gate: human-reviewed oracle and non-compensatory clinical constraints
+- id: decision-analysis
+  purpose: Run access, cost, equity, optimisation, adoption, capacity, uncertainty, and research-prioritisation
+    analyses
+  repositories:
+  - reimbursement-atlas
+  - mchs
+  - innovate
+  - voiage
+  - kairos
+  - mars
+  - vop_poc_nz
+  - ginsim
+  - nztaxmicrosim
+  - lifecourse
+  - CAPITA
+  - DES_tutorial_AHEA
+  - microsim_oa
+  - interpret
+  - rust4pm
+  - propel
+  - NwauCore.jl
+  - NationalWeightedActivityUnitWrapper.jl
+  - Budget_2026_MMH
+  - ee_trd
+  - lifetimes
+  - lifestyles
+  - nhra_game
+  - B4SC-
+  exchange:
+  - Arrow C Data Interface
+  - Parquet
+  - JSON receipts
+  gate: reference-oracle parity, deterministic seeds, DSA/PSA/VOI and claim-boundary checks
+- id: agent-harness
+  purpose: Maintain an auditable, machine-readable, multi-agent development and research workflow
+  repositories:
+  - conductor-next
+  - conductor-upstream-canonical
+  - codev
+  - entireio-cli
+  - linear-history
+  - ralph-codex
+  - ralph
+  - research-skills
+  - academic-research-skills
+  - co-researcher
+  - claude-scientific-skills
+  - scholarly-publishing-agents
+  - awesome-agent-skills
+  - knowledge-work-plugins-next
+  - rcagent
+  - blueprint-extension
+  - vbm-replication-extension
+  - notion-skill
+  - git-sync
+  - awesome-mcp-servers
+  - mcp-registry
+  - mcp-libre
+  - ecosystem-docs
+  - tac
+  exchange:
+  - task graph JSON
+  - NDJSON event receipts
+  - Git notes/bundles
+  - Markdown skills
+  gate: agents may propose; deterministic tools verify; human review controls publication
+- id: open-science-publication
+  purpose: Create reproducible deposits, manuscripts, diagrams, public dashboards, and archival mirrors
+  repositories:
+  - gtpcnz
+  - osf-cli-go
+  - osf-mcp-server
+  - fyi-archive
+  - arxiv-latex-template
+  - astro-polyglot
+  - merman
+  - typst
+  - wasm-typst-studio-rs
+  - Kotahi
+  - joss
+  - paper-now
+  - Academic-project-page-template
+  - unimelb-thesis-template-typst
+  - unimelb-thesis-template-latex
+  - unimelb-thesis-template-quarto
+  - Raconteur
+  - nice-graph
+  - Friction
+  - git-sync
+  - w3id.org
+  - edithatogo.r-universe.dev
+  - krita-cli
+  exchange:
+  - RO-Crate
+  - DataCite/CodeMeta
+  - Croissant
+  - Frictionless Data
+  - Quarto/Typst/LaTeX
+  gate: dry-run plans by default; checksums and publication-readiness gate before writes
+- id: oia-transparency
+  purpose: Use optional OIA requests to improve public evidence without making them a model dependency
+  repositories:
+  - fyi-cli
+  - fyi-archive
+  - alaveteli
+  - foi-o
+  exchange:
+  - request manifests
+  - public-response snapshots
+  - archive receipts
+  gate: no request submission without explicit human action
+- id: public-dissemination
+  purpose: Surface aggregate outputs and communicate limitations without creating a second source of truth
+  repositories:
+  - gtpcnz
+  - michelin-nz
+  - sm-govt-nz
+  - substack-cli-ts
+  - postiz
+  - postiz-agent
+  - mixpost
+  - pbi-cli
+  - powerbi-cli
+  - payload
+  - growth-chart-app
+  - bp-centiles-app
+  - cardiac-risk-app
+  - diabetes-monograph-app
+  - disease-monograph-app
+  exchange:
+  - precomputed aggregate Arrow/CSV
+  - static assets
+  - publication manifests
+  gate: dashboard and social outputs generated only from frozen aggregate artefacts
+- id: optional-local-ai
+  purpose: Support private local drafting and agent workflows while keeping evidence and decisions deterministic
+  repositories:
+  - authentext
+  - llama.cpp
+  - ollama
+  - BitNet
+  - hermes-training
+  - hermes-gemma-lab
+  - hermes-lfm2-lab
+  - hermes-ollama-pack
+  - models_lang
+  - feynman
+  - selkie
+  exchange:
+  - local prompts
+  - structured outputs
+  - agent receipts
+  gate: not a factual source, not an autonomous policy decision-maker, and not required for reproduction

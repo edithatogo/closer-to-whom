@@ -1,0 +1,2667 @@
+schema_version: 1.0.0
+owner: edithatogo
+snapshot_date: '2026-07-11'
+scope: all public repositories visible on the GitHub profile at snapshot time
+public_repository_count: 165
+selection_policy:
+  principle: include through typed optional interfaces, public data, method reuse, or workflow references; avoid
+    dependency bloat and unverified APIs
+  hard_runtime_dependencies_from_owner_repositories: 0
+  fork_policy: forks may inform conformance or methods but are not required runtime dependencies
+  network_policy: registry validation is offline; metadata refresh is scheduled and non-blocking
+  licence_policy: public visibility does not imply redistribution permission
+  review_granularity: all repositories individually catalogued; core repositories receive typed adapters and issue
+    tracks; strong/supporting repositories receive bounded workflow or method roles
+  materialisation_policy: no automatic cloning; local workspace planning is explicit, shallow, non-executing, and
+    opt-in
+  fork_source: GitHub public type=fork filter at the frozen snapshot date
+  pipeline_coverage: every selected repository must belong to at least one bounded pipeline
+  security_policy: external repositories are never imported, built, or executed automatically
+repositories:
+- ordinal: 1
+  name: fyi-cli
+  repository: https://github.com/edithatogo/fyi-cli
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - cli_adapter
+  - mcp_adapter
+  - oia_workflow
+  role: Optional, human-authorised CLI/MCP workflow for preparing and tracking public OIA requests; never a data
+    dependency.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: adapter_or_track_present
+- ordinal: 2
+  name: fyi-archive
+  repository: https://github.com/edithatogo/fyi-archive
+  ownership: original_or_maintained
+  category: publication
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - cli_adapter
+  - publication_target
+  - evidence_archive
+  role: Checksum-addressed archive and evidence receipt target for public OIA responses and released source material.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_adapter_added
+- ordinal: 3
+  name: open_social_data
+  repository: https://github.com/edithatogo/open_social_data
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - arrow_contract
+  - data_source
+  - cli_adapter
+  role: Public-source catalogue, acquisition receipts, licence state, provenance, and Arrow/Parquet ingestion contracts.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: adapter_or_track_present
+- ordinal: 4
+  name: alaveteli
+  repository: https://github.com/edithatogo/alaveteli
+  ownership: fork
+  category: policy_rules
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: catalogued_for_optional_use
+- ordinal: 5
+  name: osf-cli-go
+  repository: https://github.com/edithatogo/osf-cli-go
+  ownership: original_or_maintained
+  category: publication
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - cli_adapter
+  - publication_target
+  - open_science_deposit
+  role: Dry-run-first Open Science Framework deposit, registration, metadata, and release-asset automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_adapter_added
+- ordinal: 6
+  name: reimbursement-atlas
+  repository: https://github.com/edithatogo/reimbursement-atlas
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - arrow_contract
+  - cost_source
+  - evidence_readiness
+  role: Dated travel-cost, reimbursement, evidence-readiness, and perspective contracts for patient, payer, provider,
+    and societal costing.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_adapter_added
+- ordinal: 7
+  name: rac-conformance
+  repository: https://github.com/edithatogo/rac-conformance
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - conformance_contract
+  - policy_interchange
+  - oracle_harness
+  role: Independent rules-as-code policy interchange, oracle fixtures, and conformance testing for funding and eligibility
+    assumptions.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_adapter_added
+- ordinal: 8
+  name: rulespec-nz
+  repository: https://github.com/edithatogo/rulespec-nz
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 9
+  name: sm-govt-nz
+  repository: https://github.com/edithatogo/sm-govt-nz
+  ownership: original_or_maintained
+  category: dissemination
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 10
+  name: policyengine-core
+  repository: https://github.com/edithatogo/policyengine-core
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 11
+  name: openfisca-aotearoa-br
+  repository: https://github.com/edithatogo/openfisca-aotearoa-br
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 12
+  name: innovate
+  repository: https://github.com/edithatogo/innovate
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - python_adapter
+  - arrow_contract
+  - adoption_model
+  role: Aggregate adoption and diffusion trajectories for subcutaneous, community, home, and hybrid delivery scenarios.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 13
+  name: voiage
+  repository: https://github.com/edithatogo/voiage
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - python_adapter
+  - value_of_information
+  role: EVPI, EVPPI, EVSI, ENBS, structural uncertainty, and research-design value-of-information methods.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 14
+  name: gtpcnz
+  repository: https://github.com/edithatogo/gtpcnz
+  ownership: original_or_maintained
+  category: dissemination
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - dashboard_pattern
+  - quarto_pattern
+  - claim_boundary_pattern
+  role: Reusable public-data health-policy model-lab architecture, Quarto publication pattern, dashboard, claim
+    boundaries, and deployment workflow.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 15
+  name: healthpoint-rs
+  repository: https://github.com/edithatogo/healthpoint-rs
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - cli_adapter
+  - mcp_adapter
+  - arrow_contract
+  - licensed_data_source
+  role: Optional licensed Healthpoint FHIR discovery through fail-closed Rust CLI/MCP/Arrow contracts; never required
+    for the open pipeline.
+  guardrails:
+  - fail_closed_licence_and_redistribution
+  - dry_run_and_explicit_execution_only
+  local_status: adapter_or_track_present
+- ordinal: 16
+  name: dnz
+  repository: https://github.com/edithatogo/dnz
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 17
+  name: UOGTO
+  repository: https://github.com/edithatogo/UOGTO
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - ontology
+  - knowledge_graph
+  - mcda_semantics
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 18
+  name: nlp-policy-nz
+  repository: https://github.com/edithatogo/nlp-policy-nz
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 19
+  name: awesome-mcp-servers
+  repository: https://github.com/edithatogo/awesome-mcp-servers
+  ownership: fork
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - mcp_discovery_reference
+  - agent_protocol_reference
+  role: Curated MCP ecosystem reference for discovering optional agent interfaces without making them runtime requirements.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - curated_list_not_trust_or_security_attestation
+  local_status: catalogued_for_optional_use
+- ordinal: 20
+  name: foi-o
+  repository: https://github.com/edithatogo/foi-o
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - ontology
+  - oia_semantics
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 21
+  name: kairos
+  repository: https://github.com/edithatogo/kairos
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - arrow_contract
+  - rust_backend
+  - des_abm
+  role: Deterministic DES/ABM and implied-capacity simulation backend once defensible public operational parameters
+    exist.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 22
+  name: openfisca-aotearoa-betterules
+  repository: https://github.com/edithatogo/openfisca-aotearoa-betterules
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 23
+  name: openfisca-core
+  repository: https://github.com/edithatogo/openfisca-core
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 24
+  name: entireio-cli
+  repository: https://github.com/edithatogo/entireio-cli
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_session_receipt
+  - git_integration
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 25
+  name: git-sync
+  repository: https://github.com/edithatogo/git-sync
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - repository_mirroring
+  - publication_target
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 26
+  name: standards_check
+  repository: https://github.com/edithatogo/standards_check
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 27
+  name: payload
+  repository: https://github.com/edithatogo/payload
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: catalogued_for_optional_use
+- ordinal: 28
+  name: arxiv-latex-template
+  repository: https://github.com/edithatogo/arxiv-latex-template
+  ownership: original_or_maintained
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 29
+  name: anz-legislation
+  repository: https://github.com/edithatogo/anz-legislation
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - cli_adapter
+  - mcp_adapter
+  - policy_source
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 30
+  name: authentext
+  repository: https://github.com/edithatogo/authentext
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - agent_skill
+  - claim_boundary_lint
+  role: Optional prose-quality and claim-boundary linting for manuscripts and dashboards; never an evidence source.
+  guardrails:
+  - never_evidence_source_or_autonomous_policy_decider
+  local_status: adapter_or_track_present
+- ordinal: 31
+  name: corpus-nz-hansard
+  repository: https://github.com/edithatogo/corpus-nz-hansard
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - parquet_contract
+  - doi_snapshot
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 32
+  name: vcpkg
+  repository: https://github.com/edithatogo/vcpkg
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 33
+  name: postiz
+  repository: https://github.com/edithatogo/postiz
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: catalogued_for_optional_use
+- ordinal: 34
+  name: pacx
+  repository: https://github.com/edithatogo/pacx
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 35
+  name: microsim_oa
+  repository: https://github.com/edithatogo/microsim_oa
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 36
+  name: .github
+  repository: https://github.com/edithatogo/.github
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: reference
+  selected_for_ecosystem: false
+  dependency_policy: reference_only
+  integration_modes:
+  - methodological_reference
+  role: Potentially informative, but no stable project-specific interface is justified at this stage.
+  guardrails:
+  - no_runtime_dependency
+  local_status: catalogued_only
+- ordinal: 37
+  name: corpus-cases-medilegal-nz
+  repository: https://github.com/edithatogo/corpus-cases-medilegal-nz
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 38
+  name: digitalnz
+  repository: https://github.com/edithatogo/digitalnz
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 39
+  name: rust4pm
+  repository: https://github.com/edithatogo/rust4pm
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 40
+  name: propel
+  repository: https://github.com/edithatogo/propel
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 41
+  name: substack-cli-ts
+  repository: https://github.com/edithatogo/substack-cli-ts
+  ownership: original_or_maintained
+  category: dissemination
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 42
+  name: axiom-rules-engine
+  repository: https://github.com/edithatogo/axiom-rules-engine
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 43
+  name: sourceright
+  repository: https://github.com/edithatogo/sourceright
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - cli_adapter
+  - mcp_adapter
+  - provenance_contract
+  role: Claim–source provenance, evidence grading, citation verification, licence state, and Arrow evidence-graph
+    interchange.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: adapter_or_track_present
+- ordinal: 44
+  name: mchs
+  repository: https://github.com/edithatogo/mchs
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - python_adapter
+  - arrow_contract
+  - resource_costing
+  role: Health-service resource, staffing, activity, and cost-envelope methods supporting implied capacity rather
+    than claims about observed capacity.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 45
+  name: corpus-legislation-nz
+  repository: https://github.com/edithatogo/corpus-legislation-nz
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - parquet_contract
+  - doi_snapshot
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 46
+  name: hathi-nz
+  repository: https://github.com/edithatogo/hathi-nz
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: reference
+  selected_for_ecosystem: false
+  dependency_policy: reference_only
+  integration_modes:
+  - methodological_reference
+  role: Potentially informative, but no stable project-specific interface is justified at this stage.
+  guardrails:
+  - no_runtime_dependency
+  local_status: catalogued_only
+- ordinal: 47
+  name: michelin-nz
+  repository: https://github.com/edithatogo/michelin-nz
+  ownership: original_or_maintained
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 48
+  name: unofficial_formslibrary
+  repository: https://github.com/edithatogo/unofficial_formslibrary
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - service_evidence_source
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 49
+  name: apfs-rs
+  repository: https://github.com/edithatogo/apfs-rs
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 50
+  name: fe-reader
+  repository: https://github.com/edithatogo/fe-reader
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 51
+  name: api-standards
+  repository: https://github.com/edithatogo/api-standards
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - security_standard
+  - api_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 52
+  name: nz-legislation
+  repository: https://github.com/edithatogo/nz-legislation
+  ownership: original_or_maintained
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - cli_adapter
+  - mcp_adapter
+  - policy_source
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 53
+  name: merman
+  repository: https://github.com/edithatogo/merman
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 54
+  name: astro-polyglot
+  repository: https://github.com/edithatogo/astro-polyglot
+  ownership: original_or_maintained
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 55
+  name: hermes-training
+  repository: https://github.com/edithatogo/hermes-training
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 56
+  name: hermes-gemma-lab
+  repository: https://github.com/edithatogo/hermes-gemma-lab
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 57
+  name: pybibx
+  repository: https://github.com/edithatogo/pybibx
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 58
+  name: renovate-config
+  repository: https://github.com/edithatogo/renovate-config
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: reference
+  selected_for_ecosystem: false
+  dependency_policy: reference_only
+  integration_modes:
+  - methodological_reference
+  role: Potentially informative, but no stable project-specific interface is justified at this stage.
+  guardrails:
+  - no_runtime_dependency
+  local_status: catalogued_only
+- ordinal: 59
+  name: hpo-translations
+  repository: https://github.com/edithatogo/hpo-translations
+  ownership: fork
+  category: domain_reference
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 60
+  name: codev
+  repository: https://github.com/edithatogo/codev
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - context_management
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 61
+  name: Kotahi
+  repository: https://github.com/edithatogo/Kotahi
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 62
+  name: theyworkforyou-uk
+  repository: https://github.com/edithatogo/theyworkforyou-uk
+  ownership: fork
+  category: policy_rules
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - public_accountability_model_reference
+  - policy_provenance
+  role: Public-accountability and parliamentary-data model reference for contextual evidence trails.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - uk_model_not_nz_policy_truth
+  local_status: catalogued_for_optional_use
+- ordinal: 63
+  name: w3id.org
+  repository: https://github.com/edithatogo/w3id.org
+  ownership: fork
+  category: platform_infrastructure
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - persistent_identifier_reference
+  - semantic_web_publication
+  role: Persistent-identifier and semantic-web publication reference for stable research artefact identifiers.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - publication_reference_only
+  local_status: catalogued_for_optional_use
+- ordinal: 64
+  name: human-phenotype-ontology
+  repository: https://github.com/edithatogo/human-phenotype-ontology
+  ownership: fork
+  category: domain_reference
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 65
+  name: openfisca-aotearoa
+  repository: https://github.com/edithatogo/openfisca-aotearoa
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - policy_source
+  - rules_engine
+  - conformance_contract
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 66
+  name: theyvoteforyou
+  repository: https://github.com/edithatogo/theyvoteforyou
+  ownership: fork
+  category: policy_rules
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - public_accountability_model_reference
+  - policy_provenance
+  role: Public-accountability and policy-provenance model reference for contextual evidence trails.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - not_a_health_policy_oracle
+  local_status: catalogued_for_optional_use
+- ordinal: 67
+  name: joss
+  repository: https://github.com/edithatogo/joss
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 68
+  name: Extras
+  repository: https://github.com/edithatogo/Extras
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 69
+  name: mars
+  repository: https://github.com/edithatogo/mars
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - python_adapter
+  - surrogate_model
+  role: Transparent surrogate modelling and diagnostics for expensive PSA, EVPPI, and optimisation loops.
+  guardrails:
+  - optional_and_contract_first
+  local_status: adapter_or_track_present
+- ordinal: 70
+  name: llama.cpp
+  repository: https://github.com/edithatogo/llama.cpp
+  ownership: fork
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 71
+  name: ollama
+  repository: https://github.com/edithatogo/ollama
+  ownership: fork
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 72
+  name: staged-recipes
+  repository: https://github.com/edithatogo/staged-recipes
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 73
+  name: f7fztfn9vz
+  repository: https://github.com/edithatogo/f7fztfn9vz
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 74
+  name: conan-center-index
+  repository: https://github.com/edithatogo/conan-center-index
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 75
+  name: mcp-registry
+  repository: https://github.com/edithatogo/mcp-registry
+  ownership: fork
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - mcp_registry_reference
+  - agent_protocol_reference
+  role: MCP registry reference for machine-readable optional-tool discovery and capability negotiation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - discovery_only_tools_remain_fail_closed
+  local_status: catalogued_for_optional_use
+- ordinal: 76
+  name: typst
+  repository: https://github.com/edithatogo/typst
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 77
+  name: conductor-upstream-canonical
+  repository: https://github.com/edithatogo/conductor-upstream-canonical
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 78
+  name: models_lang
+  repository: https://github.com/edithatogo/models_lang
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 79
+  name: Budget_2026_MMH
+  repository: https://github.com/edithatogo/Budget_2026_MMH
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 80
+  name: hermes-lfm2-lab
+  repository: https://github.com/edithatogo/hermes-lfm2-lab
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 81
+  name: NationalWeightedActivityUnitWrapper.jl
+  repository: https://github.com/edithatogo/NationalWeightedActivityUnitWrapper.jl
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 82
+  name: hermes-ollama-pack
+  repository: https://github.com/edithatogo/hermes-ollama-pack
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 83
+  name: homebrew-mchs
+  repository: https://github.com/edithatogo/homebrew-mchs
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 84
+  name: NwauCore.jl
+  repository: https://github.com/edithatogo/NwauCore.jl
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 85
+  name: mchs-swift
+  repository: https://github.com/edithatogo/mchs-swift
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 86
+  name: api-standards-conformance
+  repository: https://github.com/edithatogo/api-standards-conformance
+  ownership: fork
+  category: policy_rules
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - conformance_contract
+  - security_standard
+  role: Policy, legislation, rules-as-code, ontology, API, or conformance support.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 87
+  name: BitNet
+  repository: https://github.com/edithatogo/BitNet
+  ownership: fork
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 88
+  name: nzmedicines
+  repository: https://github.com/edithatogo/nzmedicines
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - clinical_evidence_source
+  - policy_source
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 89
+  name: lifecourse
+  repository: https://github.com/edithatogo/lifecourse
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 90
+  name: ecosystem-docs
+  repository: https://github.com/edithatogo/ecosystem-docs
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - ecosystem_documentation_pattern
+  - agent_read_order
+  role: Cross-repository documentation and agent-navigation pattern for the machine-readable project ecosystem.
+  guardrails:
+  - optional_and_contract_first
+  - documentation_pattern_only
+  local_status: catalogued_for_optional_use
+- ordinal: 91
+  name: ollama-old
+  repository: https://github.com/edithatogo/ollama-old
+  ownership: original_or_maintained
+  category: local_ai
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: 'Excluded from active composition: obsolete test copy superseded by the maintained ollama repository; retaining
+    it would duplicate an optional local-AI role without research value.'
+  guardrails:
+  - do_not_install_or_execute
+  local_status: audited_and_excluded
+- ordinal: 92
+  name: leed_pdf_viewer
+  repository: https://github.com/edithatogo/leed_pdf_viewer
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 93
+  name: spack-packages
+  repository: https://github.com/edithatogo/spack-packages
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 94
+  name: easybuild-easyconfigs
+  repository: https://github.com/edithatogo/easybuild-easyconfigs
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 95
+  name: edithatogo.r-universe.dev
+  repository: https://github.com/edithatogo/edithatogo.r-universe.dev
+  ownership: original_or_maintained
+  category: platform_infrastructure
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - r_package_distribution_reference
+  - publication_target
+  role: Optional R-universe distribution reference for any future R companion package or reproducibility artefacts.
+  guardrails:
+  - optional_and_contract_first
+  - no_package_publication_without_human_release_gate
+  local_status: catalogued_for_optional_use
+- ordinal: 96
+  name: spack
+  repository: https://github.com/edithatogo/spack
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 97
+  name: feynman
+  repository: https://github.com/edithatogo/feynman
+  ownership: fork
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 98
+  name: nice-graph
+  repository: https://github.com/edithatogo/nice-graph
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 99
+  name: academic-research-skills
+  repository: https://github.com/edithatogo/academic-research-skills
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 100
+  name: selkie
+  repository: https://github.com/edithatogo/selkie
+  ownership: fork
+  category: local_ai
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_runtime
+  - optional_cli
+  role: Optional local model or agent capability; never a source of truth.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - never_evidence_source_or_autonomous_policy_decider
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 101
+  name: postiz-agent
+  repository: https://github.com/edithatogo/postiz-agent
+  ownership: fork
+  category: dissemination
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 102
+  name: pbi-cli
+  repository: https://github.com/edithatogo/pbi-cli
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 103
+  name: krita-cli
+  repository: https://github.com/edithatogo/krita-cli
+  ownership: fork
+  category: publication
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - figure_workflow_reference
+  - cli_adapter
+  role: Optional, reproducible figure-asset workflow reference for publication graphics; never required for analysis.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 104
+  name: tac
+  repository: https://github.com/edithatogo/tac
+  ownership: fork
+  category: platform_infrastructure
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - governance_reference
+  - workflow_reference
+  role: Open-source project-governance and technical-advisory workflow reference for the research-software harness.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - workflow_reference_only
+  local_status: catalogued_for_optional_use
+- ordinal: 105
+  name: rquickshare
+  repository: https://github.com/edithatogo/rquickshare
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 106
+  name: scholarly-publishing-agents
+  repository: https://github.com/edithatogo/scholarly-publishing-agents
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 107
+  name: mixpost
+  repository: https://github.com/edithatogo/mixpost
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 108
+  name: ginsim
+  repository: https://github.com/edithatogo/ginsim
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - jax_reference
+  - psa_harness
+  - policy_economics
+  role: JAX/XLA numerical and simulation reference harness for accelerated probabilistic and policy-economic computation.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_adapter_added
+- ordinal: 109
+  name: conductor-next
+  repository: https://github.com/edithatogo/conductor-next
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - agent_protocol
+  - task_graph
+  - machine_receipts
+  role: Machine-readable cross-repository planning, dependency graphs, agent receipts, verification gates, and handover
+    orchestration.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_adapter_added
+- ordinal: 110
+  name: ANE
+  repository: https://github.com/edithatogo/ANE
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: 'Excluded from active composition: reverse-engineered private Apple APIs and an explicit non-production
+    status create avoidable security, stability, and reproducibility risk.'
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - do_not_install_or_execute
+  local_status: audited_and_excluded
+- ordinal: 111
+  name: nhra_game
+  repository: https://github.com/edithatogo/nhra_game
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - decision_model_reference
+  - game_theory_reference
+  - harness_pattern
+  role: NZ health-resource-allocation and game-theoretic decision-model reference, including reproducible harness
+    and agent-oriented research patterns.
+  guardrails:
+  - optional_and_contract_first
+  - methods_reference_not_policy_oracle
+  local_status: ecosystem_contract_added
+- ordinal: 112
+  name: rcagent
+  repository: https://github.com/edithatogo/rcagent
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 113
+  name: notion-skill
+  repository: https://github.com/edithatogo/notion-skill
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 114
+  name: research-skills
+  repository: https://github.com/edithatogo/research-skills
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 115
+  name: knowledge-work-plugins-next
+  repository: https://github.com/edithatogo/knowledge-work-plugins-next
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 116
+  name: co-researcher
+  repository: https://github.com/edithatogo/co-researcher
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 117
+  name: linear-history
+  repository: https://github.com/edithatogo/linear-history
+  ownership: original_or_maintained
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - git_integration
+  - provenance_contract
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 118
+  name: awesome-agent-skills
+  repository: https://github.com/edithatogo/awesome-agent-skills
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 119
+  name: claude-scientific-skills
+  repository: https://github.com/edithatogo/claude-scientific-skills
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 120
+  name: ralph
+  repository: https://github.com/edithatogo/ralph
+  ownership: fork
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 121
+  name: ralph-codex
+  repository: https://github.com/edithatogo/ralph-codex
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - task_execution
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 122
+  name: vbm-replication-extension
+  repository: https://github.com/edithatogo/vbm-replication-extension
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 123
+  name: osf-mcp-server
+  repository: https://github.com/edithatogo/osf-mcp-server
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - mcp_adapter
+  - publication_target
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 124
+  name: blueprint-extension
+  repository: https://github.com/edithatogo/blueprint-extension
+  ownership: fork
+  category: agent_harness
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - agent_protocol
+  - workflow_reuse
+  - machine_receipts
+  role: Machine-oriented planning, agent execution, task graphs, or reproducibility receipts.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 125
+  name: mcp-libre
+  repository: https://github.com/edithatogo/mcp-libre
+  ownership: fork
+  category: agent_harness
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - document_tooling_reference
+  - mcp_adapter_reference
+  role: Optional MCP document-tooling reference for local publication workflows; not used for spreadsheet analysis
+    or evidence.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - local_tooling_only_no_evidence_claims
+  local_status: catalogued_for_optional_use
+- ordinal: 126
+  name: vop_poc_nz
+  repository: https://github.com/edithatogo/vop_poc_nz
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: core
+  selected_for_ecosystem: true
+  dependency_policy: optional_adapter
+  integration_modes:
+  - python_adapter
+  - distributional_economics
+  - perspective_profiles
+  role: Value-of-perspective, distributional economics, and explicit decision-maker viewpoint profiles for MCDA
+    and VOI.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_adapter_added
+- ordinal: 127
+  name: ee_trd
+  repository: https://github.com/edithatogo/ee_trd
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 128
+  name: wasm-typst-studio-rs
+  repository: https://github.com/edithatogo/wasm-typst-studio-rs
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 129
+  name: unimelb-thesis-template-typst
+  repository: https://github.com/edithatogo/unimelb-thesis-template-typst
+  ownership: original_or_maintained
+  category: publication
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 130
+  name: packages
+  repository: https://github.com/edithatogo/packages
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 131
+  name: unimelb-thesis-template-latex
+  repository: https://github.com/edithatogo/unimelb-thesis-template-latex
+  ownership: original_or_maintained
+  category: publication
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 132
+  name: nztaxmicrosim
+  repository: https://github.com/edithatogo/nztaxmicrosim
+  ownership: original_or_maintained
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 133
+  name: nz-covid-data
+  repository: https://github.com/edithatogo/nz-covid-data
+  ownership: fork
+  category: data_evidence
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - nz_public_data_method_reference
+  - data_pipeline_reference
+  role: NZ public-data acquisition and time-series provenance reference; not a cancer-service data source.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - method_reference_not_domain_evidence
+  local_status: catalogued_for_optional_use
+- ordinal: 134
+  name: unimelb-thesis-template-quarto
+  repository: https://github.com/edithatogo/unimelb-thesis-template-quarto
+  ownership: original_or_maintained
+  category: publication
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - dry_run_and_explicit_execution_only
+  local_status: catalogued_for_optional_use
+- ordinal: 135
+  name: scimapping
+  repository: https://github.com/edithatogo/scimapping
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - evidence_map
+  - method_reuse
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 136
+  name: growth-chart-app
+  repository: https://github.com/edithatogo/growth-chart-app
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 137
+  name: nz_health_appropriations
+  repository: https://github.com/edithatogo/nz_health_appropriations
+  ownership: original_or_maintained
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - public_finance_source
+  - time_series_source
+  - evidence_receipt
+  role: Public NZ health appropriation and funding-series source for contextual and infrastructure scenario analysis.
+  guardrails:
+  - public_source_only
+  - source_date_and_definition_required
+  local_status: ecosystem_contract_added
+- ordinal: 138
+  name: tweepy
+  repository: https://github.com/edithatogo/tweepy
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 139
+  name: client-py
+  repository: https://github.com/edithatogo/client-py
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 140
+  name: synergy-dataset
+  repository: https://github.com/edithatogo/synergy-dataset
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - systematic_review_benchmark
+  - screening_workflow_reference
+  - data_source
+  role: Systematic-review screening benchmark and workflow reference for the living public-source cancer-service
+    census.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - benchmark_only_no_corpus_redistribution_without_licence
+  local_status: ecosystem_contract_added
+- ordinal: 141
+  name: DES_tutorial_AHEA
+  repository: https://github.com/edithatogo/DES_tutorial_AHEA
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 142
+  name: client-js
+  repository: https://github.com/edithatogo/client-js
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 143
+  name: B4SC-
+  repository: https://github.com/edithatogo/B4SC-
+  ownership: fork
+  category: core_analysis
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - nz_small_area_method_reference
+  - historical_geography_reference
+  - method_reuse
+  role: Historical NZ small-area population and DHB-mapping method reference for aggregate spatial allocation and
+    validation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - historical_boundaries_not_current_service_truth
+  local_status: catalogued_for_optional_use
+- ordinal: 144
+  name: PRISMA2020
+  repository: https://github.com/edithatogo/PRISMA2020
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - reporting_standard
+  - workflow_reference
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 145
+  name: prisma-flow-diagram
+  repository: https://github.com/edithatogo/prisma-flow-diagram
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_asset
+  - reporting_standard
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 146
+  name: Academic-project-page-template
+  repository: https://github.com/edithatogo/Academic-project-page-template
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 147
+  name: todo.txt
+  repository: https://github.com/edithatogo/todo.txt
+  ownership: fork
+  category: platform_infrastructure
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: not_integrated
+- ordinal: 148
+  name: PRISMA.jl
+  repository: https://github.com/edithatogo/PRISMA.jl
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - method_reuse
+  - reporting_standard
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 149
+  name: Blackstone
+  repository: https://github.com/edithatogo/Blackstone
+  ownership: fork
+  category: data_evidence
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - legal_nlp_reference
+  - evidence_extraction_reference
+  role: Optional legal-text NLP method reference for public policy and service-document extraction; not a factual
+    source.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - model_output_requires_source_verification
+  local_status: catalogued_for_optional_use
+- ordinal: 150
+  name: lifetimes
+  repository: https://github.com/edithatogo/lifetimes
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 151
+  name: pydnz
+  repository: https://github.com/edithatogo/pydnz
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 152
+  name: bp-centiles-app
+  repository: https://github.com/edithatogo/bp-centiles-app
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 153
+  name: cardiac-risk-app
+  repository: https://github.com/edithatogo/cardiac-risk-app
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 154
+  name: powerbi-cli
+  repository: https://github.com/edithatogo/powerbi-cli
+  ownership: fork
+  category: dissemination
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 155
+  name: Raconteur
+  repository: https://github.com/edithatogo/Raconteur
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 156
+  name: Friction
+  repository: https://github.com/edithatogo/Friction
+  ownership: fork
+  category: data_evidence
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - data_source
+  - arrow_contract
+  - cli_adapter
+  role: Public evidence, source acquisition, provenance, or machine-readable dataset input.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added
+- ordinal: 157
+  name: diabetes-monograph-app
+  repository: https://github.com/edithatogo/diabetes-monograph-app
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 158
+  name: CAPITA
+  repository: https://github.com/edithatogo/CAPITA
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: ecosystem_contract_added
+- ordinal: 159
+  name: unisa-tbi
+  repository: https://github.com/edithatogo/unisa-tbi
+  ownership: original_or_maintained
+  category: domain_reference
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 160
+  name: pombola
+  repository: https://github.com/edithatogo/pombola
+  ownership: fork
+  category: policy_rules
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - public_institution_data_model_reference
+  - policy_source_reference
+  role: Public-institution and representative data-model reference for policy provenance and OIA context.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - not_a_health_policy_oracle
+  local_status: catalogued_for_optional_use
+- ordinal: 161
+  name: interpret
+  repository: https://github.com/edithatogo/interpret
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 162
+  name: CFTRDataTransfer
+  repository: https://github.com/edithatogo/CFTRDataTransfer
+  ownership: original_or_maintained
+  category: domain_reference
+  suitability: excluded
+  selected_for_ecosystem: false
+  dependency_policy: excluded
+  integration_modes:
+  - none
+  role: Insufficient direct relevance, superseded tooling, restricted-data orientation, or general build infrastructure;
+    retained in the audit for completeness only.
+  guardrails:
+  - no_runtime_dependency
+  local_status: not_integrated
+- ordinal: 163
+  name: lifestyles
+  repository: https://github.com/edithatogo/lifestyles
+  ownership: fork
+  category: core_analysis
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - arrow_contract
+  - python_adapter
+  - method_reuse
+  role: Reusable decision-science, simulation, costing, or optimisation capability.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  local_status: ecosystem_contract_added
+- ordinal: 164
+  name: disease-monograph-app
+  repository: https://github.com/edithatogo/disease-monograph-app
+  ownership: fork
+  category: dissemination
+  suitability: supporting
+  selected_for_ecosystem: true
+  dependency_policy: workflow_reference
+  integration_modes:
+  - dashboard_pattern
+  - publication_target
+  role: Dashboard, public communication, or policy-facing dissemination pattern.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - optional_and_contract_first
+  local_status: catalogued_for_optional_use
+- ordinal: 165
+  name: paper-now
+  repository: https://github.com/edithatogo/paper-now
+  ownership: fork
+  category: publication
+  suitability: strong
+  selected_for_ecosystem: true
+  dependency_policy: optional_or_source
+  integration_modes:
+  - publication_target
+  - cli_adapter
+  - workflow_reuse
+  role: Open-science deposit, systematic-review reporting, manuscript, or publication automation.
+  guardrails:
+  - do_not_pin_fork_as_required_runtime_dependency
+  - dry_run_and_explicit_execution_only
+  local_status: ecosystem_contract_added

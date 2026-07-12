@@ -1,0 +1,88 @@
+schema_version: 1.0.0
+execution_policy:
+  default: discover_and_plan_only
+  network: disabled unless explicitly enabled by a human
+  writes: dry-run unless an allow-write flag and destination allowlist are both supplied
+  shell: never invoke through a shell
+  receipts: every attempted command emits argv, executable path, version probe, exit status, and output hashes
+tools:
+- repository: fyi-cli
+  executables:
+  - fyi
+  - fyi-cli
+  required: false
+  risk: external_write
+  purpose: prepare or manage optional OIA work
+- repository: fyi-archive
+  executables:
+  - fyi-archive
+  required: false
+  risk: external_write
+  purpose: archive public OIA evidence
+- repository: osf-cli-go
+  executables:
+  - osf
+  required: false
+  risk: external_write
+  purpose: prepare OSF deposit or registration
+- repository: healthpoint-rs
+  executables:
+  - healthpoint-rs
+  - healthpoint
+  required: false
+  risk: licensed_read
+  purpose: licensed Healthpoint discovery
+- repository: nz-legislation
+  executables:
+  - nz-legislation
+  required: false
+  risk: network_read
+  purpose: retrieve current NZ legislation evidence
+- repository: anz-legislation
+  executables:
+  - anz-legislation
+  required: false
+  risk: network_read
+  purpose: retrieve ANZ legislation evidence
+- repository: sourceright
+  executables:
+  - sourceright
+  required: false
+  risk: local_read
+  purpose: verify claim-source links
+- repository: entireio-cli
+  executables:
+  - entire
+  required: false
+  risk: git_metadata_write
+  purpose: capture agent-development sessions
+- repository: git-sync
+  executables:
+  - git-sync
+  required: false
+  risk: external_write
+  purpose: mirror release refs
+- repository: typst
+  executables:
+  - typst
+  required: false
+  risk: local_write
+  purpose: render publication assets
+- repository: merman
+  executables:
+  - merman
+  required: false
+  risk: local_write
+  purpose: render Mermaid diagrams
+- repository: pbi-cli
+  executables:
+  - pbi
+  required: false
+  risk: external_write
+  purpose: optional Power BI export
+- repository: powerbi-cli
+  executables:
+  - powerbi-cli
+  required: false
+  risk: external_write
+  purpose: optional Power BI automation

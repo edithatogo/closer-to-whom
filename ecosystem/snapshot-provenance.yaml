@@ -1,0 +1,29 @@
+schema_version: 1.0.0
+owner: edithatogo
+snapshot_date: '2026-07-11'
+visibility: public_only
+expected_repository_count: 165
+method:
+  primary: Manual and machine-assisted review of all profile repository pages in last-updated order.
+  future_refresh: GitHub REST metadata drift job; refresh does not automatically alter suitability decisions.
+profile_pages:
+- https://github.com/edithatogo?tab=repositories
+- https://github.com/edithatogo?tab=repositories&page=2
+- https://github.com/edithatogo?tab=repositories&page=3
+- https://github.com/edithatogo?tab=repositories&page=4
+- https://github.com/edithatogo?tab=repositories&page=5
+- https://github.com/edithatogo?tab=repositories&page=6
+limitations:
+- Private, organisation-only, deleted, disabled, or otherwise non-public repositories are outside scope.
+- A public repository description is not proof of API stability, correctness, maintenance, security, or licence
+  compatibility.
+- Suitability is a project-specific engineering judgement recorded separately from repository metadata.
+- The frozen profile order or fork state may change after the snapshot; scheduled checks report metadata drift only.
+- Fork classification follows the GitHub public fork filter at snapshot time and does not imply endorsement of upstream
+  code.
+expected_fork_count: 96
+fork_profile_pages:
+- https://github.com/edithatogo?tab=repositories&type=fork
+- https://github.com/edithatogo?page=2&tab=repositories&type=fork
+- https://github.com/edithatogo?page=3&tab=repositories&type=fork
+- https://github.com/edithatogo?page=4&tab=repositories&type=fork

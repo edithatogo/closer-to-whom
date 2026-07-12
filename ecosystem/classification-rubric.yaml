@@ -1,0 +1,44 @@
+schema_version: 1.0.0
+purpose: Make inclusion decisions reviewable. Inclusion means a bounded role in the wider research ecosystem; it
+  never means an automatic import, clone, runtime dependency, endorsement, or redistribution permission.
+tiers:
+  core:
+    definition: Directly reusable capability with a typed local adapter, issue track, and verification oracle.
+    required_controls:
+    - typed_contract
+    - local_fallback
+    - upstream_issue
+    - automated_tests
+  strong:
+    definition: Materially useful data, method, policy, publication, or harness component used through a bounded
+      interface.
+    required_controls:
+    - catalogue_entry
+    - pipeline_membership
+    - fail_closed_execution
+  supporting:
+    definition: Useful workflow pattern, optional publication target, agent skill, or comparative reference.
+    required_controls:
+    - catalogue_entry
+    - pipeline_membership
+    - non_runtime_dependency
+  reference:
+    definition: Contextual repository retained in the complete audit but not active in a pipeline.
+    required_controls:
+    - catalogue_entry
+  excluded:
+    definition: Insufficient project relevance, superseded implementation, restricted-data orientation, or generic
+      infrastructure.
+    required_controls:
+    - explicit_reason
+inclusion_dimensions:
+- direct_relevance_to_access_equity_cost_or_service_design
+- public_data_or_evidence_value
+- reproducible_decision_science_value
+- machine_readable_or_agent_harness_value
+- publication_or_policy_dissemination_value
+- licensing_and_operational_risk
+promotion_rule: A repository may be promoted to core only after a typed interface, deterministic project oracle,
+  issue draft, tests, and compatibility boundary exist.
+fork_rule: Forks may be selected only as bounded source, method, conformance, or workflow references; they may not
+  be core integrations or required runtime dependencies.
