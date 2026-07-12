@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-020-public-demand-and-geography",
+  "status": "active_blocked_on_external_data_freeze",
+  "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/3",
+  "implementation": {
+    "materializer": "scripts/materialize_public_demand.py",
+    "input_template": "data/public/demand-geography-records.yaml",
+    "report": "reports/demand-geography-flow.json",
+    "observed_or_public_record_count": 0
+  },
+  "verification": {
+    "tests": 2,
+    "status": "passed",
+    "claim_boundary": "No individual-like records, pseudo-patients, observed demand, preferences, outcomes, or travel behaviour are present."
+  },
+  "blocker": "Census/geography/deprivation/rurality/ethnicity/incidence and public treatment anchors require version and licence freeze."
+}

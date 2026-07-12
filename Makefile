@@ -85,6 +85,12 @@ demo: ## Generate deterministic synthetic nationwide demonstration outputs
 service-census: ## Materialise the fail-closed public service census registry
 	$(UV) run python scripts/materialize_service_census.py
 
+public-demand: ## Materialise public aggregate demand and geography inputs
+	$(UV) run python scripts/materialize_public_demand.py
+
+clinical-pathway-audit: ## Audit synthetic pathway safety invariants and review blockers
+	$(UV) run python scripts/check_clinical_pathway_freeze.py
+
 benchmark: ## Run portable correctness-first benchmark
 	$(UV) run python benchmarks/benchmark_core.py
 

@@ -1,0 +1,10 @@
+schema_version: "1.0.0"
+status: pending_external_review
+required_reviewers:
+  - medical_oncology
+  - oncology_pharmacy_or_medicine_governance
+  - nursing_or_SACT_service
+  - Maori_health_interpretation
+reviewers: []
+decisions: []
+claim_boundary: Synthetic pathway fixtures remain unreviewed and are not clinical or funding evidence.
