@@ -11,6 +11,8 @@ materialize = run_path(
 
 
 def test_empty_census_materialises_a_reproducible_blocked_registry(tmp_path: Path) -> None:
+    source_registry_path = tmp_path / "source-registry.yaml"
+    source_registry_path.write_text("sources: []\n", encoding="utf-8")
     input_path = tmp_path / "census.yaml"
     input_path.write_text(
         "schema_version: '1.0.0'\nfreeze_date: null\nrecords: []\ndisagreements: []\n",
@@ -21,6 +23,7 @@ def test_empty_census_materialises_a_reproducible_blocked_registry(tmp_path: Pat
         output_path=tmp_path / "registry.parquet",
         flow_path=tmp_path / "flow.json",
         disagreements_path=tmp_path / "disagreements.csv",
+        source_registry=source_registry_path,
     )
     assert flow["facility_count"] == 0
     assert flow["network_counts"] == {"broad": 0, "conservative": 0, "plausible": 0}
@@ -28,6 +31,19 @@ def test_empty_census_materialises_a_reproducible_blocked_registry(tmp_path: Pat
 
 
 def test_non_open_evidence_cannot_be_published_as_redistributable(tmp_path: Path) -> None:
+    source_registry_path = tmp_path / "source-registry.yaml"
+    source_registry_path.write_text(
+        """sources:
+  - source_id: candidate.healthnz-facility-table
+    title: Candidate Table
+    publisher: HealthNZ
+    url: https://example.com
+    retrieved_on: 2026-07-12
+    licence_state: restricted
+    redistribution_allowed: false
+""",
+        encoding="utf-8",
+    )
     input_path = tmp_path / "census.yaml"
     input_path.write_text(
         """
@@ -56,4 +72,23 @@ disagreements: []
             output_path=tmp_path / "registry.parquet",
             flow_path=tmp_path / "flow.json",
             disagreements_path=tmp_path / "disagreements.csv",
+            source_registry=source_registry_path,
+        )
+
+
+def test_malformed_disagreement_records_fail_closed(tmp_path: Path) -> None:
+    source_registry_path = tmp_path / "source-registry.yaml"
+    source_registry_path.write_text("sources: []\n", encoding="utf-8")
+    input_path = tmp_path / "census.yaml"
+    input_path.write_text(
+        "schema_version: '1.0.0'\nrecords: []\ndisagreements: ['not-a-mapping']\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(TypeError, match="disagreement record"):
+        materialize(
+            input_path=input_path,
+            output_path=tmp_path / "registry.parquet",
+            flow_path=tmp_path / "flow.json",
+            disagreements_path=tmp_path / "disagreements.csv",
+            source_registry=source_registry_path,
         )

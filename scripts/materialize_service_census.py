@@ -131,6 +131,8 @@ def materialize(
     disagreements = payload.get("disagreements", [])
     if not isinstance(disagreements, list):
         raise TypeError("Disagreements must be a list")
+    if any(not isinstance(item, dict) for item in disagreements):
+        raise TypeError("Each disagreement record must be a mapping")
     disagreements_path.parent.mkdir(parents=True, exist_ok=True)
     with disagreements_path.open("w", encoding="utf-8", newline="") as handle:
         fieldnames = ("facility_id", "issue", "reviewer_a", "reviewer_b", "adjudication")
@@ -146,9 +148,9 @@ def materialize(
     flow = {
         "schema_version": "1.0.0",
         "freeze_date": str(freeze_date),
-        "input": str(input_path.relative_to(ROOT))
+        "input": input_path.relative_to(ROOT).as_posix()
         if input_path.is_relative_to(ROOT)
-        else str(input_path),
+        else input_path.as_posix(),
         "facility_count": len(facilities),
         "status_counts": dict(sorted(status_counts.items())),
         "evidence_grade_counts": dict(sorted(grade_counts.items())),
