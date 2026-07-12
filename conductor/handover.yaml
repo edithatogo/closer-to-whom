@@ -1,7 +1,7 @@
 schema_version: 1.0.0
 handover_id: CTW-HANDOVER-002
-status: prepared
-canonical_branch: main
+status: integrated_locally
+canonical_branch: codex/closer-to-whom-integration-20260712
 agent_read_order:
   - AGENTS.md
   - conductor/state.yaml

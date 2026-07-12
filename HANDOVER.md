@@ -67,3 +67,19 @@ docker run --rm -p 7860:7860 closer-to-whom-space
 ```
 
 Set the Hugging Face Space SDK to Docker. Never mount raw or licensed source payloads into the public image.
+
+## 8. Local integration receipt (2026-07-12)
+
+The accompanying handover archive was verified against `MANIFEST.json`, the
+embedded Git bundle, and all 283 source-file SHA-256 records. Its history was
+imported into the project-local branch
+`codex/closer-to-whom-integration-20260712`; the parent OneDrive worktree was
+left untouched.
+
+The local release profile passed with 79 tests, 89.56% branch-aware coverage,
+strict documentation, package smoke, deterministic synthetic demonstration,
+clean-room installation, JAX differential testing, contract checks, governance
+checks, and secret scanning. This is software and synthetic-fixture evidence
+only. The national service census, licensing adjudication, clinical review,
+Māori/equity governance, ethics-scope determination, and authenticated upstream
+GitHub work remain open.

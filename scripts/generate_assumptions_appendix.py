@@ -70,7 +70,7 @@ def generate(output: Path) -> Path:
         )
     lines.extend(["", f"Total assumptions: **{len(rows)}**.", ""])
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text("\n".join(lines), encoding="utf-8")
+    output.write_text("\n".join(lines), encoding="utf-8", newline="\n")
     return output
 
 

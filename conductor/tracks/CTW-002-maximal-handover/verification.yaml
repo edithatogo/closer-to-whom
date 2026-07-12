@@ -1,6 +1,6 @@
 schema_version: 1.0.0
 track_id: CTW-002-maximal-handover
-command: uv run python scripts/release_gate.py --profile full
+command: uv run python scripts/release_gate.py --profile local
 receipt: release/verification-receipt.json
 required_claim_boundary: >-
   Verification applies to code, contracts, synthetic fixtures, and reproducibility

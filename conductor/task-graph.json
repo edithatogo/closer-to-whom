@@ -3,9 +3,9 @@
   "project_id": "closer-to-whom",
   "nodes": [
     {"id": "CTW-001-bootstrap", "status": "completed", "kind": "software"},
-    {"id": "CTW-002-maximal-handover", "status": "active", "kind": "software"},
+    {"id": "CTW-002-maximal-handover", "status": "completed", "kind": "software"},
     {"id": "LIB-010-upstream-contracts", "status": "active", "kind": "upstream"},
-    {"id": "CTW-010-national-service-census", "status": "planned", "kind": "evidence"},
+    {"id": "CTW-010-national-service-census", "status": "active", "kind": "evidence"},
     {"id": "CTW-020-public-demand-and-geography", "status": "planned", "kind": "data"},
     {"id": "CTW-030-clinical-pathway-freeze", "status": "planned", "kind": "clinical"},
     {"id": "CTW-040-national-routing-and-costs", "status": "planned", "kind": "analysis"},

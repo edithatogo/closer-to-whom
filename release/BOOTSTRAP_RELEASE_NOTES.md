@@ -46,3 +46,18 @@ deterministic reproducibility, and JAX differential testing.
 
 No output in this release is an estimate of actual New Zealand service use, patient
 journeys, existing capacity, waiting, preferences, outcomes, or cost-effectiveness.
+
+## 2026-07-12 local integration
+
+The handover ZIP was verified against its manifest, embedded Git bundle, and all
+283 source checksums. The preserved history was imported into the project-local
+branch `codex/closer-to-whom-integration-20260712` because the destination folder
+was nested in an unrelated parent worktree.
+
+The local release profile passed with 79 tests, 89.56% branch-aware coverage,
+strict documentation, package smoke, deterministic synthetic demonstration,
+contract and governance checks, secret scanning, clean-room installation, and JAX
+differential testing. No candidate release tag was created because the complete
+full profile was not completed within the local execution window. National
+service-census, public-data, clinical, Māori/equity, ethics-scope, and licensing
+gates remain open.

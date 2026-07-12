@@ -49,7 +49,9 @@ def generate(output: Path = OUT) -> list[Path]:
     for model in MODELS:
         payload = _normalise(model.model_json_schema(mode="validation"))
         path = output / f"{model.__name__}.schema.json"
-        path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        path.write_text(
+            json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+        )
         written.append(path)
     index = {
         "schema_version": "1.0.0",
@@ -63,7 +65,9 @@ def generate(output: Path = OUT) -> list[Path]:
         ],
     }
     index_path = output / "index.json"
-    index_path.write_text(json.dumps(index, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    index_path.write_text(
+        json.dumps(index, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     written.append(index_path)
     return written
 

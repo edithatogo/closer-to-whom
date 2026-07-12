@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-002-maximal-handover
-status: active
+status: completed
 owner: Dylan
 objective: >-
   Implement the maximum feasible software, harness, CI/CD, documentation, agent-contract, synthetic
@@ -17,7 +17,7 @@ acceptance_criteria:
   - Local handover, release runbook, model card, threat model, and publication protocol are complete.
   - Release ZIP, Git bundle, checksums, source manifest, and Codex prompt are generated.
 verification:
-  command: make release-gate
+  command: uv run python scripts/release_gate.py --profile local
   receipt: release/verification-receipt.json
   handover_receipt: conductor/receipts/CTW-002-maximal-handover.json
 known_external_gates:

@@ -1,0 +1,456 @@
+{
+  "claim_boundary": "Repository and synthetic harness verification only; no validation of actual service capability, patient-level access, operational capacity, or clinical outcomes.",
+  "digests": {
+    "assumptions_sha256": "a5091725d05c441ad569b64d1ed459cc82a8f1fd60070890632d3a5457a2d992",
+    "pyproject_sha256": "bd5b6cc23a3f143f2bec21e79d06bdac2f354c5bf5186f8177168bb1027a530d",
+    "scenario_catalogue_sha256": "f0ed4d766d13ffab40fdda4bb10c7cfe4383cb3c993b311fe8fce43faac7d7df",
+    "source_registry_sha256": "216958f3a5749cfc0384561a3d7949f0016ef25d7fbe46f990d14da85cc9f5ae",
+    "uv_lock_sha256": "8d4e4b8d1b94dda5a23e7cb56fa7e2e35bff68de1c376d2ee03e492247973dd3"
+  },
+  "environment": {
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "generated_at": "2026-07-12T10:45:43.492001+00:00",
+  "git": {
+    "branch": "codex/closer-to-whom-integration-20260712",
+    "describe": "codex-handover-2026-07-12-dirty",
+    "dirty": true,
+    "revision": "ec79bb97054f8ed26d9155c0f35f218fdfb42fd7"
+  },
+  "profile": "local",
+  "project": "closer-to-whom",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.45,
+      "log_path": "release/receipts/logs/compile.log",
+      "name": "compile",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_generated_files.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 1.403,
+      "log_path": "release/receipts/logs/generated-files.log",
+      "name": "generated-files",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_lockfile_portability.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.334,
+      "log_path": "release/receipts/logs/lockfile-portability.log",
+      "name": "lockfile-portability",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_machine_readability.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.677,
+      "log_path": "release/receipts/logs/machine-readability.log",
+      "name": "machine-readability",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_contracts.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.593,
+      "log_path": "release/receipts/logs/model-contracts.log",
+      "name": "model-contracts",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_assumption_coverage.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.262,
+      "log_path": "release/receipts/logs/assumption-contract.log",
+      "name": "assumption-contract",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_source_registry.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.279,
+      "log_path": "release/receipts/logs/source-registry.log",
+      "name": "source-registry",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_protocol.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.274,
+      "log_path": "release/receipts/logs/protocol-consistency.log",
+      "name": "protocol-consistency",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_claim_boundaries.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.225,
+      "log_path": "release/receipts/logs/claim-boundaries.log",
+      "name": "claim-boundaries",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_privacy_and_licences.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.363,
+      "log_path": "release/receipts/logs/privacy-and-licences.log",
+      "name": "privacy-and-licences",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_repository_hygiene.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.268,
+      "log_path": "release/receipts/logs/repository-hygiene.log",
+      "name": "repository-hygiene",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_workflows.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.267,
+      "log_path": "release/receipts/logs/workflow-structure.log",
+      "name": "workflow-structure",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_workflow_hardening.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.282,
+      "log_path": "release/receipts/logs/workflow-hardening.log",
+      "name": "workflow-hardening",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_version_consistency.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.262,
+      "log_path": "release/receipts/logs/version-consistency.log",
+      "name": "version-consistency",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "ruff",
+        "check",
+        "."
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.145,
+      "log_path": "release/receipts/logs/ruff.log",
+      "name": "ruff",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.131,
+      "log_path": "release/receipts/logs/ruff-format.log",
+      "name": "ruff-format",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "pytest"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 17.314,
+      "log_path": "release/receipts/logs/tests-coverage.log",
+      "name": "tests-coverage",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "mypy",
+        "src/closer_to_whom"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.926,
+      "log_path": "release/receipts/logs/mypy.log",
+      "name": "mypy",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "pyright"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 8.861,
+      "log_path": "release/receipts/logs/pyright.log",
+      "name": "pyright",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "codespell",
+        "src",
+        "scripts",
+        "tests",
+        "docs",
+        "ecosystem",
+        "protocol",
+        "assumptions",
+        "data/public",
+        "schemas"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.597,
+      "log_path": "release/receipts/logs/codespell.log",
+      "name": "codespell",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "mkdocs",
+        "build",
+        "--strict"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 2.966,
+      "log_path": "release/receipts/logs/docs.log",
+      "name": "docs",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "-m",
+        "build"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 12.252,
+      "log_path": "release/receipts/logs/package-build.log",
+      "name": "package-build",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/smoke_install.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 6.489,
+      "log_path": "release/receipts/logs/package-smoke.log",
+      "name": "package-smoke",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/check_reproducibility.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 2.321,
+      "log_path": "release/receipts/logs/deterministic-demo.log",
+      "name": "deterministic-demo",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/publication_readiness.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.257,
+      "log_path": "release/receipts/logs/publication-readiness.log",
+      "name": "publication-readiness",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/secret_scan.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 0.45,
+      "log_path": "release/receipts/logs/secret-scan.log",
+      "name": "secret-scan",
+      "required": true,
+      "return_code": 0,
+      "status": "passed"
+    },
+    {
+      "command": [
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
+        "run",
+        "python",
+        "scripts/jax_differential.py"
+      ],
+      "detail": "completed",
+      "elapsed_seconds": 1.732,
+      "log_path": "release/receipts/logs/jax-differential.log",
+      "name": "jax-differential",
+      "required": false,
+      "return_code": 0,
+      "status": "passed"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "summary": {
+    "failed": 0,
+    "passed": 27,
+    "required_failures": [],
+    "required_status": "passed",
+    "skipped": 0
+  }
+}

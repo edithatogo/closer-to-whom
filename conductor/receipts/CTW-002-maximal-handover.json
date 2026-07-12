@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-002-maximal-handover",
+  "status": "completed",
+  "date": "2026-07-12",
+  "branch": "codex/closer-to-whom-integration-20260712",
+  "imported_handover_revision": "ec79bb97054f8ed26d9155c0f35f218fdfb42fd7",
+  "archive": {
+    "path": "closer-to-whom-codex-handover.zip",
+    "manifest_sha256": "e0ed754b97aab8110f972bea83651a7fdf993fd4ac54b4886040c57afb6b4165",
+    "source_file_count": 283,
+    "source_checksums_verified": true,
+    "bundle_verified": true,
+    "path_safety_verified": true
+  },
+  "verification": {
+    "command": "uv run python scripts/release_gate.py --profile local",
+    "status": "passed",
+    "tests": 79,
+    "coverage_percent": 89.56,
+    "receipt": "release/verification-receipt.json",
+    "clean_room_receipt": "release/clean-room-receipt.json",
+    "sbom": "release/sbom.cdx.json",
+    "source_manifest": "release/source-manifest.json"
+  },
+  "not_completed": [
+    "full release profile within the local execution window",
+    "candidate release tag",
+    "live national service census and licence adjudication",
+    "clinical review and Māori/equity governance",
+    "authenticated upstream GitHub issue or PR mutation"
+  ],
+  "claim_boundary": "Software and synthetic aggregate fixtures only; no actual New Zealand service, patient, capacity, outcome, or cost-effectiveness claim."
+}

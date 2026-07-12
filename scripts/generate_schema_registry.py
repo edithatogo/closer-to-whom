@@ -45,7 +45,9 @@ def generate(output: Path) -> list[Path]:
         ipc_path.write_bytes(schema.serialize().to_pybytes())
         json_path = output / f"{name}.schema.json"
         payload = _describe(schema)
-        json_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        json_path.write_text(
+            json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+        )
         index_schemas[name] = {
             "ipc": ipc_path.name,
             "json": json_path.name,
@@ -54,7 +56,9 @@ def generate(output: Path) -> list[Path]:
         written.extend((ipc_path, json_path))
     index["schemas"] = index_schemas
     index_path = output / "index.json"
-    index_path.write_text(json.dumps(index, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    index_path.write_text(
+        json.dumps(index, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     written.append(index_path)
     return written
 

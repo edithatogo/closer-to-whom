@@ -1,0 +1,10 @@
+{
+  "commands": [],
+  "output_digests": [
+    "63badd268b6be7b87c4b5816b42903671af56a4b567e76edd6c9f70b2c070ecf",
+    "63badd268b6be7b87c4b5816b42903671af56a4b567e76edd6c9f70b2c070ecf"
+  ],
+  "reproducible": true,
+  "status": "passed",
+  "wheel": "closer_to_whom-0.2.0-py3-none-any.whl"
+}

@@ -195,8 +195,8 @@ typeCheckingMode = "standard"
 reportMissingTypeStubs = false
 
 [tool.codespell]
-ignore-words-list = "hdec,te,aho,whanau,maori,pharmac,phesgo,trastuzumab,nzmj,healthpoint,sourceright,authentext,voiage,kairos"
-skip = "*.lock,*.svg,*.jsonl,upstream/*,artifacts/*,site/*,dist/*,build/*,.venv/*"
+ignore-words-list = "hdec,te,aho,whanau,maori,pharmac,phesgo,trastuzumab,nzmj,healthpoint,sourceright,authentext,voiage,kairos,ane"
+skip = "*.lock,*.svg,*.jsonl,upstream/*,artifacts/*,site/*,release/receipts/logs/*,dist/*,build/*,.venv/*"
 
 [tool.deptry]
 known_first_party = ["closer_to_whom"]

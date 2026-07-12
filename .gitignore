@@ -59,3 +59,7 @@ release/source-manifest.json
 release/sbom.cdx.json
 release/receipts/logs/
 release/verification-junit.xml
+
+# Local handover inputs are retained for audit/replay but are not project artefacts.
+closer-to-whom-codex-handover.zip
+closer-to-whom-CODEX_PROMPT.md

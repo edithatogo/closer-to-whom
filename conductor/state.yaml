@@ -1,10 +1,10 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-11
+updated_at: 2026-07-12
 version: "0.2.0"
-active_track: CTW-002-maximal-handover
-phase: software_handover
-software_status: implementation_complete_pending_local_toolchain_verification
+active_track: CTW-010-national-service-census
+phase: evidence_preparation
+software_status: locally_verified_on_codex_integration_branch
 model_status: synthetic_demonstration_only
 publication_status: blocked_on_evidence_and_governance
 current_claim_boundary: >-
@@ -23,3 +23,16 @@ external_dependencies:
   - Māori and equity governance review
   - public source and licence adjudication
   - local credentials for optional integrations
+verification_status:
+  profile: local
+  status: passed
+  receipt: release/verification-receipt.json
+  coverage: 89.56
+  tests: 79
+  optional_not_run:
+    - Docker container health check
+    - Mojo canary
+    - Bandit executable (not installed locally; security target continued by declared fallback)
+release_status:
+  candidate_tag: not_created
+  reason: full release profile was not completed within the local execution window; local release gate passed

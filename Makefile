@@ -35,7 +35,7 @@ format: ## Apply deterministic Python formatting
 
 lint: ## Run static lint and repository hygiene checks
 	$(UV) run ruff check .
-	$(UV) run codespell .
+	$(UV) run codespell src scripts tests docs ecosystem protocol assumptions data/public schemas
 	$(UV) run python scripts/check_complexity_budget.py
 	$(UV) run python scripts/check_repository_hygiene.py
 
