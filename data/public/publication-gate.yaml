@@ -1,0 +1,21 @@
+schema_version: "1.0.0"
+track_id: CTW-060-publication-and-space
+status: blocked_on_national_analysis
+required_evidence:
+  national_analysis_receipt: blocked_on_prerequisites
+  source_and_licence_receipts: pending
+  clinical_review_receipt: pending_external_review
+  governance_review_receipt: pending_external_review
+required_artifacts:
+  - release/verification-receipt.json
+  - release/publication-readiness.json
+  - release/source-manifest.json
+prohibited_content:
+  - individual health data
+  - confidential health-service data
+  - live Healthpoint payloads
+  - row-level clinical records
+claim_boundary: >-
+  Release artefacts verify the repository and aggregate synthetic harness only. Publication remains
+  blocked until evidence, clinical, public-input, routing, governance, ethics-scope, and licensing
+  gates are complete; artifact existence does not establish service capability or authorisation.
