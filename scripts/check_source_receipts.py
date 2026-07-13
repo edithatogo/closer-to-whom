@@ -46,7 +46,9 @@ def _receipt_path(item: dict[str, Any], repository_root: Path = ROOT) -> Path | 
 def _validate_receipt(item: dict[str, Any], path: Path) -> list[str]:
     source_id = str(item.get("source_id", item.get("id", "")))
     failures: list[str] = []
-    display_path = path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else path.as_posix()
+    display_path = (
+        path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else path.as_posix()
+    )
     if not path.is_file():
         return [f"{source_id}: declared receipt does not exist: {display_path}"]
     try:
@@ -88,7 +90,9 @@ def validate(registry_path: Path = REGISTRY) -> list[str]:
     for item in items:
         source_id = str(item.get("source_id", item.get("id", "")))
         status = str(item.get("status", "")).lower()
-        repository_root = ROOT if registry_path.resolve() == REGISTRY.resolve() else registry_path.parent
+        repository_root = (
+            ROOT if registry_path.resolve() == REGISTRY.resolve() else registry_path.parent
+        )
         receipt_path = _receipt_path(item, repository_root)
         if status in RECEIPT_STATUSES and receipt_path is None:
             failures.append(f"{source_id}: captured source must declare receipt_path")
