@@ -31,6 +31,7 @@ nav:
       - Dashboard: operations/dashboard.md
       - GitHub project and assurance: operations/github-project.md
       - National analysis receipts: operations/national-analysis-receipts.md
+      - Microdata and VOI decision: operations/microdata-voi-decision.md
   - Publication:
       - Strategy: publication/strategy.md
       - NZMJ protocol: publication/nzmj-protocol.md
