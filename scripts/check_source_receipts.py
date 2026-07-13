@@ -67,7 +67,7 @@ def _validate_receipt(item: dict[str, Any], path: Path) -> list[str]:
     try:
         byte_count = int(receipt["bytes"])
         retrieved = int(receipt["retrieved_unix_seconds"])
-    except (KeyError, TypeError, ValueError):
+    except KeyError, TypeError, ValueError:
         failures.append(f"{source_id}: receipt needs integer bytes and retrieved_unix_seconds")
     else:
         if byte_count < 0:

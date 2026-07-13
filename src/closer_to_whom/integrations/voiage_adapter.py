@@ -20,6 +20,6 @@ def calculate_core_voi(net_benefit: np.ndarray, *, prefer_voiage: bool = True) -
                 result = function(net_benefit)
                 if isinstance(result, VoiSummary):
                     return result
-        except (ImportError, AttributeError, TypeError, ValueError):
+        except ImportError, AttributeError, TypeError, ValueError:
             pass
     return core_voi(net_benefit)

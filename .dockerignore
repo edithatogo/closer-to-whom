@@ -11,6 +11,8 @@ data/private
 data/licensed
 data/derived
 artifacts
+!artifacts/demo/
+!artifacts/demo/**
 upstream
 *.bundle
 *.zip
