@@ -182,7 +182,7 @@ The handover contains a frozen public catalogue of 165 repositories, 96 identifi
 
 Use a bleeding-edge but robust architecture:
 
-- Python 3.12/3.13 as the orchestration and reference implementation;
+- Python 3.14 as the sole orchestration and reference implementation;
 - Polars as the default dataframe engine;
 - Arrow IPC and Parquet as canonical language-neutral interchange;
 - Pydantic or equivalent typed configuration and record contracts;

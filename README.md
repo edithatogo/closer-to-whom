@@ -4,7 +4,7 @@
 [![Security and supply chain](https://github.com/edithatogo/closer-to-whom/actions/workflows/security.yml/badge.svg)](https://github.com/edithatogo/closer-to-whom/actions/workflows/security.yml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/edithatogo/closer-to-whom/badge)](https://securityscorecards.dev/viewer/?uri=github.com/edithatogo/closer-to-whom)
 [![Documentation](https://img.shields.io/badge/docs-MkDocs-526CFE)](https://edithatogo.github.io/closer-to-whom/)
-[![Python](https://img.shields.io/badge/python-3.11--3.14-3776AB)](pyproject.toml)
+[![Python](https://img.shields.io/badge/python-3.14-3776AB)](pyproject.toml)
 [![codecov](https://codecov.io/gh/edithatogo/closer-to-whom/branch/main/graph/badge.svg)](https://codecov.io/gh/edithatogo/closer-to-whom)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -46,6 +46,9 @@ This repository estimates **potential geographic and economic accessibility** un
 - machine-readable assumptions, provenance, decisions, tracks, tasks, and release receipts.
 
 ## Quick start
+
+The supported runtime is CPython **3.14** only. The committed `uv.lock` is the
+dependency source of truth and is refreshed with compatible latest releases.
 
 ```bash
 # Preferred

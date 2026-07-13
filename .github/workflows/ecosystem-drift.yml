@@ -23,7 +23,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
-          python-version: "3.12"
+          python-version: "3.14"
       - run: python -m pip install pyyaml
       - run: python scripts/check_ecosystem_drift.py --output release/ecosystem-drift.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a

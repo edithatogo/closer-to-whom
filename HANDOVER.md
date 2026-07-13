@@ -15,7 +15,7 @@ The source ZIP intentionally excludes `.git`, caches, environments, raw licensed
 
 Preferred local stack:
 
-- Python 3.12 or 3.13 for the main release path;
+- Python 3.14 is the sole supported runtime and release path;
 - `uv` for deterministic Python environments;
 - Rust stable for `healthpoint-rs` integration tests;
 - Mojo nightly or the current stable release only inside the canary job until promoted;
