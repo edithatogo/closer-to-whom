@@ -55,6 +55,7 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_machine_readability.py
 	$(UV) run python scripts/check_assumption_coverage.py
 	$(UV) run python scripts/check_source_registry.py
+	$(UV) run python scripts/check_source_receipts.py
 	$(UV) run python scripts/check_generated_files.py
 	$(UV) run python scripts/check_lockfile_portability.py
 	$(UV) run python scripts/check_version_consistency.py
