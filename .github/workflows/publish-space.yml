@@ -1,0 +1,76 @@
+name: Publish Hugging Face Space
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Type PUBLISH to authorize a public Space update
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: hugging-face-space
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'PUBLISH'
+    environment: hugging-face
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_SPACE_ID: ${{ secrets.HF_SPACE_ID }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.14"
+          cache: pip
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          enable-cache: true
+      - name: Require publication credentials
+        shell: bash
+        run: |
+          test -n "$HF_TOKEN" || { echo "HF_TOKEN is required in the hugging-face environment" >&2; exit 1; }
+          test -n "$HF_SPACE_ID" || { echo "HF_SPACE_ID is required in the hugging-face environment" >&2; exit 1; }
+          case "$HF_SPACE_ID" in
+            */*) ;;
+            *) echo "HF_SPACE_ID must be a namespace/name Space identifier" >&2; exit 1 ;;
+          esac
+      - name: Build reproducible aggregate payload
+        run: |
+          uv sync --locked --all-extras
+          uv run closer-to-whom demo --output artifacts/demo
+          uv run python scripts/dashboard_smoke.py
+      - name: Assemble Space repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p space-dist
+          cp spaces/README.md space-dist/README.md
+          cp containers/huggingface.Dockerfile space-dist/Dockerfile
+          cp app.py LICENSE pyproject.toml space-dist/
+          cp -R src space-dist/src
+          cp -R artifacts/demo space-dist/artifacts
+          test ! -e space-dist/data/raw
+          test ! -e space-dist/data/licensed
+          test ! -e space-dist/data/private
+      - name: Publish Space commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd space-dist
+          git init --initial-branch=main
+          git config user.name "closer-to-whom publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add README.md Dockerfile LICENSE pyproject.toml app.py src artifacts
+          git commit -m "publish aggregate dashboard ${GITHUB_SHA}"
+          GIT_CONFIG_COUNT=1 \
+            GIT_CONFIG_KEY_0=http.extraheader \
+            GIT_CONFIG_VALUE_0="Authorization: Bearer ${HF_TOKEN}" \
+            git push --force "https://huggingface.co/spaces/${HF_SPACE_ID}.git" HEAD:main

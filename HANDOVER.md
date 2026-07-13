@@ -68,6 +68,12 @@ docker run --rm -p 7860:7860 closer-to-whom-space
 
 Set the Hugging Face Space SDK to Docker. Never mount raw or licensed source payloads into the public image.
 
+To publish after the Space and protected `hugging-face` environment have been
+created, configure `HF_SPACE_ID` and `HF_TOKEN` as environment secrets and run
+the `Publish Hugging Face Space` workflow on `main` with confirmation `PUBLISH`.
+The workflow assembles a clean aggregate-only repository and fails closed when
+credentials or the namespace/name identifier are absent.
+
 ## 8. Local integration receipt (2026-07-12)
 
 The accompanying handover archive was verified against `MANIFEST.json`, the
