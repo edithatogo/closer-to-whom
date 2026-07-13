@@ -33,6 +33,7 @@ nav:
       - National analysis receipts: operations/national-analysis-receipts.md
       - Microdata and VOI decision: operations/microdata-voi-decision.md
       - Publication gate: operations/publication-gate.md
+      - Ecosystem drift: operations/ecosystem-drift.md
   - Publication:
       - Strategy: publication/strategy.md
       - NZMJ protocol: publication/nzmj-protocol.md
