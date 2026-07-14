@@ -53,18 +53,18 @@ sources:
     redistribution_allowed: false
     status: candidate_requires_capture_and_licence_review
   - source_id: candidate.statsnz-geographies
-    title: Statistical geographies and public population tables
+    title: Statistical Standard for Geographic Areas 2023 and public population tables
     publisher: Stats NZ
-    url: https://www.stats.govt.nz/
-    retrieved_on: 2026-07-11
+    url: https://www.stats.govt.nz/assets/Methods/Statistical-standard-for-geographic-areas-2023/Statistical-standard-for-geographic-areas-2023.pdf
+    retrieved_on: 2026-07-15
     licence_state: unknown
     redistribution_allowed: false
     status: candidate_requires_dataset_freeze
   - source_id: candidate.pharmac-anti-her2
-    title: Public anti-HER2 funding and policy material
+    title: Pharmac anti-HER2 funding decision and Pharmaceutical Schedule material
     publisher: Pharmac
-    url: https://pharmac.govt.nz/
-    retrieved_on: 2026-07-11
+    url: https://www.pharmac.govt.nz/news-and-resources/consultations-and-decisions/2025-11-decision-to-fund-treatments-for-multiple-sclerosis-eye-conditions-breast-cancer-and-lung-cancer
+    retrieved_on: 2026-07-15
     licence_state: unknown
     redistribution_allowed: false
     status: candidate_requires_systematic_search
@@ -85,18 +85,18 @@ sources:
     redistribution_allowed: false
     status: candidate_requires_analysis_date_refresh
   - source_id: candidate.gch2023
-    title: Geographic Classification for Health 2023
+    title: Geographic Classification for Health 2023 (GCH23)
     publisher: University of Otago
-    url: https://www.otago.ac.nz/
-    retrieved_on: 2026-07-11
-    licence_state: unknown
+    url: https://www.otago.ac.nz/centre-for-rural-health/research/geographic-classification-for-health
+    retrieved_on: 2026-07-15
+    licence_state: restricted
     redistribution_allowed: false
     status: candidate_requires_dataset_freeze
   - source_id: candidate.nzdep2023
     title: New Zealand Index of Deprivation 2023
     publisher: University of Otago
-    url: https://www.otago.ac.nz/
-    retrieved_on: 2026-07-11
+    url: https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes
+    retrieved_on: 2026-07-15
     licence_state: unknown
     redistribution_allowed: false
     status: candidate_requires_dataset_freeze
