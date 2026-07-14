@@ -29,21 +29,28 @@ TEMPLATE = r"""<!doctype html>
 </head>
 <body>
   <header><h1>Closer to whom?</h1><p class="warning"><strong>Boundary:</strong> Public-data policy simulation. Not a forecast of individual care, actual service use, capacity, waiting time, or clinical outcomes.</p><p>All displayed values are precomputed from aggregate or synthetic development inputs. No individual locations or patient records are served.</p></header>
-  <section><label for="scenario">Scenario</label><select id="scenario"></select><h2>Expected course travel minutes</h2><div id="travel" class="bars"></div><h2>Area-level equity stratification</h2><div id="equity" class="bars"></div></section>
+  <section><h2>All scenarios and pathways</h2><p>Shared-scale comparison of every precomputed scenario/pathway row.</p><div id="comparison" class="bars"></div></section>
+  <section><label for="scenario">Scenario detail</label><select id="scenario"></select><h2>Expected course travel minutes</h2><div id="travel" class="bars"></div><h2>Area-level equity stratification</h2><div id="equity" class="bars"></div></section>
   <section><h2>Aggregate scenario rows</h2><div style="overflow:auto"><table><thead><tr><th>Pathway</th><th>Mean travel minutes</th><th>Expected demand</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+  <section><h2>All-row comparison table</h2><div style="overflow:auto"><table><thead><tr><th>Scenario</th><th>Pathway</th><th>Travel minutes</th><th>Course travel km</th><th>Patient cost NZD</th><th>Societal cost NZD</th></tr></thead><tbody id="all-rows"></tbody></table></div></section>
   <section><h2>Provenance</h2><p>Manifest: <code id="manifest"></code></p><p>Static site generated from the repository's demo artifact. Healthpoint and other licensed/private payloads are excluded.</p></section>
   <script>
     const DATA = __DATA__;
     const scenario = document.querySelector('#scenario');
     const max = values => Math.max(...values, 1);
     const bars = (target, entries, colour) => { const scale=max(entries.map(x=>x.value)); target.innerHTML=entries.map(x=>`<div class="bar-row"><span>${x.label}</span><div class="bar" style="width:${Math.max(2,100*x.value/scale)}%;background:${colour}"></div><span>${Number(x.value).toFixed(1)}</span></div>`).join(''); };
+    const format = value => value == null ? '—' : Number(value).toFixed(1);
+    function renderComparison(){
+      bars(document.querySelector('#comparison'), DATA.summary.map(x=>({label:`${x.scenario_name || x.scenario_id} / ${x.pathway_id}`,value:x.mean_course_travel_minutes})), '#0b7285');
+      document.querySelector('#all-rows').innerHTML=DATA.summary.map(x=>`<tr><td>${x.scenario_name || x.scenario_id}</td><td>${x.pathway_id}</td><td>${format(x.mean_course_travel_minutes)}</td><td>${format(x.mean_course_travel_km)}</td><td>${format(x.mean_patient_direct_cost_nzd)}</td><td>${format(x.mean_societal_cost_nzd)}</td></tr>`).join('');
+    }
     function render(){
       const id=scenario.value, rows=DATA.summary.filter(x=>x.scenario_id===id), equity=DATA.equity.filter(x=>x.scenario_id===id);
       bars(document.querySelector('#travel'), rows.map(x=>({label:x.pathway_id,value:x.mean_course_travel_minutes})), '#0b7285');
       bars(document.querySelector('#equity'), equity.map(x=>({label:`${x.pathway_id} / ${x.ethnicity}`,value:x.mean_course_travel_minutes})), '#6741d9');
       document.querySelector('#rows').innerHTML=rows.map(x=>`<tr><td>${x.pathway_id}</td><td>${Number(x.mean_course_travel_minutes).toFixed(1)}</td><td>${x.expected_demand ?? '—'}</td></tr>`).join('');
     }
-    [...new Set(DATA.summary.map(x=>x.scenario_id))].forEach(id=>scenario.add(new Option(id,id))); scenario.addEventListener('change',render); document.querySelector('#manifest').textContent=DATA.manifest; render();
+    [...new Set(DATA.summary.map(x=>x.scenario_id))].forEach(id=>scenario.add(new Option(id,id))); scenario.addEventListener('change',render); document.querySelector('#manifest').textContent=DATA.manifest; renderComparison(); render();
   </script>
 </body></html>
 """
