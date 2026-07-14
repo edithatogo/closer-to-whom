@@ -64,7 +64,9 @@ def build(results: Path, output: Path) -> Path:
     payload: dict[str, Any] = {"summary": summary, "equity": equity, "manifest": manifest_id}
     output.mkdir(parents=True, exist_ok=True)
     target = output / "index.html"
-    target.write_text(TEMPLATE.replace("__DATA__", json.dumps(payload, separators=(",", ":"))), encoding="utf-8")
+    target.write_text(
+        TEMPLATE.replace("__DATA__", json.dumps(payload, separators=(",", ":"))), encoding="utf-8"
+    )
     return target
 
 
