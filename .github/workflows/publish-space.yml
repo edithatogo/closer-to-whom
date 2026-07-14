@@ -47,16 +47,13 @@ jobs:
           uv sync --locked --all-extras
           uv run closer-to-whom demo --output artifacts/demo
           uv run python scripts/dashboard_smoke.py
-      - name: Assemble Space repository
+      - name: Assemble free Static Space repository
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p space-dist
-          cp spaces/README.md space-dist/README.md
-          cp containers/huggingface.Dockerfile space-dist/Dockerfile
-          cp app.py LICENSE pyproject.toml space-dist/
-          cp -R src space-dist/src
-          cp -R artifacts/demo space-dist/artifacts
+          cp spaces/static/README.md space-dist/README.md
+          uv run python scripts/build_static_space.py --results artifacts/demo --output space-dist
           test ! -e space-dist/data/raw
           test ! -e space-dist/data/licensed
           test ! -e space-dist/data/private
@@ -68,7 +65,7 @@ jobs:
           git init --initial-branch=main
           git config user.name "closer-to-whom publisher"
           git config user.email "actions@users.noreply.github.com"
-          git add README.md Dockerfile LICENSE pyproject.toml app.py src artifacts
+          git add README.md index.html
           git commit -m "publish aggregate dashboard ${GITHUB_SHA}"
           GIT_CONFIG_COUNT=1 \
             GIT_CONFIG_KEY_0=http.extraheader \
