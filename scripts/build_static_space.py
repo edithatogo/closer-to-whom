@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Build a self-contained static Space from aggregate demo outputs."""
 
 from __future__ import annotations
