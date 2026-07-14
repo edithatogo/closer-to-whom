@@ -42,7 +42,7 @@ This repository estimates **potential geographic and economic accessibility** un
 - MCDA and stochastic rank acceptability;
 - JAX/XLA acceleration with a NumPy reference oracle and differential tests;
 - a Mojo accelerator track with canary, numerical-equivalence, and promotion gates;
-- an aggregate-only Hugging Face Docker Space;
+- an aggregate-only free Hugging Face Static Space;
 - machine-readable assumptions, provenance, decisions, tracks, tasks, and release receipts.
 
 ## Quick start

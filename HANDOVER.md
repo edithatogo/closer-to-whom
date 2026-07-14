@@ -59,6 +59,13 @@ The gate performs formatting, linting, typing, tests, coverage, property and con
 
 ## 7. Dashboard deployment
 
+The free public deployment is the generated Static Space:
+
+`https://edithatogo-closer-to-whom.static.hf.space`
+
+It embeds precomputed aggregate result cubes only. The Docker image below is
+retained for local and CI smoke testing and is not required for public hosting.
+
 The Space consumes precomputed aggregate result cubes only:
 
 ```bash

@@ -1,6 +1,6 @@
 # Public dashboard
 
-The Hugging Face Docker Space reads precomputed aggregate result cubes. It performs no live routing, web scraping, licensed-source access, clinical inference, or user-provided address calculation.
+The public Hugging Face Static Space reads embedded precomputed aggregate result cubes. It performs no live routing, web scraping, licensed-source access, clinical inference, or user-provided address calculation. The Docker image remains a local and CI smoke-test surface.
 
 Required pages for publication:
 
