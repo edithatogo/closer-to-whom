@@ -8,6 +8,6 @@ D_{agr}=N_{ag}I_{agr}P(\mathrm{HER2+})P(\mathrm{eligible}\mid r)P(\mathrm{treate
 
 The model calibrates to public national or regional totals where available. It does not claim that small-area demand is observed.
 
-SA2 is the planned principal geography. Each area is represented by several public population-weighted routing points rather than one geometric centroid. Allocation weights sum to one and are resampled in spatial uncertainty analysis. Public outputs aggregate back to an appropriate geography.
+SA2 under Stats NZ's Statistical Standard for Geographic Areas 2023 (SSGA23) is the planned principal geography. Each area is represented by several public population-weighted routing points rather than one geometric centroid. Allocation weights sum to one and are resampled in spatial uncertainty analysis. Public outputs aggregate back to an appropriate geography. The SSGA23 input and licence freeze remains pending.
 
-Ethnicity uses an explicitly documented representation, with total-response and prioritised approaches treated as separate analyses where available. Deprivation, rurality, vehicle access, disability, and mobility measures remain contextual area-level variables.
+Ethnicity uses an explicitly documented representation, with total-response and prioritised approaches treated as separate analyses where available. GCH23 is the planned rurality stratifier, separate from network travel and subject to its restricted CC BY-ND redistribution terms. Deprivation, vehicle access, disability, and mobility measures remain contextual area-level variables.

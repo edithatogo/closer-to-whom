@@ -40,3 +40,18 @@ decisions:
     status: accepted
     decision: Serve only precomputed aggregate cubes in the public Space.
     rationale: Improves security, reproducibility, licensing compliance, and latency.
+  - id: DEC-009
+    date: 2026-07-15
+    status: accepted
+    decision: Use SA2 under Stats NZ SSGA23 as the planned principal geography backbone.
+    rationale: SSGA23 is the current official geography standard and SA2 provides a practical public aggregate unit; the input and licence freeze remains an explicit gate.
+  - id: DEC-010
+    date: 2026-07-15
+    status: accepted
+    decision: Use GCH23 only as a separate rurality stratifier, not as a substitute for route-based access.
+    rationale: Rurality and network travel answer different questions. GCH23 is recorded as restricted CC BY-ND material, so transformed redistribution requires permission before publication.
+  - id: DEC-011
+    date: 2026-07-15
+    status: accepted
+    decision: Keep the early-breast-cancer pathway synthetic and non-evidentiary until clinical and funding review is complete.
+    rationale: Current Pharmac evidence supports funded Phesgo use for HER2-positive metastatic breast cancer from 1 December 2025, but does not establish early-disease eligibility, clinical schedule, or facility capability for this model.
