@@ -2,23 +2,23 @@
   "claim_boundary": "Repository and synthetic harness verification only; no validation of actual service capability, patient-level access, operational capacity, or clinical outcomes.",
   "digests": {
     "assumptions_sha256": "a5091725d05c441ad569b64d1ed459cc82a8f1fd60070890632d3a5457a2d992",
-    "pyproject_sha256": "bd5b6cc23a3f143f2bec21e79d06bdac2f354c5bf5186f8177168bb1027a530d",
+    "pyproject_sha256": "317b7c1504e4261c96dbf1832ba78a862b6f980bb8e9e693cbbe477455d2e462",
     "scenario_catalogue_sha256": "f0ed4d766d13ffab40fdda4bb10c7cfe4383cb3c993b311fe8fce43faac7d7df",
-    "source_registry_sha256": "216958f3a5749cfc0384561a3d7949f0016ef25d7fbe46f990d14da85cc9f5ae",
-    "uv_lock_sha256": "8d4e4b8d1b94dda5a23e7cb56fa7e2e35bff68de1c376d2ee03e492247973dd3"
+    "source_registry_sha256": "3ed57f776da1e706a295864e7fd0d0f79255a9150fb60a0e56194673c9bbd703",
+    "uv_lock_sha256": "d0e2f2294803669626c9407b8ac087c25005db326fa9c43167fc08cf4fa4b446"
   },
   "environment": {
     "machine": "AMD64",
     "platform": "Windows-11-10.0.26100-SP0",
     "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
-    "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]"
+    "python": "3.14.6 (main, Jun 11 2026, 04:05:02) [MSC v.1944 64 bit (AMD64)]"
   },
-  "generated_at": "2026-07-12T10:53:01.149795+00:00",
+  "generated_at": "2026-07-14T15:13:35.269483+00:00",
   "git": {
-    "branch": "codex/closer-to-whom-integration-20260712",
-    "describe": "codex-handover-2026-07-12-1-gc5c6a49",
-    "dirty": false,
-    "revision": "c5c6a4919eb33bf36f782f36cbcef638ebefc2f2"
+    "branch": "codex/ctw-010a-source-receipts",
+    "describe": "codex-handover-2026-07-12-29-ga66ac81-dirty",
+    "dirty": true,
+    "revision": "a66ac81237d4783d97b3c2e3dbf76c0e23a4dce7"
   },
   "profile": "local",
   "project": "closer-to-whom",
@@ -36,7 +36,7 @@
         "tests"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.417,
+      "elapsed_seconds": 1.316,
       "log_path": "release/receipts/logs/compile.log",
       "name": "compile",
       "required": true,
@@ -51,7 +51,7 @@
         "scripts/check_generated_files.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 1.578,
+      "elapsed_seconds": 3.805,
       "log_path": "release/receipts/logs/generated-files.log",
       "name": "generated-files",
       "required": true,
@@ -66,7 +66,7 @@
         "scripts/check_lockfile_portability.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.328,
+      "elapsed_seconds": 0.478,
       "log_path": "release/receipts/logs/lockfile-portability.log",
       "name": "lockfile-portability",
       "required": true,
@@ -81,7 +81,7 @@
         "scripts/check_machine_readability.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.651,
+      "elapsed_seconds": 1.388,
       "log_path": "release/receipts/logs/machine-readability.log",
       "name": "machine-readability",
       "required": true,
@@ -96,7 +96,7 @@
         "scripts/check_contracts.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.616,
+      "elapsed_seconds": 1.094,
       "log_path": "release/receipts/logs/model-contracts.log",
       "name": "model-contracts",
       "required": true,
@@ -111,7 +111,7 @@
         "scripts/check_assumption_coverage.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.251,
+      "elapsed_seconds": 0.507,
       "log_path": "release/receipts/logs/assumption-contract.log",
       "name": "assumption-contract",
       "required": true,
@@ -126,7 +126,7 @@
         "scripts/check_source_registry.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.246,
+      "elapsed_seconds": 0.534,
       "log_path": "release/receipts/logs/source-registry.log",
       "name": "source-registry",
       "required": true,
@@ -141,7 +141,7 @@
         "scripts/check_protocol.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.259,
+      "elapsed_seconds": 0.545,
       "log_path": "release/receipts/logs/protocol-consistency.log",
       "name": "protocol-consistency",
       "required": true,
@@ -156,7 +156,7 @@
         "scripts/check_claim_boundaries.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.215,
+      "elapsed_seconds": 0.601,
       "log_path": "release/receipts/logs/claim-boundaries.log",
       "name": "claim-boundaries",
       "required": true,
@@ -171,7 +171,7 @@
         "scripts/check_privacy_and_licences.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.366,
+      "elapsed_seconds": 1.133,
       "log_path": "release/receipts/logs/privacy-and-licences.log",
       "name": "privacy-and-licences",
       "required": true,
@@ -186,7 +186,7 @@
         "scripts/check_repository_hygiene.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.275,
+      "elapsed_seconds": 0.73,
       "log_path": "release/receipts/logs/repository-hygiene.log",
       "name": "repository-hygiene",
       "required": true,
@@ -201,7 +201,7 @@
         "scripts/check_workflows.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.261,
+      "elapsed_seconds": 0.606,
       "log_path": "release/receipts/logs/workflow-structure.log",
       "name": "workflow-structure",
       "required": true,
@@ -216,7 +216,7 @@
         "scripts/check_workflow_hardening.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.281,
+      "elapsed_seconds": 0.575,
       "log_path": "release/receipts/logs/workflow-hardening.log",
       "name": "workflow-hardening",
       "required": true,
@@ -231,7 +231,7 @@
         "scripts/check_version_consistency.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.25,
+      "elapsed_seconds": 0.441,
       "log_path": "release/receipts/logs/version-consistency.log",
       "name": "version-consistency",
       "required": true,
@@ -247,7 +247,7 @@
         "."
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.153,
+      "elapsed_seconds": 0.268,
       "log_path": "release/receipts/logs/ruff.log",
       "name": "ruff",
       "required": true,
@@ -264,7 +264,7 @@
         "."
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.142,
+      "elapsed_seconds": 0.298,
       "log_path": "release/receipts/logs/ruff-format.log",
       "name": "ruff-format",
       "required": true,
@@ -278,7 +278,7 @@
         "pytest"
       ],
       "detail": "completed",
-      "elapsed_seconds": 18.023,
+      "elapsed_seconds": 43.073,
       "log_path": "release/receipts/logs/tests-coverage.log",
       "name": "tests-coverage",
       "required": true,
@@ -293,7 +293,7 @@
         "src/closer_to_whom"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.675,
+      "elapsed_seconds": 1.583,
       "log_path": "release/receipts/logs/mypy.log",
       "name": "mypy",
       "required": true,
@@ -307,7 +307,7 @@
         "pyright"
       ],
       "detail": "completed",
-      "elapsed_seconds": 8.88,
+      "elapsed_seconds": 18.206,
       "log_path": "release/receipts/logs/pyright.log",
       "name": "pyright",
       "required": true,
@@ -330,7 +330,7 @@
         "schemas"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.612,
+      "elapsed_seconds": 1.505,
       "log_path": "release/receipts/logs/codespell.log",
       "name": "codespell",
       "required": true,
@@ -346,7 +346,7 @@
         "--strict"
       ],
       "detail": "completed",
-      "elapsed_seconds": 2.982,
+      "elapsed_seconds": 6.162,
       "log_path": "release/receipts/logs/docs.log",
       "name": "docs",
       "required": true,
@@ -362,7 +362,7 @@
         "build"
       ],
       "detail": "completed",
-      "elapsed_seconds": 11.625,
+      "elapsed_seconds": 30.324,
       "log_path": "release/receipts/logs/package-build.log",
       "name": "package-build",
       "required": true,
@@ -377,7 +377,7 @@
         "scripts/smoke_install.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 6.143,
+      "elapsed_seconds": 10.232,
       "log_path": "release/receipts/logs/package-smoke.log",
       "name": "package-smoke",
       "required": true,
@@ -392,7 +392,7 @@
         "scripts/check_reproducibility.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 2.276,
+      "elapsed_seconds": 5.375,
       "log_path": "release/receipts/logs/deterministic-demo.log",
       "name": "deterministic-demo",
       "required": true,
@@ -407,7 +407,7 @@
         "scripts/publication_readiness.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.254,
+      "elapsed_seconds": 0.543,
       "log_path": "release/receipts/logs/publication-readiness.log",
       "name": "publication-readiness",
       "required": true,
@@ -422,7 +422,7 @@
         "scripts/secret_scan.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.441,
+      "elapsed_seconds": 1.017,
       "log_path": "release/receipts/logs/secret-scan.log",
       "name": "secret-scan",
       "required": true,
@@ -437,7 +437,7 @@
         "scripts/jax_differential.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 1.772,
+      "elapsed_seconds": 4.025,
       "log_path": "release/receipts/logs/jax-differential.log",
       "name": "jax-differential",
       "required": false,
