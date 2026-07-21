@@ -18,6 +18,12 @@ prerequisites:
   route_costs: pending
   governance_review: pending
 required_outputs: [scenario_summary, optimisation_frontier, uncertainty_analysis, mcda_outputs, voi_outputs]
+output_contracts:
+  scenario_summary: blocked_pending_prerequisites
+  optimisation_frontier: blocked_pending_prerequisites
+  uncertainty_analysis: blocked_pending_prerequisites
+  mcda_outputs: blocked_pending_prerequisites
+  voi_outputs: blocked_pending_prerequisites
 analysis_receipts: []
 claim_boundary: blocked; synthetic only; no observed capacity, clinical, or operational claims
 """,
@@ -37,6 +43,12 @@ prerequisites:
   route_costs: complete
   governance_review: complete
 required_outputs: [scenario_summary, optimisation_frontier, uncertainty_analysis, mcda_outputs, voi_outputs]
+output_contracts:
+  scenario_summary: ready
+  optimisation_frontier: ready
+  uncertainty_analysis: ready
+  mcda_outputs: ready
+  voi_outputs: ready
 analysis_receipts: [one]
 claim_boundary: blocked; synthetic only; no observed capacity, clinical, or operational claims
 """,

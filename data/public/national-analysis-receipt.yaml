@@ -13,6 +13,12 @@ required_outputs:
   - uncertainty_analysis
   - mcda_outputs
   - voi_outputs
+output_contracts:
+  scenario_summary: blocked_pending_prerequisites
+  optimisation_frontier: blocked_pending_prerequisites
+  uncertainty_analysis: blocked_pending_prerequisites
+  mcda_outputs: blocked_pending_prerequisites
+  voi_outputs: blocked_pending_prerequisites
 analysis_receipts: []
 claim_boundary: >-
   This analysis remains blocked on evidence, clinical, public-input, routing, governance, and
