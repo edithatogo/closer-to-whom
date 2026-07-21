@@ -1,16 +1,20 @@
 {
   "claim_boundary": "Only explicitly adjudicated public-source records may enter this registry; synthetic fixtures and undocumented capability remain non-observed or unknown.",
   "disagreement_count": 0,
-  "evidence_grade_counts": {},
-  "facility_count": 0,
-  "freeze_date": "2026-07-12",
-  "input": "data\\public\\service-census-records.yaml",
-  "network_counts": {
-    "broad": 0,
-    "conservative": 0,
-    "plausible": 0
+  "evidence_grade_counts": {
+    "3": 14
   },
-  "parquet_fingerprint": "78c9751cb16af0a09c3ded2b84a08a1b30712115dac60be764e7fff66cd7aa6f",
+  "facility_count": 14,
+  "freeze_date": "2026-07-21",
+  "input": "data/public/service-census-records.yaml",
+  "network_counts": {
+    "broad": 14,
+    "conservative": 0,
+    "plausible": 14
+  },
+  "parquet_fingerprint": "e139399426e66ae07db2403c92f1af56ac2f8bf7225e5fdc50ec10add0c291ef",
   "schema_version": "1.0.0",
-  "status_counts": {}
+  "status_counts": {
+    "plausible": 14
+  }
 }

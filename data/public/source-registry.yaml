@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-registry_status: pre_census
+registry_status: evidence_capture_in_progress
 claim_boundary: >-
   Candidate entries identify sources to adjudicate. They do not establish current service capability
   until captured, archived, licence-checked, and linked to a claim with an evidence grade.
@@ -100,3 +100,166 @@ sources:
     licence_state: unknown
     redistribution_allowed: false
     status: candidate_requires_dataset_freeze
+  - source_id: source.licence-healthnz-copyright
+    title: Health New Zealand copyright and reuse terms
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/copyright
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 4_historical_or_indirect
+    status: captured
+    receipt_path: data/public/receipts/service-census/source.licence-healthnz-copyright.json
+    notes: CC BY 4.0 applies to copyright text; photographs, illustrations, and logos are excluded.
+  - source_id: service.healthnz-auckland-te-puriri
+    title: Te Pūriri o Te Ora regional cancer and blood service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/auckland/auckland-central/te-puriri-o-te-ora
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-auckland-te-puriri.json
+  - source_id: service.healthnz-dargaville-oncology-infusion
+    title: Dargaville Health Hub oncology infusion service announcement
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/news-and-updates/dargaville-health-hub-expands-acute-care-service-and-delivers-new-cancer-service-to-improve-access-to-local-care
+    retrieved_on: 2026-07-21
+    publication_date: 2026-06-16
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-dargaville-oncology-infusion.json
+  - source_id: service.healthnz-canterbury-medical-oncology
+    title: Canterbury medical oncology and chemotherapy service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/canterbury/cancer-service-canterbury/medical-oncology-and-chemotherapy-canterbury
+    retrieved_on: 2026-07-21
+    publication_date: 2025-05-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-canterbury-medical-oncology.json
+  - source_id: service.healthnz-south-canterbury-oncology
+    title: South Canterbury oncology service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/south-canterbury/oncology
+    retrieved_on: 2026-07-21
+    publication_date: 2025-12-01
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-south-canterbury-oncology.json
+  - source_id: service.healthnz-wellington-blood-cancer
+    title: Wellington Hutt and Kapiti blood and cancer services
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/wellington-hutt-and-kapiti/cancer-services-and-support
+    retrieved_on: 2026-07-21
+    publication_date: 2026-02-05
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-wellington-blood-cancer.json
+  - source_id: service.healthnz-hawkes-bay-cancer
+    title: Te Matau a Māui cancer services
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/hawkes-bay/te-matau-a-maui-cancer-services
+    retrieved_on: 2026-07-21
+    publication_date: 2025-03-04
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-hawkes-bay-cancer.json
+  - source_id: service.healthnz-tairawhiti-cancer
+    title: Tairāwhiti cancer services
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/tairawhiti-gisborne/cancer-services-tairawhiti
+    retrieved_on: 2026-07-21
+    publication_date: 2025-03-25
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-tairawhiti-cancer.json
+  - source_id: service.healthnz-nelson-marlborough-oncology
+    title: Nelson Marlborough oncology services
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/nelson-marlborough/oncology
+    retrieved_on: 2026-07-21
+    publication_date: 2025-01-31
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-nelson-marlborough-oncology.json
+  - source_id: service.healthnz-waikato-cancer
+    title: Waikato cancer services
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/waikato/cancer-services
+    retrieved_on: 2026-07-21
+    publication_date: 2025-05-30
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-waikato-cancer.json
+  - source_id: service.healthnz-bay-of-plenty-oncology
+    title: Bay of Plenty oncology and haematology service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/bay-of-plenty/oncology-and-haematology-service-bay-of-plenty
+    retrieved_on: 2026-07-21
+    publication_date: 2025-04-02
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-bay-of-plenty-oncology.json
+  - source_id: service.healthnz-palmerston-regional-cancer
+    title: Palmerston North Regional Cancer Treatment Service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/manawatu-whanganui/palmerston-north-regional-hospital
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-palmerston-regional-cancer.json
+  - source_id: service.healthnz-taranaki-cancer-centre
+    title: Taranaki Base Hospital cancer centre and oncology service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/taranaki/taranaki-base-hospital
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-taranaki-cancer-centre.json
+  - source_id: service.healthnz-otago-dunedin-oncology
+    title: Dunedin Hospital oncology medical unit site map
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/assets/Locations/Maps/Dunedin-Hospital-site-map-2.pdf
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-otago-dunedin-oncology.json

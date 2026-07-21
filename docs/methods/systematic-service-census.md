@@ -5,3 +5,10 @@ The service atlas is a living, versioned census rather than an unstructured web 
 The core rule is **unknown is not absent**. Lack of qualifying public evidence produces `unknown`, never `false`. Grade 1, drug-specific claims require independent dual review before publication. A conservative network uses only the strongest qualifying evidence; structural sensitivity analyses progressively include weaker but plausible evidence grades.
 
 Search protocol, inclusion and exclusion rules, review state, source dates, retrieval dates, checksums, supersession, licensing, and redistribution decisions are machine-readable in `protocol/` and `data/public/`.
+
+The 2026-07-21 capture includes 14 publicly documented Health New Zealand service locations. The
+captured pages are covered by Health New Zealand's CC BY 4.0 website-text licence; photographs,
+illustrations, logos, and third-party material remain excluded. These records are deliberately
+`plausible` grade-3 facility-level cancer/SACT signals with no named anti-HER2 formulation. The
+conservative network therefore remains empty until stronger evidence and the required clinical
+review receipts are available; plausible and broad networks may include these locations.

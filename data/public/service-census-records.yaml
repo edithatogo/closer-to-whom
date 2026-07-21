@@ -1,8 +1,205 @@
 schema_version: "1.0.0"
 freeze_date: null
 claim_boundary: >-
-  Empty adjudication template. This file does not assert that any New Zealand facility provides any
-  named treatment or formulation. Records may be added only after source capture, licence review,
-  evidence grading, and dual review where clinically material.
-records: []
+  These records represent plausible, publicly documented cancer or systemic-treatment service
+  locations. They do not assert drug-specific anti-HER2 capability, observed capacity, patient
+  volume, or clinical eligibility. Formulation-specific capability remains unknown until a stronger
+  source and clinical review are available.
+records:
+  - facility_id: NZ-AKL-TE-PURIRI
+    name: Te Pūriri o Te Ora, Auckland City Hospital
+    region: Auckland
+    district: Auckland
+    latitude: -36.8603
+    longitude: 174.7765
+    facility_type: regional_cancer_and_blood_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-auckland-te-puriri]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-NTH-DARGAVILLE
+    name: Dargaville Health Hub oncology infusion service
+    region: Northland
+    district: Kaipara
+    latitude: -35.9367
+    longitude: 173.8742
+    facility_type: oncology_infusion_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-dargaville-oncology-infusion]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-WKO-WAIKATO
+    name: Waikato Hospital cancer services
+    region: Waikato
+    district: Hamilton
+    latitude: -37.7870
+    longitude: 175.2793
+    facility_type: regional_cancer_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-waikato-cancer]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-BOP-TAURANGA
+    name: Tauranga Hospital oncology and haematology service
+    region: Bay of Plenty
+    district: Tauranga
+    latitude: -37.6878
+    longitude: 176.1651
+    facility_type: oncology_and_haematology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-bay-of-plenty-oncology]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-BOP-WHAKATANE
+    name: Whakatāne Hospital oncology and haematology service
+    region: Bay of Plenty
+    district: Whakatāne
+    latitude: -37.9530
+    longitude: 176.9940
+    facility_type: oncology_and_haematology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-bay-of-plenty-oncology]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-MWT-PALMERSTON-NORTH
+    name: Palmerston North Regional Cancer Treatment Service
+    region: Manawatū-Whanganui
+    district: Palmerston North
+    latitude: -40.3523
+    longitude: 175.6082
+    facility_type: regional_cancer_treatment_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-palmerston-regional-cancer]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-TKI-NEW-PLYMOUTH
+    name: Taranaki Base Hospital cancer centre
+    region: Taranaki
+    district: New Plymouth
+    latitude: -39.0810
+    longitude: 174.0750
+    facility_type: cancer_centre
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-taranaki-cancer-centre]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-OTA-DUNEDIN
+    name: Dunedin Hospital oncology medical unit
+    region: Otago
+    district: Dunedin
+    latitude: -45.8740
+    longitude: 170.5030
+    facility_type: oncology_medical_unit
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-otago-dunedin-oncology]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-HKB-HASTINGS
+    name: Te Matau a Māui Cancer Services, Hastings
+    region: Hawke's Bay
+    district: Hastings
+    latitude: -39.6390
+    longitude: 176.8490
+    facility_type: regional_cancer_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-hawkes-bay-cancer]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-TGI-GISBORNE
+    name: Gisborne Hospital Tairāwhiti cancer services
+    region: Tairāwhiti
+    district: Gisborne
+    latitude: -38.6633
+    longitude: 178.0176
+    facility_type: oncology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-tairawhiti-cancer]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-WGN-WELLINGTON-REGIONAL
+    name: Wellington Regional Hospital Blood and Cancer Centre
+    region: Wellington
+    district: Wellington
+    latitude: -41.3050
+    longitude: 174.7780
+    facility_type: regional_blood_and_cancer_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-wellington-blood-cancer]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-NSN-NELSON
+    name: Nelson Hospital oncology services
+    region: Nelson
+    district: Nelson
+    latitude: -41.2740
+    longitude: 173.2830
+    facility_type: regional_oncology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-nelson-marlborough-oncology]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-CAN-CHRISTCHURCH
+    name: Christchurch Hospital medical oncology and chemotherapy service
+    region: Canterbury
+    district: Christchurch
+    latitude: -43.5320
+    longitude: 172.6300
+    facility_type: tertiary_medical_oncology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-canterbury-medical-oncology]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-SCD-TIMARU
+    name: Timaru Hospital South Canterbury Oncology Medical Unit
+    region: Canterbury
+    district: Timaru
+    latitude: -44.3970
+    longitude: 171.2540
+    facility_type: oncology_medical_unit
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-south-canterbury-oncology]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
 disagreements: []

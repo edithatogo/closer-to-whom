@@ -3,6 +3,7 @@ from runpy import run_path
 
 import polars as pl
 import pytest
+import yaml
 
 materialize = run_path(
     Path(__file__).parents[2] / "scripts" / "materialize_service_census.py",
@@ -28,6 +29,21 @@ def test_empty_census_materialises_a_reproducible_blocked_registry(tmp_path: Pat
     assert flow["facility_count"] == 0
     assert flow["network_counts"] == {"broad": 0, "conservative": 0, "plausible": 0}
     assert pl.read_parquet(tmp_path / "registry.parquet").height == 0
+
+
+def test_current_public_census_contains_only_plausible_non_drug_specific_records() -> None:
+    root = Path(__file__).parents[2]
+    payload = yaml.safe_load(
+        (root / "data" / "public" / "service-census-records.yaml").read_text(encoding="utf-8")
+    )
+    records = payload["records"]
+    assert len(records) == 14
+    assert {record["capability_status"] for record in records} == {"plausible"}
+    assert {record["evidence_grade"] for record in records} == {
+        "3_ambiguous_oncology_or_outreach"
+    }
+    assert all(record["formulations"] == [] for record in records)
+    assert all(record["redistribution_allowed"] is True for record in records)
 
 
 def test_non_open_evidence_cannot_be_published_as_redistributable(tmp_path: Path) -> None:

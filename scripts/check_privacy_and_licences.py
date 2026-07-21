@@ -44,7 +44,9 @@ def main() -> None:
         if relative.startswith(NHI_SCAN_PREFIXES) and NHI_LIKE.search(text):
             failures.append(f"NHI-like token in {relative}")
 
-    sources = yaml.safe_load((ROOT / "data/public/source-registry.yaml").read_text())
+    sources = yaml.safe_load(
+        (ROOT / "data/public/source-registry.yaml").read_text(encoding="utf-8")
+    )
     for source in sources["sources"]:
         if source["licence_state"] != "open" and source["redistribution_allowed"]:
             failures.append(f"Non-open source marked redistributable: {source['source_id']}")
