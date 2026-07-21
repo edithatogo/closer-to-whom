@@ -44,7 +44,9 @@ def validate(matrix_path: Path = MATRIX, records_path: Path = RECORDS) -> list[s
                 failures.append(f"{facility_id}/{claim}: invalid capability state {state!r}")
         for claim in ("iv_trastuzumab", "trastuzumab_sc", "phesgo_sc"):
             if claims.get(claim) == "confirmed":
-                failures.append(f"{facility_id}/{claim}: drug-specific confirmation needs review receipt")
+                failures.append(
+                    f"{facility_id}/{claim}: drug-specific confirmation needs review receipt"
+                )
     return failures
 
 

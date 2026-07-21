@@ -74,9 +74,7 @@ def test_service_census_review_queue_is_explicitly_pending() -> None:
 def test_capability_matrix_preserves_unknown_drug_specific_claims() -> None:
     root = Path(__file__).parents[2]
     matrix = yaml.safe_load(
-        (root / "data" / "public" / "service-census-capabilities.yaml").read_text(
-            encoding="utf-8"
-        )
+        (root / "data" / "public" / "service-census-capabilities.yaml").read_text(encoding="utf-8")
     )
     assert len(matrix["records"]) == 19
     for record in matrix["records"]:
