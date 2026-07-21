@@ -16,3 +16,5 @@ def test_route_cost_materializer_is_blocked_without_upstream_registries(tmp_path
     )
     assert report["status"] == "blocked_pending_demand_and_service_registries"
     assert report["route_rows"] == 0
+    assert report["route_engine"] is None
+    assert report["retrieval_date"]
