@@ -7,6 +7,11 @@ required_outputs:
   - research_design_comparison
   - governance_burden_assessment
   - ethics_scope_boundary
+output_contracts:
+  voi_summary: blocked_pending_governance_decision
+  research_design_comparison: blocked_pending_governance_decision
+  governance_burden_assessment: blocked_pending_governance_decision
+  ethics_scope_boundary: blocked_pending_governance_decision
 decision_receipts: []
 claim_boundary: >-
   No individual, confidential, de-identified-but-non-public, or row-level health data is required

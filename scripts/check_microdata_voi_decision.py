@@ -37,12 +37,23 @@ def validate(path: Path = DECISION) -> list[str]:
     outputs = payload.get("required_outputs", [])
     if set(map(str, outputs)) != REQUIRED_OUTPUTS:
         failures.append("required_outputs must enumerate the four CTW-070 outputs")
+    contracts = payload.get("output_contracts")
+    if not isinstance(contracts, dict) or set(map(str, contracts)) != REQUIRED_OUTPUTS:
+        failures.append("output_contracts must enumerate the four CTW-070 output contracts")
+    elif status in {"blocked_on_ctw050", "pending_external_decision"} and any(
+        str(value).lower() != "blocked_pending_governance_decision" for value in contracts.values()
+    ):
+        failures.append("undetermined outputs must remain blocked_pending_governance_decision")
     receipts = payload.get("decision_receipts", [])
     if not isinstance(receipts, list):
         failures.append("decision_receipts must be a list")
         receipts = []
     if status == "determined" and len(receipts) < len(REQUIRED_OUTPUTS):
         failures.append("determined decision requires one receipt per required output")
+    if status == "determined" and any(
+        str(value).lower() == "blocked_pending_governance_decision" for value in contracts.values()
+    ):
+        failures.append("determined decision cannot retain blocked output contracts")
 
     boundary = str(payload.get("claim_boundary", "")).lower()
     for term in ("individual", "confidential", "row-level", "separate protocol", "ethics/hdec"):
