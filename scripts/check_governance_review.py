@@ -75,7 +75,11 @@ def validate(path: Path = REVIEW) -> list[str]:
     elif status != "pending_external_review":
         failures.append(f"unsupported governance review status: {status or '<blank>'}")
     boundary = str(payload.get("claim_boundary", "")).lower()
-    boundary_terms = (("pending", ("pending",)),) if status != OUT_OF_SCOPE else (("out of scope", ("out of scope",)),)
+    boundary_terms = (
+        (("pending", ("pending",)),)
+        if status != OUT_OF_SCOPE
+        else (("out of scope", ("out of scope",)),)
+    )
     for term, variants in boundary_terms + (
         ("endorsement", ("endorsement",)),
         ("ethical approval", ("ethical approval",)),
