@@ -16,6 +16,27 @@ recorded in the applicable machine-readable receipt.
 
 ## Evidence candidates requiring adjudication
 
+### CTW-010 national service census and licensing
+
+The current census contains 19 source-linked facility records spanning all 16 Health New Zealand
+regional areas. All capability records are grade-3 plausible oncology/service signals; named
+anti-HER2 formulations, observed capacity, and clinical eligibility remain `unknown`. The
+machine-readable review queue is `data/public/service-census-review.yaml`, the capability matrix
+is `data/public/service-census-capabilities.yaml`, and the source registry contains immutable
+retrieval receipts under `data/public/receipts/service-census/`.
+
+Required independent decisions:
+
+- [ ] Clinical service reviewer: confirm or reject the facility-level oncology/infusion signal;
+      do not infer trastuzumab, trastuzumab SC, PHESGO, capacity, or eligibility from generic pages.
+- [ ] National completeness reviewer: confirm the 16-region search coverage and the explicit
+      West Coast referral/unknown boundary.
+- [ ] Licence reviewer: confirm CC BY 4.0 redistribution for Health NZ site text only, with
+      excluded photographs, illustrations, logos, third-party material, and the non-redistributable
+      Dunedin site-map PDF.
+- [ ] Record dated reviewer receipts and unresolved disagreements in the review queue before
+      changing `pending_external_review` or materialising a conservative network.
+
 ### Geography and public inputs
 
 - Stats NZ, Statistical Standard for Geographic Areas 2023:
