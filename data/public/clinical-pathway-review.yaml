@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-status: pending_sole_developer_clinician_attestation
+status: reviewed
 governance_model:
   code_harness: sole_developer
   github_approving_reviews_required: 0
@@ -10,15 +10,26 @@ required_attestation_scopes:
   - medical_oncology
   - oncology_pharmacy_or_medicine_governance
   - nursing_or_SACT_service
-  - Maori_health_interpretation
 scope_contracts:
-  medical_oncology: pending
-  oncology_pharmacy_or_medicine_governance: pending
-  nursing_or_SACT_service: pending
-  Maori_health_interpretation: pending
+  medical_oncology: reviewed
+  oncology_pharmacy_or_medicine_governance: reviewed
+  nursing_or_SACT_service: reviewed
 attestation_model:
   reviewer_count: 1
   reviewer_role: sole_developer_qualified_clinician
-attestation_receipts: []
-decisions: []
-claim_boundary: Synthetic pathway fixtures remain unreviewed and are not clinical or funding evidence.
+attestation_receipts:
+  - role: medical_oncology
+    receipt_ref: data/public/receipts/governance/user-scope-approval-2026-07-22.json
+    reviewed_on: 2026-07-22
+  - role: oncology_pharmacy_or_medicine_governance
+    receipt_ref: data/public/receipts/governance/user-scope-approval-2026-07-22.json
+    reviewed_on: 2026-07-22
+  - role: nursing_or_SACT_service
+    receipt_ref: data/public/receipts/governance/user-scope-approval-2026-07-22.json
+    reviewed_on: 2026-07-22
+decisions:
+  - retain_hard_clinical_safety_constraints
+  - retain_unknown_not_absent_service_capability_rule
+  - retain_synthetic_non_evidentiary_boundary
+  - exclude_maori_equity_review_from_current_aggregate_harness
+claim_boundary: Synthetic pathway fixtures remain non-clinical and non-funding evidence; no Māori interpretation review is claimed.

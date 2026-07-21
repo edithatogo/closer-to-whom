@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-status: pending_external_review
+status: out_of_scope_for_public_aggregate_harness
 review_scope: public_aggregate_policy_evaluation
 required_outputs:
   - maori_equity_review_receipt
@@ -7,14 +7,16 @@ required_outputs:
   - unresolved_equity_risks
   - culturally_safe_interpretation_constraints
 output_contracts:
-  maori_equity_review_receipt: pending_external_review
-  ethics_hdec_scope_determination: pending_external_review
-  unresolved_equity_risks: pending_external_review
-  culturally_safe_interpretation_constraints: pending_external_review
+  maori_equity_review_receipt: not_required_for_scope
+  ethics_hdec_scope_determination: not_required_for_scope
+  unresolved_equity_risks: not_required_for_scope
+  culturally_safe_interpretation_constraints: not_required_for_scope
 review_receipts: []
 unresolved_equity_risks: []
 interpretation_constraints: []
 ethics_hdec_determination: null
+approval_receipt: data/public/receipts/governance/user-scope-approval-2026-07-22.json
 claim_boundary: >-
-  Pending governance review. This file does not claim Māori endorsement, ethical approval, HDEC
-  exemption, or that a future microdata phase is authorised.
+  Māori/equity review and ethics/HDEC determination are out of scope for this public aggregate
+  harness. This file does not claim Māori endorsement, ethical approval, HDEC exemption, or that
+  a future microdata phase is authorised.

@@ -1,5 +1,7 @@
 schema_version: "1.0.0"
 status: pending
+approval_status: approved_by_sole_developer_qualified_clinician_pending_source_receipts
+approval_receipt: data/public/receipts/governance/user-scope-approval-2026-07-22.json
 freeze_date: null
 claim_boundary: >-
   Pending input manifest. These candidates do not establish a frozen dataset, licence, geography,

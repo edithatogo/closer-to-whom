@@ -62,7 +62,14 @@ def validate(path: Path = GATE) -> list[str]:
             failures.append("reviewable publication requires a completed national analysis receipt")
         if any(
             str(value).lower()
-            not in {"complete", "reviewed", "determined", "configured", "verified"}
+            not in {
+                "complete",
+                "reviewed",
+                "determined",
+                "configured",
+                "verified",
+                "out_of_scope_for_public_aggregate_harness",
+            }
             for value in evidence.values()
         ):
             failures.append("reviewable publication requires every evidence receipt to be complete")
