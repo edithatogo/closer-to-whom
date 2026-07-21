@@ -45,6 +45,11 @@ def validate(
         for row in source_rows
         if isinstance(row, dict) and row.get("source_id")
     }
+    registry_receipts = {
+        str(row.get("source_id")): str(row.get("receipt_path"))
+        for row in source_rows
+        if isinstance(row, dict) and row.get("source_id") and row.get("receipt_path")
+    }
     inputs = manifest.get("inputs", [])
     failures: list[str] = []
     if not isinstance(inputs, list) or not inputs:
@@ -76,6 +81,27 @@ def validate(
                 failures.append(f"{identifier}: frozen input requires licence_state")
             if not item.get("retrieval_receipt"):
                 failures.append(f"{identifier}: frozen input requires retrieval_receipt")
+            else:
+                receipt = (
+                    manifest_path.parent.parent.parent / str(item["retrieval_receipt"])
+                ).resolve()
+                try:
+                    receipt.relative_to(ROOT)
+                except ValueError:
+                    failures.append(
+                        f"{identifier}: retrieval_receipt must remain inside repository"
+                    )
+                else:
+                    if not receipt.is_file():
+                        failures.append(f"{identifier}: retrieval_receipt does not exist")
+            for source_id in map(str, source_ids if isinstance(source_ids, list) else []):
+                declared = registry_receipts.get(source_id)
+                if not declared:
+                    failures.append(f"{identifier}: source {source_id} lacks a registry receipt")
+                elif not (ROOT / declared).is_file():
+                    failures.append(
+                        f"{identifier}: source {source_id} registry receipt does not exist"
+                    )
             if not item.get("evidence_grade") or str(item["evidence_grade"]).lower() == "pending":
                 failures.append(f"{identifier}: frozen input requires evidence_grade")
     freeze_date = manifest.get("freeze_date")
