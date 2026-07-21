@@ -66,3 +66,10 @@ decisions:
       A second software reviewer is not part of the operating model. The qualified clinician may
       attest to the defined CTW-010 evidence scopes; attestations remain fail-closed evidence gates
       and are not implied by a code review or local test run.
+  - id: DEC-013
+    date: 2026-07-21
+    status: accepted
+    decision: Represent each Māori/equity and ethics governance output with an explicit pending or completed contract state.
+    rationale: >-
+      Empty review receipts must not be mistaken for a completed governance decision; explicit
+      states preserve the external human-review and HDEC boundaries in machine-readable form.

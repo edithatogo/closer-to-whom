@@ -17,6 +17,11 @@ required_outputs:
   - ethics_hdec_scope_determination
   - unresolved_equity_risks
   - culturally_safe_interpretation_constraints
+output_contracts:
+  maori_equity_review_receipt: pending_external_review
+  ethics_hdec_scope_determination: pending_external_review
+  unresolved_equity_risks: pending_external_review
+  culturally_safe_interpretation_constraints: pending_external_review
 review_receipts: []
 unresolved_equity_risks: []
 interpretation_constraints: []
@@ -33,6 +38,11 @@ def test_completed_governance_review_requires_evidence(tmp_path: Path) -> None:
     path.write_text(
         """status: reviewed
 required_outputs: [maori_equity_review_receipt, ethics_hdec_scope_determination, unresolved_equity_risks, culturally_safe_interpretation_constraints]
+output_contracts:
+  maori_equity_review_receipt: reviewed
+  ethics_hdec_scope_determination: determined
+  unresolved_equity_risks: reviewed
+  culturally_safe_interpretation_constraints: reviewed
 review_receipts: [one]
 unresolved_equity_risks: []
 interpretation_constraints: []
