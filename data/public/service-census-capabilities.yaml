@@ -13,7 +13,7 @@ records:
 - facility_id: NZ-AKL-TE-PURIRI
   source_ids:
   - service.healthnz-auckland-te-puriri
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -28,7 +28,7 @@ records:
 - facility_id: NZ-NTH-DARGAVILLE
   source_ids:
   - service.healthnz-dargaville-oncology-infusion
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -43,7 +43,7 @@ records:
 - facility_id: NZ-WKO-WAIKATO
   source_ids:
   - service.healthnz-waikato-cancer
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -58,7 +58,7 @@ records:
 - facility_id: NZ-BOP-TAURANGA
   source_ids:
   - service.healthnz-bay-of-plenty-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -73,7 +73,7 @@ records:
 - facility_id: NZ-BOP-WHAKATANE
   source_ids:
   - service.healthnz-bay-of-plenty-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -88,7 +88,7 @@ records:
 - facility_id: NZ-MWT-PALMERSTON-NORTH
   source_ids:
   - service.healthnz-palmerston-regional-cancer
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -103,7 +103,7 @@ records:
 - facility_id: NZ-TKI-NEW-PLYMOUTH
   source_ids:
   - service.healthnz-taranaki-cancer-centre
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -118,7 +118,7 @@ records:
 - facility_id: NZ-LAK-ROTORUA
   source_ids:
   - service.healthnz-rotorua-taupo-chemotherapy
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -133,7 +133,7 @@ records:
 - facility_id: NZ-LAK-TAUPO
   source_ids:
   - service.healthnz-rotorua-taupo-chemotherapy
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -148,7 +148,7 @@ records:
 - facility_id: NZ-WAI-MASTERTON
   source_ids:
   - service.healthnz-wairarapa-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -163,7 +163,7 @@ records:
 - facility_id: NZ-WKO-TE-KUITI
   source_ids:
   - service.healthnz-te-kuiti-cancer-infusion
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -178,7 +178,7 @@ records:
 - facility_id: NZ-STL-INVERCARGILL
   source_ids:
   - service.healthnz-southland-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -193,7 +193,7 @@ records:
 - facility_id: NZ-OTA-DUNEDIN
   source_ids:
   - service.healthnz-otago-dunedin-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -208,7 +208,7 @@ records:
 - facility_id: NZ-HKB-HASTINGS
   source_ids:
   - service.healthnz-hawkes-bay-cancer
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -223,7 +223,7 @@ records:
 - facility_id: NZ-TGI-GISBORNE
   source_ids:
   - service.healthnz-tairawhiti-cancer
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -238,7 +238,7 @@ records:
 - facility_id: NZ-WGN-WELLINGTON-REGIONAL
   source_ids:
   - service.healthnz-wellington-blood-cancer
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -253,7 +253,7 @@ records:
 - facility_id: NZ-NSN-NELSON
   source_ids:
   - service.healthnz-nelson-marlborough-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -268,7 +268,7 @@ records:
 - facility_id: NZ-CAN-CHRISTCHURCH
   source_ids:
   - service.healthnz-canterbury-medical-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
@@ -283,7 +283,7 @@ records:
 - facility_id: NZ-SCD-TIMARU
   source_ids:
   - service.healthnz-south-canterbury-oncology
-  review_state: pending_sole_developer_review
+  review_state: attested_sole_developer_review
   temporal_status: current_documented_source
   public_or_private: public
   claims:
