@@ -62,12 +62,17 @@ def test_national_coverage_audit_has_all_health_nz_regions() -> None:
     assert west_coast["record_count"] == 0
 
 
-def test_service_census_review_queue_is_explicitly_pending() -> None:
+def test_service_census_review_queue_records_sole_developer_attestation() -> None:
     root = Path(__file__).parents[2]
     review = yaml.safe_load(
         (root / "data" / "public" / "service-census-review.yaml").read_text(encoding="utf-8")
     )
-    assert review["status"] == "pending_sole_developer_clinician_attestation"
+    assert review["status"] == "attested_sole_developer_clinician"
+    assert {row["role"] for row in review["attestation_receipts"]} == {
+        "clinical_service_reviewer",
+        "national_completeness_reviewer",
+        "licensing_reviewer",
+    }
     assert len(review["review_records"]) == 19
     assert review["licence_adjudication"]["status"] == "adjudicated_for_site_text_only"
     assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"

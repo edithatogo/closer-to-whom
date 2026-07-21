@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-010-national-service-census
-status: pending_sole_developer_clinician_attestation
+status: attested_sole_developer_clinician
 governance_model:
   code_harness: sole_developer
   github_approving_reviews_required: 0
@@ -19,7 +19,7 @@ required_attestation_scopes:
 attestation_model:
   reviewer_count: 1
   reviewer_role: sole_developer_qualified_clinician
-  identity_and_qualification_receipt: pending
+  identity_and_qualification_receipt: data/public/receipts/service-census/sole-developer-qualified-clinician-2026-07-21.json
 receipt_requirements:
   required_fields:
     - role
@@ -34,6 +34,41 @@ receipt_requirements:
     - source_scope_and_date
     - licence_decision
     - unresolved_questions_recorded
+attestation_receipts:
+  - role: clinical_service_reviewer
+    reviewer_name_or_organisation: edithatogo
+    reviewed_on: 2026-07-21
+    scope: 19 public-source facility records and capability matrix
+    decision: >-
+      Attested as plausible facility-level oncology or infusion service signals only. No
+      anti-HER2 formulation, observed capacity, clinical eligibility, or patient outcome is
+      established; those capabilities remain unknown.
+    receipt_ref: data/public/receipts/service-census/sole-developer-qualified-clinician-2026-07-21.json
+    unresolved_questions: >-
+      Facility-specific trastuzumab, trastuzumab SC, and PHESGO evidence and observed capacity
+      remain unresolved.
+  - role: national_completeness_reviewer
+    reviewer_name_or_organisation: edithatogo
+    reviewed_on: 2026-07-21
+    scope: 16 Health New Zealand regional areas and West Coast boundary
+    decision: >-
+      Attested that the documented source set covers all 16 regional areas for this bounded
+      public-source search. West Coast is represented only as referral coverage through
+      Canterbury; local West Coast capability remains unknown.
+    receipt_ref: data/public/receipts/service-census/sole-developer-qualified-clinician-2026-07-21.json
+    unresolved_questions: >-
+      Undocumented or inaccessible services and future changes remain outside the dated snapshot.
+  - role: licensing_reviewer
+    reviewer_name_or_organisation: edithatogo
+    reviewed_on: 2026-07-21
+    scope: Health New Zealand site text and derived redistribution boundaries
+    decision: >-
+      Attested that Health New Zealand site text may be redistributed with attribution under
+      CC BY 4.0, excluding photographs, illustrations, logos, and third-party material. The
+      Dunedin site-map PDF and derived map imagery remain excluded pending specific permission.
+    receipt_ref: data/public/receipts/service-census/sole-developer-qualified-clinician-2026-07-21.json
+    unresolved_questions: >-
+      Permission for excluded map imagery and third-party material has not been obtained.
 review_records:
   - source_id: service.healthnz-auckland-te-puriri
     review_state: pending_clinical_adjudication
