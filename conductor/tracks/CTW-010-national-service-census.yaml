@@ -8,12 +8,14 @@ inputs:
   - data/public/source-registry.yaml
   - data/public/service-census-review.yaml
   - data/public/service-census-capabilities.yaml
-  - schemas/facility.schema.json
+  - schemas/json/Facility.schema.json
 outputs:
   - data/derived/facility-registry.parquet
   - reports/service-census-flow.json
   - reports/service-census-coverage.json
   - reports/service-census-disagreements.csv
+  - data/public/service-census-review.yaml
+  - data/public/service-census-capabilities.yaml
 acceptance_criteria:
   - Every included capability has a public source, represented date, retrieval date, licence state, and evidence grade.
   - Grade 1 and 2 records are dual reviewed.
