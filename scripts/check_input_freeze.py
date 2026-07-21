@@ -22,6 +22,7 @@ REQUIRED = {
     "licence_state",
     "evidence_grade",
     "status",
+    "pending_reason",
 }
 
 
@@ -74,6 +75,8 @@ def validate(
             if unknown:
                 failures.append(f"{identifier}: unknown source IDs {sorted(unknown)}")
         status = str(item.get("status", "")).lower()
+        if status not in FROZEN and not item.get("pending_reason"):
+            failures.append(f"{identifier}: pending input requires pending_reason")
         if status in FROZEN:
             if not item.get("version"):
                 failures.append(f"{identifier}: frozen input requires version")

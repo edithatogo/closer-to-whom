@@ -8,3 +8,4 @@ acceptance_criteria:
   - Geography, population, ethnicity, deprivation, rurality, and vehicle-access versions are frozen.
   - Routing-point weights sum to one and spatial uncertainty is reproducible.
   - Aggregate model calibrates to declared public totals.
+  - Every non-frozen input records an explicit pending reason; pending state is never inferred from missing metadata.
