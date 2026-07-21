@@ -17,6 +17,7 @@ REQUIRED = {
     "unresolved_equity_risks",
     "culturally_safe_interpretation_constraints",
 }
+REQUIRED_OUTPUT_CONTRACTS = REQUIRED
 COMPLETED = {"reviewed", "determined"}
 
 
@@ -34,6 +35,13 @@ def validate(path: Path = REVIEW) -> list[str]:
     outputs = payload.get("required_outputs", [])
     if set(map(str, outputs)) != REQUIRED:
         failures.append("required_outputs must enumerate the four governance outputs")
+    contracts = payload.get("output_contracts")
+    if not isinstance(contracts, dict) or set(map(str, contracts)) != REQUIRED_OUTPUT_CONTRACTS:
+        failures.append("output_contracts must enumerate the four governance output contracts")
+    elif status == "pending_external_review" and any(
+        str(value).lower() != "pending_external_review" for value in contracts.values()
+    ):
+        failures.append("pending governance outputs must remain pending_external_review")
     receipts = payload.get("review_receipts", [])
     risks = payload.get("unresolved_equity_risks", [])
     constraints = payload.get("interpretation_constraints", [])
@@ -56,6 +64,8 @@ def validate(path: Path = REVIEW) -> list[str]:
         determination = payload.get("ethics_hdec_determination")
         if not isinstance(determination, dict) or not determination.get("status"):
             failures.append("completed governance review requires ethics_hdec_scope_determination")
+        if any(str(value).lower() == "pending_external_review" for value in contracts.values()):
+            failures.append("completed governance review cannot retain pending output contracts")
     elif status != "pending_external_review":
         failures.append(f"unsupported governance review status: {status or '<blank>'}")
     boundary = str(payload.get("claim_boundary", "")).lower()
