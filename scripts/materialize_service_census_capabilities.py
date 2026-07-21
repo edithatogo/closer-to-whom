@@ -48,7 +48,7 @@ def materialize(input_path: Path = INPUT, output_path: Path = OUTPUT) -> dict[st
             {
                 "facility_id": record["facility_id"],
                 "source_ids": source_ids,
-                "review_state": "pending_external_review",
+                "review_state": "pending_sole_developer_review",
                 "temporal_status": "current_documented_source",
                 "public_or_private": record["public_or_private"],
                 "claims": claims,
