@@ -39,9 +39,7 @@ def test_current_public_census_contains_only_plausible_non_drug_specific_records
     records = payload["records"]
     assert len(records) == 14
     assert {record["capability_status"] for record in records} == {"plausible"}
-    assert {record["evidence_grade"] for record in records} == {
-        "3_ambiguous_oncology_or_outreach"
-    }
+    assert {record["evidence_grade"] for record in records} == {"3_ambiguous_oncology_or_outreach"}
     assert all(record["formulations"] == [] for record in records)
     assert all(record["redistribution_allowed"] is True for record in records)
 
