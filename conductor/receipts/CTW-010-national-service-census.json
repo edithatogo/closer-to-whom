@@ -9,6 +9,7 @@
     "flow_report": "reports/service-census-flow.json",
     "coverage_report": "reports/service-census-coverage.json",
     "review_queue": "data/public/service-census-review.yaml",
+    "capability_matrix": "data/public/service-census-capabilities.yaml",
     "disagreement_report": "reports/service-census-disagreements.csv",
     "registry_output": "data/derived/facility-registry.parquet",
     "documented_facility_count": 19,
@@ -21,7 +22,7 @@
   "verification": {
     "command": "make check",
     "status": "passed",
-    "tests": 111,
+    "tests": 112,
     "claim_boundary": "The empty template is not evidence that no service exists; undocumented capability remains unknown."
   },
   "blocker": "Grade-1/2 drug-specific capability evidence, dual clinical review, and a completeness audit across all national service areas remain required before the census can be frozen for conservative analysis."

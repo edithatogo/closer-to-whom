@@ -7,6 +7,7 @@ inputs:
   - docs/methods/service-census.md
   - data/public/source-registry.yaml
   - data/public/service-census-review.yaml
+  - data/public/service-census-capabilities.yaml
   - schemas/facility.schema.json
 outputs:
   - data/derived/facility-registry.parquet

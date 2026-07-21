@@ -71,6 +71,20 @@ def test_service_census_review_queue_is_explicitly_pending() -> None:
     assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"
 
 
+def test_capability_matrix_preserves_unknown_drug_specific_claims() -> None:
+    root = Path(__file__).parents[2]
+    matrix = yaml.safe_load(
+        (root / "data" / "public" / "service-census-capabilities.yaml").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert len(matrix["records"]) == 19
+    for record in matrix["records"]:
+        assert record["claims"]["iv_trastuzumab"] == "unknown"
+        assert record["claims"]["trastuzumab_sc"] == "unknown"
+        assert record["claims"]["phesgo_sc"] == "unknown"
+
+
 def test_non_open_evidence_cannot_be_published_as_redistributable(tmp_path: Path) -> None:
     source_registry_path = tmp_path / "source-registry.yaml"
     source_registry_path.write_text(
