@@ -67,5 +67,8 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add README.md index.html
           git commit -m "publish aggregate dashboard ${GITHUB_SHA}"
-          GIT_TERMINAL_PROMPT=0 \
-            git push --force "https://oauth2:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE_ID}.git" HEAD:main
+          GIT_CONFIG_COUNT=1 \
+            GIT_CONFIG_KEY_0=http.extraheader \
+            GIT_CONFIG_VALUE_0="Authorization: Basic $(printf 'oauth2:%s' "$HF_TOKEN" | base64 -w0)" \
+            GIT_TERMINAL_PROMPT=0 \
+            git push --force "https://huggingface.co/spaces/${HF_SPACE_ID}.git" HEAD:main
