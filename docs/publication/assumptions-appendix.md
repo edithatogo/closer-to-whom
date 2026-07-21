@@ -9,11 +9,11 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | C01 | early_iv_demo_administrations = 18. Demonstrates cumulative travel; publication value requires clinical source and review. | synthetic_fixture | discrete |  |
 | C02 | home_self_administration = excluded. Home scenarios are healthcare-professional administered. | hard_constraint | none |  |
 | C03 | initial_higher_risk_doses = hospital_capable_setting. Initial and clinically constrained administrations remain at eligible facilities. | hard_constraint | pathway_specific |  |
-| D01 | principal_geography = SA2. SA2 balances public availability, interpretability, and disclosure protection. | planned_public_input | spatial |  |
+| D01 | principal_geography = SA2_SSGA23. SA2 under Stats NZ SSGA23 balances public availability, interpretability, and disclosure protection; input and licence freeze remains pending. | planned_public_input | spatial |  |
 | D02 | within_area_allocation = population_weighted_multiple_points. Multiple routing points reduce centroid bias in large areas. | planned_method | spatial |  |
 | D03 | her2_positive_probability = 0.175. Midpoint of a public range used only until pathway-specific calibration. | placeholder_requires_source_freeze | beta |  |
 | D04 | treatment_uptake = 0.85. Wide uncertainty prevents false precision before public calibration. | illustrative | beta |  |
-| E01 | rurality_measure = GCH2023. Rurality is a stratifier; network travel remains the access measure. | planned_public_input | structural |  |
+| E01 | rurality_measure = GCH23_stratifier. GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission. | planned_public_input | structural |  |
 | E02 | deprivation_measure = NZDep2023. Area deprivation is not interpreted as an individual attribute. | planned_public_input | ecological |  |
 | E03 | equity_weights = scenario_range. No single weight set is represented as stakeholder-derived without governance. | normative_uncertainty | stochastic_mcda |  |
 | F01 | conservative_evidence_threshold = 2. Primary analysis requires current explicit named treatment or solid-tumour SACT evidence. | protocol_rule | structural |  |

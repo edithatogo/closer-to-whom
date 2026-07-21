@@ -1,0 +1,34 @@
+name: Ecosystem metadata drift
+
+on:
+  schedule:
+    - cron: "41 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ecosystem-drift
+  cancel-in-progress: true
+
+jobs:
+  drift:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.14"
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+      - run: uv sync --locked --extra dev
+      - run: uv run python scripts/check_ecosystem_drift.py --output release/ecosystem-drift.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: ecosystem-drift
+          path: release/ecosystem-drift.json
+          if-no-files-found: error

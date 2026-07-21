@@ -11,6 +11,7 @@ from closer_to_whom.metrics import (
     scenario_summary,
     weighted_quantile,
 )
+from closer_to_whom.resilience import evaluate_facility_outages
 from closer_to_whom.simulation import simulate_all, simulate_scenario_pathway
 
 
@@ -87,3 +88,11 @@ def test_equity_and_capacity(bundle: dict[str, object]) -> None:
     assert capacity.select(pl.col("annual_expected_courses").min()).item() > 0
     with pytest.raises(ValueError):
         CapacityAssumptions(chair_utilisation_target=1.2)
+
+
+def test_resilience_on_simulated_assignments(bundle: dict[str, object]) -> None:
+    results = _results(bundle)
+    facility_id = str(results.get_column("facility_id").head(1).item())
+    resilience = evaluate_facility_outages(results, {"single-site": [facility_id]})
+    assert resilience.height > 0
+    assert resilience.select(pl.col("affected_share").max()).item() <= 1.0

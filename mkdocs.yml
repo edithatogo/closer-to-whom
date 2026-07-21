@@ -17,6 +17,7 @@ nav:
       - Service census: methods/service-census.md
       - Demand and geography: methods/demand-and-geography.md
       - Travel and costs: methods/travel-and-costs.md
+      - Resilience and outages: methods/resilience.md
       - Optimisation and MCDA: methods/optimisation-mcda.md
       - Uncertainty and VOI: methods/uncertainty-voi.md
   - Governance:
@@ -29,6 +30,10 @@ nav:
       - Release runbook: operations/release.md
       - Dashboard: operations/dashboard.md
       - GitHub project and assurance: operations/github-project.md
+      - National analysis receipts: operations/national-analysis-receipts.md
+      - Microdata and VOI decision: operations/microdata-voi-decision.md
+      - Publication gate: operations/publication-gate.md
+      - Ecosystem drift: operations/ecosystem-drift.md
   - Publication:
       - Strategy: publication/strategy.md
       - NZMJ protocol: publication/nzmj-protocol.md

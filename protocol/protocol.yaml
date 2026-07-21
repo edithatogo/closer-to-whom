@@ -18,7 +18,7 @@ claim_boundary: >-
   preferences, capacity, waiting, adherence, clinical outcomes, or causal effects.
 population:
   unit: aggregate_expected_treatment_courses
-  primary_geography: SA2_or_public_successor_geography
+  primary_geography: SA2_SSGA23_pending_input_and_licence_freeze
   strata:
     - age_group
     - total_response_ethnicity

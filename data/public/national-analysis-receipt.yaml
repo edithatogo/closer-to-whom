@@ -1,0 +1,20 @@
+schema_version: "1.0.0"
+track_id: CTW-050-national-analysis
+status: blocked_on_prerequisites
+prerequisites:
+  service_census: pending
+  public_input_freeze: pending
+  clinical_pathway_review: pending
+  route_costs: pending
+  governance_review: pending
+required_outputs:
+  - scenario_summary
+  - optimisation_frontier
+  - uncertainty_analysis
+  - mcda_outputs
+  - voi_outputs
+analysis_receipts: []
+claim_boundary: >-
+  This analysis remains blocked on evidence, clinical, public-input, routing, governance, and
+  ethics-scope prerequisites. Synthetic demonstrations are not national policy estimates and do
+  not establish observed capacity, clinical eligibility, or operational feasibility.

@@ -10,7 +10,7 @@ canonical_language: en-NZ
 canonical_data_plane: Arrow/Parquet
 primary_runtime: Python/Polars
 optional_backends: [JAX/XLA, Mojo, Rust, Julia/JuMP]
-public_dashboard: Hugging Face Docker Space
+public_dashboard: Hugging Face Static Space (free hosting)
 publication_targets: [NZMJ clinical paper, decision-science methods paper, optional software/data paper]
 non_goals:
   - individual clinical decisions

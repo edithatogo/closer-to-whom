@@ -10,7 +10,7 @@ Public credibility, source provenance, model integrity, confidential/licensed ma
 |---|---|
 | Confidential data committed accidentally | deny-listed paths, secret/privacy scanner, pre-commit and CI, history review |
 | Licensed payload exposed in Space image | fail-closed adapter, Docker context exclusions, image-content scan |
-| Website text over-interpreted as capability | evidence grades, claim graph, second review, `unknown` state |
+| Website text over-interpreted as capability | evidence grades, claim graph, external role-appropriate adjudication, `unknown` state |
 | Supply-chain compromise | least-privilege workflows, dependency scanning, SBOM, action review, signed/attested releases where available |
 | Non-reproducible results | locked environments, deterministic sorting, exact content digests, double-build check |
 | Numerical backend drift | NumPy oracle, JAX/Mojo differential tests, tolerances and promotion ADR |

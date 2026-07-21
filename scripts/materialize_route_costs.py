@@ -10,7 +10,11 @@ from pathlib import Path
 import polars as pl
 
 from closer_to_whom.io import write_parquet_deterministic
-from closer_to_whom.routing import OfflineApproximationEngine, build_route_matrix
+from closer_to_whom.routing import (
+    OfflineApproximationEngine,
+    build_route_matrix,
+    route_cache_fingerprint,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DEMAND = ROOT / "data/derived/demand-cells.parquet"
@@ -39,11 +43,14 @@ def materialize(
     demand = pl.read_parquet(demand_path) if demand_path.exists() else pl.DataFrame()
     facilities = pl.read_parquet(facilities_path) if facilities_path.exists() else pl.DataFrame()
     if demand.height and facilities.height:
-        routes = build_route_matrix(demand, facilities, OfflineApproximationEngine())
+        engine = OfflineApproximationEngine()
+        routes = build_route_matrix(demand, facilities, engine)
         status = "materialized_offline_approximation"
+        cache_fingerprint = route_cache_fingerprint(demand, facilities, engine)
     else:
         routes = pl.DataFrame(schema=_ROUTE_SCHEMA)
         status = "blocked_pending_demand_and_service_registries"
+        cache_fingerprint = None
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fingerprint = write_parquet_deterministic(
         routes, output_path, sort_by=("demand_cell_id", "facility_id")
@@ -57,6 +64,7 @@ def materialize(
         "route_rows": routes.height,
         "route_engine": "offline-approximation:1" if routes.height else None,
         "route_is_approximation": True,
+        "route_cache_fingerprint": cache_fingerprint,
         "parquet_fingerprint": fingerprint,
         "claim_boundary": (
             "Offline approximation routes are development fallbacks, not road-network evidence; "

@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, TypeAlias
+from typing import Any
 
 import numpy as np
 import numpy.typing as npt
 
-FloatArray: TypeAlias = npt.NDArray[np.float64]
+type FloatArray = npt.NDArray[np.float64]
 
 
 @dataclass(frozen=True, slots=True)

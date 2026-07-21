@@ -12,8 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
-    sources = yaml.safe_load((ROOT / "data/public/source-registry.yaml").read_text())
-    assumptions = yaml.safe_load((ROOT / "assumptions/assumptions.yaml").read_text())
+    sources = yaml.safe_load(
+        (ROOT / "data/public/source-registry.yaml").read_text(encoding="utf-8")
+    )
+    assumptions = yaml.safe_load(
+        (ROOT / "assumptions/assumptions.yaml").read_text(encoding="utf-8")
+    )
     candidate_sources = [
         item["source_id"]
         for item in sources["sources"]

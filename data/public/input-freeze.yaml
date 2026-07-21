@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+status: pending
+freeze_date: null
+claim_boundary: >-
+  Pending input manifest. These candidates do not establish a frozen dataset, licence, geography,
+  ethnicity method, or access estimate.
+inputs:
+  - input_id: geography
+    title: Statistical geography and population tables
+    source_ids: [candidate.statsnz-geographies]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending
+  - input_id: deprivation
+    title: New Zealand Index of Deprivation
+    source_ids: [candidate.nzdep2023]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending
+  - input_id: rurality
+    title: Geographic Classification for Health
+    source_ids: [candidate.gch2023]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending
+  - input_id: ethnicity
+    title: Public aggregate ethnicity method
+    source_ids: [candidate.statsnz-geographies]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending
+  - input_id: vehicle_access
+    title: Public vehicle-access proxy
+    source_ids: [candidate.statsnz-geographies]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending
+  - input_id: incidence
+    title: Public incidence anchor
+    source_ids: [candidate.pharmac-anti-her2]
+    version: null
+    licence_state: unknown
+    retrieval_receipt: null
+    evidence_grade: pending
+    status: pending

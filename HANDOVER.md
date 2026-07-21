@@ -15,7 +15,7 @@ The source ZIP intentionally excludes `.git`, caches, environments, raw licensed
 
 Preferred local stack:
 
-- Python 3.12 or 3.13 for the main release path;
+- Python 3.14 is the sole supported runtime and release path;
 - `uv` for deterministic Python environments;
 - Rust stable for `healthpoint-rs` integration tests;
 - Mojo nightly or the current stable release only inside the canary job until promoted;
@@ -59,6 +59,13 @@ The gate performs formatting, linting, typing, tests, coverage, property and con
 
 ## 7. Dashboard deployment
 
+The free public deployment is the generated Static Space:
+
+`https://edithatogo-closer-to-whom.static.hf.space`
+
+It embeds precomputed aggregate result cubes only. The Docker image below is
+retained for local and CI smoke testing and is not required for public hosting.
+
 The Space consumes precomputed aggregate result cubes only:
 
 ```bash
@@ -67,6 +74,12 @@ docker run --rm -p 7860:7860 closer-to-whom-space
 ```
 
 Set the Hugging Face Space SDK to Docker. Never mount raw or licensed source payloads into the public image.
+
+To publish after the Space and protected `hugging-face` environment have been
+created, configure `HF_SPACE_ID` and `HF_TOKEN` as environment secrets and run
+the `Publish Hugging Face Space` workflow on `main` with confirmation `PUBLISH`.
+The workflow assembles a clean aggregate-only repository and fails closed when
+credentials or the namespace/name identifier are absent.
 
 ## 8. Local integration receipt (2026-07-12)
 

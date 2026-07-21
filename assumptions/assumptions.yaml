@@ -24,11 +24,11 @@ assumptions:
   - id: D01
     domain: demand
     name: principal_geography
-    value: SA2
+    value: SA2_SSGA23
     status: planned_public_input
     source_ids: [candidate.statsnz-geographies]
     uncertainty: spatial
-    rationale: SA2 balances public availability, interpretability, and disclosure protection.
+    rationale: SA2 under Stats NZ SSGA23 balances public availability, interpretability, and disclosure protection; input and licence freeze remains pending.
   - id: D02
     domain: demand
     name: within_area_allocation
@@ -178,11 +178,11 @@ assumptions:
   - id: E01
     domain: equity
     name: rurality_measure
-    value: GCH2023
+    value: GCH23_stratifier
     status: planned_public_input
     source_ids: [candidate.gch2023]
     uncertainty: structural
-    rationale: Rurality is a stratifier; network travel remains the access measure.
+    rationale: GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission.
   - id: E02
     domain: equity
     name: deprivation_measure

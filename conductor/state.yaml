@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-12
+updated_at: 2026-07-21
 version: "0.2.0"
 active_track: CTW-010-national-service-census
 phase: evidence_preparation
@@ -31,7 +31,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 85
+  tests: 115
   optional_not_run:
     - Docker container health check
     - Mojo canary
@@ -39,7 +39,7 @@ verification_status:
 release_status:
   candidate_tag: not_created
   reason: >-
-    No release candidate was created. The historical local verification receipt passed at 89.56%
-    coverage; the latest full release-gate attempts reached coverage tests but exceeded the 60-second
-    per-test timeout in the Windows/OneDrive workspace during subprocess-backed tests. GitHub clean
-    Linux assurance gates are green.
+    No release candidate was created. The latest local profile passed all 27 required gates at 89.56%
+    coverage. The full Windows/OneDrive attempt then timed out during clean-room wheel installation;
+    the equivalent GitHub clean-double-build and full Linux assurance gates are green. Publication
+    remains blocked on external evidence and governance review.

@@ -1,0 +1,15 @@
+schema_version: "1.0.0"
+status: pending_external_review
+review_scope: public_aggregate_policy_evaluation
+required_outputs:
+  - maori_equity_review_receipt
+  - ethics_hdec_scope_determination
+  - unresolved_equity_risks
+  - culturally_safe_interpretation_constraints
+review_receipts: []
+unresolved_equity_risks: []
+interpretation_constraints: []
+ethics_hdec_determination: null
+claim_boundary: >-
+  Pending governance review. This file does not claim Māori endorsement, ethical approval, HDEC
+  exemption, or that a future microdata phase is authorised.

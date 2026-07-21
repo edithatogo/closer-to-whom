@@ -9,6 +9,8 @@ from typing import Protocol, runtime_checkable
 import numpy as np
 import polars as pl
 
+from closer_to_whom.provenance import fingerprint_mapping
+
 EARTH_RADIUS_KM = 6371.0088
 
 
@@ -166,3 +168,20 @@ def build_route_matrix(
                 }
             )
     return pl.DataFrame(rows).sort(["demand_cell_id", "facility_id"])
+
+
+def route_cache_fingerprint(
+    demand: pl.DataFrame,
+    facilities: pl.DataFrame,
+    engine: RouteEngine,
+) -> str:
+    """Fingerprint route inputs and engine identity for reproducible cache reuse."""
+    demand_rows = (
+        demand.select(["demand_cell_id", "latitude", "longitude"]).sort("demand_cell_id").to_dicts()
+    )
+    facility_rows = (
+        facilities.select(["facility_id", "latitude", "longitude"]).sort("facility_id").to_dicts()
+    )
+    return fingerprint_mapping(
+        {"demand": demand_rows, "facilities": facility_rows, "engine": engine.identity}
+    )

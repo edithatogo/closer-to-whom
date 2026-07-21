@@ -1,0 +1,14 @@
+schema_version: "1.0.0"
+track_id: CTW-070-microdata-voi-decision
+status: blocked_on_ctw050
+microdata_build_dependency: false
+required_outputs:
+  - voi_summary
+  - research_design_comparison
+  - governance_burden_assessment
+  - ethics_scope_boundary
+decision_receipts: []
+claim_boundary: >-
+  No individual, confidential, de-identified-but-non-public, or row-level health data is required
+  or permitted in this build. A future microdata or participant-research phase requires a separate
+  protocol, governance review, and ethics/HDEC scope determination.

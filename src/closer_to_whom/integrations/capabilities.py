@@ -21,7 +21,7 @@ class IntegrationCapability:
 def _module_available(name: str) -> bool:
     try:
         return importlib.util.find_spec(name) is not None
-    except (ImportError, ModuleNotFoundError, ValueError):
+    except ImportError, ModuleNotFoundError, ValueError:
         return False
 
 

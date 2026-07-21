@@ -55,6 +55,15 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_machine_readability.py
 	$(UV) run python scripts/check_assumption_coverage.py
 	$(UV) run python scripts/check_source_registry.py
+	$(UV) run python scripts/check_source_receipts.py
+	$(UV) run python scripts/check_service_census_capabilities.py
+	$(UV) run python scripts/check_input_freeze.py
+	$(UV) run python scripts/check_clinical_review_receipt.py
+	$(UV) run python scripts/check_governance_review.py
+	$(UV) run python scripts/check_national_analysis_receipt.py
+	$(UV) run python scripts/check_microdata_voi_decision.py
+	$(UV) run python scripts/check_publication_gate.py
+	$(UV) run python scripts/check_upstream_compatibility.py
 	$(UV) run python scripts/check_generated_files.py
 	$(UV) run python scripts/check_lockfile_portability.py
 	$(UV) run python scripts/check_version_consistency.py
@@ -84,6 +93,7 @@ demo: ## Generate deterministic synthetic nationwide demonstration outputs
 
 service-census: ## Materialise the fail-closed public service census registry
 	$(UV) run python scripts/materialize_service_census.py
+	$(UV) run python scripts/materialize_service_census_capabilities.py
 
 public-demand: ## Materialise public aggregate demand and geography inputs
 	$(UV) run python scripts/materialize_public_demand.py

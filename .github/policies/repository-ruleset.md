@@ -2,8 +2,8 @@
 
 Apply locally after repository creation:
 
-- protect `main`; require pull requests and two approvals for clinical/data-governance changes;
-- dismiss stale approvals and require Code Owner review;
+- protect `main`; require pull requests, but do not require a second developer approval;
+- dismiss stale approvals when present; Code Owner review is disabled because this is a sole-developer harness;
 - require signed commits where compatible with automation;
 - require linear history, conversation resolution, and the full required-check set;
 - block force pushes and branch deletion;

@@ -21,7 +21,7 @@ The open phase accepts only public aggregate, synthetic, or generated aggregate 
 4. Hash the captured object.
 5. adjudicate licence and redistribution state;
 6. extract a claim or parameter with an evidence grade;
-7. second-review clinically material capability claims;
+7. obtain a dated, role-appropriate external receipt for clinically material capability claims;
 8. materialise only permitted fields into a versioned Arrow dataset;
 9. retain transformation and release fingerprints.
 

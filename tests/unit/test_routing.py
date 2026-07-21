@@ -11,6 +11,7 @@ from closer_to_whom.routing import (
     build_route_matrix,
     haversine_km,
     haversine_matrix_km,
+    route_cache_fingerprint,
 )
 
 
@@ -46,3 +47,13 @@ def test_route_matrix(bundle: dict[str, object]) -> None:
     matrix = build_route_matrix(demand.head(2), facilities.head(3), OfflineApproximationEngine())
     assert matrix.height == 6
     assert matrix.select(pl.col("one_way_km").min()).item() >= 0
+
+
+def test_route_cache_fingerprint_is_order_stable(bundle: dict[str, object]) -> None:
+    demand = demand_cells_to_frame(bundle["demand"])  # type: ignore[arg-type]
+    facilities = facilities_to_frame(bundle["facilities"])  # type: ignore[arg-type]
+    left = route_cache_fingerprint(demand, facilities, OfflineApproximationEngine())
+    right = route_cache_fingerprint(
+        demand.reverse(), facilities.reverse(), OfflineApproximationEngine()
+    )
+    assert left == right
