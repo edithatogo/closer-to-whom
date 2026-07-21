@@ -64,12 +64,13 @@ Recommended review decisions:
   https://www.pharmac.govt.nz/news-and-resources/consultations-and-decisions/2025-11-decision-to-fund-treatments-for-multiple-sclerosis-eye-conditions-breast-cancer-and-lung-cancer
 - Current model pathway review template: `data/public/clinical-pathway-review.yaml`.
 
-Required reviewer roles:
+Required sole-developer qualified-clinician attestation scopes:
 
-- [ ] Medical oncology.
-- [ ] Oncology pharmacy or medicine governance.
-- [ ] Nursing or SACT service.
-- [ ] Māori health interpretation.
+- [ ] Clinical service capability and formulation claims.
+- [ ] National completeness and regional coverage.
+- [ ] Licensing, redistribution, and excluded third-party material.
+
+The sole developer records one dated receipt for each scope. This is a qualified-clinician evidence attestation, not a second GitHub code review. Māori/equity interpretation remains a separate governance gate under CTW-050 and is not silently discharged by this census attestation.
 
 Clinical review questions:
 
