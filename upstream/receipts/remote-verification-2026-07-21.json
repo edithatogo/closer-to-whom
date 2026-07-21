@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "retrieved_at": "2026-07-21T12:40:00Z",
+  "retrieval_method": "authenticated GitHub REST API",
+  "repositories": [
+    {"repository": "edithatogo/sourceright", "default_branch": "main", "archived": false, "license_spdx": "MIT", "updated_at": "2026-07-13T02:46:52Z"},
+    {"repository": "edithatogo/authentext", "default_branch": "main", "archived": false, "license_spdx": "MIT", "updated_at": "2026-07-20T17:20:35Z"},
+    {"repository": "edithatogo/innovate", "default_branch": "main", "archived": false, "license_spdx": "Apache-2.0", "updated_at": "2026-07-14T01:40:57Z"},
+    {"repository": "edithatogo/voiage", "default_branch": "main", "archived": false, "license_spdx": "Apache-2.0", "updated_at": "2026-07-21T01:20:03Z"},
+    {"repository": "edithatogo/kairos", "default_branch": "main", "archived": false, "license_spdx": "NOASSERTION", "updated_at": "2026-07-20T23:57:55Z"},
+    {"repository": "edithatogo/mars", "default_branch": "main", "archived": false, "license_spdx": "NOASSERTION", "updated_at": "2026-07-07T09:51:04Z"},
+    {"repository": "edithatogo/open_social_data", "default_branch": "main", "archived": false, "license_spdx": "Apache-2.0", "updated_at": "2026-07-11T00:59:15Z"},
+    {"repository": "edithatogo/healthpoint-rs", "default_branch": "main", "archived": false, "license_spdx": "Apache-2.0", "updated_at": "2026-07-03T01:30:44Z"},
+    {"repository": "edithatogo/fyi-cli", "default_branch": "master", "archived": false, "license_spdx": "MIT", "updated_at": "2026-07-20T18:57:20Z"}
+  ],
+  "claim_boundary": "Verified repository metadata only. This receipt does not endorse, execute, import, release, or assess suitability of any upstream repository, and does not establish compatibility beyond the local contracts."
+}

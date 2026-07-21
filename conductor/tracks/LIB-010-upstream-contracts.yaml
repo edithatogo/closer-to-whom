@@ -18,3 +18,4 @@ acceptance_criteria:
   - Patch-ready changes are isolated from project-specific policy semantics.
   - Repository works before upstream release.
   - Remote issue/PR state is verified locally before publication claims.
+  - Authenticated upstream metadata is recorded in a dated receipt without implying release, suitability, or endorsement.
