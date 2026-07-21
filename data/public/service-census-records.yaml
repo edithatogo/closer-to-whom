@@ -104,6 +104,76 @@ records:
     formulations: []
     delivery_modes: []
     redistribution_allowed: true
+  - facility_id: NZ-LAK-ROTORUA
+    name: Rotorua Hospital chemotherapy and medical day stay
+    region: Lakes
+    district: Rotorua
+    latitude: -38.1370
+    longitude: 176.2497
+    facility_type: chemotherapy_and_medical_day_stay
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-rotorua-taupo-chemotherapy]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-LAK-TAUPO
+    name: Taupō Hospital chemotherapy and medical day stay
+    region: Lakes
+    district: Taupō
+    latitude: -38.6857
+    longitude: 176.0702
+    facility_type: chemotherapy_and_medical_day_stay
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-rotorua-taupo-chemotherapy]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-WAI-MASTERTON
+    name: Wairarapa Hospital oncology service
+    region: Wairarapa
+    district: Masterton
+    latitude: -40.9495
+    longitude: 175.6574
+    facility_type: oncology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-wairarapa-oncology]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
+  - facility_id: NZ-WKO-TE-KUITI
+    name: Te Kūiti Hospital cancer infusion service
+    region: Waikato
+    district: Waitomo
+    latitude: -38.3320
+    longitude: 175.1660
+    facility_type: cancer_infusion_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-te-kuiti-cancer-infusion]
+    formulations: []
+    delivery_modes: [iv_hospital]
+    redistribution_allowed: true
+  - facility_id: NZ-STL-INVERCARGILL
+    name: Southland Hospital oncology department
+    region: Southland
+    district: Invercargill
+    latitude: -46.4130
+    longitude: 168.3538
+    facility_type: oncology_service
+    public_or_private: public
+    capability_status: plausible
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    source_ids: [service.healthnz-southland-oncology]
+    formulations: []
+    delivery_modes: []
+    redistribution_allowed: true
   - facility_id: NZ-OTA-DUNEDIN
     name: Dunedin Hospital oncology medical unit
     region: Otago

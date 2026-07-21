@@ -6,10 +6,12 @@ objective: Freeze an evidence-graded national registry of relevant cancer-servic
 inputs:
   - docs/methods/service-census.md
   - data/public/source-registry.yaml
+  - data/public/service-census-review.yaml
   - schemas/facility.schema.json
 outputs:
   - data/derived/facility-registry.parquet
   - reports/service-census-flow.json
+  - reports/service-census-coverage.json
   - reports/service-census-disagreements.csv
 acceptance_criteria:
   - Every included capability has a public source, represented date, retrieval date, licence state, and evidence grade.

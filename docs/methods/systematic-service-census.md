@@ -6,7 +6,7 @@ The core rule is **unknown is not absent**. Lack of qualifying public evidence p
 
 Search protocol, inclusion and exclusion rules, review state, source dates, retrieval dates, checksums, supersession, licensing, and redistribution decisions are machine-readable in `protocol/` and `data/public/`.
 
-The 2026-07-21 capture includes 14 publicly documented Health New Zealand service locations. The
+The 2026-07-21 capture includes 19 publicly documented Health New Zealand service locations. The
 captured pages are covered by Health New Zealand's CC BY 4.0 website-text licence; photographs,
 illustrations, logos, and third-party material remain excluded. These records are deliberately
 `plausible` grade-3 facility-level cancer/SACT signals with no named anti-HER2 formulation. The

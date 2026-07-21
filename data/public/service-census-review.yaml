@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+track_id: CTW-010-national-service-census
+status: pending_external_review
+licence_adjudication:
+  status: adjudicated_for_site_text_only
+  licence: CC-BY-4.0
+  evidence_source_id: source.licence-healthnz-copyright
+  exclusions: [photographs, illustrations, logos, third_party_material]
+required_review_roles:
+  - clinical_service_reviewer
+  - national_completeness_reviewer
+review_records:
+  - source_id: service.healthnz-auckland-te-puriri
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-bay-of-plenty-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-canterbury-medical-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-dargaville-oncology-infusion
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-hawkes-bay-cancer
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-nelson-marlborough-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-otago-dunedin-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-palmerston-regional-cancer
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-rotorua-taupo-chemotherapy
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-south-canterbury-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-southland-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-tairawhiti-cancer
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-taranaki-cancer-centre
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-te-kuiti-cancer-infusion
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-waikato-cancer
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-wairarapa-oncology
+    review_state: pending_clinical_adjudication
+  - source_id: service.healthnz-wellington-blood-cancer
+    review_state: pending_clinical_adjudication
+  - source_id: source.healthnz-hospital-finder
+    review_state: pending_completeness_adjudication
+  - source_id: source.licence-healthnz-copyright
+    review_state: licence_basis_adjudicated
+decisions:
+  - decision_id: CTW-010-LIC-001
+    decision: Site text may be redistributed with attribution under CC BY 4.0.
+    status: accepted
+  - decision_id: CTW-010-CLIN-001
+    decision: No anti-HER2 formulation or observed capacity is inferred from these records.
+    status: accepted
+  - decision_id: CTW-010-CLIN-002
+    decision: Conservative network remains empty until stronger evidence and clinical review receipts exist.
+    status: accepted

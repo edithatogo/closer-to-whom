@@ -263,3 +263,59 @@ sources:
     status: captured
     licence_evidence: source.licence-healthnz-copyright
     receipt_path: data/public/receipts/service-census/service.healthnz-otago-dunedin-oncology.json
+  - source_id: service.healthnz-rotorua-taupo-chemotherapy
+    title: Rotorua and Taupō chemotherapy and medical day stay
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/rotorua-taupo-lakes/chemotherapy-and-medical-day-stay
+    retrieved_on: 2026-07-21
+    publication_date: 2025-03-27
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-rotorua-taupo-chemotherapy.json
+  - source_id: service.healthnz-wairarapa-oncology
+    title: Wairarapa Hospital oncology service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/wairarapa/hospital
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-wairarapa-oncology.json
+  - source_id: service.healthnz-te-kuiti-cancer-infusion
+    title: Te Kūiti Hospital cancer infusion service
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/news-and-updates/new-cancer-treatment-services-offered-at-te-kuiti-hospital
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-te-kuiti-cancer-infusion.json
+  - source_id: service.healthnz-southland-oncology
+    title: Southland Hospital oncology department
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals/otago-southland/southland-hospital
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_ambiguous_oncology_or_outreach
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/service.healthnz-southland-oncology.json
+  - source_id: source.healthnz-hospital-finder
+    title: Health New Zealand national hospital and regional service finder
+    publisher: Health New Zealand
+    url: https://www.healthnz.govt.nz/hospitals-services/hospitals
+    retrieved_on: 2026-07-21
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 4_historical_or_indirect
+    status: captured
+    licence_evidence: source.licence-healthnz-copyright
+    receipt_path: data/public/receipts/service-census/source.healthnz-hospital-finder.json

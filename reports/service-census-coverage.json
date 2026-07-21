@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "coverage_source_id": "source.healthnz-hospital-finder",
+  "retrieved_on": "2026-07-21",
+  "coverage_count": 16,
+  "areas": [
+    {"area": "Auckland", "status": "documented_service_record", "record_count": 1},
+    {"area": "Bay of Plenty", "status": "documented_service_record", "record_count": 2},
+    {"area": "Canterbury", "status": "documented_service_record", "record_count": 1},
+    {"area": "Hawke's Bay", "status": "documented_service_record", "record_count": 1},
+    {"area": "Manawatu-Whanganui", "status": "documented_service_record", "record_count": 1},
+    {"area": "Nelson, Marlborough and Tasman", "status": "documented_service_record", "record_count": 1},
+    {"area": "Northland", "status": "documented_service_record", "record_count": 1},
+    {"area": "Otago and Southland", "status": "documented_service_record", "record_count": 2},
+    {"area": "Rotorua and Taupo", "status": "documented_service_record", "record_count": 2},
+    {"area": "South Canterbury", "status": "documented_service_record", "record_count": 1},
+    {"area": "Tairawhiti Gisborne", "status": "documented_service_record", "record_count": 1},
+    {"area": "Taranaki", "status": "documented_service_record", "record_count": 1},
+    {"area": "Waikato", "status": "documented_service_record", "record_count": 2},
+    {"area": "Wairarapa", "status": "documented_service_record", "record_count": 1},
+    {"area": "Wellington, Hutt and Kapiti", "status": "documented_service_record", "record_count": 1},
+    {"area": "West Coast", "status": "regional_referral_coverage", "record_count": 0}
+  ],
+  "claim_boundary": "Coverage of an area is not evidence that every facility or formulation in that area is capable of anti-HER2 treatment. West Coast is represented by the Canterbury regional service coverage claim; local West Coast capability remains unknown."
+}

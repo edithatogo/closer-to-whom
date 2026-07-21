@@ -7,19 +7,21 @@
     "materializer": "scripts/materialize_service_census.py",
     "input_template": "data/public/service-census-records.yaml",
     "flow_report": "reports/service-census-flow.json",
+    "coverage_report": "reports/service-census-coverage.json",
+    "review_queue": "data/public/service-census-review.yaml",
     "disagreement_report": "reports/service-census-disagreements.csv",
     "registry_output": "data/derived/facility-registry.parquet",
-    "documented_facility_count": 14,
+    "documented_facility_count": 19,
     "included_record_status": "plausible_only",
     "included_record_evidence_grade": "3_ambiguous_oncology_or_outreach",
     "drug_specific_formulations": "unknown",
-    "captured_source_receipts": 14,
+    "captured_source_receipts": 19,
     "licence_basis": "Health New Zealand website text is CC BY 4.0; photographs, illustrations, logos, and third-party material are excluded"
   },
   "verification": {
     "command": "make check",
     "status": "passed",
-    "tests": 109,
+    "tests": 111,
     "claim_boundary": "The empty template is not evidence that no service exists; undocumented capability remains unknown."
   },
   "blocker": "Grade-1/2 drug-specific capability evidence, dual clinical review, and a completeness audit across all national service areas remain required before the census can be frozen for conservative analysis."

@@ -37,11 +37,38 @@ def test_current_public_census_contains_only_plausible_non_drug_specific_records
         (root / "data" / "public" / "service-census-records.yaml").read_text(encoding="utf-8")
     )
     records = payload["records"]
-    assert len(records) == 14
+    assert len(records) == 19
     assert {record["capability_status"] for record in records} == {"plausible"}
     assert {record["evidence_grade"] for record in records} == {"3_ambiguous_oncology_or_outreach"}
     assert all(record["formulations"] == [] for record in records)
     assert all(record["redistribution_allowed"] is True for record in records)
+
+
+def test_national_coverage_audit_has_all_health_nz_regions() -> None:
+    root = Path(__file__).parents[2]
+    coverage = yaml.safe_load(
+        (root / "reports" / "service-census-coverage.json").read_text(encoding="utf-8")
+    )
+    assert coverage["coverage_count"] == 16
+    assert len(coverage["areas"]) == 16
+    assert {area["status"] for area in coverage["areas"]} == {
+        "documented_service_record",
+        "regional_referral_coverage",
+    }
+    west_coast = next(area for area in coverage["areas"] if area["area"] == "West Coast")
+    assert west_coast["status"] == "regional_referral_coverage"
+    assert west_coast["record_count"] == 0
+
+
+def test_service_census_review_queue_is_explicitly_pending() -> None:
+    root = Path(__file__).parents[2]
+    review = yaml.safe_load(
+        (root / "data" / "public" / "service-census-review.yaml").read_text(encoding="utf-8")
+    )
+    assert review["status"] == "pending_external_review"
+    assert len(review["review_records"]) == 19
+    assert review["licence_adjudication"]["status"] == "adjudicated_for_site_text_only"
+    assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"
 
 
 def test_non_open_evidence_cannot_be_published_as_redistributable(tmp_path: Path) -> None:
