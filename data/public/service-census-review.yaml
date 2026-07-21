@@ -1,18 +1,25 @@
 schema_version: "1.0.0"
 track_id: CTW-010-national-service-census
-status: pending_external_review
+status: pending_sole_developer_clinician_attestation
 governance_model:
   code_harness: sole_developer
   github_approving_reviews_required: 0
-  external_receipts_are_not_code_reviews: true
+  second_reviewer_required: false
+  qualified_clinician_may_attest: true
+  evidence_receipts_are_not_github_code_reviews: true
 licence_adjudication:
   status: adjudicated_for_site_text_only
   licence: CC-BY-4.0
   evidence_source_id: source.licence-healthnz-copyright
   exclusions: [photographs, illustrations, logos, third_party_material]
-required_review_roles:
+required_attestation_scopes:
   - clinical_service_reviewer
   - national_completeness_reviewer
+  - licensing_reviewer
+attestation_model:
+  reviewer_count: 1
+  reviewer_role: sole_developer_qualified_clinician
+  identity_and_qualification_receipt: pending
 receipt_requirements:
   required_fields:
     - role
@@ -23,7 +30,7 @@ receipt_requirements:
     - receipt_ref
     - unresolved_questions
   publication_transition_requires:
-    - every_required_role_receipt
+    - every_required_scope_attested_by_qualified_clinician
     - source_scope_and_date
     - licence_decision
     - unresolved_questions_recorded

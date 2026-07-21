@@ -67,12 +67,14 @@ def test_service_census_review_queue_is_explicitly_pending() -> None:
     review = yaml.safe_load(
         (root / "data" / "public" / "service-census-review.yaml").read_text(encoding="utf-8")
     )
-    assert review["status"] == "pending_external_review"
+    assert review["status"] == "pending_sole_developer_clinician_attestation"
     assert len(review["review_records"]) == 19
     assert review["licence_adjudication"]["status"] == "adjudicated_for_site_text_only"
     assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"
     assert review["governance_model"]["code_harness"] == "sole_developer"
     assert review["governance_model"]["github_approving_reviews_required"] == 0
+    assert review["governance_model"]["second_reviewer_required"] is False
+    assert review["attestation_model"]["reviewer_count"] == 1
     assert set(review["receipt_requirements"]["required_fields"]) == {
         "role",
         "reviewer_name_or_organisation",

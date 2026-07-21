@@ -49,10 +49,15 @@ def validate(
         "source.licence-healthnz-copyright",
     }:
         failures.append("review queue must cover every census source exactly once")
-    if review.get("status") != "pending_external_review":
-        failures.append("review queue must remain explicitly pending until external receipts exist")
-    if (review.get("governance_model") or {}).get("code_harness") != "sole_developer":
+    if review.get("status") != "pending_sole_developer_clinician_attestation":
+        failures.append(
+            "review queue must remain explicitly pending until sole-developer attestations exist"
+        )
+    governance = review.get("governance_model") or {}
+    if governance.get("code_harness") != "sole_developer":
         failures.append("review queue must declare the sole-developer code harness")
+    if governance.get("second_reviewer_required") is not False:
+        failures.append("review queue must declare that a second reviewer is not required")
     if (review.get("licence_adjudication") or {}).get("status") != "adjudicated_for_site_text_only":
         failures.append("licence boundary must remain explicit and site-text-only")
     required_receipt_fields = {
@@ -80,7 +85,7 @@ def validate(
         if not isinstance(claims, dict) or set(claims) != CLAIMS:
             failures.append(f"{facility_id}: capability claim keys are incomplete")
             continue
-        if row.get("review_state") != "pending_external_review":
+        if row.get("review_state") != "pending_sole_developer_review":
             failures.append(f"{facility_id}: review state must remain explicit")
         for claim, state in claims.items():
             if state not in STATES:

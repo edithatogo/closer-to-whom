@@ -18,7 +18,7 @@ outputs:
   - data/public/service-census-capabilities.yaml
 acceptance_criteria:
   - Every included capability has a public source, represented date, retrieval date, licence state, and evidence grade.
-  - Grade 1 and 2 records have a dated, role-appropriate external evidence receipt before publication.
+  - Grade 1 and 2 records have a dated sole-developer qualified-clinician evidence receipt before publication.
   - Unknown and absent are not conflated.
   - Conservative, plausible, and broad networks can be materialised reproducibly.
   - The empty template remains an explicit blocked state until external evidence is adjudicated.

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-010-national-service-census",
-  "status": "active_evidence_capture_pending_clinical_adjudication",
+  "status": "active_sole_developer_clinician_attestation_pending",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/2",
   "implementation": {
     "materializer": "scripts/materialize_service_census.py",
@@ -25,5 +25,5 @@
     "tests": 115,
     "claim_boundary": "The empty template is not evidence that no service exists; undocumented capability remains unknown."
   },
-  "blocker": "Grade-1/2 drug-specific capability evidence, role-appropriate external clinical adjudication, and a completeness audit across all national service areas remain required before the census can be frozen for conservative analysis."
+  "blocker": "The sole developer's qualified-clinician identity/qualification receipt and dated clinical, completeness, and licensing attestations remain required before the census can be frozen for conservative analysis."
 }

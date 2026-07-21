@@ -21,13 +21,14 @@ Search each region, district, hospital, and locality with oncology, medical onco
 
 The primary network uses a frozen conservative threshold. Structural analyses progressively include weaker evidence. No-public-evidence remains unknown.
 
-## Sole-developer review and external adjudication
+## Sole-developer qualified-clinician attestation
 
-The repository is maintained and code-reviewed by one developer. GitHub does not require a
-second approval or Code Owner approval. Clinically material Grade 1/2 records remain blocked
-from evidentiary publication until the applicable external clinical, completeness, and licence
-receipts are recorded. These receipts attest to evidence claims; they are not software pull
-request approvals. Any disagreement or unresolved uncertainty is retained in the audit trail.
+The repository is maintained and code-reviewed by one developer who may also attest as the
+qualified clinician for this project. GitHub does not require a second approval or Code Owner
+approval. Clinically material Grade 1/2 records remain blocked from evidentiary publication until
+the sole developer records dated clinical, completeness, and licence attestations. These receipts
+attest to evidence claims; they are not software pull-request approvals. Any disagreement or
+unresolved uncertainty is retained in the audit trail.
 
 ## Living update
 

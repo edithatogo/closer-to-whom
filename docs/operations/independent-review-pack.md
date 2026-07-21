@@ -1,9 +1,9 @@
-# External evidence review pack
+# Sole-developer evidence attestation pack
 
-This pack supports external review of evidence and its boundary. The repository is a
-sole-developer code harness: GitHub does not require a second developer approval or Code Owner
-approval. External clinical, Māori/equity, licensing, and ethics receipts remain separate
-evidence gates and must be recorded in the applicable machine-readable receipt.
+This pack supports sole-developer qualified-clinician attestation of evidence and its boundary.
+GitHub does not require a second developer approval or Code Owner approval. Clinical, Māori/equity,
+licensing, and ethics receipts remain separate evidence gates and must be recorded in the applicable
+machine-readable receipt.
 
 ## Software and reproducibility
 
@@ -26,7 +26,7 @@ machine-readable review queue is `data/public/service-census-review.yaml`, the c
 is `data/public/service-census-capabilities.yaml`, and the source registry contains immutable
 retrieval receipts under `data/public/receipts/service-census/`.
 
-Required independent decisions:
+Required sole-developer attestation scopes:
 
 - [ ] Clinical service reviewer: confirm or reject the facility-level oncology/infusion signal;
       do not infer trastuzumab, trastuzumab SC, PHESGO, capacity, or eligibility from generic pages.
@@ -35,12 +35,12 @@ Required independent decisions:
 - [ ] Licence reviewer: confirm CC BY 4.0 redistribution for Health NZ site text only, with
       excluded photographs, illustrations, logos, third-party material, and the non-redistributable
       Dunedin site-map PDF.
-- [ ] Record dated reviewer receipts and unresolved disagreements in the review queue before
-      changing `pending_external_review` or materialising a conservative network.
+- [ ] Record dated attestations and unresolved disagreements in the review queue before changing
+      the pending state or materialising a conservative network.
 
-Each receipt must identify the reviewer or organisation, review date, scope, decision, durable
-receipt reference, and unresolved questions. A completed state also requires one receipt for every
-required role and an explicit licence decision.
+Each receipt must identify the qualified clinician, review date, scope, decision, durable receipt
+reference, and unresolved questions. A completed state requires one attestation for every required
+scope and an explicit licence decision.
 
 ### Geography and public inputs
 
