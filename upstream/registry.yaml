@@ -1,5 +1,7 @@
 schema_version: "1.0.0"
 policy: adapters_first_upstream_when_reusable
+remote_state: verified_metadata_receipt
+remote_receipt: upstream/receipts/remote-verification-2026-07-21.json
 libraries:
   - name: sourceright
     repository: https://github.com/edithatogo/sourceright
