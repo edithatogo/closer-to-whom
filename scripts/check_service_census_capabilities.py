@@ -74,7 +74,7 @@ def validate(
         set(raw_receipt_fields) if isinstance(raw_receipt_fields, list) else set()
     )
     if declared_receipt_fields != required_receipt_fields:
-        failures.append("review queue must declare the complete external receipt contract")
+        failures.append("review queue must declare the complete attestation receipt contract")
     actual_rows = matrix.get("records", [])
     actual = {str(row.get("facility_id")) for row in actual_rows}
     if expected != actual:
