@@ -4,7 +4,7 @@ updated_at: 2026-07-21
 version: "0.2.0"
 active_track: CTW-010-national-service-census
 phase: evidence_preparation
-software_status: locally_verified_on_codex_integration_branch
+software_status: hosted_main_verified
 model_status: synthetic_demonstration_only
 publication_status: blocked_on_evidence_and_governance
 current_claim_boundary: >-

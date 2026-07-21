@@ -21,4 +21,4 @@ acceptance_criteria:
   - Grade 1 and 2 records have a dated sole-developer qualified-clinician evidence receipt before publication.
   - Unknown and absent are not conflated.
   - Conservative, plausible, and broad networks can be materialised reproducibly.
-  - The empty template remains an explicit blocked state until external evidence is adjudicated.
+  - The empty template remains an explicit blocked state until the sole-developer qualified-clinician attestation receipts are recorded.
