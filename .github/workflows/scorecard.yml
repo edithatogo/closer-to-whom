@@ -1,7 +1,8 @@
 name: OpenSSF Scorecard
 on:
   branch_protection_rule:
-  pull_request:
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: "31 6 * * 1"
