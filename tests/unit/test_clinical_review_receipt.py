@@ -12,6 +12,8 @@ def test_pending_sole_developer_attestation_is_valid(tmp_path: Path) -> None:
     path.write_text(
         """status: pending_sole_developer_clinician_attestation
 required_attestation_scopes: [medical_oncology]
+scope_contracts:
+  medical_oncology: pending
 attestation_receipts: []
 decisions: []
 claim_boundary: Synthetic pathway fixtures remain unreviewed.
@@ -26,6 +28,9 @@ def test_reviewed_receipt_requires_all_roles(tmp_path: Path) -> None:
     path.write_text(
         """status: reviewed
 required_reviewers: [medical_oncology, nursing]
+scope_contracts:
+  medical_oncology: reviewed
+  nursing: reviewed
 reviewers:
   - role: medical_oncology
     receipt_ref: review-1

@@ -31,6 +31,15 @@ def validate(path: Path = REVIEW) -> list[str]:
     if not isinstance(required, list) or not required:
         failures.append("required_reviewers must be a non-empty list")
         required = []
+    scope_contracts = payload.get("scope_contracts")
+    required_scopes = set(map(str, required))
+    if not isinstance(scope_contracts, dict) or set(map(str, scope_contracts)) != required_scopes:
+        failures.append("scope_contracts must enumerate every required attestation scope")
+    elif str(payload.get("status", "")).lower() in {
+        "pending_external_review",
+        "pending_sole_developer_clinician_attestation",
+    } and any(str(value).lower() != "pending" for value in scope_contracts.values()):
+        failures.append("pending clinical scopes must remain pending")
     if not isinstance(reviewers, list):
         failures.append("reviewers must be a list")
         reviewers = []
@@ -65,6 +74,8 @@ def validate(path: Path = REVIEW) -> list[str]:
             failures.append(f"reviewed clinical receipt missing roles: {sorted(missing)}")
         if not decisions:
             failures.append("reviewed clinical receipt requires decisions")
+        if any(str(value).lower() == "pending" for value in scope_contracts.values()):
+            failures.append("reviewed clinical receipt cannot retain pending scopes")
     elif status not in {
         "pending_external_review",
         "pending_sole_developer_clinician_attestation",

@@ -11,6 +11,11 @@ required_attestation_scopes:
   - oncology_pharmacy_or_medicine_governance
   - nursing_or_SACT_service
   - Maori_health_interpretation
+scope_contracts:
+  medical_oncology: pending
+  oncology_pharmacy_or_medicine_governance: pending
+  nursing_or_SACT_service: pending
+  Maori_health_interpretation: pending
 attestation_model:
   reviewer_count: 1
   reviewer_role: sole_developer_qualified_clinician
