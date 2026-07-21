@@ -14,3 +14,17 @@ attempt to access data outside the public aggregate scope.
 
 Supported releases are the latest tagged release and `main`. The project intentionally fails closed
 on live Healthpoint data, unknown redistribution rights, secrets, and prohibited data paths.
+
+## Verified repository security controls
+
+As of 2026-07-21, the public repository reports secret scanning, push protection,
+and Dependabot security updates as enabled. GitHub reports non-provider secret-pattern
+scanning and secret validity checks as disabled/unavailable at the current account or
+plan capability; this repository does not represent those controls as enabled.
+
+The repository owner (`edithatogo`) is the enablement owner. The exact request is:
+"Enable secret-scanning non-provider patterns and secret validity checks for
+edithatogo/closer-to-whom, or enable the GitHub account/organisation plan capability
+that makes those repository controls available." Until GitHub confirms that change,
+the local secret scan, push protection, least-privilege workflows, and dependency
+checks remain the enforceable controls.
