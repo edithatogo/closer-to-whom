@@ -21,9 +21,13 @@ Search each region, district, hospital, and locality with oncology, medical onco
 
 The primary network uses a frozen conservative threshold. Structural analyses progressively include weaker evidence. No-public-evidence remains unknown.
 
-## Dual review and disagreement
+## Sole-developer review and external adjudication
 
-Clinically material Grade 1/2 records receive independent review. Disagreements are resolved by a third adjudication and retained in the audit trail. Inter-reviewer agreement is reported, but agreement never substitutes for evidence quality.
+The repository is maintained and code-reviewed by one developer. GitHub does not require a
+second approval or Code Owner approval. Clinically material Grade 1/2 records remain blocked
+from evidentiary publication until the applicable external clinical, completeness, and licence
+receipts are recorded. These receipts attest to evidence claims; they are not software pull
+request approvals. Any disagreement or unresolved uncertainty is retained in the audit trail.
 
 ## Living update
 

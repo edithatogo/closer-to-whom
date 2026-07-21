@@ -1,5 +1,9 @@
 schema_version: "1.0.0"
 status: pending_external_review
+governance_model:
+  code_harness: sole_developer
+  github_approving_reviews_required: 0
+  external_receipts_are_not_code_reviews: true
 required_reviewers:
   - medical_oncology
   - oncology_pharmacy_or_medicine_governance

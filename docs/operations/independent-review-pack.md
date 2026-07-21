@@ -1,8 +1,9 @@
-# Independent review pack
+# External evidence review pack
 
-This pack supports independent review of the software and its evidence boundary. It does not
-replace clinical, Māori/equity, licensing, or ethics review, and reviewer completion must be
-recorded in the applicable machine-readable receipt.
+This pack supports external review of evidence and its boundary. The repository is a
+sole-developer code harness: GitHub does not require a second developer approval or Code Owner
+approval. External clinical, Māori/equity, licensing, and ethics receipts remain separate
+evidence gates and must be recorded in the applicable machine-readable receipt.
 
 ## Software and reproducibility
 

@@ -1,6 +1,10 @@
 schema_version: "1.0.0"
 track_id: CTW-010-national-service-census
 status: pending_external_review
+governance_model:
+  code_harness: sole_developer
+  github_approving_reviews_required: 0
+  external_receipts_are_not_code_reviews: true
 licence_adjudication:
   status: adjudicated_for_site_text_only
   licence: CC-BY-4.0

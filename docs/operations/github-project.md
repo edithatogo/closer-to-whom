@@ -18,9 +18,10 @@ detailed source of truth. GitHub status is coordination evidence, not scientific
 ## Repository controls
 
 The repository uses the active `main-high-assurance` ruleset. It blocks branch deletion and
-non-fast-forward updates, requires pull requests, code-owner review, stale-review dismissal,
-conversation resolution, and the CI/security check set. Repository merges are squash-only and
-merged branches are deleted automatically.
+non-fast-forward updates, requires pull requests, stale-review dismissal when reviews exist,
+conversation resolution, and the CI/security check set. It intentionally requires zero
+approving reviews and no Code Owner or last-push approval: this is a sole-developer code
+harness. Repository merges are squash-only and merged branches are deleted automatically.
 
 Dependabot security updates, secret scanning, and push protection are enabled. GitHub reports
 non-provider secret patterns and validity checks as unavailable/disabled for this repository/account;
