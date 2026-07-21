@@ -52,7 +52,10 @@ def validate(path: Path = RECEIPT) -> list[str]:
     if set(map(str, outputs)) != REQUIRED_OUTPUTS:
         failures.append("required_outputs must enumerate the five national-analysis outputs")
     output_contracts = payload.get("output_contracts")
-    if not isinstance(output_contracts, dict) or set(map(str, output_contracts)) != REQUIRED_OUTPUTS:
+    if (
+        not isinstance(output_contracts, dict)
+        or set(map(str, output_contracts)) != REQUIRED_OUTPUTS
+    ):
         failures.append("output_contracts must enumerate the five blocked output contracts")
     elif status == "blocked_on_prerequisites" and any(
         str(value).lower() != "blocked_pending_prerequisites" for value in output_contracts.values()
@@ -68,7 +71,10 @@ def validate(path: Path = RECEIPT) -> list[str]:
             failures.append("reviewable analysis requires every prerequisite to be complete")
         if len(receipts) < len(REQUIRED_OUTPUTS):
             failures.append("reviewable analysis requires one receipt per required output")
-        if any(str(value).lower() == "blocked_pending_prerequisites" for value in output_contracts.values()):
+        if any(
+            str(value).lower() == "blocked_pending_prerequisites"
+            for value in output_contracts.values()
+        ):
             failures.append("reviewable analysis cannot retain blocked output contracts")
 
     boundary = str(payload.get("claim_boundary", "")).lower()
