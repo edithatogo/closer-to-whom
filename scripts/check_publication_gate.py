@@ -22,6 +22,15 @@ REQUIRED_PROHIBITIONS = {
     "live Healthpoint payloads",
     "row-level clinical records",
 }
+REQUIRED_EVIDENCE = {
+    "national_analysis_receipt",
+    "source_and_licence_receipts",
+    "clinical_review_receipt",
+    "governance_review_receipt",
+    "aggregate_artifact_review",
+    "space_credential",
+    "promotion_receipt",
+}
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -38,8 +47,8 @@ def validate(path: Path = GATE) -> list[str]:
     if status not in {"blocked_on_national_analysis", "ready_for_review", "published"}:
         failures.append(f"unsupported publication gate status: {status or '<blank>'}")
     evidence = payload.get("required_evidence")
-    if not isinstance(evidence, dict) or "national_analysis_receipt" not in evidence:
-        failures.append("required_evidence must include national_analysis_receipt")
+    if not isinstance(evidence, dict) or set(map(str, evidence)) != REQUIRED_EVIDENCE:
+        failures.append("required_evidence must enumerate all seven publication gates")
         evidence = {}
     artifacts = payload.get("required_artifacts", [])
     if set(map(str, artifacts)) != REQUIRED_ARTIFACTS:
@@ -51,7 +60,8 @@ def validate(path: Path = GATE) -> list[str]:
         if str(evidence.get("national_analysis_receipt", "")).lower() != "completed":
             failures.append("reviewable publication requires a completed national analysis receipt")
         if any(
-            str(value).lower() not in {"complete", "reviewed", "determined"}
+            str(value).lower()
+            not in {"complete", "reviewed", "determined", "configured", "verified"}
             for value in evidence.values()
         ):
             failures.append("reviewable publication requires every evidence receipt to be complete")

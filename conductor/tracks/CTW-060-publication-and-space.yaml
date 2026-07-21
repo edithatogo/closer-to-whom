@@ -5,3 +5,4 @@ github_issue: https://github.com/edithatogo/closer-to-whom/issues/21
 objective: Publish only precomputed aggregate dashboard outputs and governed manuscript artefacts after all evidence gates.
 dependencies: [CTW-050-national-analysis]
 claim_boundary: Dashboard and manuscript outputs must retain synthetic/public aggregate boundaries and unresolved limitations.
+publication_contract: A Space promotion requires completed analysis, source/licence, clinical, governance, aggregate-artifact, credential, and promotion receipts.

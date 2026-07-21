@@ -6,6 +6,9 @@ required_evidence:
   source_and_licence_receipts: pending
   clinical_review_receipt: pending_external_review
   governance_review_receipt: pending_external_review
+  aggregate_artifact_review: pending
+  space_credential: not_configured
+  promotion_receipt: not_promoted
 required_artifacts:
   - release/verification-receipt.json
   - release/publication-readiness.json
