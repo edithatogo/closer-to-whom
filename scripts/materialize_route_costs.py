@@ -68,6 +68,17 @@ def materialize(
         "route_is_approximation": True,
         "route_cache_fingerprint": cache_fingerprint,
         "parquet_fingerprint": fingerprint,
+        "cost_categories": {
+            "car": "pending_source_and_rate_receipts",
+            "public_transport": "pending_source_and_rate_receipts",
+            "ferry": "pending_source_and_rate_receipts",
+            "walking_waiting_transfer": "pending_source_and_rate_receipts",
+            "parking": "pending_source_and_rate_receipts",
+            "fares": "pending_source_and_rate_receipts",
+            "accommodation": "pending_source_and_rate_receipts",
+            "provider_travel": "pending_source_and_rate_receipts",
+        },
+        "cost_claim_status": "blocked_pending_source_and_rate_receipts",
         "claim_boundary": (
             "Offline approximation routes are development fallbacks, not road-network evidence; "
             "no national burden or service claim is made while upstream registries are empty."
