@@ -57,3 +57,4 @@ inputs:
     assert any("version" in failure for failure in failures)
     assert any("retrieval_receipt" in failure for failure in failures)
     assert any("evidence_grade" in failure for failure in failures)
+    assert any("receipt" in failure for failure in failures)
