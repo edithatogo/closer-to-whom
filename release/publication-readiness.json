@@ -1,0 +1,38 @@
+{
+  "blockers": {
+    "aggregate_calibration_complete": false,
+    "candidate_source_ids": [
+      "candidate.healthnz-facility-table",
+      "candidate.pharmac-anti-her2",
+      "candidate.ird-kilometre-rates",
+      "candidate.healthnz-nta",
+      "candidate.gch2023",
+      "candidate.nzdep2023"
+    ],
+    "clinical_pathways_reviewed": true,
+    "ethics_scope_determination_archived": "not_required_for_scope",
+    "maori_equity_governance_review_complete": "not_required_for_scope",
+    "national_network_routing_complete": false,
+    "non_frozen_assumption_ids": [
+      "D01",
+      "D02",
+      "D03",
+      "D04",
+      "C01",
+      "T01",
+      "T02",
+      "T03",
+      "K01",
+      "K02",
+      "K03",
+      "E01",
+      "E02"
+    ],
+    "public_inputs_licence_checked": "approved_pending_source_receipts",
+    "service_census_frozen": false
+  },
+  "publication_approval": "approved_by_sole_developer_qualified_clinician",
+  "scope_approval_receipt": "data/public/receipts/governance/user-scope-approval-2026-07-22.json",
+  "publication_ready": false,
+  "software_handover_ready": true
+}

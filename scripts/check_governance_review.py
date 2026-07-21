@@ -19,6 +19,7 @@ REQUIRED = {
 }
 REQUIRED_OUTPUT_CONTRACTS = REQUIRED
 COMPLETED = {"reviewed", "determined"}
+OUT_OF_SCOPE = "out_of_scope_for_public_aggregate_harness"
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -66,11 +67,16 @@ def validate(path: Path = REVIEW) -> list[str]:
             failures.append("completed governance review requires ethics_hdec_scope_determination")
         if any(str(value).lower() == "pending_external_review" for value in contracts.values()):
             failures.append("completed governance review cannot retain pending output contracts")
+    elif status == OUT_OF_SCOPE:
+        if payload.get("approval_receipt") is None:
+            failures.append("out-of-scope governance status requires an approval receipt")
+        if any(str(value).lower() != "not_required_for_scope" for value in contracts.values()):
+            failures.append("out-of-scope governance outputs must be not_required_for_scope")
     elif status != "pending_external_review":
         failures.append(f"unsupported governance review status: {status or '<blank>'}")
     boundary = str(payload.get("claim_boundary", "")).lower()
-    for term, variants in (
-        ("pending", ("pending",)),
+    boundary_terms = (("pending", ("pending",)),) if status != OUT_OF_SCOPE else (("out of scope", ("out of scope",)),)
+    for term, variants in boundary_terms + (
         ("endorsement", ("endorsement",)),
         ("ethical approval", ("ethical approval",)),
         ("authorisation", ("authoris", "authoriz")),

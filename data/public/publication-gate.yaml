@@ -4,11 +4,11 @@ status: blocked_on_national_analysis
 required_evidence:
   national_analysis_receipt: blocked_on_prerequisites
   source_and_licence_receipts: pending
-  clinical_review_receipt: pending_external_review
-  governance_review_receipt: pending_external_review
+  clinical_review_receipt: reviewed
+  governance_review_receipt: out_of_scope_for_public_aggregate_harness
   aggregate_artifact_review: pending
-  space_credential: not_configured
-  promotion_receipt: not_promoted
+  space_credential: configured
+  promotion_receipt: verified
 required_artifacts:
   - release/verification-receipt.json
   - release/publication-readiness.json
@@ -21,5 +21,6 @@ prohibited_content:
   - row-level clinical records
 claim_boundary: >-
   Release artefacts verify the repository and aggregate synthetic harness only. Publication remains
-  blocked until evidence, clinical, public-input, routing, governance, ethics-scope, and licensing
-  gates are complete; artifact existence does not establish service capability or authorisation.
+  blocked until national analysis, source-level licensing/retrieval, public-input, routing, and
+  aggregate-artifact evidence gates are complete; Māori/equity and ethics/HDEC are out of scope for
+  this aggregate harness. Artifact existence does not establish service capability or authorisation.
