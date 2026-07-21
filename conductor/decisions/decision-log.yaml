@@ -58,5 +58,11 @@ decisions:
   - id: DEC-012
     date: 2026-07-21
     status: accepted
-    decision: Operate the repository as a sole-developer code harness with zero required GitHub approvals, while retaining external evidence receipts for clinical, licensing, equity, and ethics claims.
-    rationale: A second software reviewer is not part of the operating model. External subject-matter receipts remain separate fail-closed evidence gates and are not substituted by developer self-review.
+    decision: >-
+      Operate the repository as a sole-developer code harness with zero required GitHub approvals,
+      while requiring dated qualified-clinician attestations for the CTW-010 clinical, completeness,
+      and licensing scopes and retaining separate equity and ethics governance gates.
+    rationale: >-
+      A second software reviewer is not part of the operating model. The qualified clinician may
+      attest to the defined CTW-010 evidence scopes; attestations remain fail-closed evidence gates
+      and are not implied by a code review or local test run.
