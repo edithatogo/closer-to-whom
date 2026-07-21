@@ -25,5 +25,5 @@
     "tests": 115,
     "claim_boundary": "The empty template is not evidence that no service exists; undocumented capability remains unknown."
   },
-  "blocker": "Grade-1/2 drug-specific capability evidence, dual clinical review, and a completeness audit across all national service areas remain required before the census can be frozen for conservative analysis."
+  "blocker": "Grade-1/2 drug-specific capability evidence, role-appropriate external clinical adjudication, and a completeness audit across all national service areas remain required before the census can be frozen for conservative analysis."
 }
