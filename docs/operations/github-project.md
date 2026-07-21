@@ -22,6 +22,9 @@ non-fast-forward updates, requires pull requests, stale-review dismissal when re
 conversation resolution, and the CI/security check set. It intentionally requires zero
 approving reviews and no Code Owner or last-push approval: this is a sole-developer code
 harness. Repository merges are squash-only and merged branches are deleted automatically.
+The GitHub Code Quality coverage rule is not enabled because the account does not expose the
+coverage-upload service; the required `full` CI job still enforces the 89% branch-coverage floor
+and uploads the Cobertura report as an auditable artifact.
 
 Dependabot security updates, secret scanning, and push protection are enabled. GitHub reports
 non-provider secret patterns and validity checks as unavailable/disabled for this repository/account;

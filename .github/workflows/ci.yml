@@ -35,9 +35,6 @@ jobs:
   full:
     timeout-minutes: 35
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      code-quality: write
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
@@ -75,10 +72,3 @@ jobs:
           name: coverage
           path: coverage.xml
           if-no-files-found: error
-      - name: Upload coverage to GitHub Code Quality
-        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/upload-code-coverage@1c15be36fc3733ba839b1dd643bd9556e4426dc1
-        with:
-          file: coverage.xml
-          language: Python
-          label: code-coverage/pytest
