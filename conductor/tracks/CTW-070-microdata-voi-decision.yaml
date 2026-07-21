@@ -5,3 +5,4 @@ github_issue: https://github.com/edithatogo/closer-to-whom/issues/22
 objective: Decide whether future microdata or participant research is justified by value of information and governance burden.
 dependencies: [CTW-050-national-analysis]
 claim_boundary: Microdata is not a build dependency and requires a separate protocol and ethics-scope determination.
+decision_contract: No research design or microdata recommendation is actionable until CTW-050 and the separate governance/ethics decision are complete.
