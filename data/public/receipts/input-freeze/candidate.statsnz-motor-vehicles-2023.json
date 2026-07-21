@@ -1,0 +1,13 @@
+{
+  "source_id": "candidate.statsnz-motor-vehicles-2023",
+  "retrieved_on": "2026-07-21",
+  "url": "https://datainfoplus.stats.govt.nz/item/nz.govt.stats/0605ad6d-d760-479f-a932-1c17c9e77b5f",
+  "content_type": "text/html",
+  "bytes": 59806,
+  "sha256": "b3021c6e03326afb52c25c53c6b72c55f33ac09c8a641173402ba3b4e8810249",
+  "retrieved_unix_seconds": 1784632052,
+  "output_path": "data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023.json",
+  "licence_state": "licence_requires_confirmation",
+  "status": "captured_metadata_only",
+  "claim_boundary": "Describes household vehicle access; it is not an individual mobility or travel-behaviour record."
+}

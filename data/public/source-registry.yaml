@@ -55,11 +55,12 @@ sources:
   - source_id: candidate.statsnz-geographies
     title: Statistical Standard for Geographic Areas 2023 and public population tables
     publisher: Stats NZ
-    url: https://www.stats.govt.nz/assets/Methods/Statistical-standard-for-geographic-areas-2023/Statistical-standard-for-geographic-areas-2023.pdf
-    retrieved_on: 2026-07-15
+    url: https://www.stats.govt.nz/assets/Methods/Statistical-standard-for-geographic-areas-2023/statistical-standard-for-geographic-areas-2023-updated-december-2023.pdf
+    retrieved_on: 2026-07-21
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_dataset_freeze
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-geographies.json
   - source_id: candidate.pharmac-anti-her2
     title: Pharmac anti-HER2 funding decision and Pharmaceutical Schedule material
     publisher: Pharmac
@@ -320,3 +321,33 @@ sources:
     status: captured
     licence_evidence: source.licence-healthnz-copyright
     receipt_path: data/public/receipts/service-census/source.healthnz-hospital-finder.json
+  - source_id: candidate.statsnz-motor-vehicles-2023
+    title: 2023 Census number of motor vehicles concept
+    publisher: Stats NZ
+    url: https://datainfoplus.stats.govt.nz/item/nz.govt.stats/0605ad6d-d760-479f-a932-1c17c9e77b5f
+    retrieved_on: 2026-07-21
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_concept_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023.json
+  - source_id: candidate.statsnz-ethnicity-2023
+    title: 2023 Census ethnicity concept
+    publisher: Stats NZ
+    url: https://datainfoplus.stats.govt.nz/Item/nz.govt.stats/1f1ca131-a9aa-483b-98ab-d22bf84ae944
+    retrieved_on: 2026-07-21
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_concept_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
+  - source_id: candidate.teaho-cancer-stats-2025
+    title: State of Cancer in New Zealand 2025 aggregate incidence context
+    publisher: Te Aho o Te Kahu
+    url: https://teaho.govt.nz/index.php/CanStats/reports/state-cancer-new-zealand-2025
+    retrieved_on: 2026-07-21
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_aggregate_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json
