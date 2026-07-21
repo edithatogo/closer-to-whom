@@ -49,10 +49,18 @@ def validate(
         "source.licence-healthnz-copyright",
     }:
         failures.append("review queue must cover every census source exactly once")
-    if review.get("status") != "pending_sole_developer_clinician_attestation":
-        failures.append(
-            "review queue must remain explicitly pending until sole-developer attestations exist"
-        )
+    review_status = review.get("status")
+    if review_status not in {
+        "pending_sole_developer_clinician_attestation",
+        "attested_sole_developer_clinician",
+    }:
+        failures.append("review queue must declare a valid sole-developer attestation state")
+    if review_status == "attested_sole_developer_clinician":
+        attestations = review.get("attestation_receipts") or []
+        scopes = {str(row.get("role")) for row in attestations if isinstance(row, dict)}
+        required_scopes = set(review.get("required_attestation_scopes") or [])
+        if scopes != required_scopes:
+            failures.append("attested review queue must cover every required attestation scope")
     governance = review.get("governance_model") or {}
     if governance.get("code_harness") != "sole_developer":
         failures.append("review queue must declare the sole-developer code harness")
@@ -85,7 +93,10 @@ def validate(
         if not isinstance(claims, dict) or set(claims) != CLAIMS:
             failures.append(f"{facility_id}: capability claim keys are incomplete")
             continue
-        if row.get("review_state") != "pending_sole_developer_review":
+        if row.get("review_state") not in {
+            "pending_sole_developer_review",
+            "attested_sole_developer_review",
+        }:
             failures.append(f"{facility_id}: review state must remain explicit")
         for claim, state in claims.items():
             if state not in STATES:

@@ -1,0 +1,21 @@
+{
+  "receipt_id": "CTW-010-ATTEST-2026-07-21",
+  "reviewer_name_or_organisation": "edithatogo",
+  "role": "sole_developer_qualified_clinician",
+  "qualification_basis": "User-attested qualified clinician; no credential document is published.",
+  "reviewed_on": "2026-07-21",
+  "scope": [
+    "clinical_service_reviewer",
+    "national_completeness_reviewer",
+    "licensing_reviewer"
+  ],
+  "source_scope": "19 public-source facility records, 16 Health New Zealand regional areas, and Health New Zealand copyright/licensing basis",
+  "decision": "Attestations recorded in data/public/service-census-review.yaml; conservative boundaries remain in force.",
+  "licence_decision": "CC BY 4.0 for Health New Zealand site text with explicit exclusions for photographs, illustrations, logos, third-party material, and the Dunedin site-map PDF.",
+  "receipt_ref": "data/public/receipts/service-census/sole-developer-qualified-clinician-2026-07-21.json",
+  "unresolved_questions": [
+    "Facility-specific anti-HER2 formulation evidence and observed capacity remain unknown.",
+    "Undocumented, inaccessible, or future services are outside the dated public-source snapshot.",
+    "Permission for excluded map imagery and third-party material has not been obtained."
+  ]
+}

@@ -11,6 +11,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "data/public/service-census-records.yaml"
 OUTPUT = ROOT / "data/public/service-census-capabilities.yaml"
+REVIEW = ROOT / "data/public/service-census-review.yaml"
 
 CLAIMS = (
     "facility_existence",
@@ -24,11 +25,21 @@ CLAIMS = (
 )
 
 
-def materialize(input_path: Path = INPUT, output_path: Path = OUTPUT) -> dict[str, Any]:
+def materialize(
+    input_path: Path = INPUT,
+    output_path: Path = OUTPUT,
+    review_path: Path = REVIEW,
+) -> dict[str, Any]:
     payload = yaml.safe_load(input_path.read_text(encoding="utf-8")) or {}
     records = payload.get("records", [])
     if not isinstance(records, list):
         raise TypeError("service census records must be a list")
+    review = yaml.safe_load(review_path.read_text(encoding="utf-8")) or {}
+    review_state = (
+        "attested_sole_developer_review"
+        if review.get("status") == "attested_sole_developer_clinician"
+        else "pending_sole_developer_review"
+    )
     output_records: list[dict[str, Any]] = []
     for record in records:
         if not isinstance(record, dict):
@@ -48,7 +59,7 @@ def materialize(input_path: Path = INPUT, output_path: Path = OUTPUT) -> dict[st
             {
                 "facility_id": record["facility_id"],
                 "source_ids": source_ids,
-                "review_state": "pending_sole_developer_review",
+                "review_state": review_state,
                 "temporal_status": "current_documented_source",
                 "public_or_private": record["public_or_private"],
                 "claims": claims,
