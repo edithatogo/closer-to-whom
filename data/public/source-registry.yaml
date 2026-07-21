@@ -257,7 +257,7 @@ sources:
     publisher: Health New Zealand
     url: https://www.healthnz.govt.nz/assets/Locations/Maps/Dunedin-Hospital-site-map-2.pdf
     retrieved_on: 2026-07-21
-    licence_state: mixed_or_unadjudicated
+    licence_state: public_not_redistributable
     redistribution_allowed: false
     evidence_grade: 3_ambiguous_oncology_or_outreach
     status: captured
