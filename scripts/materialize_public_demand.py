@@ -38,6 +38,12 @@ def materialize(
     raw_records = payload.get("records", [])
     if not isinstance(raw_records, list):
         raise TypeError("Demand records must be a list")
+    if raw_records and str(payload.get("status", "")).lower() not in {"frozen", "active"}:
+        raise ValueError(
+            "non-empty demand records require an explicitly frozen or active public-input manifest"
+        )
+    if raw_records and not payload.get("freeze_date"):
+        raise ValueError("non-empty demand records require freeze_date")
     cells: list[DemandCell] = []
     weights: dict[str, float] = defaultdict(float)
     seen_points: set[str] = set()
