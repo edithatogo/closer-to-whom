@@ -1,0 +1,13 @@
+{
+  "source_id": "candidate.statsnz-geographies",
+  "retrieved_on": "2026-07-21",
+  "url": "https://www.stats.govt.nz/assets/Methods/Statistical-standard-for-geographic-areas-2023/statistical-standard-for-geographic-areas-2023-updated-december-2023.pdf",
+  "content_type": "application/pdf",
+  "bytes": 830925,
+  "retrieved_unix_seconds": 1784632052,
+  "sha256": "7f472c8694ecb9ba4f68fe1410d6a652462589b23062d881e70f2015a0322335",
+  "output_path": "data/public/receipts/input-freeze/candidate.statsnz-geographies.json",
+  "licence_state": "licence_requires_confirmation",
+  "status": "captured_metadata_only",
+  "claim_boundary": "Defines geography; does not itself provide a frozen population or demand table."
+}

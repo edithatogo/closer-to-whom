@@ -1,0 +1,13 @@
+{
+  "source_id": "candidate.teaho-cancer-stats-2025",
+  "retrieved_on": "2026-07-21",
+  "retrieved_unix_seconds": 1784632052,
+  "url": "https://teaho.govt.nz/index.php/CanStats/reports/state-cancer-new-zealand-2025",
+  "content_type": "text/html",
+  "bytes": 124785,
+  "sha256": "404d08cbbe5e20e912d33e86698b011b8180054a11baac545170af181da4e463",
+  "output_path": "data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json",
+  "licence_state": "licence_requires_confirmation",
+  "status": "captured_metadata_only",
+  "claim_boundary": "A candidate aggregate incidence anchor; no small-area demand or individual record is derived from the page."
+}

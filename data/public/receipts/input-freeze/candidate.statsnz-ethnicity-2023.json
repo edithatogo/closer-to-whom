@@ -1,0 +1,13 @@
+{
+  "source_id": "candidate.statsnz-ethnicity-2023",
+  "retrieved_on": "2026-07-21",
+  "url": "https://datainfoplus.stats.govt.nz/Item/nz.govt.stats/1f1ca131-a9aa-483b-98ab-d22bf84ae944",
+  "content_type": "text/html",
+  "bytes": 95341,
+  "sha256": "280d1efb7f2085947a0126a7cf518aff5c0787dd80e81f4fa18e50ee183d359b",
+  "retrieved_unix_seconds": 1784632052,
+  "output_path": "data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json",
+  "licence_state": "licence_requires_confirmation",
+  "status": "captured_metadata_only",
+  "claim_boundary": "Ethnicity is a self-perceived, multiple-response aggregate census concept; it is not a patient attribute."
+}
