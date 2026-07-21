@@ -24,4 +24,4 @@ jobs:
           python-version: "3.14"
       - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
       - run: uv sync --locked --all-extras
-      - run: uv run pytest -q tests/fuzz
+      - run: uv run pytest -q --no-cov tests/fuzz
