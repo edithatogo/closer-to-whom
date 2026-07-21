@@ -13,6 +13,7 @@ required_artifacts:
   - release/verification-receipt.json
   - release/publication-readiness.json
   - release/source-manifest.json
+  - release/space-deployment-receipt.json
 prohibited_content:
   - individual health data
   - confidential health-service data

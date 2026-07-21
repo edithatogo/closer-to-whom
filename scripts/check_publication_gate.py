@@ -15,6 +15,7 @@ REQUIRED_ARTIFACTS = {
     "release/verification-receipt.json",
     "release/publication-readiness.json",
     "release/source-manifest.json",
+    "release/space-deployment-receipt.json",
 }
 REQUIRED_PROHIBITIONS = {
     "individual health data",

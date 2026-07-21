@@ -19,7 +19,7 @@ required_evidence:
   aggregate_artifact_review: pending
   space_credential: not_configured
   promotion_receipt: not_promoted
-required_artifacts: [release/verification-receipt.json, release/publication-readiness.json, release/source-manifest.json]
+required_artifacts: [release/verification-receipt.json, release/publication-readiness.json, release/source-manifest.json, release/space-deployment-receipt.json]
 prohibited_content: [individual health data, confidential health-service data, live Healthpoint payloads, row-level clinical records]
 claim_boundary: blocked; aggregate synthetic harness only; no service capability or authorisation.
 """,
@@ -40,7 +40,7 @@ required_evidence:
   aggregate_artifact_review: pending
   space_credential: not_configured
   promotion_receipt: not_promoted
-required_artifacts: [release/verification-receipt.json, release/publication-readiness.json, release/source-manifest.json]
+required_artifacts: [release/verification-receipt.json, release/publication-readiness.json, release/source-manifest.json, release/space-deployment-receipt.json]
 prohibited_content: [individual health data, confidential health-service data, live Healthpoint payloads, row-level clinical records]
 claim_boundary: blocked; aggregate synthetic harness only; no service capability or authorisation.
 """,

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "workflow": "Publish Hugging Face Space",
+  "workflow_run_id": 29833604666,
+  "source_revision": "516cde3f1aa1d941456d23d7dc983eead330099a",
+  "status": "succeeded",
+  "published_payload": "aggregate_synthetic_static_space",
+  "credential_source": "protected hugging-face environment",
+  "space_identifier": "protected_environment_secret:HF_SPACE_ID",
+  "claim_boundary": "This receipt proves a successful technical Space push of the aggregate synthetic harness only. It does not establish clinical, licensing, equity, ethics, service-capability, or policy-publication approval."
+}
