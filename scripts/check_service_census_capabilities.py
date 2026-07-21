@@ -9,6 +9,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 MATRIX = ROOT / "data/public/service-census-capabilities.yaml"
 RECORDS = ROOT / "data/public/service-census-records.yaml"
+REVIEW = ROOT / "data/public/service-census-review.yaml"
 CLAIMS = {
     "facility_existence",
     "oncology_presence",
@@ -22,11 +23,32 @@ CLAIMS = {
 STATES = {"confirmed", "plausible", "unknown", "absent"}
 
 
-def validate(matrix_path: Path = MATRIX, records_path: Path = RECORDS) -> list[str]:
+def validate(
+    matrix_path: Path = MATRIX,
+    records_path: Path = RECORDS,
+    review_path: Path = REVIEW,
+) -> list[str]:
     matrix = yaml.safe_load(matrix_path.read_text(encoding="utf-8")) or {}
     records = yaml.safe_load(records_path.read_text(encoding="utf-8")) or {}
+    review = yaml.safe_load(review_path.read_text(encoding="utf-8")) or {}
     failures: list[str] = []
     expected = {str(row.get("facility_id")) for row in records.get("records", [])}
+    source_ids = {
+        str(source_id)
+        for row in records.get("records", [])
+        for source_id in row.get("source_ids", [])
+    }
+    reviewed_source_ids = {
+        str(row.get("source_id")) for row in review.get("review_records", [])
+    }
+    if source_ids != reviewed_source_ids - {"source.healthnz-hospital-finder", "source.licence-healthnz-copyright"}:
+        failures.append("review queue must cover every census source exactly once")
+    if review.get("status") != "pending_external_review":
+        failures.append("review queue must remain explicitly pending until external receipts exist")
+    if review.get("governance_model", {}).get("code_harness") != "sole_developer":
+        failures.append("review queue must declare the sole-developer code harness")
+    if review.get("licence_adjudication", {}).get("status") != "adjudicated_for_site_text_only":
+        failures.append("licence boundary must remain explicit and site-text-only")
     actual_rows = matrix.get("records", [])
     actual = {str(row.get("facility_id")) for row in actual_rows}
     if expected != actual:
