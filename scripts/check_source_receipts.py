@@ -21,10 +21,21 @@ SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def _records(payload: object) -> list[dict[str, Any]]:
-    if not isinstance(payload, dict):
-        return []
-    rows = payload.get("sources", [])
-    return [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    if isinstance(payload, dict):
+        for key in ("sources", "records", "datasets"):
+            value = payload.get(key)
+            if isinstance(value, list):
+                return [item for item in value if isinstance(item, dict)]
+        result = []
+        for key, value in payload.items():
+            if isinstance(value, dict):
+                item = dict(value)
+                item.setdefault("id", key)
+                result.append(item)
+        return result
+    return []
 
 
 def _url(item: dict[str, Any]) -> str:
@@ -76,7 +87,7 @@ def _validate_receipt(item: dict[str, Any], path: Path) -> list[str]:
             failures.append(f"{source_id}: receipt retrieval timestamp must be positive")
     if not receipt.get("content_type"):
         failures.append(f"{source_id}: receipt content_type is required")
-    output_path = str(receipt.get("output_path", ""))
+    output_path = receipt.get("output_path")
     if not output_path:
         failures.append(f"{source_id}: receipt output_path is required")
     return failures
@@ -90,10 +101,13 @@ def validate(registry_path: Path = REGISTRY) -> list[str]:
     for item in items:
         source_id = str(item.get("source_id", item.get("id", "")))
         status = str(item.get("status", "")).lower()
-        repository_root = (
-            ROOT if registry_path.resolve() == REGISTRY.resolve() else registry_path.parent
-        )
-        receipt_path = _receipt_path(item, repository_root)
+        registry_path = registry_path.resolve()
+        repository_root = ROOT if registry_path == REGISTRY.resolve() else registry_path.parent
+        try:
+            receipt_path = _receipt_path(item, repository_root)
+        except ValueError as exc:
+            failures.append(f"{source_id}: {exc}")
+            receipt_path = None
         if status in RECEIPT_STATUSES and receipt_path is None:
             failures.append(f"{source_id}: captured source must declare receipt_path")
         if receipt_path is not None:
