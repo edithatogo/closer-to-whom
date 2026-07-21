@@ -71,6 +71,8 @@ def test_service_census_review_queue_is_explicitly_pending() -> None:
     assert len(review["review_records"]) == 19
     assert review["licence_adjudication"]["status"] == "adjudicated_for_site_text_only"
     assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"
+    assert review["governance_model"]["code_harness"] == "sole_developer"
+    assert review["governance_model"]["github_approving_reviews_required"] == 0
     assert any(decision["decision_id"] == "CTW-010-LIC-002" for decision in review["decisions"])
 
 
