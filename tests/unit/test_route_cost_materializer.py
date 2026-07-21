@@ -18,3 +18,14 @@ def test_route_cost_materializer_is_blocked_without_upstream_registries(tmp_path
     assert report["route_rows"] == 0
     assert report["route_engine"] is None
     assert report["retrieval_date"]
+    assert report["cost_claim_status"] == "blocked_pending_source_and_rate_receipts"
+    assert set(report["cost_categories"]) == {
+        "car",
+        "public_transport",
+        "ferry",
+        "walking_waiting_transfer",
+        "parking",
+        "fares",
+        "accommodation",
+        "provider_travel",
+    }
