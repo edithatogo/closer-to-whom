@@ -13,6 +13,7 @@ outputs:
 acceptance_criteria:
   - Route engine, version, cache key, approximation state, and retrieval date are recorded.
   - Routing receipts identify the source registry and licence state for each externally derived route or cost parameter.
+  - Cost receipts enumerate each applicable travel and provider category and preserve pending evidence as non-claims.
   - Car, public transport, ferry, walking/waiting/transfer, parking, fares, accommodation, and provider travel are explicit where applicable.
   - National output remains blocked while service/demand registries are empty.
   - Offline approximation is never presented as road-network evidence.
