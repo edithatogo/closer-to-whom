@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-010-national-service-census
-status: active
+status: complete
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/2
 objective: Freeze an evidence-graded national registry of relevant cancer-service capability.
 inputs:
