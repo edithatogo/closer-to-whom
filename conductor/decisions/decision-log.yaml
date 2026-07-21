@@ -55,3 +55,8 @@ decisions:
     status: accepted
     decision: Keep the early-breast-cancer pathway synthetic and non-evidentiary until clinical and funding review is complete.
     rationale: Current Pharmac evidence supports funded Phesgo use for HER2-positive metastatic breast cancer from 1 December 2025, but does not establish early-disease eligibility, clinical schedule, or facility capability for this model.
+  - id: DEC-012
+    date: 2026-07-21
+    status: accepted
+    decision: Operate the repository as a sole-developer code harness with zero required GitHub approvals, while retaining external evidence receipts for clinical, licensing, equity, and ethics claims.
+    rationale: A second software reviewer is not part of the operating model. External subject-matter receipts remain separate fail-closed evidence gates and are not substituted by developer self-review.
