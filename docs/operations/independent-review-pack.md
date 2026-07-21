@@ -38,6 +38,10 @@ Required independent decisions:
 - [ ] Record dated reviewer receipts and unresolved disagreements in the review queue before
       changing `pending_external_review` or materialising a conservative network.
 
+Each receipt must identify the reviewer or organisation, review date, scope, decision, durable
+receipt reference, and unresolved questions. A completed state also requires one receipt for every
+required role and an explicit licence decision.
+
 ### Geography and public inputs
 
 - Stats NZ, Statistical Standard for Geographic Areas 2023:
