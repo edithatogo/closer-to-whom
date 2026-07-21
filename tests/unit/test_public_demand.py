@@ -22,6 +22,8 @@ def test_routing_weights_must_close_to_one(tmp_path: Path) -> None:
     input_path.write_text(
         """
 schema_version: '1.0.0'
+status: frozen
+freeze_date: '2026-07-21'
 records:
   - demand_cell_id: CELL-1
     geography_code: SA2-1
@@ -41,4 +43,29 @@ records:
         encoding="utf-8",
     )
     with pytest.raises(ValueError, match="sum to one"):
+        materialize(input_path, tmp_path / "demand.parquet", tmp_path / "flow.json")
+
+
+def test_nonempty_demand_requires_frozen_public_input_manifest(tmp_path: Path) -> None:
+    input_path = tmp_path / "demand.yaml"
+    input_path.write_text(
+        """schema_version: '1.0.0'
+records:
+  - demand_cell_id: CELL-1
+    geography_code: SA2-1
+    geography_level: SA2
+    routing_point_id: POINT-1
+    latitude: -41.0
+    longitude: 174.0
+    region: Wellington
+    district: Wellington
+    ethnicity: aggregate_unknown
+    deprivation_quintile: 3
+    rurality: urban
+    expected_courses: 1.0
+    data_classification: public_aggregate
+""",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="frozen or active"):
         materialize(input_path, tmp_path / "demand.parquet", tmp_path / "flow.json")
