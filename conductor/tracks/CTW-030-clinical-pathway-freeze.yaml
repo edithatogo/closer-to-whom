@@ -8,3 +8,4 @@ acceptance_criteria:
   - Initial and maintenance phases are distinguishable.
   - Home is healthcare-professional administered.
   - Clinical reviewers and unresolved ambiguity are recorded.
+  - Each required attestation scope has an explicit pending or reviewed state; sole-developer attestation does not imply external governance approval.
