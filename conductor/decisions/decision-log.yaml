@@ -73,3 +73,11 @@ decisions:
     rationale: >-
       Empty review receipts must not be mistaken for a completed governance decision; explicit
       states preserve the external human-review and HDEC boundaries in machine-readable form.
+  - id: DEC-014
+    date: 2026-07-21
+    status: accepted
+    decision: Record unavailable GitHub secret-scanning account controls as an explicit security blocker.
+    rationale: >-
+      Repository-level secret scanning and push protection are enabled, but GitHub reports
+      non-provider pattern scanning and validity checks as unavailable or disabled. The owner
+      and exact enablement request are documented without overstating the current security posture.
