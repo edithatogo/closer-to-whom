@@ -257,11 +257,12 @@ sources:
     publisher: Health New Zealand
     url: https://www.healthnz.govt.nz/assets/Locations/Maps/Dunedin-Hospital-site-map-2.pdf
     retrieved_on: 2026-07-21
-    licence_state: open
-    redistribution_allowed: true
+    licence_state: mixed_or_unadjudicated
+    redistribution_allowed: false
     evidence_grade: 3_ambiguous_oncology_or_outreach
     status: captured
     licence_evidence: source.licence-healthnz-copyright
+    notes: The cited PDF is a site map; Health NZ's CC BY site-text grant excludes illustrations. Do not redistribute the map or derived map imagery without specific permission.
     receipt_path: data/public/receipts/service-census/service.healthnz-otago-dunedin-oncology.json
   - source_id: service.healthnz-rotorua-taupo-chemotherapy
     title: Rotorua and Taupō chemotherapy and medical day stay

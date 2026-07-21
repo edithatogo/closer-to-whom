@@ -23,7 +23,7 @@ review_records:
   - source_id: service.healthnz-nelson-marlborough-oncology
     review_state: pending_clinical_adjudication
   - source_id: service.healthnz-otago-dunedin-oncology
-    review_state: pending_clinical_adjudication
+    review_state: pending_licence_and_clinical_adjudication
   - source_id: service.healthnz-palmerston-regional-cancer
     review_state: pending_clinical_adjudication
   - source_id: service.healthnz-rotorua-taupo-chemotherapy
@@ -51,6 +51,9 @@ review_records:
 decisions:
   - decision_id: CTW-010-LIC-001
     decision: Site text may be redistributed with attribution under CC BY 4.0.
+    status: accepted
+  - decision_id: CTW-010-LIC-002
+    decision: The Dunedin hospital site-map PDF and derived map imagery are not redistributed pending specific permission; the facility claim remains source-linked and reviewable.
     status: accepted
   - decision_id: CTW-010-CLIN-001
     decision: No anti-HER2 formulation or observed capacity is inferred from these records.

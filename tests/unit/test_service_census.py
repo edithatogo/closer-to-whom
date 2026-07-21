@@ -41,7 +41,9 @@ def test_current_public_census_contains_only_plausible_non_drug_specific_records
     assert {record["capability_status"] for record in records} == {"plausible"}
     assert {record["evidence_grade"] for record in records} == {"3_ambiguous_oncology_or_outreach"}
     assert all(record["formulations"] == [] for record in records)
-    assert all(record["redistribution_allowed"] is True for record in records)
+    assert sum(record["redistribution_allowed"] is True for record in records) == 18
+    dunedin = next(record for record in records if record["facility_id"] == "NZ-OTA-DUNEDIN")
+    assert dunedin["redistribution_allowed"] is False
 
 
 def test_national_coverage_audit_has_all_health_nz_regions() -> None:
@@ -69,6 +71,7 @@ def test_service_census_review_queue_is_explicitly_pending() -> None:
     assert len(review["review_records"]) == 19
     assert review["licence_adjudication"]["status"] == "adjudicated_for_site_text_only"
     assert review["licence_adjudication"]["licence"] == "CC-BY-4.0"
+    assert any(decision["decision_id"] == "CTW-010-LIC-002" for decision in review["decisions"])
 
 
 def test_capability_matrix_preserves_unknown_drug_specific_claims() -> None:

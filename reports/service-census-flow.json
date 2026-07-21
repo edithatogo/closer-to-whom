@@ -12,7 +12,7 @@
     "conservative": 0,
     "plausible": 19
   },
-  "parquet_fingerprint": "8758e6cb0bdae4678fca806144e9738ddd058df28fd5a992a081ae39a61f00e8",
+  "parquet_fingerprint": "98f121c56f649b72a08d59cb7228dfbfdfb04eb550e665e64e359afa1c7c67a3",
   "schema_version": "1.0.0",
   "status_counts": {
     "plausible": 19

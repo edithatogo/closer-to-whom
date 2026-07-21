@@ -187,7 +187,7 @@ records:
     source_ids: [service.healthnz-otago-dunedin-oncology]
     formulations: []
     delivery_modes: [iv_hospital]
-    redistribution_allowed: true
+    redistribution_allowed: false
   - facility_id: NZ-HKB-HASTINGS
     name: Te Matau a Māui Cancer Services, Hastings
     region: Hawke's Bay
