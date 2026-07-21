@@ -55,6 +55,20 @@ def validate(
         failures.append("review queue must declare the sole-developer code harness")
     if (review.get("licence_adjudication") or {}).get("status") != "adjudicated_for_site_text_only":
         failures.append("licence boundary must remain explicit and site-text-only")
+    required_receipt_fields = {
+        "role",
+        "reviewer_name_or_organisation",
+        "reviewed_on",
+        "scope",
+        "decision",
+        "receipt_ref",
+        "unresolved_questions",
+    }
+    declared_receipt_fields = set(
+        (review.get("receipt_requirements") or {}).get("required_fields") or []
+    )
+    if declared_receipt_fields != required_receipt_fields:
+        failures.append("review queue must declare the complete external receipt contract")
     actual_rows = matrix.get("records", [])
     actual = {str(row.get("facility_id")) for row in actual_rows}
     if expected != actual:

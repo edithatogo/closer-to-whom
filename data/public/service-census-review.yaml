@@ -13,6 +13,20 @@ licence_adjudication:
 required_review_roles:
   - clinical_service_reviewer
   - national_completeness_reviewer
+receipt_requirements:
+  required_fields:
+    - role
+    - reviewer_name_or_organisation
+    - reviewed_on
+    - scope
+    - decision
+    - receipt_ref
+    - unresolved_questions
+  publication_transition_requires:
+    - every_required_role_receipt
+    - source_scope_and_date
+    - licence_decision
+    - unresolved_questions_recorded
 review_records:
   - source_id: service.healthnz-auckland-te-puriri
     review_state: pending_clinical_adjudication
