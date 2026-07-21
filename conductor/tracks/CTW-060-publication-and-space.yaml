@@ -7,3 +7,4 @@ dependencies: [CTW-050-national-analysis]
 claim_boundary: Dashboard and manuscript outputs must retain synthetic/public aggregate boundaries and unresolved limitations.
 publication_contract: A Space promotion requires completed analysis, source/licence, clinical, governance, aggregate-artifact, credential, and promotion receipts.
 software_receipt_contract: Verification receipts must identify the current clean revision and passed gate profile; they do not override publication evidence gates.
+receipt_refresh_policy: Regenerate software verification receipts after merged main changes before a release handover.
