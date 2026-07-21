@@ -25,8 +25,8 @@ def _load(path: Path) -> dict[str, Any]:
 def validate(path: Path = REVIEW) -> list[str]:
     payload = _load(path)
     failures: list[str] = []
-    required = payload.get("required_reviewers", [])
-    reviewers = payload.get("reviewers", [])
+    required = payload.get("required_attestation_scopes", payload.get("required_reviewers", []))
+    reviewers = payload.get("attestation_receipts", payload.get("reviewers", []))
     decisions = payload.get("decisions", [])
     if not isinstance(required, list) or not required:
         failures.append("required_reviewers must be a non-empty list")
@@ -65,7 +65,10 @@ def validate(path: Path = REVIEW) -> list[str]:
             failures.append(f"reviewed clinical receipt missing roles: {sorted(missing)}")
         if not decisions:
             failures.append("reviewed clinical receipt requires decisions")
-    elif status != "pending_external_review":
+    elif status not in {
+        "pending_external_review",
+        "pending_sole_developer_clinician_attestation",
+    }:
         failures.append(f"unsupported clinical review status: {status or '<blank>'}")
     if "synthetic" not in str(payload.get("claim_boundary", "")).lower():
         failures.append("claim_boundary must preserve the synthetic-fixture boundary")

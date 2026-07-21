@@ -1,14 +1,19 @@
 schema_version: "1.0.0"
-status: pending_external_review
+status: pending_sole_developer_clinician_attestation
 governance_model:
   code_harness: sole_developer
   github_approving_reviews_required: 0
-  external_receipts_are_not_code_reviews: true
-required_reviewers:
+  second_reviewer_required: false
+  qualified_clinician_may_attest: true
+  evidence_receipts_are_not_github_code_reviews: true
+required_attestation_scopes:
   - medical_oncology
   - oncology_pharmacy_or_medicine_governance
   - nursing_or_SACT_service
   - Maori_health_interpretation
-reviewers: []
+attestation_model:
+  reviewer_count: 1
+  reviewer_role: sole_developer_qualified_clinician
+attestation_receipts: []
 decisions: []
 claim_boundary: Synthetic pathway fixtures remain unreviewed and are not clinical or funding evidence.

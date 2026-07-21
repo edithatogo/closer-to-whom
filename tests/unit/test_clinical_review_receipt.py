@@ -7,12 +7,12 @@ validate = run_path(
 )["validate"]
 
 
-def test_pending_external_review_is_valid(tmp_path: Path) -> None:
+def test_pending_sole_developer_attestation_is_valid(tmp_path: Path) -> None:
     path = tmp_path / "review.yaml"
     path.write_text(
-        """status: pending_external_review
-required_reviewers: [medical_oncology]
-reviewers: []
+        """status: pending_sole_developer_clinician_attestation
+required_attestation_scopes: [medical_oncology]
+attestation_receipts: []
 decisions: []
 claim_boundary: Synthetic pathway fixtures remain unreviewed.
 """,
