@@ -58,11 +58,13 @@ def materialize(
     report = {
         "schema_version": "1.0.0",
         "generated_at": datetime.now(UTC).isoformat(),
+        "retrieval_date": datetime.now(UTC).date().isoformat(),
         "status": status,
         "demand_rows": demand.height,
         "facility_rows": facilities.height,
         "route_rows": routes.height,
         "route_engine": "offline-approximation:1" if routes.height else None,
+        "route_engine_version": "1" if routes.height else None,
         "route_is_approximation": True,
         "route_cache_fingerprint": cache_fingerprint,
         "parquet_fingerprint": fingerprint,
