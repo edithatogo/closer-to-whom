@@ -13,6 +13,7 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen
   - input_id: deprivation
     title: New Zealand Index of Deprivation
     source_ids: [candidate.nzdep2023]
@@ -21,6 +22,7 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen
   - input_id: rurality
     title: Geographic Classification for Health
     source_ids: [candidate.gch2023]
@@ -29,6 +31,7 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen
   - input_id: ethnicity
     title: Public aggregate ethnicity method
     source_ids: [candidate.statsnz-ethnicity-2023]
@@ -37,6 +40,7 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen
   - input_id: vehicle_access
     title: Public vehicle-access proxy
     source_ids: [candidate.statsnz-motor-vehicles-2023]
@@ -45,6 +49,7 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen
   - input_id: incidence
     title: Public incidence anchor
     source_ids: [candidate.teaho-cancer-stats-2025]
@@ -53,3 +58,4 @@ inputs:
     retrieval_receipt: null
     evidence_grade: pending
     status: pending
+    pending_reason: public source/licence and retrieval evidence not frozen

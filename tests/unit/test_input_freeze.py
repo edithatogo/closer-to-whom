@@ -31,6 +31,7 @@ inputs:
     licence_state: unknown
     evidence_grade: pending
     status: pending
+    pending_reason: evidence not frozen
 """,
         encoding="utf-8",
     )
