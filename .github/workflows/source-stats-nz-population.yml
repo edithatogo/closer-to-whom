@@ -20,13 +20,15 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  OPEN_SOCIAL_DATA_SHA: 4c06a98c208821104e1425f20521301fd3a071e9
+  OPEN_SOCIAL_DATA_SHA: 29c8908267cbca47e91a6a93c9dceed1978b4a9e
 
 jobs:
   list:
     if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -44,6 +46,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
