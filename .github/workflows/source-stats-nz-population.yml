@@ -30,6 +30,10 @@ jobs:
     env:
       STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
     steps:
+      - name: Require Stats NZ API credential
+        env:
+          API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
+        run: test -n "$API_KEY"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           repository: edithatogo/open_social_data
@@ -49,6 +53,10 @@ jobs:
     env:
       STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
     steps:
+      - name: Require Stats NZ API credential
+        env:
+          API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
+        run: test -n "$API_KEY"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
