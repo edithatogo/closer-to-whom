@@ -2,11 +2,11 @@ schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
 status: blocked_on_prerequisites
 prerequisites:
-  service_census: pending
-  public_input_freeze: pending
-  clinical_pathway_review: pending
+  service_census: complete
+  public_input_freeze: complete
+  clinical_pathway_review: complete
   route_costs: pending
-  governance_review: pending
+  governance_review: out_of_scope_for_public_aggregate_harness
 required_outputs:
   - scenario_summary
   - optimisation_frontier
@@ -21,6 +21,7 @@ output_contracts:
   voi_outputs: blocked_pending_prerequisites
 analysis_receipts: []
 claim_boundary: >-
-  This analysis remains blocked on evidence, clinical, public-input, routing, governance, and
-  ethics-scope prerequisites. Synthetic demonstrations are not national policy estimates and do
-  not establish observed capacity, clinical eligibility, or operational feasibility.
+  This analysis is blocked only on aggregate demand materialization and route-cost/rate evidence.
+  Governance and clinical scope are recorded for this sole-developer public aggregate harness.
+  Synthetic demonstrations are not national policy estimates and do not establish observed
+  capacity, clinical eligibility, or operational feasibility.
