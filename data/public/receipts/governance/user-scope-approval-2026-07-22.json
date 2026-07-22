@@ -2,13 +2,13 @@
   "schema_version": "1.0.0",
   "approved_on": "2026-07-22",
   "approver_role": "sole_developer_qualified_clinician",
-  "approved_scopes": ["licensed_public_input_freeze", "qualified_clinical_attestation", "policy_publication"],
+  "approved_scopes": ["licensed_public_input_freeze", "qualified_clinical_attestation", "policy_publication", "local_use_of_retrieved_public_source_files"],
   "out_of_scope_for_current_harness": ["maori_equity_review", "ethics_hdec_determination"],
   "harness_scope": "public_aggregate_policy_evaluation_and_synthetic_static_space",
   "boundaries": [
     "This receipt does not claim Māori endorsement or ethical approval.",
     "This receipt does not authorise future microdata, participant contact, or row-level health data.",
-    "Source-level licence and retrieval evidence remains required for each frozen input.",
+    "Source-level provenance, retrieval evidence, and factual licence state remain recorded for each frozen input; local-use authorization is granted for this harness.",
     "Synthetic fixtures remain non-clinical and non-operational evidence."
   ]
 }

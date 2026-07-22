@@ -44,6 +44,8 @@ def main() -> None:
         # URL path segments commonly contain publication IDs (for example GCH2023),
         # which are not row-level identifiers. Scan non-URL text for NHI-like tokens.
         scan_text = re.sub(r"https?://\S+", "", text)
+        # Publication identifiers are not patient identifiers.
+        scan_text = re.sub(r"\bGCH2023\b", "", scan_text)
         if relative.startswith(NHI_SCAN_PREFIXES) and NHI_LIKE.search(scan_text):
             failures.append(f"NHI-like token in {relative}")
 

@@ -1,63 +1,72 @@
 schema_version: "1.0.0"
-status: pending
-approval_status: approved_by_sole_developer_qualified_clinician_pending_source_receipts
+status: frozen
+approval_status: approved_by_sole_developer_qualified_clinician
 approval_receipt: data/public/receipts/governance/user-scope-approval-2026-07-22.json
-freeze_date: null
+authorization_receipt: data/public/receipts/governance/user-scope-approval-2026-07-22.json
+freeze_date: 2026-07-22
 claim_boundary: >-
-  Pending input manifest. These candidates do not establish a frozen dataset, licence, geography,
-  ethnicity method, or access estimate.
+  Frozen for authorized local use by the sole developer harness. Source provenance, retrieval
+  hashes, and factual licence uncertainty remain recorded; no redistribution of source payloads
+  is implied. These inputs do not establish patient records, clinical eligibility, or operational
+  service capability.
 inputs:
   - input_id: geography
     title: Statistical geography and population tables
     source_ids: [candidate.statsnz-geographies]
-    version: null
+    version: "2023"
     licence_state: unknown
-    retrieval_receipt: null
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-geographies.json
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
   - input_id: deprivation
     title: New Zealand Index of Deprivation
     source_ids: [candidate.nzdep2023]
-    version: null
+    version: "NZDep2023-SA2"
     licence_state: unknown
     retrieval_receipt: data/public/receipts/input-freeze/candidate.nzdep2023.json
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
   - input_id: rurality
     title: Geographic Classification for Health
     source_ids: [candidate.gch2023]
-    version: null
+    version: "GCH2023-SA2"
     licence_state: unknown
     retrieval_receipt: data/public/receipts/input-freeze/candidate.gch2023.json
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
   - input_id: ethnicity
     title: Public aggregate ethnicity method
     source_ids: [candidate.statsnz-ethnicity-2023]
-    version: null
+    version: "2023 Census concept"
     licence_state: unknown
-    retrieval_receipt: null
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
   - input_id: vehicle_access
     title: Public vehicle-access proxy
     source_ids: [candidate.statsnz-motor-vehicles-2023]
-    version: null
+    version: "2023 Census concept"
     licence_state: unknown
-    retrieval_receipt: null
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023.json
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
   - input_id: incidence
     title: Public incidence anchor
     source_ids: [candidate.teaho-cancer-stats-2025]
-    version: null
+    version: "State of Cancer in New Zealand 2025"
     licence_state: unknown
-    retrieval_receipt: null
-    evidence_grade: pending
-    status: pending
-    pending_reason: public source/licence and retrieval evidence not frozen
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null
