@@ -140,7 +140,11 @@ def main() -> int:
         print("Input-freeze failures:", file=sys.stderr)
         print("\n".join(f"- {failure}" for failure in failures), file=sys.stderr)
         return 1
-    print("Validated public input-freeze manifest; pending inputs remain non-frozen.")
+    manifest = _load(MANIFEST)
+    if str(manifest.get("status", "")).lower() in FROZEN:
+        print("Validated frozen public input-freeze manifest.")
+    else:
+        print("Validated public input-freeze manifest; pending inputs remain non-frozen.")
     return 0
 
 
