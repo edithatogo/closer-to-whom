@@ -1,0 +1,89 @@
+name: Fetch Stats NZ population source
+
+on:
+  workflow_dispatch:
+    inputs:
+      dataset_id:
+        description: Stats NZ OData entity set for the approved population-estimates export
+        required: true
+        type: string
+      confirm:
+        description: Type FETCH to authorize retrieval into an Actions artifact
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stats-nz-population-source
+  cancel-in-progress: false
+
+env:
+  OPEN_SOCIAL_DATA_SHA: 4c06a98c208821104e1425f20521301fd3a071e9
+
+jobs:
+  fetch:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: edithatogo/open_social_data
+          ref: ${{ env.OPEN_SOCIAL_DATA_SHA }}
+          path: .tools/open_social_data
+          persist-credentials: false
+      - name: Verify hosted Rust toolchain
+        run: |
+          rustc --version
+          cargo --version
+      - name: List Stats NZ datasets
+        working-directory: .tools/open_social_data
+        run: cargo run --locked --release --bin open-social-data-cli -- list --provider stats_nz
+      - name: Fetch approved population export
+        working-directory: .tools/open_social_data
+        env:
+          DATASET_ID: ${{ inputs.dataset_id }}
+          RETRIEVED_ON: ${{ github.run_started_at }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$GITHUB_WORKSPACE/artifacts/stats-nz-population"
+          cargo run --locked --release --bin open-social-data-cli -- fetch \
+            stats_nz "$DATASET_ID" \
+            --output "$GITHUB_WORKSPACE/artifacts/stats-nz-population/population.parquet" \
+            --quality-report "$GITHUB_WORKSPACE/artifacts/stats-nz-population/quality.json"
+          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/population.parquet"
+          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/quality.json"
+      - name: Write source receipt
+        env:
+          DATASET_ID: ${{ inputs.dataset_id }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root = Path("artifacts/stats-nz-population")
+          payload = {
+              "schema_version": "1.0.0",
+              "source_id": "candidate.statsnz-population-estimates-2023-base",
+              "provider": "edithatogo/open_social_data",
+              "provider_commit": os.environ["OPEN_SOCIAL_DATA_SHA"],
+              "dataset_id": os.environ["DATASET_ID"],
+              "retrieved_on": os.environ["RETRIEVED_ON"][:10],
+              "sha256": hashlib.sha256((root / "population.parquet").read_bytes()).hexdigest(),
+              "quality_report": "quality.json",
+              "output_policy": "Actions artifact only until schema and source terms are reviewed",
+              "claim_boundary": "Population denominator only; no individual records or treatment demand are asserted.",
+          }
+          (root / "receipt.json").write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: stats-nz-population-${{ inputs.dataset_id }}
+          path: artifacts/stats-nz-population
+          if-no-files-found: error
+          retention-days: 14
