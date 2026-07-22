@@ -5,7 +5,7 @@ on:
     inputs:
       dataset_id:
         description: Stats NZ OData entity set for the approved population-estimates export
-        required: true
+        required: false
         type: string
       confirm:
         description: Type FETCH to authorize retrieval into an Actions artifact
@@ -23,8 +23,25 @@ env:
   OPEN_SOCIAL_DATA_SHA: 4c06a98c208821104e1425f20521301fd3a071e9
 
 jobs:
+  list:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: edithatogo/open_social_data
+          ref: ${{ env.OPEN_SOCIAL_DATA_SHA }}
+          path: .tools/open_social_data
+          persist-credentials: false
+      - name: List Stats NZ datasets
+        working-directory: .tools/open_social_data
+        run: |
+          rustc --version
+          cargo --version
+          cargo run --locked --release --bin open-social-data-cli -- list --provider stats_nz
   fetch:
-    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH'
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
