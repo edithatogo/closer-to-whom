@@ -88,11 +88,13 @@ sources:
   - source_id: candidate.gch2023
     title: Geographic Classification for Health 2023 (GCH23)
     publisher: University of Otago
-    url: https://www.otago.ac.nz/centre-for-rural-health/research/geographic-classification-for-health
+    url: https://www.otago.ac.nz/__data/assets/excel_doc/0024/638214/SA22023-to-GCH2023.xlsx
+    landing_page: https://www.otago.ac.nz/centre-for-rural-health/research/geographic-classification-for-health
     retrieved_on: 2026-07-22
     licence_state: restricted
     redistribution_allowed: false
     status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.gch2023.json
     metadata_evidence: >-
       Official Otago page identifies GCH23 as the 2023 Census release and states CC BY-ND 4.0;
       its SA2 concordance download is listed on the official resources page. The file returned
@@ -100,11 +102,13 @@ sources:
   - source_id: candidate.nzdep2023
     title: New Zealand Index of Deprivation 2023
     publisher: University of Otago
-    url: https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes
+    url: https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx
+    landing_page: https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes
     retrieved_on: 2026-07-22
     licence_state: unknown
     redistribution_allowed: false
     status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.nzdep2023.json
     metadata_evidence: >-
       Official Otago page identifies NZDep2023 as released on 31 October 2024 and lists SA2 text
       and Excel downloads. The SA2 Excel download returned HTTP 403 during retrieval; the page

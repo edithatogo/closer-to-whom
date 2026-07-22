@@ -41,7 +41,10 @@ def main() -> None:
         # Restrict identifier scanning to data-bearing paths. Source code and configuration
         # legitimately contain tokens such as GCH2023 and Ruff rule identifiers that match
         # the coarse lexical pattern but cannot be patient records.
-        if relative.startswith(NHI_SCAN_PREFIXES) and NHI_LIKE.search(text):
+        # URL path segments commonly contain publication IDs (for example GCH2023),
+        # which are not row-level identifiers. Scan non-URL text for NHI-like tokens.
+        scan_text = re.sub(r"https?://\S+", "", text)
+        if relative.startswith(NHI_SCAN_PREFIXES) and NHI_LIKE.search(scan_text):
             failures.append(f"NHI-like token in {relative}")
 
     sources = yaml.safe_load(

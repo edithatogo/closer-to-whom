@@ -1,0 +1,12 @@
+{
+  "source_id": "candidate.gch2023",
+  "url": "https://www.otago.ac.nz/__data/assets/excel_doc/0024/638214/SA22023-to-GCH2023.xlsx",
+  "retrieved_on": "2026-07-22",
+  "retrieved_unix_seconds": 1784706098,
+  "bytes": 50528,
+  "sha256": "8e07d5f222775d20701e06abf984f0fe6e658e2bc066dfa71e0fafcf3c8860bb",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "output_path": "external_source_not_committed_due_to_redistribution_boundary",
+  "retrieval_method": "curl_with_publisher_referer_and_desktop_user_agent",
+  "access_note": "Direct retrieval succeeded with curl; source file is retained only in the local external-input cache until redistribution terms are resolved."
+}
