@@ -49,12 +49,12 @@ jobs:
           export RETRIEVED_ON="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           echo "RETRIEVED_ON=$RETRIEVED_ON" >> "$GITHUB_ENV"
           case "$REQUEST_URL" in
-            https://apis.stats.govt.nz/ade-api/rest/v2/data/*) ;;
-            *) echo 'request_url must target the Stats NZ ADE v2 data endpoint over HTTPS' >&2; exit 1 ;;
+            https://api.data.stats.govt.nz/rest/data/*) ;;
+            *) echo 'request_url must target the current Stats NZ ADE data endpoint over HTTPS' >&2; exit 1 ;;
           esac
           case "$STRUCTURE_URL" in
-            https://apis.stats.govt.nz/ade-api/rest/v2/data/*) ;;
-            *) echo 'structure_url must target the Stats NZ ADE v2 endpoint over HTTPS' >&2; exit 1 ;;
+            https://api.data.stats.govt.nz/rest/dataflow/*) ;;
+            *) echo 'structure_url must target the current Stats NZ ADE dataflow endpoint over HTTPS' >&2; exit 1 ;;
           esac
           mkdir -p "$GITHUB_WORKSPACE/artifacts/stats-nz-population"
           curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
