@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       dataset_id:
-        description: Stats NZ OData entity set for the approved population-estimates export
-        required: false
+        description: Approved Stats NZ dataset identifier used in the receipt
+        required: true
+        type: string
+      request_url:
+        description: Exact approved Stats NZ Data Explorer API request URL
+        required: true
         type: string
       confirm:
         description: Type FETCH to authorize retrieval into an Actions artifact
@@ -19,93 +23,50 @@ concurrency:
   group: stats-nz-population-source
   cancel-in-progress: false
 
-env:
-  OPEN_SOCIAL_DATA_SHA: 29c8908267cbca47e91a6a93c9dceed1978b4a9e
-
 jobs:
-  list:
-    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id == ''
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
-    steps:
-      - name: Require Stats NZ API credential
-        env:
-          API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
-        run: test -n "$API_KEY"
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          repository: edithatogo/open_social_data
-          ref: ${{ env.OPEN_SOCIAL_DATA_SHA }}
-          path: .tools/open_social_data
-          persist-credentials: false
-      - name: List Stats NZ datasets
-        working-directory: .tools/open_social_data
-        run: |
-          rustc --version
-          cargo --version
-          cargo run --locked --release --bin open-social-data-cli -- list --provider stats_nz
   fetch:
-    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH' && inputs.dataset_id != ''
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'FETCH'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     env:
       STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
+      DATASET_ID: ${{ inputs.dataset_id }}
+      REQUEST_URL: ${{ inputs.request_url }}
     steps:
       - name: Require Stats NZ API credential
-        env:
-          API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
-        run: test -n "$API_KEY"
+        run: test -n "$STATS_NZ_API_KEY"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          repository: edithatogo/open_social_data
-          ref: ${{ env.OPEN_SOCIAL_DATA_SHA }}
-          path: .tools/open_social_data
-          persist-credentials: false
-      - name: Verify hosted Rust toolchain
-        run: |
-          rustc --version
-          cargo --version
-      - name: List Stats NZ datasets
-        working-directory: .tools/open_social_data
-        run: cargo run --locked --release --bin open-social-data-cli -- list --provider stats_nz
-      - name: Fetch approved population export
-        working-directory: .tools/open_social_data
-        env:
-          DATASET_ID: ${{ inputs.dataset_id }}
-          RETRIEVED_ON: ${{ github.run_started_at }}
+      - name: Fetch approved Data Explorer response
         run: |
           set -euo pipefail
+          export RETRIEVED_ON="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          case "$REQUEST_URL" in
+            https://api.data.stats.govt.nz/*) ;;
+            *) echo 'request_url must target api.data.stats.govt.nz over HTTPS' >&2; exit 1 ;;
+          esac
           mkdir -p "$GITHUB_WORKSPACE/artifacts/stats-nz-population"
-          cargo run --locked --release --bin open-social-data-cli -- fetch \
-            stats_nz "$DATASET_ID" \
-            --output "$GITHUB_WORKSPACE/artifacts/stats-nz-population/population.parquet" \
-            --quality-report "$GITHUB_WORKSPACE/artifacts/stats-nz-population/quality.json"
-          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/population.parquet"
-          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/quality.json"
+          curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
+            -H "Ocp-Apim-Subscription-Key: $STATS_NZ_API_KEY" \
+            -H 'Accept: application/json' "$REQUEST_URL" \
+            -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.json"
+          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.json"
       - name: Write source receipt
-        env:
-          DATASET_ID: ${{ inputs.dataset_id }}
         run: |
-          set -euo pipefail
           python - <<'PY'
           import hashlib, json, os
           from pathlib import Path
           root = Path("artifacts/stats-nz-population")
           payload = {
-              "schema_version": "1.0.0",
+              "schema_version": "1.1.0",
               "source_id": "candidate.statsnz-population-estimates-2023-base",
-              "provider": "edithatogo/open_social_data",
-              "provider_commit": os.environ["OPEN_SOCIAL_DATA_SHA"],
+              "provider": "stats-nz-data-explorer-api",
               "dataset_id": os.environ["DATASET_ID"],
+              "request_url": os.environ["REQUEST_URL"],
               "retrieved_on": os.environ["RETRIEVED_ON"][:10],
-              "sha256": hashlib.sha256((root / "population.parquet").read_bytes()).hexdigest(),
-              "quality_report": "quality.json",
-              "output_policy": "Actions artifact only until schema and source terms are reviewed",
+              "sha256": hashlib.sha256((root / "response.json").read_bytes()).hexdigest(),
+              "output_policy": "Actions artifact only until schema, licence, and source terms are reviewed",
               "claim_boundary": "Population denominator only; no individual records or treatment demand are asserted.",
           }
           (root / "receipt.json").write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
