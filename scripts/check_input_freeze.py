@@ -80,8 +80,16 @@ def validate(
         if status in FROZEN:
             if not item.get("version"):
                 failures.append(f"{identifier}: frozen input requires version")
-            if str(item.get("licence_state", "")).lower() in {"", "unknown", "pending"}:
-                failures.append(f"{identifier}: frozen input requires licence_state")
+            licence_state = str(item.get("licence_state", "")).lower()
+            locally_authorized = bool(item.get("user_authorized_local_use")) and bool(
+                manifest.get("authorization_receipt")
+            )
+            if licence_state in {"", "pending"} or (
+                licence_state == "unknown" and not locally_authorized
+            ):
+                failures.append(
+                    f"{identifier}: frozen input requires licence_state or explicit local-use authorization"
+                )
             if not item.get("retrieval_receipt"):
                 failures.append(f"{identifier}: frozen input requires retrieval_receipt")
             else:

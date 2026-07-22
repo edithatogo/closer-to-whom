@@ -93,3 +93,13 @@ decisions:
       The user explicitly narrowed the current harness to public aggregate policy evaluation and
       approved the three operating gates. This does not claim Māori endorsement, ethical approval,
       HDEC exemption, or authorise a future microdata phase.
+  - id: DEC-016
+    date: 2026-07-22
+    status: accepted
+    decision: >-
+      Treat the user's explicit authorization as approval for local use of the retrieved public
+      source files in the sole-developer harness. Freeze the input manifest while retaining each
+      source's factual licence state, provenance receipt, and non-redistribution posture.
+    rationale: >-
+      Repeatedly reopening the already-granted project authorization adds no evidence. The harness
+      still records source uncertainty and prevents source payload redistribution.
