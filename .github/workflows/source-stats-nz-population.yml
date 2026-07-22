@@ -64,9 +64,9 @@ jobs:
           test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.json"
           curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
             -H "Ocp-Apim-Subscription-Key: $STATS_NZ_API_KEY" \
-            -H 'Accept: application/json' "$STRUCTURE_URL" \
-            -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.json"
-          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.json"
+            -H 'Accept: application/xml' "$STRUCTURE_URL" \
+            -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
+          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
       - name: Write source receipt
         run: |
           python - <<'PY'
@@ -74,7 +74,7 @@ jobs:
           from pathlib import Path
           root = Path("artifacts/stats-nz-population")
           payload = {
-              "schema_version": "1.1.0",
+              "schema_version": "1.2.0",
               "source_id": "candidate.statsnz-population-estimates-2023-base",
               "provider": "stats-nz-data-explorer-api",
               "dataset_id": os.environ["DATASET_ID"],
@@ -82,7 +82,8 @@ jobs:
               "structure_url": os.environ["STRUCTURE_URL"],
               "retrieved_on": os.environ["RETRIEVED_ON"][:10],
               "sha256": hashlib.sha256((root / "response.json").read_bytes()).hexdigest(),
-              "structure_sha256": hashlib.sha256((root / "structure.json").read_bytes()).hexdigest(),
+              "structure_sha256": hashlib.sha256((root / "structure.xml").read_bytes()).hexdigest(),
+              "structure_format": "application/xml; profile=SDMX-ML 2.1",
               "output_policy": "Actions artifact only until schema, licence, and source terms are reviewed",
               "claim_boundary": "Population denominator only; no individual records or treatment demand are asserted.",
           }
