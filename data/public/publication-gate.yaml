@@ -1,6 +1,7 @@
 schema_version: "1.0.0"
 track_id: CTW-060-publication-and-space
 status: blocked_on_national_analysis
+release_assurance: refreshed_on_clean_main_pending_space_redeployment
 required_evidence:
   national_analysis_receipt: blocked_on_prerequisites
   source_and_licence_receipts: pending
