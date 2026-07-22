@@ -8,7 +8,11 @@ on:
         required: true
         type: string
       request_url:
-        description: Exact approved Stats NZ Data Explorer API request URL
+        description: Exact approved ADE data-query URL
+        required: true
+        type: string
+      structure_url:
+        description: Exact approved ADE structure-query URL for schema metadata
         required: true
         type: string
       confirm:
@@ -32,6 +36,7 @@ jobs:
       STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
       DATASET_ID: ${{ inputs.dataset_id }}
       REQUEST_URL: ${{ inputs.request_url }}
+      STRUCTURE_URL: ${{ inputs.structure_url }}
     steps:
       - name: Require Stats NZ API credential
         run: test -n "$STATS_NZ_API_KEY"
@@ -42,9 +47,14 @@ jobs:
         run: |
           set -euo pipefail
           export RETRIEVED_ON="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "RETRIEVED_ON=$RETRIEVED_ON" >> "$GITHUB_ENV"
           case "$REQUEST_URL" in
-            https://api.data.stats.govt.nz/*) ;;
-            *) echo 'request_url must target api.data.stats.govt.nz over HTTPS' >&2; exit 1 ;;
+            https://apis.stats.govt.nz/ade-api/rest/v2/data/*) ;;
+            *) echo 'request_url must target the Stats NZ ADE v2 data endpoint over HTTPS' >&2; exit 1 ;;
+          esac
+          case "$STRUCTURE_URL" in
+            https://apis.stats.govt.nz/ade-api/rest/v2/data/*) ;;
+            *) echo 'structure_url must target the Stats NZ ADE v2 endpoint over HTTPS' >&2; exit 1 ;;
           esac
           mkdir -p "$GITHUB_WORKSPACE/artifacts/stats-nz-population"
           curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
@@ -52,6 +62,11 @@ jobs:
             -H 'Accept: application/json' "$REQUEST_URL" \
             -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.json"
           test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.json"
+          curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
+            -H "Ocp-Apim-Subscription-Key: $STATS_NZ_API_KEY" \
+            -H 'Accept: application/json' "$STRUCTURE_URL" \
+            -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.json"
+          test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.json"
       - name: Write source receipt
         run: |
           python - <<'PY'
@@ -64,8 +79,10 @@ jobs:
               "provider": "stats-nz-data-explorer-api",
               "dataset_id": os.environ["DATASET_ID"],
               "request_url": os.environ["REQUEST_URL"],
+              "structure_url": os.environ["STRUCTURE_URL"],
               "retrieved_on": os.environ["RETRIEVED_ON"][:10],
               "sha256": hashlib.sha256((root / "response.json").read_bytes()).hexdigest(),
+              "structure_sha256": hashlib.sha256((root / "structure.json").read_bytes()).hexdigest(),
               "output_policy": "Actions artifact only until schema, licence, and source terms are reviewed",
               "claim_boundary": "Population denominator only; no individual records or treatment demand are asserted.",
           }
