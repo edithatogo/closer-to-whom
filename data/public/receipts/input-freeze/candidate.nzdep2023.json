@@ -1,0 +1,12 @@
+{
+  "source_id": "candidate.nzdep2023",
+  "url": "https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx",
+  "retrieved_on": "2026-07-22",
+  "retrieved_unix_seconds": 1784706098,
+  "bytes": 122773,
+  "sha256": "9a7392a72f6412399ce44fc4d7ae84fd816514f31e4eb03327d298407d1b0f2a",
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "output_path": "external_source_not_committed_due_to_redistribution_boundary",
+  "retrieval_method": "curl_with_desktop_user_agent",
+  "access_note": "Direct retrieval succeeded with curl; source file is retained only in the local external-input cache until redistribution terms are resolved."
+}

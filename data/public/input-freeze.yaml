@@ -21,7 +21,7 @@ inputs:
     source_ids: [candidate.nzdep2023]
     version: null
     licence_state: unknown
-    retrieval_receipt: null
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.nzdep2023.json
     evidence_grade: pending
     status: pending
     pending_reason: public source/licence and retrieval evidence not frozen
@@ -30,7 +30,7 @@ inputs:
     source_ids: [candidate.gch2023]
     version: null
     licence_state: unknown
-    retrieval_receipt: null
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.gch2023.json
     evidence_grade: pending
     status: pending
     pending_reason: public source/licence and retrieval evidence not frozen
