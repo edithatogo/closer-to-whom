@@ -1,5 +1,5 @@
 schema_version: "1.0.0"
-freeze_date: null
+freeze_date: 2026-07-22
 claim_boundary: >-
   These records represent plausible, publicly documented cancer or systemic-treatment service
   locations. They do not assert drug-specific anti-HER2 capability, observed capacity, patient

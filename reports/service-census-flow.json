@@ -5,7 +5,7 @@
     "3": 19
   },
   "facility_count": 19,
-  "freeze_date": "2026-07-21",
+  "freeze_date": "2026-07-22",
   "input": "data/public/service-census-records.yaml",
   "network_counts": {
     "broad": 19,

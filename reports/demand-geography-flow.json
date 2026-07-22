@@ -2,7 +2,7 @@
   "claim_boundary": "Records are public aggregate or synthetic demand cells, never patients or patient-like rows.",
   "demand_cell_count": 0,
   "expected_courses_total": 0,
-  "freeze_date": "2026-07-12",
+  "freeze_date": "2026-07-22",
   "parquet_fingerprint": "ec44cf61475deaa9c22685feafe9484be4e5d73452f299d2a9c1299faea522ca",
   "record_count": 0,
   "routing_weight_sums": {},
