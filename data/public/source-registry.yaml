@@ -95,8 +95,8 @@ sources:
     status: captured_metadata_only
     metadata_evidence: >-
       Official Otago page identifies GCH23 as the 2023 Census release and states CC BY-ND 4.0;
-      the SA2 concordance download is available at https://www.otago.ac.nz/__data/assets/excel_doc/0024/638214/SA22023-to-GCH2023.xlsx.
-      The file returned HTTP 403 during retrieval, so no dataset receipt or redistribution claim is made.
+      its SA2 concordance download is listed on the official resources page. The file returned
+      HTTP 403 during retrieval, so no dataset receipt or redistribution claim is made.
   - source_id: candidate.nzdep2023
     title: New Zealand Index of Deprivation 2023
     publisher: University of Otago
