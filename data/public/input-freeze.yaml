@@ -70,3 +70,13 @@ inputs:
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
+  - input_id: population
+    title: Stats NZ subnational population estimates
+    source_ids: [candidate.statsnz-population-estimates-2023-base]
+    version: "POPES_SUB_004 1.0"
+    licence_state: unknown
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json
+    evidence_grade: B
+    status: frozen
+    user_authorized_local_use: true
+    pending_reason: null

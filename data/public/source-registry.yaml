@@ -363,3 +363,13 @@ sources:
     evidence_grade: 2_public_aggregate_context
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json
+  - source_id: candidate.statsnz-population-estimates-2023-base
+    title: Subnational population estimates (RC, SA2), by age and sex, at 30 June 1996-2025
+    publisher: Stats NZ
+    url: https://explore.data.stats.govt.nz/
+    retrieved_on: 2026-07-23
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_aggregate_context
+    status: captured_artifact_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json
