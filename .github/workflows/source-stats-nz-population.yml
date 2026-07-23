@@ -43,6 +43,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+      - name: Prepare locked Python environment
+        run: uv sync --locked --no-dev
       - name: Fetch approved Data Explorer response
         run: |
           set -euo pipefail
@@ -72,6 +74,14 @@ jobs:
             -H 'Accept: application/xml' "$STRUCTURE_URL" \
             -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
           test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
+      - name: Materialize validated aggregate Parquet
+        run: |
+          uv run python scripts/materialize_stats_nz_population.py \
+            artifacts/stats-nz-population/response.csv \
+            artifacts/stats-nz-population/population.parquet \
+            artifacts/stats-nz-population/quality.json
+          test -s artifacts/stats-nz-population/population.parquet
+          test -s artifacts/stats-nz-population/quality.json
       - name: Write source receipt
         run: |
           python - <<'PY'
@@ -87,6 +97,7 @@ jobs:
               "structure_url": os.environ["STRUCTURE_URL"],
               "retrieved_on": os.environ["RETRIEVED_ON"][:10],
               "sha256": hashlib.sha256((root / "response.csv").read_bytes()).hexdigest(),
+              "parquet_sha256": hashlib.sha256((root / "population.parquet").read_bytes()).hexdigest(),
               "data_format": "text/csv",
               "structure_sha256": hashlib.sha256((root / "structure.xml").read_bytes()).hexdigest(),
               "structure_format": "application/xml; profile=SDMX-ML 2.1",
