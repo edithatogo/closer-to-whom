@@ -40,25 +40,47 @@ assumptions:
   - id: D03
     domain: demand
     name: her2_positive_probability
-    value: 0.175
+    value: 0.15
     unit: proportion
-    status: placeholder_requires_source_freeze
-    source_ids: [candidate.pharmac-anti-her2]
-    uncertainty: beta
+    status: captured_public_aggregate_estimate
+    source_ids: [candidate.teaho-cancer-medicines-gap-2022]
+    uncertainty: structural_scenario
     lower: 0.15
-    upper: 0.20
-    rationale: Midpoint of a public range used only until pathway-specific calibration.
+    upper: 0.15
+    rationale: Te Aho reports approximately 15 percent HER2-positive nationally; subgroup differences remain structural scenarios and are not applied to SA2 cells.
   - id: D04
     domain: demand
     name: treatment_uptake
-    value: 0.85
+    value: 0.631
     unit: proportion
-    status: illustrative
-    source_ids: [synthetic.parameter-fixture]
-    uncertainty: beta
-    lower: 0.60
-    upper: 1.00
-    rationale: Wide uncertainty prevents false precision before public calibration.
+    status: captured_public_aggregate_qpi_2020_21
+    source_ids: [candidate.teaho-breast-qpi-2025]
+    uncertainty: structural_scenario
+    lower: 0.631
+    upper: 0.631
+    rationale: Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate.
+  - id: D05
+    domain: demand
+    name: stage_i_iii_probability
+    value: 0.93
+    unit: proportion
+    status: captured_public_aggregate_estimate
+    source_ids: [candidate.teaho-cancer-medicines-gap-2022]
+    uncertainty: structural_scenario
+    lower: 0.93
+    upper: 0.93
+    rationale: Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario.
+  - id: D06
+    domain: demand
+    name: annual_female_breast_cancer_registrations
+    value: 3660
+    unit: registrations_per_year
+    status: captured_public_aggregate_2022
+    source_ids: [candidate.healthnz-health-independence-2024]
+    uncertainty: temporal_scenario
+    lower: 3500
+    upper: 3660
+    rationale: Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025.
   - id: F01
     domain: facilities
     name: conservative_evidence_threshold

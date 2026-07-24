@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.osrm-table-service",
+  "url": "https://github.com/Project-OSRM/osrm-backend/blob/master/docs/http.md",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784875375,
+  "bytes": 768514,
+  "sha256": "195b50ddd5c305b5f8d3c514ab140a7ad34ac0e9c813429336afbb084fd1507d",
+  "content_type": "text/html; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "open",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Routing-engine interface documentation only; no public demo-server dependency or route result is treated as release evidence."
+}

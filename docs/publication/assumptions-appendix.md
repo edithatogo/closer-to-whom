@@ -11,8 +11,10 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | C03 | initial_higher_risk_doses = hospital_capable_setting. Initial and clinically constrained administrations remain at eligible facilities. | hard_constraint | pathway_specific |  |
 | D01 | principal_geography = SA2_SSGA23. SA2 under Stats NZ SSGA23 is frozen from the authenticated POPES_SUB_004 artifact for authorized local use; redistribution remains blocked pending licence adjudication. | frozen_public_input_artifact_only | spatial |  |
 | D02 | within_area_allocation = population_weighted_multiple_points. Multiple routing points reduce centroid bias in large areas. | planned_method | spatial |  |
-| D03 | her2_positive_probability = 0.175. Midpoint of a public range used only until pathway-specific calibration. | placeholder_requires_source_freeze | beta |  |
-| D04 | treatment_uptake = 0.85. Wide uncertainty prevents false precision before public calibration. | illustrative | beta |  |
+| D03 | her2_positive_probability = 0.15. Te Aho reports approximately 15 percent HER2-positive nationally; subgroup differences remain structural scenarios and are not applied to SA2 cells. | captured_public_aggregate_estimate | structural_scenario |  |
+| D04 | treatment_uptake = 0.631. Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate. | captured_public_aggregate_qpi_2020_21 | structural_scenario |  |
+| D05 | stage_i_iii_probability = 0.93. Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario. | captured_public_aggregate_estimate | structural_scenario |  |
+| D06 | annual_female_breast_cancer_registrations = 3660. Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025. | captured_public_aggregate_2022 | temporal_scenario |  |
 | E01 | rurality_measure = GCH23_stratifier. GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission. | planned_public_input | structural |  |
 | E02 | deprivation_measure = NZDep2023. Area deprivation is not interpreted as an individual attribute. | planned_public_input | ecological |  |
 | E03 | equity_weights = scenario_range. No single weight set is represented as stakeholder-derived without governance. | normative_uncertainty | stochastic_mcda |  |
@@ -33,4 +35,4 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | U02 | structural_uncertainty = reported_separately. Structural alternatives are not collapsed into false-precision intervals. | hard_constraint | none |  |
 | V01 | microdata_decision_rule = positive_ENBS_and_decision_relevance. Granular research is justified only when it may change a material decision or equity conclusion. | method | decision |  |
 
-Total assumptions: **28**.
+Total assumptions: **30**.

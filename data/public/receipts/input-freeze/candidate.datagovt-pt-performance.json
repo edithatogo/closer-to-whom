@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.datagovt-pt-performance",
+  "url": "https://catalogue.data.govt.nz/api/3/action/package_show?id=performance-of-public-transport-services",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784874752,
+  "bytes": 3538,
+  "sha256": "68b1915e4a4c0121ed5c77a2c6fedd8eda0788ad41f34e68d6e04fe4d8d3af47",
+  "content_type": "application/json; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "open_cc_by_nz_3",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "National public-transport performance metadata only; not an origin-destination route matrix."
+}

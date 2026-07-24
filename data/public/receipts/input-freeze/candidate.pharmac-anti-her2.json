@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.pharmac-anti-her2",
+  "url": "https://www.pharmac.govt.nz/news-and-resources/consultations-and-decisions/2025-11-decision-to-fund-treatments-for-multiple-sclerosis-eye-conditions-breast-cancer-and-lung-cancer",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784875287,
+  "bytes": 614356,
+  "sha256": "384baeec9bdc28624f68f56a40bd1507cd454bef89e64b68fd03355b39d504d0",
+  "content_type": "text/html; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "unknown",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Public medicine-funding decision context only; funding does not establish individual eligibility, uptake, local capability, or capacity."
+}

@@ -1,0 +1,29 @@
+{
+  "annual_expected_courses": 322.16967,
+  "calibration_years": {
+    "incidence": 2022,
+    "treatment_uptake": "2020-2021"
+  },
+  "claim_boundary": "This is a public aggregate national planning scenario, not observed current demand, an SA2 estimate, a patient count, or evidence of facility capability.",
+  "formula": "registrations * her2_positive_probability * stage_i_iii_probability * treatment_uptake",
+  "generated_at": "2026-07-24T06:35:34.376424+00:00",
+  "inputs": {
+    "annual_female_breast_cancer_registrations": 3660.0,
+    "her2_positive_probability": 0.15,
+    "stage_i_iii_probability": 0.93,
+    "treatment_uptake": 0.631
+  },
+  "schema_version": "1.0.0",
+  "source_ids": [
+    "candidate.healthnz-health-independence-2024",
+    "candidate.teaho-breast-qpi-2025",
+    "candidate.teaho-cancer-medicines-gap-2022"
+  ],
+  "status": "materialized_national_scenario_not_spatially_allocated",
+  "uncertainty": {
+    "decision": "clinical eligibility and service feasibility remain hard constraints",
+    "parameter": "source point estimates are retained without invented confidence intervals",
+    "structural": "national rates are not assumed to be spatially homogeneous",
+    "temporal": "incidence and uptake refer to different observation periods"
+  }
+}

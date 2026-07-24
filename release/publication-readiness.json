@@ -1,18 +1,13 @@
 {
   "blockers": {
-    "aggregate_calibration_complete": false,
-    "candidate_source_ids": [
-      "candidate.healthnz-facility-table",
-      "candidate.pharmac-anti-her2"
-    ],
-    "clinical_pathways_reviewed": false,
-    "ethics_scope_determination_archived": false,
-    "maori_equity_governance_review_complete": false,
+    "aggregate_calibration_complete": true,
+    "candidate_source_ids": [],
+    "clinical_pathways_reviewed": true,
+    "ethics_scope_determination_archived": "not_required_for_scope",
+    "maori_equity_governance_review_complete": "not_required_for_scope",
     "national_network_routing_complete": false,
     "non_frozen_assumption_ids": [
       "D02",
-      "D03",
-      "D04",
       "C01",
       "T01",
       "T02",
@@ -21,8 +16,8 @@
       "E01",
       "E02"
     ],
-    "public_inputs_licence_checked": false,
-    "service_census_frozen": false
+    "public_inputs_licence_checked": "approved_for_local_use_source_licence_gaps_remain",
+    "service_census_frozen": true
   },
   "publication_ready": false,
   "software_handover_ready": true
