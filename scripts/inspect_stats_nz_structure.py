@@ -13,6 +13,7 @@ def inspect_structure(path: Path) -> dict[str, object]:
     codelists = []
     composite_code_ids: set[str] = set()
     component_code_ids: set[str] = set()
+    rules_by_code: dict[str, list[str]] = {}
     for element in root.iter():
         if not element.tag.endswith("Codelist"):
             continue
@@ -27,6 +28,7 @@ def inspect_structure(path: Path) -> dict[str, object]:
                 ]
                 if rules:
                     composite_code_ids.add(code_id)
+                    rules_by_code[code_id] = rules
                     for rule in rules:
                         component_code_ids.update(rule.split("+"))
                 codes.append(
@@ -49,12 +51,20 @@ def inspect_structure(path: Path) -> dict[str, object]:
         )
     area = next((item for item in codelists if item["id"] == "CL_AREA_POPES_SUB_004"), None)
     area_ids = {code["id"] for code in area["codes"]} if area else set()
+    regional_council_ids = {f"{number:02d}" for number in range(1, 19)}
+    regional_sa2_ids = {
+        component
+        for council_id in regional_council_ids
+        for rule in rules_by_code.get(council_id, [])
+        for component in rule.split("+")
+    }
     return {
         "codelist_count": len(codelists),
         "codelists": codelists,
         "area_composite_code_ids": sorted(composite_code_ids & area_ids),
         "area_component_code_ids": sorted(component_code_ids & area_ids),
         "area_leaf_code_ids": sorted((area_ids - composite_code_ids) & component_code_ids),
+        "area_sa2_code_ids": sorted(regional_sa2_ids - regional_council_ids),
     }
 
 

@@ -24,3 +24,4 @@ def test_inspect_structure_preserves_code_lists_and_labels(tmp_path: Path) -> No
         {"id": "TOTAL", "names": ["Total"]},
     ]
     assert result["area_leaf_code_ids"] == ["A1"]
+    assert result["area_sa2_code_ids"] == []
