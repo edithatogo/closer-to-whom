@@ -11,15 +11,27 @@ from pathlib import Path
 def inspect_structure(path: Path) -> dict[str, object]:
     root = ET.parse(path).getroot()
     codelists = []
+    composite_code_ids: set[str] = set()
+    component_code_ids: set[str] = set()
     for element in root.iter():
         if not element.tag.endswith("Codelist"):
             continue
         codes = []
         for code in element.iter():
             if code.tag.endswith("Code") and code.attrib.get("id"):
+                code_id = code.attrib["id"]
+                rules = [
+                    (annotation.text or "").strip()
+                    for annotation in code.iter()
+                    if annotation.tag.endswith("AnnotationTitle") and annotation.text
+                ]
+                if rules:
+                    composite_code_ids.add(code_id)
+                    for rule in rules:
+                        component_code_ids.update(rule.split("+"))
                 codes.append(
                     {
-                        "id": code.attrib["id"],
+                        "id": code_id,
                         "names": [
                             (n.text or "").strip()
                             for n in code.iter()
@@ -35,7 +47,15 @@ def inspect_structure(path: Path) -> dict[str, object]:
                 "codes": codes,
             }
         )
-    return {"codelist_count": len(codelists), "codelists": codelists}
+    area = next((item for item in codelists if item["id"] == "CL_AREA_POPES_SUB_004"), None)
+    area_ids = {code["id"] for code in area["codes"]} if area else set()
+    return {
+        "codelist_count": len(codelists),
+        "codelists": codelists,
+        "area_composite_code_ids": sorted(composite_code_ids & area_ids),
+        "area_component_code_ids": sorted(component_code_ids & area_ids),
+        "area_leaf_code_ids": sorted((area_ids - composite_code_ids) & component_code_ids),
+    }
 
 
 def main() -> None:
