@@ -371,7 +371,7 @@ sources:
     url: https://teaho.govt.nz/index.php/download_file/view/73eab823-c306-47c4-ba99-e562ed786b2e/549
     retrieved_on: 2026-07-24
     licence_state: open
-    redistribution_allowed: true
+    redistribution_allowed: false
     evidence_grade: 3_public_aggregate_clinical_context
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.teaho-breast-qpi-2025.json
@@ -385,3 +385,25 @@ sources:
     evidence_grade: 2_public_aggregate_context
     status: captured_artifact_only
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json
+  - source_id: candidate.statsnz-sa2-2023-arcgis
+    title: 2023 Census totals by topic for households by SA2 polygon layer
+    publisher: Stats NZ via ArcGIS hosted service
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/2023_Census_totals_by_topic_for_households_by_SA2/FeatureServer/1
+    retrieved_on: 2026-07-24
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_geography_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-arcgis.json
+    notes: Public layer metadata identifies polygon geometry and the SA22023 code field. Raw geometry remains external until licence and snapshot handling are adjudicated.
+  - source_id: candidate.nzta-amds-network-model
+    title: Asset Management Data Standard multimodal network model
+    publisher: NZ Transport Agency Waka Kotahi
+    url: https://nzta.govt.nz/partners/data-and-tools/asset-management-data-standard/amds-network-model
+    retrieved_on: 2026-07-24
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_routing_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.nzta-amds-network-model.json
+    notes: Candidate official source for future connected multimodal routing scenarios; does not itself provide a successful route matrix receipt.
