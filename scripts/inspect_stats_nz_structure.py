@@ -64,7 +64,7 @@ def inspect_structure(path: Path) -> dict[str, object]:
         "area_composite_code_ids": sorted(composite_code_ids & area_ids),
         "area_component_code_ids": sorted(component_code_ids & area_ids),
         "area_leaf_code_ids": sorted((area_ids - composite_code_ids) & component_code_ids),
-        "area_sa2_code_ids": sorted(regional_sa2_ids - regional_council_ids),
+        "area_sa2_code_ids": sorted((regional_sa2_ids - regional_council_ids) & area_ids),
     }
 
 
