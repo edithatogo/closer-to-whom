@@ -63,16 +63,11 @@ jobs:
             *) echo 'structure_url must target the current Stats NZ ADE dataflow endpoint over HTTPS' >&2; exit 1 ;;
           esac
           mkdir -p "$GITHUB_WORKSPACE/artifacts/stats-nz-population"
-          curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
-            -H "Ocp-Apim-Subscription-Key: $STATS_NZ_API_KEY" \
-            -H 'Accept: text/csv' "$REQUEST_URL" \
-            -D "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.headers" \
-            -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.csv"
+          uv run python scripts/fetch_stats_nz_population_chunks.py \
+            "$REQUEST_URL" \
+            "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.csv" \
+            --chunk-size 100
           test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.csv"
-          grep -Eiq '^content-type:.*(text/csv|csv)' "$GITHUB_WORKSPACE/artifacts/stats-nz-population/response.headers" || {
-            echo 'Stats NZ data query did not return CSV; refusing lossy conversion.' >&2
-            exit 1
-          }
           curl --fail-with-body --location --retry 3 --retry-all-errors --silent --show-error \
             -H "Ocp-Apim-Subscription-Key: $STATS_NZ_API_KEY" \
             -H 'Accept: application/xml' "$STRUCTURE_URL" \
