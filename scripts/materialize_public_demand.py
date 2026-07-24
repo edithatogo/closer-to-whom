@@ -50,10 +50,11 @@ def materialize(
     for raw in raw_records:
         if not isinstance(raw, dict):
             raise TypeError("Each demand record must be a mapping")
-        weight = float(raw.pop("routing_weight", 1.0))
+        record = dict(raw)
+        weight = float(record.pop("routing_weight", 1.0))
         if not 0.0 <= weight <= 1.0:
             raise ValueError("routing_weight must be between zero and one")
-        cell = DemandCell.model_validate(raw)
+        cell = DemandCell.model_validate(record)
         if cell.routing_point_id in seen_points:
             raise ValueError(f"Duplicate routing_point_id: {cell.routing_point_id}")
         seen_points.add(cell.routing_point_id)
