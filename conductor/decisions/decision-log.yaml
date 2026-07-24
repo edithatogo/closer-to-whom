@@ -103,3 +103,15 @@ decisions:
     rationale: >-
       Repeatedly reopening the already-granted project authorization adds no evidence. The harness
       still records source uncertainty and prevents source payload redistribution.
+  - id: DEC-017
+    date: 2026-07-24
+    status: accepted
+    decision: >-
+      Use the captured SA2 population artifact as the authorized local denominator backbone;
+      calibrate breast-cancer demand only to public aggregate incidence, retain HER2 and uptake
+      as uncertainty scenarios, use versioned road/public-transport routing scenarios, and keep
+      restricted inputs artifact-only until redistribution permissions are explicit.
+    rationale: >-
+      The user approved these operating decisions for autonomous continuation. They define model
+      methods without converting synthetic parameters, unknown capability, or licence uncertainty
+      into observed clinical or operational claims.

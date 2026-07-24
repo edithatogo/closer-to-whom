@@ -25,10 +25,10 @@ assumptions:
     domain: demand
     name: principal_geography
     value: SA2_SSGA23
-    status: planned_public_input
+    status: frozen_public_input_artifact_only
     source_ids: [candidate.statsnz-geographies]
     uncertainty: spatial
-    rationale: SA2 under Stats NZ SSGA23 balances public availability, interpretability, and disclosure protection; input and licence freeze remains pending.
+    rationale: SA2 under Stats NZ SSGA23 is frozen from the authenticated POPES_SUB_004 artifact for authorized local use; redistribution remains blocked pending licence adjudication.
   - id: D02
     domain: demand
     name: within_area_allocation
