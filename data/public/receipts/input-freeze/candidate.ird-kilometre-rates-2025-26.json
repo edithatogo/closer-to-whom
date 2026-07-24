@@ -1,0 +1,12 @@
+{
+  "source_id": "candidate.ird-kilometre-rates",
+  "url": "https://www.ird.govt.nz/updates/news-folder/2026/kilometre-rates-for-the-2025-2026-income-year",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784872800,
+  "bytes": 88514,
+  "sha256": "12c83e845eb87af5a2c1090b7ba6710ddb8cad29d900070ae8661580983ab562",
+  "content_type": "text/html",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "status": "captured_metadata_only",
+  "claim_boundary": "Official 2025-26 kilometre-rate metadata; not observed travel cost or patient behaviour."
+}

@@ -19,8 +19,8 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | F01 | conservative_evidence_threshold = 2. Primary analysis requires current explicit named treatment or solid-tumour SACT evidence. | protocol_rule | structural |  |
 | F02 | undocumented_capability = unknown. Lack of public evidence is not evidence of absence. | hard_constraint | structural |  |
 | F03 | observed_capacity = unavailable. The model estimates implied capacity and tests explicit capacity envelopes. | structural_limitation | structural |  |
-| K01 | vehicle_running_cost = 0.37. Marginal running-cost base with broader-cost scenario. | requires_analysis_date_refresh | deterministic_scenario |  |
-| K02 | nta_reimbursement = 0.44. Report gross burden, reimbursement, and societal resource cost separately. | temporary_rate_requires_date_check | deterministic_scenario |  |
+| K01 | vehicle_running_cost = 0.37. Marginal running-cost base with broader-cost scenario. | captured_2025_26_rate_artifact_only | deterministic_scenario |  |
+| K02 | nta_reimbursement = 0.34. Report gross burden, reimbursement, and societal resource cost separately. | captured_2024_rate_artifact_only | deterministic_scenario |  |
 | K03 | patient_time_value = 25. Primary reporting keeps time separate; monetisation is secondary. | illustrative | gamma |  |
 | O01 | safety_constraints = non_compensatory. Clinical eligibility and safety cannot be traded against travel convenience. | hard_constraint | none |  |
 | O02 | uncapacitated_interpretation = potential_geography_and_implied_capacity. Results do not claim current operational feasibility. | hard_constraint | structural |  |

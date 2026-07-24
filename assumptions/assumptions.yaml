@@ -147,7 +147,7 @@ assumptions:
     value: 0.37
     unit: NZD_per_km
     price_year: 2025_26
-    status: requires_analysis_date_refresh
+    status: captured_2025_26_rate_artifact_only
     source_ids: [candidate.ird-kilometre-rates]
     uncertainty: deterministic_scenario
     lower: 0.30
@@ -156,9 +156,9 @@ assumptions:
   - id: K02
     domain: cost
     name: nta_reimbursement
-    value: 0.44
+    value: 0.34
     unit: NZD_per_km
-    status: temporary_rate_requires_date_check
+    status: captured_2024_rate_artifact_only
     source_ids: [candidate.healthnz-nta]
     uncertainty: deterministic_scenario
     lower: 0.34

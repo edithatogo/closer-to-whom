@@ -1,0 +1,12 @@
+{
+  "source_id": "candidate.healthnz-nta",
+  "url": "https://info.health.nz/services-support/support-services/national-travel-assistance",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784872800,
+  "bytes": 530353,
+  "sha256": "6956e14be5372fa671031eb54de331bf0f9b7341a7fbcf0ce3d79a2906b02a68",
+  "content_type": "text/html",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "status": "captured_metadata_only",
+  "claim_boundary": "Official National Travel Assistance reimbursement metadata; not observed travel cost or uptake."
+}

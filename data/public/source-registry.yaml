@@ -72,11 +72,12 @@ sources:
   - source_id: candidate.ird-kilometre-rates
     title: Vehicle kilometre rates
     publisher: Inland Revenue
-    url: https://www.ird.govt.nz/
+    url: https://www.ird.govt.nz/updates/news-folder/2026/kilometre-rates-for-the-2025-2026-income-year
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_analysis_date_refresh
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.ird-kilometre-rates-2025-26.json
   - source_id: candidate.healthnz-nta
     title: National Travel Assistance policy and reimbursement
     publisher: Health New Zealand
@@ -84,7 +85,8 @@ sources:
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_analysis_date_refresh
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.healthnz-nta-2024.json
   - source_id: candidate.gch2023
     title: Geographic Classification for Health 2023 (GCH23)
     publisher: University of Otago
