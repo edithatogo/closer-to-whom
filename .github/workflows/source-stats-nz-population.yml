@@ -78,6 +78,12 @@ jobs:
             -H 'Accept: application/xml' "$STRUCTURE_URL" \
             -o "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
           test -s "$GITHUB_WORKSPACE/artifacts/stats-nz-population/structure.xml"
+      - name: Inventory structure codelists
+        run: |
+          uv run python scripts/inspect_stats_nz_structure.py \
+            artifacts/stats-nz-population/structure.xml \
+            artifacts/stats-nz-population/structure-inventory.json
+          test -s artifacts/stats-nz-population/structure-inventory.json
       - name: Materialize validated aggregate Parquet
         run: |
           uv run python scripts/materialize_stats_nz_population.py \
