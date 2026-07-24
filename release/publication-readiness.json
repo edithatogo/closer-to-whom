@@ -7,9 +7,7 @@
     "maori_equity_governance_review_complete": "not_required_for_scope",
     "national_network_routing_complete": false,
     "non_frozen_assumption_ids": [
-      "D02",
       "C01",
-      "T01",
       "T02",
       "T03",
       "K03",

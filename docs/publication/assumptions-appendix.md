@@ -10,7 +10,7 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | C02 | home_self_administration = excluded. Home scenarios are healthcare-professional administered. | hard_constraint | none |  |
 | C03 | initial_higher_risk_doses = hospital_capable_setting. Initial and clinically constrained administrations remain at eligible facilities. | hard_constraint | pathway_specific |  |
 | D01 | principal_geography = SA2_SSGA23. SA2 under Stats NZ SSGA23 is frozen from the authenticated POPES_SUB_004 artifact for authorized local use; redistribution remains blocked pending licence adjudication. | frozen_public_input_artifact_only | spatial |  |
-| D02 | within_area_allocation = population_weighted_multiple_points. Multiple routing points reduce centroid bias in large areas. | planned_method | spatial |  |
+| D02 | within_area_allocation = official_polygon_centroid_baseline. Official SA2 polygon centroids provide a deterministic aggregate baseline; population-weighted multi-point sensitivity remains required to quantify centroid bias. | implemented_pending_live_materialization | spatial |  |
 | D03 | her2_positive_probability = 0.15. Te Aho reports approximately 15 percent HER2-positive nationally; subgroup differences remain structural scenarios and are not applied to SA2 cells. | captured_public_aggregate_estimate | structural_scenario |  |
 | D04 | treatment_uptake = 0.631. Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate. | captured_public_aggregate_qpi_2020_21 | structural_scenario |  |
 | D05 | stage_i_iii_probability = 0.93. Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario. | captured_public_aggregate_estimate | structural_scenario |  |
@@ -28,7 +28,7 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | O02 | uncapacitated_interpretation = potential_geography_and_implied_capacity. Results do not claim current operational feasibility. | hard_constraint | structural |  |
 | R01 | canonical_exchange = Arrow_Parquet. Language-neutral contracts enable Python, Rust, Julia, Mojo, and JAX components. | architecture | none |  |
 | R02 | healthpoint_payloads = fail_closed. Live payloads remain private unless redistribution and dashboard permissions are explicit. | hard_constraint | none |  |
-| T01 | publication_route_method = versioned_road_and_public_transport_engines. Straight-line distance is not the publication access measure. | planned_method | structural |  |
+| T01 | publication_route_method = self_hosted_osrm_on_pinned_osm_pbf. The national road matrix uses a pinned OSM extract and loopback-only OSRM table client; public demo servers and straight-line distances are not release evidence. | implemented_pending_network_build_and_matrix | structural |  |
 | T02 | synthetic_road_circuity = 1.25. Offline software tests only; never a policy estimate. | synthetic_fixture | uniform |  |
 | T03 | synthetic_average_speed = 65. Offline software tests only. | synthetic_fixture | uniform |  |
 | U01 | psa_sampling = scrambled_sobol. Low-discrepancy draws improve coverage for repeated model evaluation. | method | none |  |

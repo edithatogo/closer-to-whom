@@ -6,3 +6,9 @@ objective: Execute national scenario, optimisation, uncertainty, MCDA, and VOI a
 dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs]
 claim_boundary: No policy estimate is publication-ready without evidence, clinical, equity, ethics, licensing, and reproducibility gates.
 output_contract: Every required output has an explicit blocked/ready/completed state and cannot be treated as a policy estimate while prerequisites are incomplete.
+progress:
+  completed:
+    - National aggregate expected-course calibration is materialized with parameter-level provenance.
+  remaining:
+    - Await completed service census, stratified demand cells, national road matrix, and cost inputs.
+    - Run scenario, optimisation, uncertainty, MCDA, and VOI outputs only after those dependencies pass.

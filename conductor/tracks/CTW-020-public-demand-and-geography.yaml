@@ -9,3 +9,12 @@ acceptance_criteria:
   - Routing-point weights sum to one and spatial uncertainty is reproducible.
   - Aggregate model calibrates to declared public totals.
   - Every non-frozen input records an explicit pending reason; pending state is never inferred from missing metadata.
+progress:
+  completed:
+    - Captured and deterministically materialized the 2,313-row Stats NZ SA2 population denominator.
+    - Calibrated national expected annual courses to declared public aggregate totals.
+    - Implemented and tested paginated official SA2 polygon-centroid retrieval with deterministic weights.
+  remaining:
+    - Retry the official ArcGIS centroid retrieval and freeze its receipt after the 2026-07-24 network timeout.
+    - Materialize deprivation, rurality, ethnicity, and vehicle-access stratifiers.
+    - Add population-weighted multi-point sensitivity origins before publication analysis.

@@ -1,17 +1,17 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-21
+updated_at: 2026-07-24
 version: "0.2.0"
 active_track: CTW-020-public-demand-and-geography
-phase: demand_input_preparation
+phase: national_routing_preparation
 software_status: hosted_main_verified
-model_status: synthetic_demonstration_only
-publication_status: blocked_on_evidence_and_governance
+model_status: source_backed_national_calibration_spatial_allocation_pending
+publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
-  Software and synthetic fixtures are implemented and verifiable; no policy estimate is publication
-  ready until national public-data calibration, source/licence receipts, national routing, and
-  aggregate analysis are complete. Māori/equity review and ethics/HDEC determination are out of
-  scope for this public aggregate harness and are not claimed.
+  Software, the captured SA2 population denominator, and national aggregate demand calibration are
+  implemented and verifiable. No small-area demand, route, cost, optimisation, or policy estimate
+  is publication ready until stratified spatial allocation, service inputs, the pinned national
+  road matrix, and aggregate analysis are complete.
 next_tracks:
   - CTW-010-national-service-census
   - CTW-020-public-demand-and-geography
@@ -32,7 +32,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 115
+  tests: 128
   optional_not_run:
     - Docker container health check
     - Mojo canary

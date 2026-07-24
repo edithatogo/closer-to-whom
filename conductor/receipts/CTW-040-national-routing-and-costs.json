@@ -1,10 +1,21 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-040-national-routing-and-costs",
-  "status": "active_blocked_on_upstream_registries",
+  "status": "active_engine_implemented_matrix_pending",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/19",
   "materializer": "scripts/materialize_route_costs.py",
   "report": "reports/routing-costs-flow.json",
-  "verification": "tests/unit/test_route_cost_materializer.py",
-  "claim_boundary": "The empty route matrix is a blocked software state, not evidence of travel burden."
+  "engine_contract": "src/closer_to_whom/osrm.py",
+  "source_inventory": "reports/public-routing-source-inventory.json",
+  "verification": [
+    "tests/unit/test_route_cost_materializer.py",
+    "tests/unit/test_osrm.py"
+  ],
+  "remaining": [
+    "freeze OSM PBF checksum and OSRM version",
+    "complete aggregate demand and facility inputs",
+    "materialize national road matrix",
+    "materialize cost-category receipts"
+  ],
+  "claim_boundary": "The loopback OSRM client is implemented, but no national road matrix or travel-burden estimate is claimed until the pinned network and upstream aggregate registries are materialized."
 }

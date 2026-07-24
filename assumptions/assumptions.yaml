@@ -32,11 +32,11 @@ assumptions:
   - id: D02
     domain: demand
     name: within_area_allocation
-    value: population_weighted_multiple_points
-    status: planned_method
-    source_ids: [protocol.public-data]
+    value: official_polygon_centroid_baseline
+    status: implemented_pending_live_materialization
+    source_ids: [candidate.statsnz-sa2-2023-arcgis]
     uncertainty: spatial
-    rationale: Multiple routing points reduce centroid bias in large areas.
+    rationale: Official SA2 polygon centroids provide a deterministic aggregate baseline; population-weighted multi-point sensitivity remains required to quantify centroid bias.
   - id: D03
     domain: demand
     name: her2_positive_probability
@@ -136,11 +136,11 @@ assumptions:
   - id: T01
     domain: routing
     name: publication_route_method
-    value: versioned_road_and_public_transport_engines
-    status: planned_method
-    source_ids: [protocol.routing]
+    value: self_hosted_osrm_on_pinned_osm_pbf
+    status: implemented_pending_network_build_and_matrix
+    source_ids: [candidate.osm-geofabrik-nz-network, candidate.osrm-table-service]
     uncertainty: structural
-    rationale: Straight-line distance is not the publication access measure.
+    rationale: The national road matrix uses a pinned OSM extract and loopback-only OSRM table client; public demo servers and straight-line distances are not release evidence.
   - id: T02
     domain: routing
     name: synthetic_road_circuity
