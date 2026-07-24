@@ -31,7 +31,12 @@ def fetch(url: str, output: Path, chunk_size: int = 100) -> int:
     for start in range(0, len(codes), chunk_size):
         chunk_url = f"{prefix}.{'+'.join(codes[start : start + chunk_size])}?{query}"
         request = Request(
-            chunk_url, headers={"Accept": "text/csv", "Ocp-Apim-Subscription-Key": token}
+            chunk_url,
+            headers={
+                "Accept": "text/csv",
+                "Ocp-Apim-Subscription-Key": token,
+                "User-Agent": "closer-to-whom/0.2 (+https://github.com/edithatogo/closer-to-whom)",
+            },
         )
         with urlopen(request, timeout=120) as response:
             content_type = response.headers.get("Content-Type", "")
