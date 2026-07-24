@@ -2,8 +2,9 @@ schema_version: "1.0.0"
 status: pending
 freeze_date: null
 pending_reason: >-
-  Exact authenticated SA2 population query and licensed public calibration inputs remain to be
-  captured; no demand cells are asserted until those receipts are complete.
+  The authenticated SA2 population query is captured and materialised as a denominator artifact;
+  licensed public calibration inputs remain to be captured. No demand cells are asserted until
+  incidence and treatment-use calibration receipts are complete.
 claim_boundary: >-
   Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
   demand, preferences, outcomes, or travel behaviour.
