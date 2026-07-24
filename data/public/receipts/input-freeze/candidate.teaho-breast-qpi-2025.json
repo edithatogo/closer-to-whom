@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.teaho-breast-qpi-2025",
+  "url": "https://teaho.govt.nz/index.php/download_file/view/73eab823-c306-47c4-ba99-e562ed786b2e/549",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784872800,
+  "bytes": 4220524,
+  "sha256": "afd2dc77ee2db1e7f747c89ded4db13c812dd1fc7e7d441d2da88ebb95227d1b",
+  "content_type": "application/pdf",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "open_cc_by_4",
+  "redistribution_allowed": true,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Public aggregate HER2-positive breast-cancer and treatment-indicator evidence; not individual records or observed national uptake."
+}

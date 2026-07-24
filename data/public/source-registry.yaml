@@ -365,6 +365,16 @@ sources:
     evidence_grade: 2_public_aggregate_context
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json
+  - source_id: candidate.teaho-breast-qpi-2025
+    title: Breast Cancer Quality Improvement Monitoring Report 2025
+    publisher: Te Aho o Te Kahu
+    url: https://teaho.govt.nz/index.php/download_file/view/73eab823-c306-47c4-ba99-e562ed786b2e/549
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: true
+    evidence_grade: 3_public_aggregate_clinical_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.teaho-breast-qpi-2025.json
   - source_id: candidate.statsnz-population-estimates-2023-base
     title: Subnational population estimates (RC, SA2), by age and sex, at 30 June 1996-2025
     publisher: Stats NZ
