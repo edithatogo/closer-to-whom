@@ -9,6 +9,7 @@ on:
       - "conductor/**"
       - "docs/publication/**"
       - "scripts/check_*"
+      - "scripts/fetch_stats_nz_population_chunks.py"
       - ".github/workflows/**"
       - "Dockerfile"
       - "pyproject.toml"
