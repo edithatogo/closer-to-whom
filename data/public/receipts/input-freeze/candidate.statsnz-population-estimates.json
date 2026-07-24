@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0.0",
   "source_id": "candidate.statsnz-population-estimates-2023-base",
+  "url": "https://explore.data.stats.govt.nz/",
   "title": "Subnational population estimates (RC, SA2), by age and sex, at 30 June 1996-2025",
   "publisher": "Stats NZ",
   "retrieved_on": "2026-07-23",
@@ -10,6 +11,11 @@
   "structure_url": "https://api.data.stats.govt.nz/rest/dataflow/STATSNZ/POPES_SUB_004/1.0?references=all",
   "retrieval_run": "29972685576",
   "raw_csv_sha256": "1bf24462406b4c66732a0ffaa4c7722c28114fedd9f94224845da0c7a9015729",
+  "sha256": "a5a786c53d1cc228a86d2e132ea5debbd594e0c5b80151911a57316afe0cf36a",
+  "bytes": 122135,
+  "retrieved_unix_seconds": 1784868208,
+  "content_type": "application/vnd.sdmx.data+csv; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_redistribution_boundary",
   "structure_xml_sha256": "9cecd07c4d54f20c90b22c8c98fc4d765aef41c77f11f78cc42ef39371c9deba",
   "licence_state": "unknown",
   "redistribution_allowed": false,
@@ -17,4 +23,12 @@
   "status": "captured_artifact_only",
   "artifact_policy": "Raw source and derived Parquet remain Actions artifacts pending licence adjudication.",
   "claim_boundary": "Aggregate population denominator only; no individual records or treatment demand are asserted."
+  ,"latest_sa2_capture": {
+    "run": "30068260658",
+    "rows": 2313,
+    "raw_csv_sha256": "a5a786c53d1cc228a86d2e132ea5debbd594e0c5b80151911a57316afe0cf36a",
+    "parquet_sha256": "a530fe911950f05f98c1c3c49c8de901d0796285ce2e616457a67a76f71964f2",
+    "selection": "SA2 leaf codes derived from the official ADE composition rules; artifact-only capture",
+    "retrieved_on": "2026-07-24"
+  }
 }
