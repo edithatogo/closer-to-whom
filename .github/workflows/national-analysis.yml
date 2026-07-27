@@ -1,0 +1,125 @@
+name: Materialize national aggregate analysis
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Type ANALYSE to authorize the bounded aggregate analysis
+        required: true
+        type: string
+      routing_artifact_id:
+        description: Immutable successful national-routing artifact ID
+        required: true
+        default: "8643121451"
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: national-analysis-evidence
+  cancel-in-progress: false
+
+jobs:
+  analyse:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'ANALYSE'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
+      ROUTING_ARTIFACT_ID: ${{ inputs.routing_artifact_id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78
+        with:
+          enable-cache: true
+
+      - name: Prepare locked environment
+        run: uv sync --locked --extra geo
+
+      - name: Download the immutable successful routing artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/routing-source
+          curl --fail-with-body --location --retry 5 --retry-all-errors \
+            --silent --show-error \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "${{ github.api_url }}/repos/${{ github.repository }}/actions/artifacts/$ROUTING_ARTIFACT_ID/zip" \
+            --output artifacts/routing-source.zip
+          unzip -q artifacts/routing-source.zip -d artifacts/routing-source
+          cp artifacts/routing-source/data/derived/route-matrix.parquet data/derived/route-matrix.parquet
+          cp artifacts/routing-source/data/derived/route-matrix-spatial-sensitivity.parquet \
+            data/derived/route-matrix-spatial-sensitivity.parquet
+          test "$(jq -r '.commit' artifacts/routing-source/artifacts/routing/receipt.json)" = \
+            "d51536c66e78c5a6bf43f88dfe456e47c810c07c"
+
+      - name: Rebuild frozen aggregate demand weights
+        run: |
+          set -euo pipefail
+          test -n "$STATS_NZ_API_KEY"
+          mkdir -p artifacts/source data/derived
+          REQUEST_URL="$(uv run python -c \
+            'import json; print(json.load(open("data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json"))["data_url"])')"
+          uv run python scripts/fetch_stats_nz_population_chunks.py \
+            "$REQUEST_URL" artifacts/source/population.csv --chunk-size 100
+          uv run python scripts/materialize_stats_nz_population.py \
+            artifacts/source/population.csv data/derived/stats-nz-population.parquet \
+            artifacts/source/population-quality.json
+          uv run python scripts/materialize_sa2_census_stratifiers.py
+          uv run python scripts/materialize_national_demand_calibration.py
+          uv run python scripts/materialize_national_analysis_demand.py \
+            --demographic data/derived/sa2-demographic-allocation.parquet \
+            --routes data/derived/route-matrix.parquet \
+            --calibration reports/national-demand-calibration.json \
+            --output data/derived/national-analysis-demand.parquet
+          uv run python scripts/materialize_service_census.py
+          uv run python scripts/materialize_travel_cost_parameters.py
+
+      - name: Materialize and validate all five analysis outputs
+        run: |
+          set -euo pipefail
+          export SOURCE_DATE_EPOCH="$(git show -s --format=%ct HEAD)"
+          uv run python scripts/materialize_national_analysis.py \
+            --demand data/derived/national-analysis-demand.parquet \
+            --output artifacts/national-analysis
+          uv run python - <<'PY'
+          import json
+          from pathlib import Path
+
+          receipt = json.loads(Path("artifacts/national-analysis/receipt.json").read_text())
+          required = {
+              "scenario_summary",
+              "optimisation_frontier",
+              "uncertainty_analysis",
+              "mcda_outputs",
+              "voi_outputs",
+          }
+          outputs = {item["output"] for item in receipt["outputs"]}
+          if receipt["status"] != "completed_source_backed_aggregate_analysis":
+              raise ValueError("National analysis did not complete")
+          if outputs != required:
+              raise ValueError("National analysis output set is incomplete")
+          for name in required:
+              payload = json.loads(Path(f"artifacts/national-analysis/{name}.json").read_text())
+              if payload["operational_recommendation"] is not False:
+                  raise ValueError(f"{name} crossed the operational claim boundary")
+          PY
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: national-analysis-${{ github.sha }}
+          path: |
+            artifacts/national-analysis
+            artifacts/source/population-quality.json
+            reports/national-demand-calibration.json
+          if-no-files-found: error
+          retention-days: 14
