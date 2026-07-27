@@ -1,0 +1,106 @@
+{
+  "alternatives": [
+    "candidate_network_01",
+    "candidate_network_03",
+    "candidate_network_05",
+    "candidate_network_10",
+    "candidate_network_19"
+  ],
+  "analysis_population": "aggregate_expected_course_cells",
+  "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+  "claim_boundary": "Weights are explicit normative viewpoints. Candidate-site count is not cost or capacity, and clinical eligibility and safety are excluded from trade-offs.",
+  "clinical_safety_is_compensatory": false,
+  "criteria": [
+    "weighted_mean_one_way_minutes",
+    "weighted_p95_one_way_minutes",
+    "candidate_site_count_proxy"
+  ],
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "schema_version": "1.0.0",
+  "status": "materialized_normative_viewpoint_analysis",
+  "stochastic_weight_analysis": {
+    "draws": 16384,
+    "expected_rank": {
+      "candidate_network_01": 4.57513427734375,
+      "candidate_network_03": 2.6719970703125,
+      "candidate_network_05": 2.0078125,
+      "candidate_network_10": 2.3489990234375,
+      "candidate_network_19": 3.39605712890625
+    },
+    "first_rank_probability": {
+      "candidate_network_01": 0.0159912109375,
+      "candidate_network_03": 0.25732421875,
+      "candidate_network_05": 0.31378173828125,
+      "candidate_network_10": 0.222900390625,
+      "candidate_network_19": 0.19000244140625
+    },
+    "seed": 20260727
+  },
+  "viewpoints": {
+    "access_priority": {
+      "ranking": [
+        "candidate_network_10",
+        "candidate_network_19",
+        "candidate_network_05",
+        "candidate_network_03",
+        "candidate_network_01"
+      ],
+      "scores": [
+        0.1,
+        0.7657452865774084,
+        0.853604557810824,
+        0.9032292973360511,
+        0.9
+      ],
+      "weights": [
+        0.55,
+        0.35,
+        0.1
+      ]
+    },
+    "infrastructure_sparing": {
+      "ranking": [
+        "candidate_network_03",
+        "candidate_network_05",
+        "candidate_network_10",
+        "candidate_network_01",
+        "candidate_network_19"
+      ],
+      "scores": [
+        0.5,
+        0.8235091541576518,
+        0.8192878211778242,
+        0.7224430638931373,
+        0.5
+      ],
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ]
+    },
+    "tail_access_priority": {
+      "ranking": [
+        "candidate_network_19",
+        "candidate_network_10",
+        "candidate_network_05",
+        "candidate_network_03",
+        "candidate_network_01"
+      ],
+      "scores": [
+        0.1,
+        0.7821255259631695,
+        0.8502784520719361,
+        0.8947339503508396,
+        0.9
+      ],
+      "weights": [
+        0.25,
+        0.65,
+        0.1
+      ]
+    }
+  }
+}

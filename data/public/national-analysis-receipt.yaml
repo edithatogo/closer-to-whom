@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
-status: ready_to_run
+status: completed
 prerequisites:
   service_census: complete
   public_input_freeze: complete
@@ -8,6 +8,7 @@ prerequisites:
   route_costs: complete
   governance_review: out_of_scope_for_public_aggregate_harness
 route_costs_receipt: conductor/receipts/CTW-040-national-routing-run-30240382950.json
+hosted_run_receipt: conductor/receipts/CTW-050-national-analysis-run-30243407303.json
 calibration_status: complete_national_scenario_spatially_allocated
 required_outputs:
   - scenario_summary
@@ -16,21 +17,25 @@ required_outputs:
   - mcda_outputs
   - voi_outputs
 output_contracts:
-  scenario_summary: ready_to_materialize
-  optimisation_frontier: ready_to_materialize
-  uncertainty_analysis: ready_to_materialize
-  mcda_outputs: ready_to_materialize
-  voi_outputs: ready_to_materialize
+  scenario_summary: complete
+  optimisation_frontier: complete
+  uncertainty_analysis: complete
+  mcda_outputs: complete
+  voi_outputs: complete
 analysis_receipts:
   - reports/national-demand-calibration.json
   - reports/national-demand-cells.json
   - reports/routing-costs-flow.json
   - reports/routing-spatial-sensitivity.json
   - conductor/receipts/CTW-040-national-routing-run-30240382950.json
+  - reports/national-analysis/scenario_summary.json
+  - reports/national-analysis/optimisation_frontier.json
+  - reports/national-analysis/uncertainty_analysis.json
+  - reports/national-analysis/mcda_outputs.json
+  - reports/national-analysis/voi_outputs.json
+  - conductor/receipts/CTW-050-national-analysis-run-30243407303.json
 claim_boundary: >-
-  Publication remains blocked while national outputs are unmaterialized. Reproducible route-cost evidence is complete. A source-backed national aggregate
-  calibration scenario is allocated to SA2 geographies as a modelled planning baseline, not
-  observed current or small-area demand.
-  Governance and clinical scope are recorded for this sole-developer public aggregate harness.
-  Synthetic demonstrations are not national policy estimates and do not establish observed
-  capacity, clinical eligibility, or operational feasibility.
+  The five aggregate national outputs are materialized and independently hash-validated, but
+  publication remains blocked on release assurance and aggregate-artifact review. Results compare
+  plausible candidate networks under declared assumptions; they are not observed capacity,
+  clinical eligibility, operational feasibility, policy recommendations, or synthetic demonstrations.

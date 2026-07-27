@@ -1,0 +1,42 @@
+{
+  "alternatives": [
+    "candidate_network_01",
+    "candidate_network_03",
+    "candidate_network_05",
+    "candidate_network_10",
+    "candidate_network_19"
+  ],
+  "analysis_population": "aggregate_expected_course_cells",
+  "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+  "claim_boundary": "VOI quantifies uncertainty about normative criterion weights in unitless utility. It is not monetary ENBS, does not justify microdata, and is not a policy recommendation.",
+  "current_best_under_mean_weights": "candidate_network_05",
+  "evpi_per_policy_decision": 0.03426667440850517,
+  "evppi_by_normative_weight": {
+    "candidate_site_count_proxy": 0.03326740882435797,
+    "weighted_mean_one_way_minutes": 0.010049951512134614,
+    "weighted_p95_one_way_minutes": 0.006217964951090171
+  },
+  "expected_opportunity_loss": {
+    "candidate_network_01": 0.5361626415146249,
+    "candidate_network_03": 0.06614379621810784,
+    "candidate_network_05": 0.03426667440850365,
+    "candidate_network_10": 0.07008585314921328,
+    "candidate_network_19": 0.19895951086253574
+  },
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "microdata_enbs_status": "not_estimable_from_public_inputs",
+  "monetary_evpi_status": "not_estimated",
+  "next_information_priority": "aggregate facility capability and resource-envelope evidence before microdata",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "probability_optimal": {
+    "candidate_network_01": 0.0159912109375,
+    "candidate_network_03": 0.25732421875,
+    "candidate_network_05": 0.31378173828125,
+    "candidate_network_10": 0.222900390625,
+    "candidate_network_19": 0.19000244140625
+  },
+  "schema_version": "1.0.0",
+  "status": "materialized_normative_decision_uncertainty",
+  "value_unit": "normalised_normative_utility"
+}

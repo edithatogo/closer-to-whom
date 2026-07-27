@@ -1,9 +1,9 @@
 schema_version: "1.0.0"
 track_id: CTW-060-publication-and-space
-status: blocked_on_national_analysis
+status: blocked_on_release_assurance
 release_assurance: refreshed_on_clean_main_pending_space_redeployment
 required_evidence:
-  national_analysis_receipt: blocked_on_prerequisites
+  national_analysis_receipt: completed
   source_and_licence_receipts: pending
   clinical_review_receipt: reviewed
   governance_review_receipt: out_of_scope_for_public_aggregate_harness
