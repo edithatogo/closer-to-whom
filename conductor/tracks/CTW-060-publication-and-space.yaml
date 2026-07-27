@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-060-publication-and-space
-status: blocked
+status: active
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/21
 objective: Publish only precomputed aggregate dashboard outputs and governed manuscript artefacts after all evidence gates.
 dependencies: [CTW-050-national-analysis]
@@ -8,3 +8,22 @@ claim_boundary: Dashboard and manuscript outputs must retain synthetic/public ag
 publication_contract: A Space promotion requires completed analysis, source/licence, clinical, governance, aggregate-artifact, credential, and promotion receipts.
 software_receipt_contract: Verification receipts must identify the current clean revision and passed gate profile; they do not override publication evidence gates.
 receipt_refresh_policy: Regenerate software verification receipts after merged main changes before a release handover.
+acceptance_criteria:
+  - Publish only the five reviewed, precomputed CTW-050 aggregate reports to the free Static Space.
+  - Embed the exact GitHub source revision and exclude raw, licensed, private, and live payloads.
+  - Emit and independently validate a deployment receipt containing GitHub and Space revisions.
+  - Refresh release verification and source manifests from the final clean main revision.
+  - Keep publication claims bounded by plausible capability, unknown capacity, and non-operational interpretation.
+verification_contract:
+  - Static-site unit tests and repository workflow-hardening gates pass.
+  - The main-branch Space workflow succeeds using protected environment secrets.
+  - The deployed HTML contains the approved source revision and national report identifiers.
+  - make release-gate passes or any unavailable optional capabilities remain explicitly skipped.
+progress:
+  completed:
+    - CTW-050 national outputs and immutable workflow receipt are registered.
+    - Implemented and locally validated the five-report free Static Space builder.
+  remaining:
+    - Merge the publication workflow update and deploy from main.
+    - Validate the live Space and register the deployment receipt.
+    - Refresh final release-assurance receipts and complete the publication gate.
