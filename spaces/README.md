@@ -17,4 +17,4 @@ and CI smoke-test surface; it is not required for public hosting.
 
 Public-data, aggregate policy simulation of anti-HER2 cancer-service configurations in Aotearoa New Zealand.
 
-**Research boundary:** the Space displays precomputed scenario results and synthetic development fixtures. It does not show patient data, actual service use, confidential capacity, waiting times, clinical outcomes, or clinical advice.
+**Research boundary:** the public Static Space displays the reviewed precomputed aggregate payload. Legacy synthetic development fixtures remain outside that payload. It does not show patient data, actual service use, confidential capacity, waiting times, clinical outcomes, or clinical advice.
