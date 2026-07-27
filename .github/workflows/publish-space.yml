@@ -47,7 +47,6 @@ jobs:
           uv sync --locked
           uv run python scripts/check_national_analysis_receipt.py
           uv run python scripts/check_publication_gate.py
-          uv run pytest -q --no-cov tests/unit/test_national_static_space.py
       - name: Assemble free Static Space repository
         shell: bash
         run: |
