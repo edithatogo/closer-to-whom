@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-070-microdata-voi-decision",
+  "status": "determined_no_current_microdata_escalation",
+  "decision": "Do not make microdata or participant research a dependency or current recommendation.",
+  "voi_summary": {
+    "source": "reports/national-analysis/voi_outputs.json",
+    "monetary_evpi_status": "not_estimated",
+    "microdata_enbs_status": "not_estimable_from_public_inputs",
+    "next_information_priority": "aggregate facility capability and resource-envelope evidence before microdata"
+  },
+  "research_design_comparison": {
+    "preferred_next_design": "further_public_and_aggregate_service_evidence",
+    "deferred_designs": ["confidential_microdata_study", "patient_survey"],
+    "reason": "Lower-burden aggregate evidence addresses the leading structural uncertainty first."
+  },
+  "governance_burden_assessment": {
+    "current_public_aggregate_harness": "no_additional_microdata_governance_required",
+    "future_microdata_phase": "new_protocol_governance_privacy_and_data_access_required"
+  },
+  "ethics_scope_boundary": {
+    "current_phase": "out_of_scope_for_public_aggregate_harness",
+    "future_participant_or_microdata_phase": "separate_ethics_hdec_scope_determination_required"
+  },
+  "claim_boundary": "This decision does not assert that microdata has zero value. It records that monetary ENBS is not estimable, lower-burden aggregate evidence is the current priority, and any individual, confidential, de-identified-but-non-public, or row-level phase requires a separate protocol and ethics/HDEC determination."
+}

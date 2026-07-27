@@ -69,6 +69,7 @@ def validate(path: Path = GATE) -> list[str]:
             str(value).lower()
             not in {
                 "complete",
+                "completed",
                 "reviewed",
                 "determined",
                 "configured",
@@ -79,7 +80,10 @@ def validate(path: Path = GATE) -> list[str]:
         ):
             failures.append("reviewable publication requires every evidence receipt to be complete")
     boundary = str(payload.get("claim_boundary", "")).lower()
-    for term in ("blocked", "aggregate", "synthetic", "service capability", "authorisation"):
+    required_boundary_terms = ("aggregate", "synthetic", "service capability", "authorisation")
+    if status != "published":
+        required_boundary_terms = ("blocked", *required_boundary_terms)
+    for term in required_boundary_terms:
         if term not in boundary:
             failures.append(f"claim_boundary must preserve the {term} boundary")
     return failures
