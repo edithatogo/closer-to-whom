@@ -187,3 +187,16 @@ decisions:
       upstream host restriction on the frozen NZDep workbook from blocking independent OSRM
       evidence, while preserving the workbook's non-redistribution boundary and avoiding any
       substitution or fabricated stratifier values.
+  - id: DEC-024
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Define CTW-050 as a bounded aggregate candidate-network analysis over five nested site-count
+      configurations using verified OSRM routes, source-backed demand weights, explicit vehicle-rate
+      scenarios, non-compensatory clinical gates, normative MCDA viewpoints, and unitless VOI for
+      weight uncertainty.
+    rationale: >-
+      Public evidence identifies plausible locations but not drug-specific capability, capacity, or
+      operational feasibility. This design produces reproducible decision-analysis evidence without
+      converting those unknowns into facts, monetising unsupported components, or using synthetic
+      probability distributions as national estimates.
