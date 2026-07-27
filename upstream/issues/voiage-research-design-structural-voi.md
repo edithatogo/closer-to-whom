@@ -25,7 +25,7 @@ Output contract: EVPI, EVPPI, EVSI, probability optimal, and break-even informat
 
 - Deterministic Parquet fixture: `upstream/fixtures/voiage.parquet`
 - Local compatibility oracle: `src/closer_to_whom/integrations/voiage_adapter.py`
-- Pinned repository identity: `ceefb5155217058a6e8a9b263960daa36e5bae64` on `main`
+- Pinned repository identity: `cd53ce0991204bb63aaa1c84d5af9f6eb4f552f9` on `main`
 
 ## Acceptance
 
