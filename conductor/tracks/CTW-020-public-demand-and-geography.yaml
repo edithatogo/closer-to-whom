@@ -17,7 +17,8 @@ progress:
     - Materialized the alternate official Stats NZ true-centroid layer for all 2,313 denominator SA2s.
     - Materialized official Urban Rural 2023 classes for 2,311 SA2s and retained two zero-population SA2s as explicit unknowns.
     - Materialized NZDep2023 for 2,208 SA2s and retained 105 source-blank or geography-version-mismatched areas as explicit unknowns.
+    - Materialized six overlapping 2023 Census total-response ethnicity groups for all 2,313 denominator SA2s.
+    - Materialized the 2023 Census no-motor-vehicle household proxy for all 2,313 denominator SA2s.
   remaining:
-    - Materialize ethnicity and vehicle-access stratifiers.
     - Resolve the NZDep2023-to-2025 SA2 concordance where authoritative public weights permit.
     - Add population-weighted multi-point sensitivity origins before publication analysis.

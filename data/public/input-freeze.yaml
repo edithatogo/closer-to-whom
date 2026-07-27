@@ -41,22 +41,22 @@ inputs:
     user_authorized_local_use: true
     pending_reason: null
   - input_id: ethnicity
-    title: Public aggregate ethnicity method
-    source_ids: [candidate.statsnz-ethnicity-2023]
-    version: "2023 Census concept"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
-    evidence_grade: B
+    title: 2023 Census total-response ethnicity groups by SA2
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2]
+    version: "2023 Census SA2 ArcGIS item 29a82d5a0ea24a3880219bcb3df126dc"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
   - input_id: vehicle_access
-    title: Public vehicle-access proxy
-    source_ids: [candidate.statsnz-motor-vehicles-2023]
-    version: "2023 Census concept"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023.json
-    evidence_grade: B
+    title: 2023 Census no-motor-vehicle household proxy by SA2
+    source_ids: [candidate.statsnz-motor-vehicles-2023-sa2]
+    version: "2023 Census SA2 ArcGIS item 7d8a5993db144f95bf9be2f64b14e467"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null

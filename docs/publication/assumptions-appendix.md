@@ -18,6 +18,8 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | E01 | rurality_measure = Stats_NZ_Urban_Rural_2023_centroid_class. Stats NZ Urban Rural 2023 is the open baseline stratifier at each official SA2 true centroid; network travel remains the access measure, and GCH23 remains a separate restricted sensitivity input. | materialized_public_aggregate | structural |  |
 | E02 | deprivation_measure = NZDep2023. The official SA2 workbook supports 2,208 denominator areas; 48 source-blank and 57 version-mismatched areas remain explicit unknowns. Area deprivation is never interpreted as an individual attribute. | materialized_public_aggregate_with_explicit_unknowns | ecological |  |
 | E03 | equity_weights = scenario_range. No single weight set is represented as stakeholder-derived without governance. | normative_uncertainty | stochastic_mcda |  |
+| E04 | ethnicity_measure = Stats_NZ_2023_Census_total_response_broad_groups. Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments. | materialized_public_aggregate | ecological |  |
+| E05 | vehicle_access_measure = occupied_private_dwellings_no_motor_vehicle_share. The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey. | materialized_public_aggregate_proxy | ecological_proxy |  |
 | F01 | conservative_evidence_threshold = 2. Primary analysis requires current explicit named treatment or solid-tumour SACT evidence. | protocol_rule | structural |  |
 | F02 | undocumented_capability = unknown. Lack of public evidence is not evidence of absence. | hard_constraint | structural |  |
 | F03 | observed_capacity = unavailable. The model estimates implied capacity and tests explicit capacity envelopes. | structural_limitation | structural |  |
@@ -35,4 +37,4 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | U02 | structural_uncertainty = reported_separately. Structural alternatives are not collapsed into false-precision intervals. | hard_constraint | none |  |
 | V01 | microdata_decision_rule = positive_ENBS_and_decision_relevance. Granular research is justified only when it may change a material decision or equity conclusion. | method | decision |  |
 
-Total assumptions: **30**.
+Total assumptions: **32**.

@@ -5,15 +5,16 @@ version: "0.2.0"
 active_track: CTW-020-public-demand-and-geography
 phase: stratification_and_national_routing_preparation
 software_status: hosted_main_verified
-model_status: source_backed_calibration_origins_rurality_and_deprivation_other_stratifiers_pending
+model_status: source_backed_core_stratifiers_complete_spatial_sensitivity_pending
 publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
   Software, the captured SA2 population denominator, national aggregate demand calibration, and
-  official SA2 routing origins, rurality classes, and NZDep2023 area values are implemented and
-  verifiable, with unsupported deprivation areas explicit unknowns. No
+  official SA2 routing origins, rurality classes, NZDep2023 area values, overlapping Census
+  ethnicity groups, and household vehicle-access proxies are implemented and verifiable, with
+  unsupported deprivation areas explicit unknowns. No
   fully stratified small-area demand, route, cost, optimisation, or policy estimate is publication
-  ready until ethnicity, vehicle access, deprivation concordance sensitivity, spatial sensitivity,
-  the pinned national road matrix, and aggregate analysis are complete.
+  ready until deprivation concordance sensitivity, population-weighted spatial sensitivity, the
+  pinned national road matrix, and aggregate analysis are complete.
 next_tracks:
   - CTW-010-national-service-census
   - CTW-020-public-demand-and-geography
@@ -34,7 +35,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 137
+  tests: 139
   optional_not_run:
     - Docker container health check
     - Mojo canary

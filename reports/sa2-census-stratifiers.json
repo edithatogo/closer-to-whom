@@ -1,0 +1,24 @@
+{
+  "claim_boundary": "All values are public aggregate Census area statistics. Ethnicity uses overlapping total-response groups and is never an individual attribute. Vehicle access is a household-area proxy, not observed transport availability for any person.",
+  "ethnicity_explicit_unknown_rows": 0,
+  "ethnicity_fingerprint": "96c84f3822cbc86e1f75928970d92de7b23935cce0132ccce92e89ce64015360",
+  "ethnicity_matched_rows": 13878,
+  "ethnicity_rows": 13878,
+  "generated_at": "2026-07-27T02:23:55.467790+00:00",
+  "population_reference_year": 2025,
+  "schema_version": "1.0.0",
+  "source_feature_counts": {
+    "ethnicity": 2395,
+    "vehicle_access": 2395
+  },
+  "source_geography_version": "SA2 2023",
+  "source_ids": [
+    "candidate.statsnz-ethnicity-2023-sa2",
+    "candidate.statsnz-motor-vehicles-2023-sa2"
+  ],
+  "status": "materialized_complete",
+  "vehicle_access_explicit_unknown_rows": 0,
+  "vehicle_access_fingerprint": "b4b98855b388e5fa6985fc864776819f3aa7251124cdd12f8de6e3f94e89668a",
+  "vehicle_access_matched_rows": 2313,
+  "vehicle_access_rows": 2313
+}

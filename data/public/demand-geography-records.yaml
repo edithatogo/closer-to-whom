@@ -1,14 +1,15 @@
 schema_version: "1.0.0"
-status: calibration_routing_points_rurality_and_deprivation_complete_other_stratifiers_pending
+status: core_stratifiers_complete_spatial_sensitivity_pending
 freeze_date: null
 pending_reason: >-
   The authenticated SA2 population denominator and national incidence, HER2 prevalence, stage,
   and treatment-uptake calibration are captured. Official true centroids are materialized for all
   2,313 denominator SA2s. Official Urban Rural 2023 classes are materialized for 2,311 SA2s; two
   zero-population SA2s remain explicitly unknown. NZDep2023 is materialized for 2,208 SA2s, with
-  105 source-blank or geography-version-mismatched areas explicit unknowns. Ethnicity, vehicle
-  access, the deprivation concordance sensitivity, and population-weighted multi-point origins
-  remain pending; no observed small-area demand is asserted.
+  105 source-blank or geography-version-mismatched areas explicit unknowns. Official 2023 Census
+  overlapping total-response ethnicity groups and no-motor-vehicle household proxies are
+  materialized for every denominator SA2. The deprivation concordance sensitivity and
+  population-weighted multi-point origins remain pending; no observed small-area demand is asserted.
 claim_boundary: >-
   Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
   demand, preferences, outcomes, or travel behaviour.

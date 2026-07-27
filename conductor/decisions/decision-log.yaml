@@ -127,3 +127,14 @@ decisions:
       This closes the method-selection gap with reproducible public sources while keeping centroid
       bias, network vintage, mode availability, and regional feed coverage explicit. Public OSRM
       demo services are excluded from release dependencies.
+  - id: DEC-019
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Use official 2023 Census SA2 total-response broad ethnicity groups and the share of occupied
+      private dwellings reporting no motor vehicle as ecological stratifiers. Preserve ethnicity
+      groups as overlapping measures and vehicle access as a household-area proxy.
+    rationale: >-
+      The public Stats NZ ArcGIS layers match all 2,313 population-denominator SA2 codes and declare
+      CC BY 4.0. These aggregate measures support distributional scenarios without creating
+      individuals, assigning exclusive ethnicity, or asserting observed personal transport access.

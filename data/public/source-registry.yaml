@@ -362,6 +362,34 @@ sources:
     evidence_grade: 2_public_concept_metadata
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
+  - source_id: candidate.statsnz-ethnicity-2023-sa2
+    title: 2023 Census ethnicity totals by SA2
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA2/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=29a82d5a0ea24a3880219bcb3df126dc
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      Six broad 2023 total-response ethnicity groups match every denominator SA2 code.
+  - source_id: candidate.statsnz-motor-vehicles-2023-sa2
+    title: 2023 Census household motor-vehicle totals by SA2
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/2023_Census_totals_by_topic_for_households_by_SA2/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=7d8a5993db144f95bf9be2f64b14e467
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      No-motor-vehicle and stated-household totals match every denominator SA2 code.
   - source_id: candidate.teaho-cancer-stats-2025
     title: State of Cancer in New Zealand 2025 aggregate incidence context
     publisher: Te Aho o Te Kahu

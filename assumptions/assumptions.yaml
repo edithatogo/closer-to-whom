@@ -221,6 +221,22 @@ assumptions:
     source_ids: [protocol.mcda]
     uncertainty: stochastic_mcda
     rationale: No single weight set is represented as stakeholder-derived without governance.
+  - id: E04
+    domain: equity
+    name: ethnicity_measure
+    value: Stats_NZ_2023_Census_total_response_broad_groups
+    status: materialized_public_aggregate
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2]
+    uncertainty: ecological
+    rationale: Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments.
+  - id: E05
+    domain: equity
+    name: vehicle_access_measure
+    value: occupied_private_dwellings_no_motor_vehicle_share
+    status: materialized_public_aggregate_proxy
+    source_ids: [candidate.statsnz-motor-vehicles-2023-sa2]
+    uncertainty: ecological_proxy
+    rationale: The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey.
   - id: O01
     domain: optimisation
     name: safety_constraints
