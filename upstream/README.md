@@ -1,8 +1,19 @@
 # Upstream contribution work
 
-Issue bodies, acceptance contracts, and in-repository correctness or compatibility implementations are prepared here. Before handover publication, check the authenticated remote state and either link existing issues/PRs or open them. Do not claim that a patch is merged, released, or available merely because this registry says `issue_ready`.
+`upstream/contracts.yaml` is the canonical LIB-010 registry. It records each proposed interface,
+reviewed public repository revision, generated Parquet compatibility fixture, local oracle, and concrete
+acceptance command. Run `make generate` after changing it; generated issue bodies and fixtures must not
+be edited directly, and CI fails on drift.
 
-The downstream repository remains functional without unreleased upstream changes. Once an upstream release lands, add a differential compatibility test before deleting the local fallback.
+The downstream repository remains functional without unreleased upstream changes. The weekly upstream
+watch validates all local contracts, compares live default-branch revisions with the reviewed pins, and
+retains machine-readable compatibility and metadata artefacts. Revision drift fails closed and requires
+an explicit contract review.
 
-The dated receipt under `upstream/receipts/` records authenticated repository metadata only;
-it is not a release, compatibility, licence-suitability, or endorsement claim.
+Prepared issue bodies are local patch-ready handoff material. They do not prove that an upstream issue
+was opened, a patch was merged, a release is available, code was imported or executed, suitability was
+assessed, licence permission was granted, or an upstream maintainer endorsed the proposal. Publishing
+or modifying another repository requires a separately scoped action.
+
+Once an upstream release exists, add a differential compatibility test against the pinned released
+interface before deleting any local fallback.

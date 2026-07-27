@@ -2,26 +2,26 @@ schema_version: "1.0.0"
 project_id: closer-to-whom
 updated_at: 2026-07-27
 version: "0.2.0"
-active_track: LIB-010-upstream-contracts
-phase: published_maintenance
-software_status: clean_main_release_assured
+active_track: null
+phase: published_maintenance_complete
+software_status: upstream_compatibility_harness_verified
 model_status: national_aggregate_analysis_complete
 publication_status: published_free_static_space
 current_claim_boundary: >-
   The reviewed five-report public aggregate analysis is published on a free static Space and tied to
   verified GitHub and Space revisions. Candidate locations remain plausible, observed capacity and
   operational feasibility remain unknown, and the site is not clinical guidance or a policy recommendation.
-next_tracks:
-  - LIB-010-upstream-contracts
+next_tracks: []
 external_dependencies:
-  - "LIB-010 / GitHub issue #6: optional upstream ecosystem enhancements; local fallbacks remain active"
   - protected credentials for future optional integrations and republication
+  - optional cross-repository publication of prepared upstream proposals requires separate repository scope
+  - GitHub account or plan support for non-provider secret patterns and secret validity checks
 verification_status:
   profile: local
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 159
+  tests: 164
   optional_not_run:
     - Docker container health check
     - Mojo canary

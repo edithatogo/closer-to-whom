@@ -1,6 +1,7 @@
 schema_version: "1.0.0"
 track_id: LIB-010-upstream-contracts
-status: active
+status: completed
+completed_on: 2026-07-27
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/6
 objective: Move reusable functionality into the user's libraries while retaining compatibility fallbacks.
 libraries:
@@ -19,3 +20,19 @@ acceptance_criteria:
   - Repository works before upstream release.
   - Remote issue/PR state is verified locally before publication claims.
   - Authenticated upstream metadata is recorded in a dated receipt without implying release, suitability, or endorsement.
+verification:
+  status: passed
+  test_count: 161
+  commands:
+    - make check
+    - uv run python scripts/check_upstream_compatibility.py
+  contracts: upstream/contracts.yaml
+  fixture_receipt: upstream/receipts/compatibility-fixtures.json
+  remote_receipt: upstream/receipts/remote-verification-2026-07-27.json
+  scheduled_monitor: .github/workflows/upstream-watch.yml
+  remote_issue_publication_state: not_published
+remaining: []
+claim_boundary: >-
+  Completion verifies downstream proposals, synthetic aggregate fixtures, local oracles, and authenticated
+  public repository identity. It does not claim that upstream issues were opened, patches merged, releases
+  published, code executed, suitability established, licences approved, or endorsements obtained.

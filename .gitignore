@@ -56,6 +56,7 @@ site/
 release/local-status/
 release/publication-readiness.json
 release/upstream-handoff.json
+reports/upstream-compatibility.json
 release/source-manifest.json
 release/sbom.cdx.json
 release/receipts/logs/

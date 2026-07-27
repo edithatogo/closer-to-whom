@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import filecmp
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -45,6 +46,9 @@ def main() -> int:
         json_out = temp / "json"
         arrow_out = temp / "arrow"
         assumptions_out = temp / "assumptions-appendix.md"
+        upstream_out = temp / "upstream"
+        (upstream_out).mkdir(parents=True)
+        shutil.copy2(ROOT / "upstream" / "contracts.yaml", upstream_out / "contracts.yaml")
 
         _run(
             [
@@ -67,8 +71,27 @@ def main() -> int:
             ]
         )
 
+        _run(
+            [
+                sys.executable,
+                "-c",
+                (
+                    "from pathlib import Path; "
+                    "from scripts.generate_upstream_materials import generate; "
+                    f"generate(Path({str(temp)!r}))"
+                ),
+            ]
+        )
+
         failures.extend(_compare_tree(ROOT / "schemas" / "json", json_out))
         failures.extend(_compare_tree(ROOT / "schemas" / "arrow", arrow_out))
+        failures.extend(_compare_tree(ROOT / "upstream" / "issues", upstream_out / "issues"))
+        failures.extend(_compare_tree(ROOT / "upstream" / "fixtures", upstream_out / "fixtures"))
+        committed_fixture_receipt = ROOT / "upstream" / "receipts" / "compatibility-fixtures.json"
+        generated_fixture_receipt = upstream_out / "receipts" / "compatibility-fixtures.json"
+        if committed_fixture_receipt.read_bytes() != generated_fixture_receipt.read_bytes():
+            failures.append("different: upstream/receipts/compatibility-fixtures.json")
+
         committed_appendix = ROOT / "docs" / "publication" / "assumptions-appendix.md"
         if not committed_appendix.exists():
             failures.append("missing committed assumptions appendix")

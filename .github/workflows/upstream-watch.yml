@@ -5,7 +5,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  issues: write
 concurrency:
   group: upstream-watch
   cancel-in-progress: true
@@ -24,4 +23,18 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --locked --extra dev
+      - run: uv run python scripts/check_upstream_compatibility.py
       - run: uv run python scripts/upstream_compatibility.py
+      - run: >-
+          uv run python scripts/refresh_upstream_metadata.py
+          --output release/upstream-metadata-live.json
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: upstream-compatibility-${{ github.run_id }}
+          path: |
+            reports/upstream-compatibility.json
+            release/upstream-metadata-live.json
+          if-no-files-found: error
+          retention-days: 30

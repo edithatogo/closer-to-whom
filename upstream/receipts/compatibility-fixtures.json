@@ -1,0 +1,134 @@
+{
+  "claim_boundary": "Synthetic aggregate compatibility fixtures only; no upstream code was imported or executed.",
+  "fixtures": [
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "authentext",
+      "path": "upstream/fixtures/authentext.parquet",
+      "rows": 1,
+      "sha256": "f9eeebaf2563b0199abfe435cc0899bb32e7af607762d353ab81ce8da5364e8c"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "fyi-cli",
+      "path": "upstream/fixtures/fyi-cli.parquet",
+      "rows": 1,
+      "sha256": "bd9374c036109dfaf750df3f7d4aee8571dad2d4eff5dca741f4863b05cb2994"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "healthpoint-rs",
+      "path": "upstream/fixtures/healthpoint-rs.parquet",
+      "rows": 1,
+      "sha256": "98abeabcd27eda2c46e32e42803b70d63a0060b4412f355555a7052b6186caac"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "innovate",
+      "path": "upstream/fixtures/innovate.parquet",
+      "rows": 1,
+      "sha256": "b36d1ed0d12cc67ae5660d350e50381b21c77bacd919863e7630c3523df974d9"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "kairos",
+      "path": "upstream/fixtures/kairos.parquet",
+      "rows": 1,
+      "sha256": "e03a19d3022ca2d214c8107fa6feaa4c6c73da3db2a3bf788fab2a963def9a1b"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "mars",
+      "path": "upstream/fixtures/mars.parquet",
+      "rows": 1,
+      "sha256": "705c511964d6d0a0f10bb27b8c47642703d6463cfd5d258ccb641e70c7bd52b0"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "open_social_data",
+      "path": "upstream/fixtures/open_social_data.parquet",
+      "rows": 1,
+      "sha256": "e8af8854f9ab4a603580443127682db34ee5c6b238f9c031312ddcfa4fc6bbbc"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "sourceright",
+      "path": "upstream/fixtures/sourceright.parquet",
+      "rows": 1,
+      "sha256": "d9ed7ea67bf0da9939dcb1639ab257168a49450e6cd51bceaac5a2ae6268dd6b"
+    },
+    {
+      "columns": [
+        "contract_version",
+        "library",
+        "case_id",
+        "input_json",
+        "expected_json",
+        "boundary"
+      ],
+      "library": "voiage",
+      "path": "upstream/fixtures/voiage.parquet",
+      "rows": 1,
+      "sha256": "dd5c8f7e3fdb5d05c61740f2b6bdad41fcbcf4889b43aa43b267790450248508"
+    }
+  ],
+  "generator": "scripts/generate_upstream_materials.py",
+  "polars_version": "1.42.1",
+  "schema_version": "1.0.0"
+}

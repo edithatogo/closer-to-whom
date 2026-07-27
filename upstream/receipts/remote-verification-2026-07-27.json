@@ -1,0 +1,107 @@
+{
+  "claim_boundary": "Public repository metadata and revision identity only. This receipt does not import, build, execute, endorse, release, or assess the suitability or licence compatibility of upstream code.",
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "MIT",
+      "name": "authentext",
+      "pushed_at": "2026-07-27T06:45:04Z",
+      "repository": "edithatogo/authentext",
+      "revision": "7f70dad5b6deab1af92faf037ef2638e7f3aea05",
+      "updated_at": "2026-07-21T03:20:35Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "master",
+      "fork": false,
+      "license_spdx": "MIT",
+      "name": "fyi-cli",
+      "pushed_at": "2026-07-26T12:02:33Z",
+      "repository": "edithatogo/fyi-cli",
+      "revision": "8c0ddcd695ef60fff5f4feb6cb38074457386084",
+      "updated_at": "2026-07-26T12:02:53Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "Apache-2.0",
+      "name": "healthpoint-rs",
+      "pushed_at": "2026-07-22T14:06:17Z",
+      "repository": "edithatogo/healthpoint-rs",
+      "revision": "82c83b0b7bcac739ff143e730e20889d3919c880",
+      "updated_at": "2026-07-03T13:30:44Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "Apache-2.0",
+      "name": "innovate",
+      "pushed_at": "2026-07-26T21:04:22Z",
+      "repository": "edithatogo/innovate",
+      "revision": "339931e8cdd105a71ab30f334eaf7ab4a2939e21",
+      "updated_at": "2026-07-14T11:40:57Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "NOASSERTION",
+      "name": "kairos",
+      "pushed_at": "2026-07-22T03:19:05Z",
+      "repository": "edithatogo/kairos",
+      "revision": "fae901558f07b7b717a676adbafbe2cdc78dea1c",
+      "updated_at": "2026-07-21T09:57:55Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "NOASSERTION",
+      "name": "mars",
+      "pushed_at": "2026-06-14T08:51:36Z",
+      "repository": "edithatogo/mars",
+      "revision": "cc17c8d632419c0f4a293ced1e785bd8c3e5bed6",
+      "updated_at": "2026-07-07T19:51:04Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "Apache-2.0",
+      "name": "open_social_data",
+      "pushed_at": "2026-07-22T08:50:58Z",
+      "repository": "edithatogo/open_social_data",
+      "revision": "29c8908267cbca47e91a6a93c9dceed1978b4a9e",
+      "updated_at": "2026-07-22T08:51:59Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "MIT",
+      "name": "sourceright",
+      "pushed_at": "2026-07-24T14:14:19Z",
+      "repository": "edithatogo/sourceright",
+      "revision": "dde39b3bb334f79f12e395a5317b21e036336bdd",
+      "updated_at": "2026-07-13T12:46:52Z"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "license_spdx": "Apache-2.0",
+      "name": "voiage",
+      "pushed_at": "2026-07-27T07:57:02Z",
+      "repository": "edithatogo/voiage",
+      "revision": "ceefb5155217058a6e8a9b263960daa36e5bae64",
+      "updated_at": "2026-07-27T07:54:47Z"
+    }
+  ],
+  "retrieval_method": "GitHub REST API with authenticated token when available",
+  "retrieved_at": "2026-07-27T08:00:29.782913+00:00",
+  "schema_version": "1.0.0"
+}

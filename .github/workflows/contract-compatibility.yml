@@ -9,6 +9,7 @@ on:
       - "src/closer_to_whom/models.py"
       - "src/closer_to_whom/contracts.py"
       - "schemas/**"
+      - "upstream/**"
       - "scripts/generate_*"
       - ".github/workflows/contract-compatibility.yml"
 

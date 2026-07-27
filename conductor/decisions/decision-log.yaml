@@ -210,3 +210,14 @@ decisions:
       A national publication surface must match the approved analysis commit. Static precomputation
       preserves zero-cost hosting, excludes raw and licensed payloads, removes runtime credentials and
       APIs, and keeps plausible capability, unknown capacity, and non-operational boundaries visible.
+  - id: DEC-026
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Close LIB-010 using canonical optional-integration contracts, deterministic synthetic aggregate
+      Parquet fixtures, local compatibility oracles, exact public revision pins, and scheduled drift checks.
+    rationale: >-
+      Downstream reproducibility must not depend on unreleased owner libraries. This evidence is sufficient
+      to verify patch-ready interfaces and local fallback behaviour while explicitly avoiding claims that
+      upstream issues were opened, code was executed, patches merged, releases published, suitability
+      established, licences approved, or endorsements obtained.
