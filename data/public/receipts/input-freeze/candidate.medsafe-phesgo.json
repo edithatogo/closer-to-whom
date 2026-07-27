@@ -1,0 +1,24 @@
+{
+  "source_id": "candidate.medsafe-phesgo",
+  "title": "Phesgo New Zealand data sheet",
+  "publisher": "Medsafe",
+  "url": "https://www.medsafe.govt.nz/profs/Datasheet/p/Phesgoinj.pdf",
+  "retrieved_on": "2026-07-27",
+  "retrieved_unix_seconds": 1785121896,
+  "bytes": 1203405,
+  "sha256": "94bb690ec8f47899d53c1568fdb202ba4d0315bf478455b9df638a13ca8a7e81",
+  "content_type": "application/pdf",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "status": "captured_metadata_and_claims",
+  "extracted_claims": {
+    "route": "subcutaneous_injection",
+    "interval": "every_3_weeks",
+    "loading_administration_minutes": 8,
+    "maintenance_administration_minutes": 5,
+    "loading_observation_minutes": 30,
+    "maintenance_observation_minutes": 15,
+    "administrator": "healthcare_professional",
+    "reaction_management_required": true
+  },
+  "claim_boundary": "Product data-sheet evidence only; it does not establish individual eligibility, funding, local capability, capacity, or observed administration."
+}

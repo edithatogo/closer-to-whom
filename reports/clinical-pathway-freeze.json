@@ -1,7 +1,7 @@
 {
-  "claim_boundary": "Synthetic pathway contracts demonstrate software behaviour and are not clinical guidance or evidence of funding/eligibility.",
+  "claim_boundary": "Synthetic pathway contracts demonstrate software behaviour and are not clinical guidance or evidence of funding/eligibility. The separate public pathway-evidence registry is the source of product, funding, and counterfactual constraints.",
   "clinically_reviewed_count": 0,
-  "generated_at": "2026-07-21T23:11:15.609885+00:00",
+  "generated_at": "2026-07-27T03:15:01.465555+00:00",
   "pathway_count": 3,
   "pathway_ids": [
     "early_trastuzumab_iv_demo",
@@ -10,5 +10,5 @@
   ],
   "safety_errors": [],
   "schema_version": "1.0.0",
-  "status": "blocked_pending_clinical_review"
+  "status": "synthetic_fixtures_valid_non_evidentiary"
 }

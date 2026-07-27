@@ -15,8 +15,6 @@ current_claim_boundary: >-
   optimisation, or policy estimate is publication ready until the pinned national road matrix and
   aggregate analysis are complete.
 next_tracks:
-  - CTW-010-national-service-census
-  - CTW-030-clinical-pathway-freeze
   - CTW-040-national-routing-and-costs
   - CTW-050-national-analysis
   - CTW-060-publication-and-space
@@ -32,7 +30,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 148
+  tests: 150
   optional_not_run:
     - Docker container health check
     - Mojo canary

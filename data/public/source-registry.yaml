@@ -75,6 +75,50 @@ sources:
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.pharmac-anti-her2.json
     notes: Funding-decision context only; eligibility, uptake, and local service capability remain separate evidence questions.
+  - source_id: candidate.medsafe-herceptin-iv
+    title: Herceptin intravenous New Zealand data sheet
+    publisher: Medsafe
+    url: https://medsafe.govt.nz/profs/Datasheet/h/Herceptininf.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-herceptin-iv.json
+    notes: Product administration and safety constraints only.
+  - source_id: candidate.medsafe-herceptin-sc
+    title: Herceptin SC New Zealand data sheet
+    publisher: Medsafe
+    url: https://www.medsafe.govt.nz/profs/Datasheet/h/herceptinscinj.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-herceptin-sc.json
+    notes: Product administration and safety constraints only; outpatient does not imply home.
+  - source_id: candidate.medsafe-phesgo
+    title: Phesgo New Zealand data sheet
+    publisher: Medsafe
+    url: https://www.medsafe.govt.nz/profs/Datasheet/p/Phesgoinj.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-phesgo.json
+    notes: Product administration and safety constraints only.
+  - source_id: candidate.pharmac-schedule-trastuzumab-current
+    title: Current Pharmaceutical Schedule search for trastuzumab
+    publisher: Pharmac - Te Pataka Whaioranga
+    url: https://schedule.pharmac.govt.nz/ScheduleOnline.php?osq=Trastuzumab
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_current_funding_schedule
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.pharmac-schedule-trastuzumab-current.json
+    notes: Current captured Schedule-search state; negative search observations remain bounded.
   - source_id: candidate.ird-kilometre-rates
     title: Vehicle kilometre rates
     publisher: Inland Revenue
