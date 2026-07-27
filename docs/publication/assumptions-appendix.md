@@ -24,9 +24,11 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | F01 | conservative_evidence_threshold = 2. Primary analysis requires current explicit named treatment or solid-tumour SACT evidence. | protocol_rule | structural |  |
 | F02 | undocumented_capability = unknown. Lack of public evidence is not evidence of absence. | hard_constraint | structural |  |
 | F03 | observed_capacity = unavailable. The model estimates implied capacity and tests explicit capacity envelopes. | structural_limitation | structural |  |
-| K01 | vehicle_running_cost = 0.37. Marginal running-cost base with broader-cost scenario. | captured_2025_26_rate_artifact_only | deterministic_scenario |  |
-| K02 | nta_reimbursement = 0.34. Report gross burden, reimbursement, and societal resource cost separately. | captured_2024_rate_artifact_only | deterministic_scenario |  |
+| K01 | vehicle_running_cost = 0.37. Official IRD rates are tax kilometre-rate proxies rather than observed patient costs. The petrol Tier 2 rate is the base private-vehicle resource-cost scenario; 0.23 to 1.20 spans the published electric Tier 2 and petrol Tier 1 rates. | source_backed_2025_26_petrol_tier_2_scenario | deterministic_scenario |  |
+| K02 | nta_reimbursement = 0.34. Report gross burden, reimbursement, and societal resource cost separately. | source_backed_2024_reimbursement_scenario | deterministic_scenario |  |
 | K03 | patient_time_value = 25. Primary reporting keeps time separate; monetisation is secondary. | illustrative | gamma |  |
+| K04 | nta_accommodation_cap = 140. Eligibility-dependent reimbursement cap, not observed accommodation expenditure. | source_backed_2024_reimbursement_cap | deterministic_scenario |  |
+| K05 | nta_friends_whanau_accommodation_rate = 35. Eligibility-dependent reimbursement rate, not observed accommodation expenditure. | source_backed_2024_reimbursement_rate | deterministic_scenario |  |
 | O01 | safety_constraints = non_compensatory. Clinical eligibility and safety cannot be traded against travel convenience. | hard_constraint | none |  |
 | O02 | uncapacitated_interpretation = potential_geography_and_implied_capacity. Results do not claim current operational feasibility. | hard_constraint | structural |  |
 | R01 | canonical_exchange = Arrow_Parquet. Language-neutral contracts enable Python, Rust, Julia, Mojo, and JAX components. | architecture | none |  |
@@ -38,4 +40,4 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | U02 | structural_uncertainty = reported_separately. Structural alternatives are not collapsed into false-precision intervals. | hard_constraint | none |  |
 | V01 | microdata_decision_rule = positive_ENBS_and_decision_relevance. Granular research is justified only when it may change a material decision or equity conclusion. | method | decision |  |
 
-Total assumptions: **33**.
+Total assumptions: **35**.

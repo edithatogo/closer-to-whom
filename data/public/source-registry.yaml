@@ -82,7 +82,7 @@ sources:
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: captured_metadata_only
+    status: captured_and_parameterized
     receipt_path: data/public/receipts/input-freeze/candidate.ird-kilometre-rates-2025-26.json
   - source_id: candidate.healthnz-nta
     title: National Travel Assistance policy and reimbursement
@@ -91,7 +91,7 @@ sources:
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: captured_metadata_only
+    status: captured_and_parameterized
     receipt_path: data/public/receipts/input-freeze/candidate.healthnz-nta-2024.json
   - source_id: candidate.gch2023
     title: Geographic Classification for Health 2023 (GCH23)

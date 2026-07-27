@@ -7,6 +7,19 @@
   "sha256": "6956e14be5372fa671031eb54de331bf0f9b7341a7fbcf0ce3d79a2906b02a68",
   "content_type": "text/html",
   "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
-  "status": "captured_metadata_only",
+  "status": "captured_and_parameterized",
+  "effective_from": "2024-04-01",
+  "corroborating_source": {
+    "title": "Rural Health Roadshow Insights Report",
+    "publisher": "Ministry of Health",
+    "url": "https://www.health.govt.nz/system/files/2025-12/rural-health-roadshow-insights-report.pdf"
+  },
+  "extracted_claims": {
+    "private_mileage_nzd_per_km": 0.34,
+    "accommodation_cap_nzd_per_night": 140,
+    "friends_whanau_accommodation_nzd_per_night": 35,
+    "public_transport": "actual_cost_subject_to_eligibility"
+  },
+  "parameter_ids": ["K02", "K04", "K05"],
   "claim_boundary": "Official National Travel Assistance reimbursement metadata; not observed travel cost or uptake."
 }

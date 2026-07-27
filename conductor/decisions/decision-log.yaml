@@ -162,3 +162,16 @@ decisions:
       This produces a reconciled national demand table without pseudo-patients or double counting.
       Source-unavailable female counts use a declared population-scaled national-share fallback;
       the allocation is a structural planning assumption, not observed small-area incidence.
+  - id: DEC-022
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Freeze official IRD kilometre rates as private-vehicle resource-cost scenarios and official
+      National Travel Assistance mileage and accommodation rates as reimbursement scenarios.
+      Report distance, duration, reimbursement, and resource costs separately; keep route-specific
+      fares, parking, walking/waiting/transfer valuation, and provider travel costs unknown until
+      suitable evidence is materialized.
+    rationale: >-
+      Tax kilometre rates and reimbursement schedules are transparent public policy parameters,
+      but neither measures observed patient expenditure or behaviour. Explicit unknown categories
+      prevent unsupported zeroes or synthetic averages from entering national policy results.

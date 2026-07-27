@@ -5,14 +5,15 @@ version: "0.2.0"
 active_track: CTW-040-national-routing-and-costs
 phase: national_routing_and_costs
 software_status: hosted_main_verified
-model_status: source_backed_demand_geography_complete_routing_pending
+model_status: source_backed_demand_geography_and_partial_costs_routing_pending
 publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
   Software, the public-input freeze, 2,313 aggregate SA2 demand cells, core ecological stratifiers,
   baseline origins, and population-weighted spatial sensitivity are implemented and verifiable.
-  Unsupported or suppressed values remain explicit unknowns. No route, cost, optimisation, or
-  policy estimate is publication ready until the pinned national road matrix and aggregate analysis
-  are complete.
+  Source-backed vehicle-resource and NTA reimbursement scenarios are frozen; unsupported,
+  route-specific, or suppressed values remain explicit unknowns. No route, national burden,
+  optimisation, or policy estimate is publication ready until the pinned national road matrix and
+  aggregate analysis are complete.
 next_tracks:
   - CTW-010-national-service-census
   - CTW-030-clinical-pathway-freeze
@@ -31,7 +32,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 145
+  tests: 148
   optional_not_run:
     - Docker container health check
     - Mojo canary

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from datetime import UTC, datetime
 from pathlib import Path
@@ -18,10 +19,11 @@ from closer_to_whom.routing import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DEMAND = ROOT / "data/derived/demand-cells.parquet"
+DEFAULT_DEMAND = ROOT / "data/derived/national-demand-cells.parquet"
 DEFAULT_FACILITIES = ROOT / "data/derived/facility-registry.parquet"
 DEFAULT_OUTPUT = ROOT / "data/derived/route-matrix.parquet"
 DEFAULT_REPORT = ROOT / "reports/routing-costs-flow.json"
+DEFAULT_COST_PARAMETERS = ROOT / "reports/travel-cost-parameters.json"
 
 _ROUTE_SCHEMA = {
     "demand_cell_id": pl.String,
@@ -42,6 +44,7 @@ def materialize(
     *,
     osrm_base_url: str | None = None,
     osrm_version: str | None = None,
+    cost_parameters_path: Path = DEFAULT_COST_PARAMETERS,
 ) -> dict[str, object]:
     """Build a route matrix, failing closed when upstream evidence registries are empty."""
     demand = pl.read_parquet(demand_path) if demand_path.exists() else pl.DataFrame()
@@ -67,6 +70,11 @@ def materialize(
     fingerprint = write_parquet_deterministic(
         routes, output_path, sort_by=("demand_cell_id", "facility_id")
     )
+    cost_parameters = (
+        json.loads(cost_parameters_path.read_text(encoding="utf-8"))
+        if cost_parameters_path.exists()
+        else None
+    )
     report = {
         "schema_version": "1.0.0",
         "generated_at": datetime.now(UTC).isoformat(),
@@ -82,20 +90,43 @@ def materialize(
         ),
         "route_cache_fingerprint": cache_fingerprint,
         "parquet_fingerprint": fingerprint,
-        "cost_categories": {
-            "car": "pending_source_and_rate_receipts",
-            "public_transport": "pending_source_and_rate_receipts",
-            "ferry": "pending_source_and_rate_receipts",
-            "walking_waiting_transfer": "pending_source_and_rate_receipts",
-            "parking": "pending_source_and_rate_receipts",
-            "fares": "pending_source_and_rate_receipts",
-            "accommodation": "pending_source_and_rate_receipts",
-            "provider_travel": "pending_source_and_rate_receipts",
-        },
-        "cost_claim_status": "blocked_pending_source_and_rate_receipts",
+        "cost_parameters_receipt": (
+            cost_parameters_path.relative_to(ROOT).as_posix() if cost_parameters else None
+        ),
+        "cost_parameters_sha256": (
+            hashlib.sha256(cost_parameters_path.read_bytes()).hexdigest()
+            if cost_parameters
+            else None
+        ),
+        "cost_categories": (
+            {
+                name: details["status"]
+                for name, details in cost_parameters["categories"].items()
+            }
+            if cost_parameters
+            else dict.fromkeys(
+                (
+                    "car",
+                    "public_transport",
+                    "ferry",
+                    "walking_waiting_transfer",
+                    "parking",
+                    "fares",
+                    "accommodation",
+                    "provider_travel",
+                ),
+                "pending_source_and_rate_receipts",
+            )
+        ),
+        "cost_claim_status": (
+            cost_parameters["status"]
+            if cost_parameters
+            else "blocked_pending_source_and_rate_receipts"
+        ),
         "claim_boundary": (
             "Offline approximation routes are development fallbacks, not road-network evidence; "
-            "no national burden or service claim is made while upstream registries are empty."
+            "plausible facilities do not establish drug-specific capability or capacity, and no "
+            "national burden or service claim is made before the pinned road matrix is complete."
         ),
     }
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -113,6 +144,7 @@ def main() -> int:
     parser.add_argument("--facilities", type=Path, default=DEFAULT_FACILITIES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--cost-parameters", type=Path, default=DEFAULT_COST_PARAMETERS)
     parser.add_argument("--osrm-base-url")
     parser.add_argument("--osrm-version")
     args = parser.parse_args()
@@ -125,6 +157,7 @@ def main() -> int:
                 args.report,
                 osrm_base_url=args.osrm_base_url,
                 osrm_version=args.osrm_version,
+                cost_parameters_path=args.cost_parameters,
             ),
             indent=2,
         )

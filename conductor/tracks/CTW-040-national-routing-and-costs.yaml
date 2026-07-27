@@ -10,6 +10,8 @@ inputs:
 outputs:
   - data/derived/route-matrix.parquet
   - reports/routing-costs-flow.json
+  - reports/travel-cost-parameters.json
+  - reports/routing-spatial-sensitivity.json
 acceptance_criteria:
   - Route engine, version, cache key, approximation state, and retrieval date are recorded.
   - Routing receipts identify the source registry and licence state for each externally derived route or cost parameter.
@@ -25,7 +27,8 @@ progress:
     - Frozen the dated 2026-07-23 New Zealand PBF identity and OSRM v26.7.3 release.
     - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
     - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
+    - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
+    - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
   remaining:
     - On a Docker-capable networked runner, download the PBF, verify its published MD5, record its SHA-256, and record the pulled image digest.
     - Build the local routing graph and materialize the national matrix against the frozen demand and plausible-facility inputs.
-    - Materialize explicit travel and provider cost categories with uncertainty receipts.

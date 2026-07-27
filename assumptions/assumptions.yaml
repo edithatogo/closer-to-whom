@@ -176,23 +176,26 @@ assumptions:
     name: vehicle_running_cost
     value: 0.37
     unit: NZD_per_km
-    price_year: 2025_26
-    status: captured_2025_26_rate_artifact_only
+    price_year: "2025_26"
+    status: source_backed_2025_26_petrol_tier_2_scenario
     source_ids: [candidate.ird-kilometre-rates]
     uncertainty: deterministic_scenario
-    lower: 0.30
+    lower: 0.23
     upper: 1.20
-    rationale: Marginal running-cost base with broader-cost scenario.
+    rationale: >-
+      Official IRD rates are tax kilometre-rate proxies rather than observed patient costs.
+      The petrol Tier 2 rate is the base private-vehicle resource-cost scenario; 0.23 to 1.20
+      spans the published electric Tier 2 and petrol Tier 1 rates.
   - id: K02
     domain: cost
     name: nta_reimbursement
     value: 0.34
     unit: NZD_per_km
-    status: captured_2024_rate_artifact_only
+    status: source_backed_2024_reimbursement_scenario
     source_ids: [candidate.healthnz-nta]
     uncertainty: deterministic_scenario
     lower: 0.34
-    upper: 0.44
+    upper: 0.34
     rationale: Report gross burden, reimbursement, and societal resource cost separately.
   - id: K03
     domain: cost
@@ -205,6 +208,30 @@ assumptions:
     lower: 10
     upper: 50
     rationale: Primary reporting keeps time separate; monetisation is secondary.
+  - id: K04
+    domain: cost
+    name: nta_accommodation_cap
+    value: 140
+    unit: NZD_per_night
+    price_year: 2024
+    status: source_backed_2024_reimbursement_cap
+    source_ids: [candidate.healthnz-nta]
+    uncertainty: deterministic_scenario
+    lower: 140
+    upper: 140
+    rationale: Eligibility-dependent reimbursement cap, not observed accommodation expenditure.
+  - id: K05
+    domain: cost
+    name: nta_friends_whanau_accommodation_rate
+    value: 35
+    unit: NZD_per_night
+    price_year: 2024
+    status: source_backed_2024_reimbursement_rate
+    source_ids: [candidate.healthnz-nta]
+    uncertainty: deterministic_scenario
+    lower: 35
+    upper: 35
+    rationale: Eligibility-dependent reimbursement rate, not observed accommodation expenditure.
   - id: E01
     domain: equity
     name: rurality_measure

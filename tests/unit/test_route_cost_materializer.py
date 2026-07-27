@@ -15,6 +15,7 @@ def test_route_cost_materializer_is_blocked_without_upstream_registries(tmp_path
         tmp_path / "missing-facilities.parquet",
         tmp_path / "routes.parquet",
         tmp_path / "routing.json",
+        cost_parameters_path=tmp_path / "missing-cost-parameters.json",
     )
     assert report["status"] == "blocked_pending_demand_and_service_registries"
     assert report["route_rows"] == 0
