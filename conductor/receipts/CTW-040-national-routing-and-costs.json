@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-040-national-routing-and-costs",
-  "status": "active_engine_and_cost_freeze_implemented_matrix_pending",
+  "status": "active_network_and_engine_identity_verified_matrix_pending",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/19",
   "materializer": "scripts/materialize_route_costs.py",
   "report": "reports/routing-costs-flow.json",
@@ -15,7 +15,10 @@
     "compose": "compose.osrm.yaml",
     "engine_version": "26.7.3",
     "algorithm": "mld",
-    "bind_address": "127.0.0.1:5000"
+    "bind_address": "127.0.0.1:5000",
+    "image": "ghcr.io/project-osrm/osrm-backend@sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad",
+    "container_digest": "sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad",
+    "pbf_sha256": "2356424989e598f8eadb40cff52e9ec98da4440fdc5132f01954c24c85da4a5b"
   },
   "verification": [
     "tests/unit/test_route_cost_materializer.py",
@@ -24,8 +27,7 @@
     "tests/unit/test_travel_cost_parameter_materializer.py"
   ],
   "remaining": [
-    "on a Docker-capable networked runner, download PBF and record SHA-256 plus image digest",
-    "materialize national road matrix"
+    "materialize national road matrix and immutable artifact receipt"
   ],
   "local_runtime_blockers": {
     "pbf_transfer": "timed_out_before_payload_after_successful_HEAD",

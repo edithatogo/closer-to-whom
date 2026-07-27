@@ -5,7 +5,7 @@ The release road matrix uses only the dated network and engine identities in
 
 1. Download `new-zealand-260723.osm.pbf` into `data/raw/osrm/`.
 2. Confirm its size and published MD5, then calculate and record its SHA-256 in the freeze file.
-3. Pull `ghcr.io/project-osrm/osrm-backend:v26.7.3` and record the resolved image digest.
+3. Pull `ghcr.io/project-osrm/osrm-backend@sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad` and record the resolved image digest.
 4. Build the MLD graph:
 
    ```text

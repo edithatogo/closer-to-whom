@@ -9,12 +9,15 @@
   "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
   "licence_state": "open",
   "redistribution_allowed": false,
-  "status": "frozen_engine_identity_runtime_pending",
+  "status": "frozen_engine_and_container_identity_runtime_pending",
   "engine_version": "26.7.3",
   "release_commit": "0844e3a",
   "release_url": "https://github.com/Project-OSRM/osrm-backend/releases/tag/v26.7.3",
   "algorithm": "mld",
-  "container_digest": null,
-  "local_runtime_status": "docker_executable_not_installed",
-  "claim_boundary": "Routing-engine interface documentation only; no public demo-server dependency or route result is treated as release evidence."
+  "container_digest": "sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad",
+  "local_runtime_status": "docker_executable_not_installed; official multi-architecture manifest verified through GitHub Packages API",
+  "claim_boundary": "Routing-engine interface documentation only; no public demo-server dependency or route result is treated as release evidence.",
+  "container_image": "ghcr.io/project-osrm/osrm-backend@sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad",
+  "container_tag": "v26.7.3-debian",
+  "container_registry_verified_on": "2026-07-27"
 }

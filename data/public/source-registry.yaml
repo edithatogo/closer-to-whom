@@ -639,7 +639,7 @@ sources:
     evidence_grade: 2_reproducible_routing_engine
     status: frozen_engine_identity_runtime_pending
     receipt_path: data/public/receipts/input-freeze/candidate.osrm-table-service.json
-    notes: OSRM v26.7.3 release commit 0844e3a with MLD; local container digest remains pending because Docker is not installed. Public demo servers are not release dependencies.
+    notes: OSRM v26.7.3 release commit 0844e3a with MLD; the official v26.7.3-debian multi-architecture manifest is pinned at sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad. Public demo servers are not release dependencies.
   - source_id: candidate.nzta-national-road-centreline
     title: National Road Centreline
     publisher: NZ Transport Agency Waka Kotahi
