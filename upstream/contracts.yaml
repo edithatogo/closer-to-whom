@@ -50,7 +50,7 @@ libraries:
   - name: voiage
     repository: https://github.com/edithatogo/voiage
     default_branch: main
-    pinned_revision: ceefb5155217058a6e8a9b263960daa36e5bae64
+    pinned_revision: cd53ce0991204bb63aaa1c84d5af9f6eb4f552f9
     issue: upstream/issues/voiage-research-design-structural-voi.md
     local_adapter: src/closer_to_whom/integrations/voiage_adapter.py
     fixture: upstream/fixtures/voiage.parquet
