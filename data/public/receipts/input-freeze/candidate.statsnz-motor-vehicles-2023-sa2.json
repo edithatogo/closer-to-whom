@@ -20,8 +20,8 @@
   "materialization_report": "reports/sa2-census-stratifiers.json",
   "source_feature_count": 2395,
   "materialized_rows": 2313,
-  "matched_rows": 2313,
-  "explicit_unknown_rows": 0,
-  "parquet_fingerprint": "b4b98855b388e5fa6985fc864776819f3aa7251124cdd12f8de6e3f94e89668a",
+  "matched_rows": 2212,
+  "explicit_unknown_rows": 101,
+  "parquet_fingerprint": "32bf6bff4e4200c2ede8cbe14a9217b74ff8eb2315d9c2be4ddf26f510b25c9c",
   "claim_boundary": "No-motor-vehicle share is an occupied-private-dwelling area proxy and never observed transport access for any person."
 }

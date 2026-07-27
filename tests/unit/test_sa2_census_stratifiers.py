@@ -17,6 +17,8 @@ sys.modules[_SPEC.name] = _MODULE
 _SPEC.loader.exec_module(_MODULE)
 fetch_attributes = _MODULE.fetch_attributes
 materialize = _MODULE.materialize
+ethnicity_frame = _MODULE._ethnicity_frame
+vehicle_frame = _MODULE._vehicle_frame
 
 
 def test_fetch_attributes_paginates_and_orders() -> None:
@@ -80,3 +82,28 @@ def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
     assert vehicle.filter(pl.col("geography_code") == "100100")[
         "no_motor_vehicle_share"
     ].item() == 2 / 9
+
+
+def test_suppression_sentinel_becomes_unknown_not_negative() -> None:
+    population = pl.DataFrame({"geography_code": ["100100"], "population_2025": [10]})
+    common: dict[str, object] = {
+        "SA22023_V1_00": "100100",
+        "SA22023_V1_00_NAME": "Example",
+    }
+    ethnicity_attributes = {
+        **common,
+        **dict.fromkeys(_MODULE.ETHNICITY_FIELDS.values(), -999),
+        _MODULE.ETHNICITY_TOTAL_STATED: 9,
+    }
+    ethnicity = ethnicity_frame(population, [ethnicity_attributes])
+    assert ethnicity["ethnicity_count_2023"].null_count() == 6
+    assert ethnicity["total_response_share"].null_count() == 6
+    assert ethnicity["ethnicity_status"].unique().item() == "unknown_source_suppressed_or_unavailable"
+    vehicle_attributes = {
+        **common,
+        **dict.fromkeys(_MODULE.VEHICLE_FIELDS.values(), -999),
+    }
+    vehicle = vehicle_frame(population, [vehicle_attributes])
+    assert vehicle["no_motor_vehicle"].item() is None
+    assert vehicle["no_motor_vehicle_share"].item() is None
+    assert vehicle["vehicle_access_status"].item() == "unknown_source_suppressed_or_unavailable"

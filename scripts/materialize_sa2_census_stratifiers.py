@@ -111,9 +111,15 @@ def _population_codes(path: Path) -> pl.DataFrame:
 def _ethnicity_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -> pl.DataFrame:
     source_rows: list[dict[str, object]] = []
     for row in attributes:
-        denominator = row.get(ETHNICITY_TOTAL_STATED)
+        raw_denominator = row.get(ETHNICITY_TOTAL_STATED)
+        denominator = (
+            int(raw_denominator)
+            if raw_denominator is not None and int(raw_denominator) >= 0
+            else None
+        )
         for group, field in ETHNICITY_FIELDS.items():
-            count = row.get(field)
+            raw_count = row.get(field)
+            count = int(raw_count) if raw_count is not None and int(raw_count) >= 0 else None
             source_rows.append(
                 {
                     "geography_code": str(row["SA22023_V1_00"]),
@@ -136,9 +142,14 @@ def _ethnicity_frame(population: pl.DataFrame, attributes: list[dict[str, Any]])
             )
             .otherwise(None)
             .alias("total_response_share"),
-            pl.when(pl.col("geography_name_2023").is_not_null())
-            .then(pl.lit("matched_2023_sa2_code"))
-            .otherwise(pl.lit("unknown_sa2_version_mismatch"))
+            pl.when(pl.col("geography_name_2023").is_null())
+            .then(pl.lit("unknown_sa2_version_mismatch"))
+            .when(
+                pl.col("ethnicity_count_2023").is_null()
+                | pl.col("ethnicity_total_stated_2023").is_null()
+            )
+            .then(pl.lit("unknown_source_suppressed_or_unavailable"))
+            .otherwise(pl.lit("matched_2023_sa2_code"))
             .alias("ethnicity_status"),
         )
         .sort(("geography_code", "ethnicity_group"))
@@ -148,11 +159,19 @@ def _ethnicity_frame(population: pl.DataFrame, attributes: list[dict[str, Any]])
 def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -> pl.DataFrame:
     rows = []
     for row in attributes:
+        values = {
+            name: (
+                int(row[field])
+                if row.get(field) is not None and int(row[field]) >= 0
+                else None
+            )
+            for name, field in VEHICLE_FIELDS.items()
+        }
         rows.append(
             {
                 "geography_code": str(row["SA22023_V1_00"]),
                 "geography_name_2023": str(row["SA22023_V1_00_NAME"]),
-                **{name: row.get(field) for name, field in VEHICLE_FIELDS.items()},
+                **values,
             }
         )
     source = pl.DataFrame(rows)
@@ -163,9 +182,14 @@ def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -
             .then(pl.col("no_motor_vehicle").cast(pl.Float64) / pl.col("total_stated"))
             .otherwise(None)
             .alias("no_motor_vehicle_share"),
-            pl.when(pl.col("geography_name_2023").is_not_null())
-            .then(pl.lit("matched_2023_sa2_code"))
-            .otherwise(pl.lit("unknown_sa2_version_mismatch"))
+            pl.when(pl.col("geography_name_2023").is_null())
+            .then(pl.lit("unknown_sa2_version_mismatch"))
+            .when(
+                pl.col("no_motor_vehicle").is_null()
+                | pl.col("total_stated").is_null()
+            )
+            .then(pl.lit("unknown_source_suppressed_or_unavailable"))
+            .otherwise(pl.lit("matched_2023_sa2_code"))
             .alias("vehicle_access_status"),
         )
         .sort("geography_code")
@@ -202,10 +226,10 @@ def materialize(
         vehicle, vehicle_output, sort_by=("geography_code",)
     )
     ethnicity_unknown = ethnicity.filter(
-        pl.col("ethnicity_status") == "unknown_sa2_version_mismatch"
+        pl.col("ethnicity_status") != "matched_2023_sa2_code"
     ).height
     vehicle_unknown = vehicle.filter(
-        pl.col("vehicle_access_status") == "unknown_sa2_version_mismatch"
+        pl.col("vehicle_access_status") != "matched_2023_sa2_code"
     ).height
     report: dict[str, object] = {
         "schema_version": "1.0.0",

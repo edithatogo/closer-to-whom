@@ -33,10 +33,10 @@ assumptions:
     domain: demand
     name: within_area_allocation
     value: official_true_centroid_baseline
-    status: materialized_public_aggregate
-    source_ids: [candidate.statsnz-sa2-2023-centroid-true]
+    status: materialized_public_aggregate_with_spatial_sensitivity
+    source_ids: [candidate.statsnz-sa2-2023-centroid-true, candidate.statsnz-sa1-census-population-2023, candidate.statsnz-sa2-boundaries-2023]
     uncertainty: spatial
-    rationale: The official Stats NZ true-centroid layer provides a deterministic aggregate baseline for all 2,313 denominator SA2s; population-weighted multi-point sensitivity remains required to quantify centroid bias.
+    rationale: The official Stats NZ true-centroid layer provides the deterministic baseline; 31,599 positive-population SA1 centroids provide population-weighted sensitivity origins, with 49 SA2s retaining an explicit true-centroid fallback.
   - id: D03
     domain: demand
     name: her2_positive_probability
@@ -228,7 +228,7 @@ assumptions:
     status: materialized_public_aggregate
     source_ids: [candidate.statsnz-ethnicity-2023-sa2]
     uncertainty: ecological
-    rationale: Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments.
+    rationale: Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments; suppressed source cells remain explicit unknowns.
   - id: E05
     domain: equity
     name: vehicle_access_measure
@@ -236,7 +236,7 @@ assumptions:
     status: materialized_public_aggregate_proxy
     source_ids: [candidate.statsnz-motor-vehicles-2023-sa2]
     uncertainty: ecological_proxy
-    rationale: The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey.
+    rationale: The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey; suppressed source cells remain explicit unknowns.
   - id: O01
     domain: optimisation
     name: safety_constraints

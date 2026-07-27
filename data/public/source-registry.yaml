@@ -375,7 +375,8 @@ sources:
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json
     metadata_evidence: >-
       The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
-      Six broad 2023 total-response ethnicity groups match every denominator SA2 code.
+      Six broad 2023 total-response ethnicity groups cover every denominator SA2 code; source
+      suppression sentinels remain explicit unknowns and are never converted to zero.
   - source_id: candidate.statsnz-motor-vehicles-2023-sa2
     title: 2023 Census household motor-vehicle totals by SA2
     publisher: Stats NZ - Tatauranga Aotearoa
@@ -389,7 +390,37 @@ sources:
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json
     metadata_evidence: >-
       The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
-      No-motor-vehicle and stated-household totals match every denominator SA2 code.
+      No-motor-vehicle and stated-household fields cover every denominator SA2 code; source
+      suppression sentinels remain explicit unknowns and are never converted to zero.
+  - source_id: candidate.statsnz-sa1-census-population-2023
+    title: 2023 Census usually resident population and centroids by SA1
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA1/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=407355b6bd46494498cd760787178ab3
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa1-census-population-2023.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      SA1 true polygon centroids and 2023 usually resident population support bounded aggregate
+      within-SA2 spatial sensitivity.
+  - source_id: candidate.statsnz-sa2-boundaries-2023
+    title: Statistical Area 2 2023 boundaries
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/Statistical_Area_2_2023/FeatureServer/0
+    landing_page: https://www.arcgis.com/home/item.html?id=a5166616764c4499a42d1f45627d69b0
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-boundaries-2023.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      Boundaries assign aggregate SA1 centroid sensitivity origins to denominator SA2s.
   - source_id: candidate.teaho-cancer-stats-2025
     title: State of Cancer in New Zealand 2025 aggregate incidence context
     publisher: Te Aho o Te Kahu

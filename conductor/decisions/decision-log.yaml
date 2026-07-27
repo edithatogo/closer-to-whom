@@ -138,3 +138,15 @@ decisions:
       The public Stats NZ ArcGIS layers match all 2,313 population-denominator SA2 codes and declare
       CC BY 4.0. These aggregate measures support distributional scenarios without creating
       individuals, assigning exclusive ethnicity, or asserting observed personal transport access.
+  - id: DEC-020
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Use every positive-population 2023 Census SA1 true polygon centroid as a population-weighted
+      within-SA2 sensitivity origin, retaining the official SA2 true centroid as the primary
+      baseline and as a declared fallback where no unambiguous positive SA1 origin is available.
+    rationale: >-
+      This quantifies centroid bias with public aggregate geography while avoiding pseudo-people.
+      All 2,313 denominator SA2s remain covered and weights reconcile to one; 45 zero-population and
+      four positive-population SA2s retain explicit fallback because the source offers no
+      unambiguous positive SA1 assignment.

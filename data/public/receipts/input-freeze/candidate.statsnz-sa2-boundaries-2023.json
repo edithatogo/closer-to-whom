@@ -1,0 +1,21 @@
+{
+  "source_id": "candidate.statsnz-sa2-boundaries-2023",
+  "url": "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/Statistical_Area_2_2023/FeatureServer/0",
+  "retrieved_on": "2026-07-27",
+  "retrieved_unix_seconds": 1785119040,
+  "bytes": 29075,
+  "sha256": "2d6c939258bff7149d2a8d4d62558584959c514ab5e0baca4ac1d37e3ede4ded",
+  "content_type": "application/json",
+  "output_path": "data/derived/sa2-population-weighted-origins.parquet",
+  "item_id": "a5166616764c4499a42d1f45627d69b0",
+  "item_metadata_bytes": 11172,
+  "item_metadata_sha256": "2655863186cf70ce051c544db2d221dbec626a4ce11a80af7fa5395cfc9f52ea",
+  "licence": "Creative Commons Attribution 4.0 International",
+  "attribution": "Stats NZ - Tatauranga Aotearoa",
+  "materializer": "scripts/materialize_sa2_population_weighted_origins.py",
+  "materialization_report": "reports/sa2-population-weighted-origins.json",
+  "source_feature_count": 2395,
+  "digitised_feature_count": 2379,
+  "parquet_fingerprint": "81e676595d403ba444a5898d494b1a92968f79fedb0c7c9da78881fff7a35f2a",
+  "claim_boundary": "Official SA2 polygons are used only to assign aggregate SA1 centroid sensitivity origins."
+}
