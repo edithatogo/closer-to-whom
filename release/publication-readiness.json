@@ -4,17 +4,20 @@
     "candidate_source_ids": [],
     "clinical_pathways_reviewed": true,
     "ethics_scope_determination_archived": "not_required_for_scope",
-    "maori_equity_governance_review_complete": "not_required_for_scope",
-    "national_network_routing_complete": false,
-    "non_frozen_assumption_ids": [
+    "legacy_non_publication_assumption_ids": [
       "C01",
       "T02",
       "T03",
       "K03"
     ],
-    "public_inputs_licence_checked": "approved_for_local_use_source_licence_gaps_remain",
-    "service_census_frozen": true
+    "maori_equity_governance_review_complete": "not_required_for_scope",
+    "national_analysis_complete": true,
+    "national_network_routing_complete": true,
+    "public_inputs_licence_checked": "approved_derived_aggregate_nonredistribution",
+    "service_census_frozen": true,
+    "unresolved_publication_assumption_ids": []
   },
-  "publication_ready": false,
+  "claim_boundary": "Readiness covers the reviewed five-report public aggregate static payload only. Legacy synthetic demonstrations remain outside publication and do not establish service capability, observed capacity, clinical guidance, or policy preference.",
+  "publication_ready": true,
   "software_handover_ready": true
 }
