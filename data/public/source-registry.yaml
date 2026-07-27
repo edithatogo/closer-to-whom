@@ -402,6 +402,30 @@ sources:
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-arcgis.json
     notes: Public layer metadata identifies polygon geometry and the SA22023 code field. Raw geometry remains external until licence and snapshot handling are adjudicated.
+  - source_id: candidate.statsnz-sa2-2023-centroid-true
+    title: Statistical Area 2 2023 Centroid True
+    publisher: Stats NZ via the Stats NZ Geographic Data Service
+    url: https://datafinder.stats.govt.nz/layer/111211-statistical-area-2-2023-centroid-true/
+    retrieved_on: 2026-07-24
+    publication_date: 2022-12-01
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-centroid-true.json
+    notes: Official true-centroid point layer. All 2,379 features were queried and 2,313 population-denominator SA2 codes matched; the derived Parquet remains unredistributed.
+  - source_id: candidate.statsnz-urban-rural-2023-generalised
+    title: Urban Rural 2023 generalised
+    publisher: Stats NZ via the Stats NZ Geographic Data Service
+    url: https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/
+    retrieved_on: 2026-07-27
+    publication_date: 2022-11-30
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-urban-rural-2023-generalised.json
+    notes: CC BY 4.0. Official classes matched 2,311 of 2,313 denominator SA2 true centroids; the two explicit unknowns both have zero captured population.
   - source_id: candidate.nzta-amds-network-model
     title: Asset Management Data Standard multimodal network model
     publisher: NZ Transport Agency Waka Kotahi
@@ -498,9 +522,9 @@ sources:
     licence_state: open
     redistribution_allowed: false
     evidence_grade: 2_national_routable_network_candidate
-    status: captured_metadata_only
+    status: frozen_source_identity_artifact_download_pending
     receipt_path: data/public/receipts/input-freeze/candidate.osm-geofabrik-nz-network.json
-    notes: ODbL 1.0 national PBF candidate for a self-hosted, pinned OSRM road-routing matrix; attribution and share-alike obligations apply.
+    notes: Dated 2026-07-23 PBF, 400231615 bytes, published MD5 056bf3eb9d9ddd7c23c99b9f3e444656; local transfer timed out before payload. ODbL attribution and share-alike obligations apply.
   - source_id: candidate.osrm-table-service
     title: OSRM HTTP table service
     publisher: Project OSRM
@@ -509,9 +533,9 @@ sources:
     licence_state: open
     redistribution_allowed: false
     evidence_grade: 2_reproducible_routing_engine
-    status: captured_metadata_only
+    status: frozen_engine_identity_runtime_pending
     receipt_path: data/public/receipts/input-freeze/candidate.osrm-table-service.json
-    notes: Recommended engine interface for a self-hosted national road matrix; public demo servers are not release dependencies.
+    notes: OSRM v26.7.3 release commit 0844e3a with MLD; local container digest remains pending because Docker is not installed. Public demo servers are not release dependencies.
   - source_id: candidate.nzta-national-road-centreline
     title: National Road Centreline
     publisher: NZ Transport Agency Waka Kotahi

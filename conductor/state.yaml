@@ -1,17 +1,18 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-24
+updated_at: 2026-07-27
 version: "0.2.0"
 active_track: CTW-020-public-demand-and-geography
-phase: national_routing_preparation
+phase: stratification_and_national_routing_preparation
 software_status: hosted_main_verified
-model_status: source_backed_national_calibration_spatial_allocation_pending
+model_status: source_backed_calibration_sa2_origins_and_rurality_other_stratifiers_pending
 publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
-  Software, the captured SA2 population denominator, and national aggregate demand calibration are
-  implemented and verifiable. No small-area demand, route, cost, optimisation, or policy estimate
-  is publication ready until stratified spatial allocation, service inputs, the pinned national
-  road matrix, and aggregate analysis are complete.
+  Software, the captured SA2 population denominator, national aggregate demand calibration, and
+  official SA2 routing origins, and official rurality classes are implemented and verifiable. No
+  fully stratified small-area demand, route, cost, optimisation, or policy estimate is publication
+  ready until deprivation, ethnicity, vehicle access, spatial sensitivity, the pinned national road
+  matrix, and aggregate analysis are complete.
 next_tracks:
   - CTW-010-national-service-census
   - CTW-020-public-demand-and-geography
@@ -32,7 +33,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 128
+  tests: 135
   optional_not_run:
     - Docker container health check
     - Mojo canary

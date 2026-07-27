@@ -1,12 +1,13 @@
 schema_version: "1.0.0"
-status: calibration_complete_routing_point_contract_ready_live_retrieval_pending
+status: calibration_routing_points_and_rurality_complete_other_stratifiers_pending
 freeze_date: null
 pending_reason: >-
   The authenticated SA2 population denominator and national incidence, HER2 prevalence, stage,
-  and treatment-uptake calibration are captured. The official polygon-centroid routing-point
-  contract is implemented but live ArcGIS retrieval timed out on 2026-07-24. Deprivation,
-  rurality, ethnicity, vehicle access, and multi-point spatial sensitivity remain pending; no
-  observed small-area demand is asserted.
+  and treatment-uptake calibration are captured. Official true centroids are materialized for all
+  2,313 denominator SA2s. Official Urban Rural 2023 classes are materialized for 2,311 SA2s; two
+  zero-population SA2s remain explicitly unknown. Deprivation, ethnicity, vehicle access, and
+  population-weighted multi-point sensitivity remain pending; no observed small-area demand is
+  asserted.
 claim_boundary: >-
   Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
   demand, preferences, outcomes, or travel behaviour.

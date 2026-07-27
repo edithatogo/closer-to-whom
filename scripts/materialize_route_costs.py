@@ -10,6 +10,7 @@ from pathlib import Path
 import polars as pl
 
 from closer_to_whom.io import write_parquet_deterministic
+from closer_to_whom.osrm import LocalOsrmTableClient
 from closer_to_whom.routing import (
     OfflineApproximationEngine,
     build_route_matrix,
@@ -38,15 +39,26 @@ def materialize(
     facilities_path: Path = DEFAULT_FACILITIES,
     output_path: Path = DEFAULT_OUTPUT,
     report_path: Path = DEFAULT_REPORT,
+    *,
+    osrm_base_url: str | None = None,
+    osrm_version: str | None = None,
 ) -> dict[str, object]:
     """Build a route matrix, failing closed when upstream evidence registries are empty."""
     demand = pl.read_parquet(demand_path) if demand_path.exists() else pl.DataFrame()
     facilities = pl.read_parquet(facilities_path) if facilities_path.exists() else pl.DataFrame()
     if demand.height and facilities.height:
-        engine = OfflineApproximationEngine()
-        routes = build_route_matrix(demand, facilities, engine)
-        status = "materialized_offline_approximation"
-        cache_fingerprint = route_cache_fingerprint(demand, facilities, engine)
+        if osrm_base_url:
+            if not osrm_version:
+                raise ValueError("osrm_version is required with osrm_base_url")
+            engine = LocalOsrmTableClient(osrm_base_url, osrm_version)
+            routes = engine.matrix(demand, facilities)
+            status = "materialized_local_osrm_road_matrix"
+            cache_fingerprint = route_cache_fingerprint(demand, facilities, engine)
+        else:
+            engine = OfflineApproximationEngine()
+            routes = build_route_matrix(demand, facilities, engine)
+            status = "materialized_offline_approximation"
+            cache_fingerprint = route_cache_fingerprint(demand, facilities, engine)
     else:
         routes = pl.DataFrame(schema=_ROUTE_SCHEMA)
         status = "blocked_pending_demand_and_service_registries"
@@ -63,9 +75,11 @@ def materialize(
         "demand_rows": demand.height,
         "facility_rows": facilities.height,
         "route_rows": routes.height,
-        "route_engine": "offline-approximation:1" if routes.height else None,
-        "route_engine_version": "1" if routes.height else None,
-        "route_is_approximation": True,
+        "route_engine": routes["route_engine"][0] if routes.height else None,
+        "route_engine_version": routes["route_engine_version"][0] if routes.height else None,
+        "route_is_approximation": (
+            bool(routes["route_is_approximation"].any()) if routes.height else None
+        ),
         "route_cache_fingerprint": cache_fingerprint,
         "parquet_fingerprint": fingerprint,
         "cost_categories": {
@@ -99,8 +113,22 @@ def main() -> int:
     parser.add_argument("--facilities", type=Path, default=DEFAULT_FACILITIES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--osrm-base-url")
+    parser.add_argument("--osrm-version")
     args = parser.parse_args()
-    print(json.dumps(materialize(args.demand, args.facilities, args.output, args.report), indent=2))
+    print(
+        json.dumps(
+            materialize(
+                args.demand,
+                args.facilities,
+                args.output,
+                args.report,
+                osrm_base_url=args.osrm_base_url,
+                osrm_version=args.osrm_version,
+            ),
+            indent=2,
+        )
+    )
     return 0
 
 

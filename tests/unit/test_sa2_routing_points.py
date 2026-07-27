@@ -12,6 +12,7 @@ assert _SPEC and _SPEC.loader
 _MODULE = importlib.util.module_from_spec(_SPEC)
 _SPEC.loader.exec_module(_MODULE)
 materialize = _MODULE.materialize
+snapshot_fetcher = _MODULE.snapshot_fetcher
 
 
 def test_materializes_paginated_population_centroids(tmp_path: Path) -> None:
@@ -75,3 +76,12 @@ def test_rejects_missing_population_centroid(tmp_path: Path) -> None:
             tmp_path / "report.json",
             fetcher=fetcher,
         )
+
+
+def test_snapshot_fetcher_reads_expected_offset(tmp_path: Path) -> None:
+    (tmp_path / "offset-0.json").write_text(
+        '{"features": [], "exceededTransferLimit": false}', encoding="utf-8"
+    )
+    assert snapshot_fetcher(tmp_path)(0, 1000)["features"] == []
+    with pytest.raises(FileNotFoundError, match="offset-1000"):
+        snapshot_fetcher(tmp_path)(1000, 1000)

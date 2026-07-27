@@ -1,0 +1,15 @@
+{
+  "claim_boundary": "Routing points represent aggregate SA2 polygons and never people, patients, addresses, observed journeys, or treatment demand.",
+  "generated_at": "2026-07-24T07:11:41.963999+00:00",
+  "parquet_fingerprint": "444a4e0b911b137b3050cb2ae89464429b4dc05b20ef9e3f92785f7f03f884ea",
+  "population_code_count": 2313,
+  "routing_point_count": 2313,
+  "routing_weight_rule": "one official true centroid with weight 1.0 per SA2",
+  "schema_version": "1.0.0",
+  "source_feature_count": 2379,
+  "source_id": "candidate.statsnz-sa2-2023-centroid-true",
+  "source_layer_id": 111211,
+  "source_url": "https://datafinder.stats.govt.nz/layer/111211-statistical-area-2-2023-centroid-true/",
+  "status": "materialized_official_true_centroid_baseline",
+  "uncertainty": "A true polygon centroid is a reproducible spatial baseline, not a population-weighted origin or observed residence."
+}

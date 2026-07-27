@@ -22,7 +22,9 @@ progress:
     - Selected the New Zealand OpenStreetMap extract and self-hosted OSRM table-service method.
     - Implemented a bounded, deterministic, loopback-only OSRM matrix client that fails closed.
     - Captured national road and regional public-transport source receipts.
+    - Frozen the dated 2026-07-23 New Zealand PBF identity and OSRM v26.7.3 release.
+    - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
   remaining:
-    - Freeze the OSM PBF checksum and OSRM engine/container version.
+    - On a Docker-capable networked runner, download the PBF, verify its published MD5, record its SHA-256, and record the pulled image digest.
     - Build the local routing graph and materialize the national matrix after demand and facility inputs are complete.
     - Materialize explicit travel and provider cost categories with uncertainty receipts.

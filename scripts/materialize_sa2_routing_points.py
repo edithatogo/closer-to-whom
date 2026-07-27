@@ -54,6 +54,21 @@ def fetch_page(offset: int, page_size: int) -> dict[str, Any]:
     return payload
 
 
+def snapshot_fetcher(snapshot_dir: Path) -> FetchPage:
+    """Load captured ArcGIS pages without weakening the same validation path."""
+
+    def fetch(offset: int, _page_size: int) -> dict[str, Any]:
+        path = snapshot_dir / f"offset-{offset}.json"
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing captured ArcGIS page: {path}")
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or payload.get("error"):
+            raise ValueError(f"Invalid captured ArcGIS page: {path}")
+        return payload
+
+    return fetch
+
+
 def _collect(fetcher: FetchPage, page_size: int) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     offset = 0
@@ -152,6 +167,11 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
     parser.add_argument("--page-size", type=int, default=PAGE_SIZE)
+    parser.add_argument(
+        "--snapshot-dir",
+        type=Path,
+        help="Read offset-N.json pages captured from the fixed ArcGIS query instead of networking",
+    )
     args = parser.parse_args()
     print(
         json.dumps(
@@ -160,6 +180,9 @@ def main() -> int:
                 args.output,
                 args.report,
                 page_size=args.page_size,
+                fetcher=snapshot_fetcher(args.snapshot_dir)
+                if args.snapshot_dir
+                else fetch_page,
             ),
             indent=2,
             sort_keys=True,

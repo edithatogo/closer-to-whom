@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-020-public-demand-and-geography",
-  "status": "active_calibration_complete_live_spatial_retrieval_pending",
+  "status": "active_calibration_routing_points_and_rurality_complete",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/3",
   "implementation": {
     "materializer": "scripts/materialize_public_demand.py",
@@ -11,12 +11,20 @@
     "national_expected_courses": 322.16967,
     "routing_point_materializer": "scripts/materialize_sa2_routing_points.py",
     "routing_point_report": "reports/sa2-routing-points.json",
+    "routing_point_rows": 2313,
+    "routing_point_fingerprint": "444a4e0b911b137b3050cb2ae89464429b4dc05b20ef9e3f92785f7f03f884ea",
+    "rurality_materializer": "scripts/materialize_sa2_rurality.py",
+    "rurality_report": "reports/sa2-rurality.json",
+    "rurality_rows": 2313,
+    "rurality_matched_rows": 2311,
+    "rurality_explicit_unknown_rows": 2,
+    "rurality_fingerprint": "d6858188c368e7f59d662c67232d52750a30941ed397884abe8b663c4d7912f3",
     "observed_or_individual_record_count": 0
   },
   "verification": {
-    "tests": 4,
+    "tests": 10,
     "status": "passed",
     "claim_boundary": "No individual-like records, pseudo-patients, observed demand, preferences, outcomes, or travel behaviour are present."
   },
-  "blocker": "Official centroid retrieval timed out on 2026-07-24; deprivation, rurality, ethnicity, vehicle-access artifacts and multi-point spatial sensitivity remain to be materialized."
+  "blocker": "Deprivation, ethnicity, vehicle-access artifacts and population-weighted multi-point spatial sensitivity remain to be materialized."
 }

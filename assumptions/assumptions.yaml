@@ -32,11 +32,11 @@ assumptions:
   - id: D02
     domain: demand
     name: within_area_allocation
-    value: official_polygon_centroid_baseline
-    status: implemented_pending_live_materialization
-    source_ids: [candidate.statsnz-sa2-2023-arcgis]
+    value: official_true_centroid_baseline
+    status: materialized_public_aggregate
+    source_ids: [candidate.statsnz-sa2-2023-centroid-true]
     uncertainty: spatial
-    rationale: Official SA2 polygon centroids provide a deterministic aggregate baseline; population-weighted multi-point sensitivity remains required to quantify centroid bias.
+    rationale: The official Stats NZ true-centroid layer provides a deterministic aggregate baseline for all 2,313 denominator SA2s; population-weighted multi-point sensitivity remains required to quantify centroid bias.
   - id: D03
     domain: demand
     name: her2_positive_probability
@@ -200,11 +200,11 @@ assumptions:
   - id: E01
     domain: equity
     name: rurality_measure
-    value: GCH23_stratifier
-    status: planned_public_input
-    source_ids: [candidate.gch2023]
+    value: Stats_NZ_Urban_Rural_2023_centroid_class
+    status: materialized_public_aggregate
+    source_ids: [candidate.statsnz-urban-rural-2023-generalised]
     uncertainty: structural
-    rationale: GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission.
+    rationale: Stats NZ Urban Rural 2023 is the open baseline stratifier at each official SA2 true centroid; network travel remains the access measure, and GCH23 remains a separate restricted sensitivity input.
   - id: E02
     domain: equity
     name: deprivation_measure

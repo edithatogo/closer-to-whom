@@ -9,6 +9,14 @@
   "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
   "licence_state": "open_odbl_1",
   "redistribution_allowed": false,
-  "status": "captured_metadata_only",
+  "status": "frozen_source_identity_artifact_download_pending",
+  "published_bytes": 400231615,
+  "published_md5": "056bf3eb9d9ddd7c23c99b9f3e444656",
+  "artifact_url": "https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf",
+  "local_attempt": {
+    "pbf_head_status": 200,
+    "transfer_status": "timed_out_before_payload",
+    "local_sha256": null
+  },
   "claim_boundary": "Candidate national routable road-network extract; no route result or observed journey is asserted before a pinned PBF and engine run are receipted."
 }

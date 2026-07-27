@@ -7,15 +7,26 @@
   "report": "reports/routing-costs-flow.json",
   "engine_contract": "src/closer_to_whom/osrm.py",
   "source_inventory": "reports/public-routing-source-inventory.json",
+  "network_freeze": "data/public/routing-network-freeze.yaml",
+  "runtime": {
+    "compose": "compose.osrm.yaml",
+    "engine_version": "26.7.3",
+    "algorithm": "mld",
+    "bind_address": "127.0.0.1:5000"
+  },
   "verification": [
     "tests/unit/test_route_cost_materializer.py",
     "tests/unit/test_osrm.py"
   ],
   "remaining": [
-    "freeze OSM PBF checksum and OSRM version",
+    "on a Docker-capable networked runner, download PBF and record SHA-256 plus image digest",
     "complete aggregate demand and facility inputs",
     "materialize national road matrix",
     "materialize cost-category receipts"
   ],
+  "local_runtime_blockers": {
+    "pbf_transfer": "timed_out_before_payload_after_successful_HEAD",
+    "docker": "executable_not_installed"
+  },
   "claim_boundary": "The loopback OSRM client is implemented, but no national road matrix or travel-burden estimate is claimed until the pinned network and upstream aggregate registries are materialized."
 }

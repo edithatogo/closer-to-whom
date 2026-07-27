@@ -1,0 +1,28 @@
+schema_version: "1.0.0"
+freeze_date: 2026-07-24
+status: source_and_engine_version_frozen_artifact_materialization_pending
+road_network:
+  source_id: candidate.osm-geofabrik-nz-network
+  url: https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf
+  filename: new-zealand-260723.osm.pbf
+  published_bytes: 400231615
+  published_md5: 056bf3eb9d9ddd7c23c99b9f3e444656
+  local_sha256: blocked_after_local_transfer_timeout
+  redistribution: false
+routing_engine:
+  source_id: candidate.osrm-table-service
+  image: ghcr.io/project-osrm/osrm-backend:v26.7.3
+  version: 26.7.3
+  release_commit: 0844e3a
+  algorithm: mld
+  container_digest: blocked_docker_not_installed_locally
+  bind_address: 127.0.0.1:5000
+claim_boundary: >-
+  This freezes source and engine identities only. It is not evidence that the network graph,
+  origin-destination matrix, travel times, or travel costs have been materialized.
+local_attempt:
+  attempted_on: 2026-07-24
+  pbf_head_status: 200
+  published_bytes_confirmed: 400231615
+  transfer_status: timed_out_before_payload
+  docker_status: executable_not_installed

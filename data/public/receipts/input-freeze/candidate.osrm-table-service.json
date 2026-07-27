@@ -9,6 +9,12 @@
   "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
   "licence_state": "open",
   "redistribution_allowed": false,
-  "status": "captured_metadata_only",
+  "status": "frozen_engine_identity_runtime_pending",
+  "engine_version": "26.7.3",
+  "release_commit": "0844e3a",
+  "release_url": "https://github.com/Project-OSRM/osrm-backend/releases/tag/v26.7.3",
+  "algorithm": "mld",
+  "container_digest": null,
+  "local_runtime_status": "docker_executable_not_installed",
   "claim_boundary": "Routing-engine interface documentation only; no public demo-server dependency or route result is treated as release evidence."
 }
