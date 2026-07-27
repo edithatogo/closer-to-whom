@@ -65,6 +65,17 @@ jobs:
             artifacts/source/population.csv \
             data/derived/stats-nz-population.parquet \
             artifacts/source/population-quality.json
+          uv run python - <<'PY'
+          import polars as pl
+
+          frame = pl.read_parquet("data/derived/stats-nz-population.parquet")
+          codes = frame["AREA_POPES_SUB_004"].cast(pl.String)
+          if frame.height != 2313 or codes.n_unique() != 2313:
+              raise ValueError("Population artifact must contain 2,313 unique SA2 rows")
+          invalid = [code for code in codes if len(code) != 6 or not code.isdigit()]
+          if invalid:
+              raise ValueError(f"Population artifact contains non-SA2 codes: {invalid[:10]}")
+          PY
 
       - name: Rebuild frozen public aggregate routing origins
         run: |

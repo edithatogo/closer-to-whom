@@ -30,6 +30,8 @@ progress:
     - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
     - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
     - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
+    - Canonicalized the frozen population receipt to the successful 2,314-selector query and
+      required exactly 2,313 unique six-digit SA2 rows before routing.
     - Decoupled the OSRM matrix input from NZDep and other analysis-only stratifiers through a
       tested minimal aggregate SA2 route-origin contract.
     - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
