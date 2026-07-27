@@ -16,6 +16,8 @@ progress:
     - Implemented and tested paginated official SA2 polygon-centroid retrieval with deterministic weights.
     - Materialized the alternate official Stats NZ true-centroid layer for all 2,313 denominator SA2s.
     - Materialized official Urban Rural 2023 classes for 2,311 SA2s and retained two zero-population SA2s as explicit unknowns.
+    - Materialized NZDep2023 for 2,208 SA2s and retained 105 source-blank or geography-version-mismatched areas as explicit unknowns.
   remaining:
-    - Materialize deprivation, ethnicity, and vehicle-access stratifiers.
+    - Materialize ethnicity and vehicle-access stratifiers.
+    - Resolve the NZDep2023-to-2025 SA2 concordance where authoritative public weights permit.
     - Add population-weighted multi-point sensitivity origins before publication analysis.

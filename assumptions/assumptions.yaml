@@ -209,10 +209,10 @@ assumptions:
     domain: equity
     name: deprivation_measure
     value: NZDep2023
-    status: planned_public_input
+    status: materialized_public_aggregate_with_explicit_unknowns
     source_ids: [candidate.nzdep2023]
     uncertainty: ecological
-    rationale: Area deprivation is not interpreted as an individual attribute.
+    rationale: The official SA2 workbook supports 2,208 denominator areas; 48 source-blank and 57 version-mismatched areas remain explicit unknowns. Area deprivation is never interpreted as an individual attribute.
   - id: E03
     domain: equity
     name: equity_weights

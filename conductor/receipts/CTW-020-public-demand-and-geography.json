@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-020-public-demand-and-geography",
-  "status": "active_calibration_routing_points_and_rurality_complete",
+  "status": "active_calibration_routing_points_rurality_and_deprivation_complete",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/3",
   "implementation": {
     "materializer": "scripts/materialize_public_demand.py",
@@ -19,12 +19,18 @@
     "rurality_matched_rows": 2311,
     "rurality_explicit_unknown_rows": 2,
     "rurality_fingerprint": "d6858188c368e7f59d662c67232d52750a30941ed397884abe8b663c4d7912f3",
+    "deprivation_materializer": "scripts/materialize_sa2_deprivation.py",
+    "deprivation_report": "reports/sa2-deprivation.json",
+    "deprivation_rows": 2313,
+    "deprivation_matched_rows": 2208,
+    "deprivation_explicit_unknown_rows": 105,
+    "deprivation_fingerprint": "7d9a896620efd61c51bb49bf96ca3dca1124de40620a218acecd82c0b3e8b74d",
     "observed_or_individual_record_count": 0
   },
   "verification": {
-    "tests": 10,
+    "tests": 12,
     "status": "passed",
     "claim_boundary": "No individual-like records, pseudo-patients, observed demand, preferences, outcomes, or travel behaviour are present."
   },
-  "blocker": "Deprivation, ethnicity, vehicle-access artifacts and population-weighted multi-point spatial sensitivity remain to be materialized."
+  "blocker": "Ethnicity, vehicle-access artifacts, the NZDep geography concordance sensitivity, and population-weighted multi-point spatial sensitivity remain to be materialized."
 }
