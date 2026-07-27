@@ -1,12 +1,13 @@
 {
+  "claim_boundary": "Technical publication of reviewed aggregate scenario reports only; no confirmed service capability, observed capacity, operational feasibility, clinical guidance, raw source payload, or policy recommendation is published.",
+  "generated_at": "2026-07-27T07:11:29.826633+00:00",
+  "hosting_tier": "free_static_space",
+  "published_payload": "five_precomputed_national_aggregate_reports",
   "schema_version": "1.0.0",
-  "workflow": "Publish Hugging Face Space",
-  "workflow_run_id": 29898034050,
-  "source_revision": "13c6273e833ea5828744840eb4cb6d9712b9d952",
-  "space_revision": "140b79a",
-  "status": "succeeded",
-  "published_payload": "aggregate_synthetic_static_space",
-  "credential_source": "protected hugging-face environment",
+  "source_revision": "5e23127a14ff27ecb6898ef78a6c5debeb16ec5b",
   "space_identifier": "protected_environment_secret:HF_SPACE_ID",
-  "claim_boundary": "This receipt proves a successful technical Space push of the aggregate synthetic harness only. It does not establish clinical, licensing, equity, ethics, service-capability, or policy-publication approval."
+  "space_revision": "dc6ebdcc44a9466daa74016d15022c0bc490c15a",
+  "status": "succeeded",
+  "workflow": "Publish Hugging Face Space",
+  "workflow_run_id": 30245222214
 }

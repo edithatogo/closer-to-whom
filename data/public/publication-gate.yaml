@@ -1,13 +1,13 @@
 schema_version: "1.0.0"
 track_id: CTW-060-publication-and-space
-status: blocked_on_release_assurance
-release_assurance: refreshed_on_clean_main_pending_space_redeployment
+status: published
+release_assurance: clean_main_passed_and_space_revision_verified
 required_evidence:
   national_analysis_receipt: completed
-  source_and_licence_receipts: pending
+  source_and_licence_receipts: complete
   clinical_review_receipt: reviewed
   governance_review_receipt: out_of_scope_for_public_aggregate_harness
-  aggregate_artifact_review: pending
+  aggregate_artifact_review: complete
   space_credential: configured
   promotion_receipt: verified
 required_artifacts:
@@ -21,7 +21,7 @@ prohibited_content:
   - live Healthpoint payloads
   - row-level clinical records
 claim_boundary: >-
-  Release artefacts verify the repository and aggregate synthetic harness only. Publication remains
-  blocked until national analysis, source-level licensing/retrieval, public-input, routing, and
-  aggregate-artifact evidence gates are complete; Māori/equity and ethics/HDEC are out of scope for
-  this aggregate harness. Artifact existence does not establish service capability or authorisation.
+  Release artefacts verify the repository and the reviewed aggregate static payload. The published
+  reports remain modelled scenarios, and legacy synthetic fixtures remain outside the payload.
+  Publication does not establish confirmed service capability, observed capacity, operational
+  feasibility, clinical guidance, policy preference, or authorisation for a future non-public phase.
