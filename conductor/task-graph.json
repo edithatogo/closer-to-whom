@@ -19,7 +19,7 @@
     },
     {
       "id": "CTW-010-national-service-census",
-      "status": "active",
+      "status": "completed",
       "kind": "evidence"
     },
     {
@@ -44,12 +44,12 @@
     },
     {
       "id": "CTW-060-publication-and-space",
-      "status": "active",
+      "status": "completed",
       "kind": "release"
     },
     {
       "id": "CTW-070-microdata-voi-decision",
-      "status": "blocked",
+      "status": "completed",
       "kind": "decision"
     }
   ],

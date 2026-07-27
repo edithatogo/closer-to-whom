@@ -9,6 +9,8 @@ on:
       - "conductor/**"
       - "docs/publication/**"
       - "scripts/check_*"
+      - "scripts/publication_readiness.py"
+      - "scripts/release_gate.py"
       - "scripts/fetch_stats_nz_population_chunks.py"
       - ".github/workflows/**"
       - "Dockerfile"
