@@ -27,6 +27,7 @@ jobs:
           enable-cache: true
       - run: uv sync --locked --extra dev
       - run: uv run pip-audit
+      - run: uv run bandit -c .bandit -q -r src scripts
       - run: uv run python scripts/secret_scan.py
       - run: uv run python scripts/check_privacy_and_licences.py
       - run: uv run python scripts/check_workflows.py

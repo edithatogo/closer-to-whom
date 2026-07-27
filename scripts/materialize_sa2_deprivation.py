@@ -7,10 +7,10 @@ import json
 import re
 from datetime import UTC, datetime
 from pathlib import Path
-from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 import polars as pl
+from defusedxml import ElementTree as ET  # noqa: N817
 
 from closer_to_whom.io import write_parquet_deterministic
 

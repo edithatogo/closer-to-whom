@@ -13,11 +13,12 @@ import shutil
 import subprocess
 import sys
 import time
-import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
+
+from defusedxml import ElementTree as ET  # noqa: N817
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE = ROOT / "release"

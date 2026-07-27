@@ -80,7 +80,7 @@ governance: ## Validate claim, privacy, licence, and publication boundaries
 security: ## Run local security and dependency checks
 	$(UV) run python scripts/secret_scan.py
 	$(UV) run pip-audit
-	$(UV) run bandit -q -r src scripts || true
+	$(UV) run bandit -c .bandit -q -r src scripts
 
 docs: ## Build strict documentation
 	$(UV) run mkdocs build --strict
