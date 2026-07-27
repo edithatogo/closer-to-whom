@@ -175,3 +175,15 @@ decisions:
       Tax kilometre rates and reimbursement schedules are transparent public policy parameters,
       but neither measures observed patient expenditure or behaviour. Explicit unknown categories
       prevent unsupported zeroes or synthetic averages from entering national policy results.
+  - id: DEC-023
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Build the national road matrix from a minimal aggregate SA2 origin contract containing only
+      stable demand-cell identifiers and official coordinates. Keep expected demand, deprivation,
+      ethnicity, and rurality as separate analysis inputs.
+    rationale: >-
+      Route geometry does not depend on equity or demand attributes. This separation prevents an
+      upstream host restriction on the frozen NZDep workbook from blocking independent OSRM
+      evidence, while preserving the workbook's non-redistribution boundary and avoiding any
+      substitution or fabricated stratifier values.
