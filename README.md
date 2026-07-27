@@ -35,7 +35,9 @@ This repository estimates **potential geographic and economic accessibility** un
 - bounded national five-report candidate-network analysis with reviewed public aggregate inputs;
 - Polars and Arrow-first data flow with schema fingerprints, plus deterministic routing fixtures;
 - an aggregate-only free Hugging Face Static Space;
-- machine-readable assumptions, provenance, decisions, tracks, tasks, and release receipts.`r`n`r`nReusable library components are not automatically materialized national findings. The current national payload does not estimate unsupported delivery-setting capability, observed capacity, full cost perspectives, empirical PSA, monetary VOI, or broader distributional outcomes. Those remain tracked deliverables.
+- machine-readable assumptions, provenance, decisions, tracks, tasks, and release receipts.
+
+Reusable library components are not automatically materialized national findings. The current national payload does not estimate unsupported delivery-setting capability, observed capacity, full cost perspectives, empirical PSA, monetary VOI, or broader distributional outcomes. Those remain tracked deliverables.
 
 ## Quick start
 
