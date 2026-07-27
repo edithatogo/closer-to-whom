@@ -79,12 +79,25 @@ def check_conductor() -> None:
     graph = json.loads((ROOT / "conductor/task-graph.json").read_text(encoding="utf-8"))
     if project["project_id"] != state["project_id"]:
         raise ValueError("Conductor project and state IDs differ")
-    node_ids = {node["id"] for node in graph["nodes"]}
+    nodes = {str(node["id"]): node for node in graph["nodes"]}
     for edge in graph["edges"]:
-        if edge["from"] not in node_ids or edge["to"] not in node_ids:
+        if edge["from"] not in nodes or edge["to"] not in nodes:
             raise ValueError(f"Conductor edge references unknown node: {edge}")
-    if not state.get("active_track"):
-        raise ValueError("Conductor state requires an active track")
+    active_track = state.get("active_track")
+    if active_track:
+        if active_track not in nodes:
+            raise ValueError(f"Conductor active track is not in the task graph: {active_track}")
+        if nodes[active_track].get("status") != "active":
+            raise ValueError(f"Conductor active track node is not active: {active_track}")
+    else:
+        incomplete = sorted(
+            node_id for node_id, node in nodes.items() if node.get("status") != "completed"
+        )
+        if incomplete or state.get("next_tracks"):
+            raise ValueError(
+                "Conductor state may omit the active track only for a completed graph with no next tracks: "
+                f"{incomplete}"
+            )
 
 
 def main() -> None:

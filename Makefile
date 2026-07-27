@@ -27,6 +27,7 @@ generate: ## Regenerate JSON/Arrow schemas and the assumptions appendix
 	$(UV) run python scripts/generate_json_schemas.py
 	$(UV) run python scripts/generate_schema_registry.py
 	$(UV) run python scripts/generate_assumptions_appendix.py
+	$(UV) run python scripts/generate_upstream_materials.py
 	$(UV) run python scripts/prepare_upstream_handoff.py
 
 format: ## Apply deterministic Python formatting

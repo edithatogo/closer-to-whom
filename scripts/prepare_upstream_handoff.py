@@ -10,46 +10,54 @@ from typing import Any
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+CONTRACTS = ROOT / "upstream" / "contracts.yaml"
 REGISTRY = ROOT / "upstream" / "registry.yaml"
 
 
+def load(path: Path) -> dict[str, Any]:
+    """Load a YAML mapping."""
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    if not isinstance(payload, dict):
+        raise TypeError(f"Expected mapping in {path}")
+    return payload
+
+
 def main() -> int:
-    payload: Any = yaml.safe_load(REGISTRY.read_text(encoding="utf-8")) if REGISTRY.exists() else {}
-    libraries = payload.get("libraries", payload if isinstance(payload, list) else [])
-    if isinstance(libraries, dict):
-        libraries = [
-            dict(value, id=key) if isinstance(value, dict) else {"id": key, "state": value}
-            for key, value in libraries.items()
-        ]
+    contracts = load(CONTRACTS)
+    registry = load(REGISTRY)
     rows = []
-    for item in libraries if isinstance(libraries, list) else []:
+    for item in contracts.get("libraries", []):
         if not isinstance(item, dict):
             continue
-        identifier = str(item.get("id", item.get("name", "unknown")))
-        issue_candidates = (
-            list((ROOT / "upstream" / "issues").glob(f"*{identifier}*"))
-            if (ROOT / "upstream" / "issues").exists()
-            else []
-        )
-        patch_candidates = (
-            list((ROOT / "upstream" / "patches").glob(f"*{identifier}*"))
-            if (ROOT / "upstream" / "patches").exists()
-            else []
-        )
         rows.append(
             {
-                "library": identifier,
-                "remote_state": "unverified",
-                "issue_material": [p.relative_to(ROOT).as_posix() for p in issue_candidates],
-                "patch_material": [p.relative_to(ROOT).as_posix() for p in patch_candidates],
-                "local_compatibility_implementation": item.get(
-                    "local_compatibility_implementation"
-                ),
+                "library": item["name"],
+                "repository": item["repository"],
+                "reviewed_revision": item["pinned_revision"],
+                "issue_material": item["issue"],
+                "fixture": item["fixture"],
+                "local_adapter": item["local_adapter"],
+                "acceptance_tests": item["acceptance_tests"],
+                "remote_state": "metadata_and_revision_identity_verified",
+                "upstream_execution_state": "not_executed",
             }
         )
     output = ROOT / "release" / "upstream-handoff.json"
     output.write_text(
-        json.dumps({"schema_version": "1.0.0", "libraries": rows}, indent=2, sort_keys=True) + "\n"
+        json.dumps(
+            {
+                "schema_version": "1.0.0",
+                "remote_receipt": registry["remote_receipt"],
+                "fixture_receipt": registry["fixture_receipt"],
+                "libraries": rows,
+                "claim_boundary": registry["claim_boundary"],
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
     print(output)
     return 0

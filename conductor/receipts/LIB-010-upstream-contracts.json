@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "LIB-010-upstream-contracts",
+  "verified_on": "2026-07-27",
+  "status": "passed",
+  "libraries": 9,
+  "tests": 164,
+  "commands": [
+    "make check",
+    "uv run python scripts/check_upstream_compatibility.py"
+  ],
+  "contracts": "upstream/contracts.yaml",
+  "fixture_receipt": "upstream/receipts/compatibility-fixtures.json",
+  "remote_receipt": "upstream/receipts/remote-verification-2026-07-27.json",
+  "scheduled_monitor": ".github/workflows/upstream-watch.yml",
+  "upstream_issue_publication_state": "not_published",
+  "upstream_execution_state": "not_executed",
+  "claim_boundary": "Verifies downstream contracts, generated synthetic aggregate fixtures, local oracles, and public repository identity only; it does not establish an upstream issue, merge, release, execution, suitability assessment, licence permission, or endorsement."
+}

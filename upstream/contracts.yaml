@@ -1,0 +1,134 @@
+schema_version: "1.0.0"
+policy: optional_adapters_with_local_oracles
+claim_boundary: >-
+  These are downstream compatibility contracts and patch-ready upstream proposals. A pinned public
+  repository revision verifies identity only; it does not establish release, compatibility, suitability,
+  security, licence permission, endorsement, or execution of upstream code.
+libraries:
+  - name: sourceright
+    repository: https://github.com/edithatogo/sourceright
+    default_branch: main
+    pinned_revision: dde39b3bb334f79f12e395a5317b21e036336bdd
+    issue: upstream/issues/sourceright-evidence-licence-arrow.md
+    local_adapter: src/closer_to_whom/integrations/sourceright_adapter.py
+    fixture: upstream/fixtures/sourceright.parquet
+    interface:
+      summary: Typed claim-source links with evidence and fail-closed licence state.
+      operations: [validate_claim_graph, unresolved_claims, export_claim_graph]
+      input: claim_id, claim text, source identifiers, evidence grade, licence state, and claim status
+      output: validated Arrow claim graph plus unresolved and superseded claim sets
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_validation_integrations.py::test_claim_adapter_and_voiage_fallback
+  - name: authentext
+    repository: https://github.com/edithatogo/authentext
+    default_branch: main
+    pinned_revision: 7f70dad5b6deab1af92faf037ef2638e7f3aea05
+    issue: upstream/issues/authentext-claim-boundary-policy.md
+    local_adapter: scripts/check_claim_boundaries.py
+    fixture: upstream/fixtures/authentext.parquet
+    interface:
+      summary: Declarative claim-boundary lint with machine-readable diagnostics.
+      operations: [load_policy, lint_claims, emit_diagnostics]
+      input: scoped text plus prohibited and required phrase policy
+      output: deterministic line diagnostics in JSON or SARIF-compatible records
+    acceptance_tests:
+      - uv run pytest -q tests/contract/test_repository_contracts.py::test_claim_boundaries
+  - name: innovate
+    repository: https://github.com/edithatogo/innovate
+    default_branch: main
+    pinned_revision: 339931e8cdd105a71ab30f334eaf7ab4a2939e21
+    issue: upstream/issues/innovate-bounded-adoption-arrow.md
+    local_adapter: src/closer_to_whom/integrations/adoption.py
+    fixture: upstream/fixtures/innovate.parquet
+    interface:
+      summary: Bounded aggregate adoption trajectories with deterministic Arrow exchange.
+      operations: [logistic_adoption, adoption_draws, export_trajectory]
+      input: time, floor, ceiling, midpoint, steepness, group, and parameter draw
+      output: adoption fraction constrained to the closed interval zero to one
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_validation_integrations.py::test_adoption_curve_and_capabilities
+  - name: voiage
+    repository: https://github.com/edithatogo/voiage
+    default_branch: main
+    pinned_revision: ceefb5155217058a6e8a9b263960daa36e5bae64
+    issue: upstream/issues/voiage-research-design-structural-voi.md
+    local_adapter: src/closer_to_whom/integrations/voiage_adapter.py
+    fixture: upstream/fixtures/voiage.parquet
+    interface:
+      summary: Structural value-of-information calculations with an explicit scalar value function.
+      operations: [core_voi, evppi, evsi, research_design_value]
+      input: draw-by-option net value matrix, perspective, design, delay, and affected population
+      output: EVPI, EVPPI, EVSI, probability optimal, and break-even information value
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_optional_integrations.py::test_voiage_adapter_accepts_compatible_result_and_falls_back
+  - name: kairos
+    repository: https://github.com/edithatogo/kairos
+    default_branch: main
+    pinned_revision: fae901558f07b7b717a676adbafbe2cdc78dea1c
+    issue: upstream/issues/kairos-capacity-envelope-arrow.md
+    local_adapter: src/closer_to_whom/capacity.py
+    fixture: upstream/fixtures/kairos.parquet
+    interface:
+      summary: Aggregate capacity envelopes and implied resource requirements without person-level records.
+      operations: [capacity_envelope, implied_capacity, outage_sensitivity]
+      input: aggregate arrivals, pathway resource use, resource envelope, site state, and period
+      output: implied capacity, utilisation envelope, unmet aggregate demand, and queue summary
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_simulation_metrics.py::test_equity_and_capacity
+  - name: mars
+    repository: https://github.com/edithatogo/mars
+    default_branch: main
+    pinned_revision: cc17c8d632419c0f4a293ced1e785bd8c3e5bed6
+    issue: upstream/issues/mars-evppi-surrogate-diagnostics.md
+    local_adapter: src/closer_to_whom/voi.py
+    fixture: upstream/fixtures/mars.parquet
+    interface:
+      summary: Surrogate diagnostics that fail closed when decision loss is not acceptable.
+      operations: [fit_surrogate, diagnose_surrogate, compare_decision_loss]
+      input: deterministic train-test partitions, features, exact outcomes, and promotion thresholds
+      output: calibration, residuals, extrapolation flags, and exact-versus-surrogate decision loss
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_voi.py::test_evppi_methods
+  - name: open_social_data
+    repository: https://github.com/edithatogo/open_social_data
+    default_branch: main
+    pinned_revision: 29c8908267cbca47e91a6a93c9dceed1978b4a9e
+    issue: upstream/issues/open-social-data-licence-snapshot-manifest.md
+    local_adapter: data/public/source-registry.yaml
+    fixture: upstream/fixtures/open_social_data.parquet
+    interface:
+      summary: Public-source snapshot manifests separating access, represented date, and redistribution.
+      operations: [snapshot_source, validate_licence, materialisation_receipt]
+      input: source identity, retrieval and represented dates, terms evidence, transform graph, and policy
+      output: checksummed Arrow or Parquet receipt with explicit public-private boundary
+    acceptance_tests:
+      - uv run pytest -q tests/contract/test_repository_contracts.py::test_privacy_and_licences
+  - name: healthpoint-rs
+    repository: https://github.com/edithatogo/healthpoint-rs
+    default_branch: main
+    pinned_revision: 82c83b0b7bcac739ff143e730e20889d3919c880
+    issue: upstream/issues/healthpoint-rs-evidence-export.md
+    local_adapter: src/closer_to_whom/integrations/healthpoint.py
+    fixture: upstream/fixtures/healthpoint-rs.parquet
+    interface:
+      summary: Licensed capability-evidence export with separate local and publication grants.
+      operations: [validate_licence_grant, export_private_arrow, validate_publication_boundary]
+      input: service query, typed evidence fields, source time, and four explicit permission states
+      output: private Arrow evidence and licence receipt; public output only with explicit grants
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_optional_integrations.py::test_healthpoint_success_path_remains_private
+      - uv run pytest -q tests/unit/test_validation_integrations.py::test_healthpoint_fail_closed
+  - name: fyi-cli
+    repository: https://github.com/edithatogo/fyi-cli
+    default_branch: master
+    pinned_revision: 8c0ddcd695ef60fff5f4feb6cb38074457386084
+    issue: upstream/issues/fyi-cli-machine-receipts.md
+    local_adapter: src/closer_to_whom/integrations/fyi.py
+    fixture: upstream/fixtures/fyi-cli.parquet
+    interface:
+      summary: Optional machine-readable OIA request and response receipts with no automatic submission.
+      operations: [render_request, receipt_manifest, attachment_checksums]
+      input: minimised request manifest, agency, status, licence notes, and supersession links
+      output: rendered hash plus request, response, and attachment receipt metadata
+    acceptance_tests:
+      - uv run pytest -q tests/unit/test_optional_integrations.py::test_fyi_render_is_optional_and_writes_output

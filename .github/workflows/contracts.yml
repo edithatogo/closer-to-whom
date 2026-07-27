@@ -5,6 +5,7 @@ on:
       - "assumptions/**"
       - "scenarios/**"
       - "schemas/**"
+      - "upstream/**"
       - "data/public/**"
       - "conductor/**"
       - "docs/publication/**"
