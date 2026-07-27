@@ -13,7 +13,8 @@ on:
       - "scripts/release_gate.py"
       - "scripts/fetch_stats_nz_population_chunks.py"
       - ".github/workflows/**"
-      # Dependency manifests must trigger lockfile and schema compatibility checks.`r`n      - "Dockerfile"
+      # Dependency manifests must trigger lockfile and schema compatibility checks.
+      - "Dockerfile"
       - "pyproject.toml"
       - "uv.lock"
   workflow_dispatch:
