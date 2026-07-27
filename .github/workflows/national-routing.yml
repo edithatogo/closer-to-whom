@@ -28,7 +28,7 @@ jobs:
     env:
       STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
       INCLUDE_SPATIAL_SENSITIVITY: ${{ inputs.include_spatial_sensitivity }}
-      OSRM_IMAGE: ghcr.io/project-osrm/osrm-backend:v26.7.3
+      OSRM_IMAGE: ghcr.io/project-osrm/osrm-backend@sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad
       OSRM_VERSION: 26.7.3
       PBF_URL: https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf
       PBF_FILE: data/raw/osrm/new-zealand-260723.osm.pbf

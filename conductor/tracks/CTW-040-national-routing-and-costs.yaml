@@ -27,6 +27,9 @@ progress:
     - Implemented a bounded, deterministic, loopback-only OSRM matrix client that fails closed.
     - Captured national road and regional public-transport source receipts.
     - Frozen the dated 2026-07-23 New Zealand PBF identity and OSRM v26.7.3 release.
+    - Verified the PBF byte size and MD5 on GitHub run 30239038525 and recorded SHA-256
+      2356424989e598f8eadb40cff52e9ec98da4440fdc5132f01954c24c85da4a5b.
+    - Pinned the official OSRM v26.7.3-debian multi-architecture manifest by immutable digest.
     - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
     - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
     - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
