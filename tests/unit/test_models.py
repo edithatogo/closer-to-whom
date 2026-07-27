@@ -74,6 +74,25 @@ def test_demand_cell_rejects_confidential_classification() -> None:
         )
 
 
+def test_demand_cell_allows_explicit_unknown_deprivation() -> None:
+    cell = DemandCell(
+        demand_cell_id="D1",
+        geography_code="G1",
+        geography_level="SA2",
+        routing_point_id="R1",
+        latitude=-41.0,
+        longitude=174.0,
+        region="Region",
+        district="District",
+        ethnicity="aggregate_all",
+        deprivation_quintile=None,
+        rurality="unknown",
+        expected_courses=0.0,
+        data_classification=DataClassification.GENERATED_AGGREGATE,
+    )
+    assert cell.deprivation_quintile is None
+
+
 def test_central_scenario_requires_site() -> None:
     with pytest.raises(ValidationError, match="central_facility_id"):
         Scenario(

@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-020-public-demand-and-geography
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/3
 objective: Build aggregate expected-demand cells and within-area spatial draws from public data.
 acceptance_criteria:
@@ -20,5 +20,6 @@ progress:
     - Materialized six overlapping 2023 Census total-response ethnicity groups across all 2,313 denominator SA2 codes, retaining 535 suppressed group cells as explicit unknowns.
     - Materialized the 2023 Census no-motor-vehicle household proxy across all 2,313 denominator SA2 codes, retaining 101 suppressed values as explicit unknowns.
     - Materialized 31,599 positive-population SA1 centroid sensitivity origins with weights summing to one in every denominator SA2 and explicit true-centroid fallback for 49 SA2s.
-  remaining:
-    - Resolve the NZDep2023-to-2025 SA2 concordance where authoritative public weights permit.
+    - Verified all 57 NZDep code mismatches have zero captured population; 48 official source blanks remain explicit unknowns and classified values cover 99.977 percent of the captured population.
+    - Materialized 2,313 aggregate baseline demand cells, reconciled exactly to 322.16967 annual expected courses without duplicating multi-point origins.
+  remaining: []

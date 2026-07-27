@@ -97,7 +97,7 @@ class DemandCell(StrictModel):
     region: str = Field(min_length=1)
     district: str = Field(min_length=1)
     ethnicity: str = Field(min_length=1)
-    deprivation_quintile: Annotated[int, Field(ge=1, le=5)]
+    deprivation_quintile: Annotated[int, Field(ge=1, le=5)] | None = None
     rurality: str = Field(min_length=1)
     expected_courses: NonNegativeFloat
     data_classification: DataClassification

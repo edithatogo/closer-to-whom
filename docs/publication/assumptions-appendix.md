@@ -15,6 +15,7 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | D04 | treatment_uptake = 0.631. Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate. | captured_public_aggregate_qpi_2020_21 | structural_scenario |  |
 | D05 | stage_i_iii_probability = 0.93. Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario. | captured_public_aggregate_estimate | structural_scenario |  |
 | D06 | annual_female_breast_cancer_registrations = 3660. Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025. | captured_public_aggregate_2022 | temporal_scenario |  |
+| D07 | small_area_allocation_baseline = proportional_to_2023_census_female_population. National expected courses are allocated by 2023 Census female population; 84 source-unavailable SA2s use 2025 population scaled by the observed national female share and are explicitly identified. This is a planning baseline, not observed small-area incidence. | materialized_model_assumption | structural_spatial_temporal |  |
 | E01 | rurality_measure = Stats_NZ_Urban_Rural_2023_centroid_class. Stats NZ Urban Rural 2023 is the open baseline stratifier at each official SA2 true centroid; network travel remains the access measure, and GCH23 remains a separate restricted sensitivity input. | materialized_public_aggregate | structural |  |
 | E02 | deprivation_measure = NZDep2023. The official SA2 workbook supports 2,208 denominator areas; 48 source-blank and 57 version-mismatched areas remain explicit unknowns. Area deprivation is never interpreted as an individual attribute. | materialized_public_aggregate_with_explicit_unknowns | ecological |  |
 | E03 | equity_weights = scenario_range. No single weight set is represented as stakeholder-derived without governance. | normative_uncertainty | stochastic_mcda |  |
@@ -37,4 +38,4 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | U02 | structural_uncertainty = reported_separately. Structural alternatives are not collapsed into false-precision intervals. | hard_constraint | none |  |
 | V01 | microdata_decision_rule = positive_ENBS_and_decision_relevance. Granular research is justified only when it may change a material decision or equity conclusion. | method | decision |  |
 
-Total assumptions: **32**.
+Total assumptions: **33**.

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-020-public-demand-and-geography",
-  "status": "active_core_stratifiers_and_spatial_sensitivity_complete",
+  "status": "completed",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/3",
   "implementation": {
     "materializer": "scripts/materialize_public_demand.py",
@@ -41,12 +41,22 @@
     "positive_population_sa1_origin_rows": 31599,
     "true_centroid_fallback_sa2_rows": 49,
     "population_weighted_origin_fingerprint": "81e676595d403ba444a5898d494b1a92968f79fedb0c7c9da78881fff7a35f2a",
+    "demographic_allocation_rows": 2313,
+    "demographic_allocation_matched_rows": 2229,
+    "demographic_allocation_explicit_unknown_rows": 84,
+    "demographic_allocation_fingerprint": "4c369849cdae36274ce0cc794098b58121971fdaf7f1a4a6f9ffc4aa699d8a55",
+    "national_demand_materializer": "scripts/materialize_national_demand_cells.py",
+    "national_demand_report": "reports/national-demand-cells.json",
+    "national_demand_cell_rows": 2313,
+    "national_demand_expected_courses": 322.16967,
+    "national_demand_fingerprint": "b7f7bd23e6e8de3ebd7f8b37b73ce2ac7886be5f2e640b739a60625dbb1d1023",
+    "nzdep_population_coverage": 0.9997736146960826,
     "observed_or_individual_record_count": 0
   },
   "verification": {
-    "tests": 17,
+    "tests": 20,
     "status": "passed",
     "claim_boundary": "No individual-like records, pseudo-patients, observed demand, preferences, outcomes, or travel behaviour are present."
   },
-  "blocker": "The NZDep geography concordance sensitivity remains to be materialized where authoritative public weights permit."
+  "blocker": null
 }

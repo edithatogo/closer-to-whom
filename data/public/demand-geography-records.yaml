@@ -1,18 +1,11 @@
 schema_version: "1.0.0"
-status: core_stratifiers_and_spatial_sensitivity_complete
-freeze_date: null
-pending_reason: >-
-  The authenticated SA2 population denominator and national incidence, HER2 prevalence, stage,
-  and treatment-uptake calibration are captured. Official true centroids are materialized for all
-  2,313 denominator SA2s. Official Urban Rural 2023 classes are materialized for 2,311 SA2s; two
-  zero-population SA2s remain explicitly unknown. NZDep2023 is materialized for 2,208 SA2s, with
-  105 source-blank or geography-version-mismatched areas explicit unknowns. Official 2023 Census
-  overlapping total-response ethnicity groups and no-motor-vehicle household proxies are
-  materialized across every denominator SA2 code, with source suppression explicit. Population-
-  weighted SA1 centroid sensitivity origins are materialized with true-centroid fallback for 49
-  SA2s. The deprivation concordance sensitivity remains pending; no observed small-area demand is
-  asserted.
+status: frozen
+freeze_date: 2026-07-27
+pending_reason: null
+materialized_output: data/derived/national-demand-cells.parquet
+materialization_report: reports/national-demand-cells.json
 claim_boundary: >-
-  Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
-  demand, preferences, outcomes, or travel behaviour.
+  The source-backed output contains modelled aggregate SA2 expectations only. It contains no
+  individuals, pseudo-patients, observed treatment demand, preferences, outcomes, or travel
+  behaviour. Source-suppressed stratifier values remain explicit unknowns.
 records: []

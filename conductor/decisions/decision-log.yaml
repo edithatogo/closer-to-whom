@@ -150,3 +150,15 @@ decisions:
       All 2,313 denominator SA2s remain covered and weights reconcile to one; 45 zero-population and
       four positive-population SA2s retain explicit fallback because the source offers no
       unambiguous positive SA1 assignment.
+  - id: DEC-021
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Materialize one baseline aggregate demand cell per SA2, allocating the national expected-course
+      scenario in proportion to public 2023 Census female population. Keep overlapping ethnicity and
+      vehicle-access profiles separate, permit explicit unknown deprivation, and retain multi-point
+      origins as a routing sensitivity rather than duplicating demand.
+    rationale: >-
+      This produces a reconciled national demand table without pseudo-patients or double counting.
+      Source-unavailable female counts use a declared population-scaled national-share fallback;
+      the allocation is a structural planning assumption, not observed small-area incidence.

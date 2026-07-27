@@ -86,7 +86,7 @@ def simulate_scenario_pathway(
     course_on_site_minutes = float(pathway_data["course_on_site_minutes"])
 
     demand_lookup = {row["demand_cell_id"]: row for row in demand.iter_rows(named=True)}
-    rows: list[dict[str, str | int | float | bool]] = []
+    rows: list[dict[str, str | int | float | bool | None]] = []
     for assigned in assignment.sort("demand_cell_id").iter_rows(named=True):
         demand_row = demand_lookup[str(assigned["demand_cell_id"])]
         one_way_km = float(assigned["one_way_km"])
@@ -106,7 +106,8 @@ def simulate_scenario_pathway(
             home_provider_round_trip_km=provider_round_trip_km,
             home_provider_minutes=provider_minutes,
         )
-        row: dict[str, str | int | float | bool] = {
+        deprivation = demand_row["deprivation_quintile"]
+        row: dict[str, str | int | float | bool | None] = {
             "scenario_id": scenario.scenario_id,
             "scenario_name": scenario.name,
             "scenario_kind": scenario.kind.value,
@@ -118,7 +119,7 @@ def simulate_scenario_pathway(
             "region": str(demand_row["region"]),
             "district": str(demand_row["district"]),
             "ethnicity": str(demand_row["ethnicity"]),
-            "deprivation_quintile": int(demand_row["deprivation_quintile"]),
+            "deprivation_quintile": int(deprivation) if deprivation is not None else None,
             "rurality": str(demand_row["rurality"]),
             "expected_courses": float(demand_row["expected_courses"]),
             "one_way_km": one_way_km,

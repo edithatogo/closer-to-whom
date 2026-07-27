@@ -23,5 +23,9 @@
   "matched_rows": 13343,
   "explicit_unknown_rows": 535,
   "parquet_fingerprint": "ebe52e5d06635831a66dbf5e384462cade14949721c095f2d24dad394fe3a964",
+  "demographic_allocation_rows": 2313,
+  "demographic_allocation_matched_rows": 2229,
+  "demographic_allocation_explicit_unknown_rows": 84,
+  "demographic_allocation_fingerprint": "4c369849cdae36274ce0cc794098b58121971fdaf7f1a4a6f9ffc4aa699d8a55",
   "claim_boundary": "Six broad 2023 Census total-response ethnicity groups are retained as overlapping public aggregate SA2 measures and never as individual attributes."
 }

@@ -2,23 +2,19 @@ schema_version: "1.0.0"
 project_id: closer-to-whom
 updated_at: 2026-07-27
 version: "0.2.0"
-active_track: CTW-020-public-demand-and-geography
-phase: stratification_complete_national_routing_preparation
+active_track: CTW-040-national-routing-and-costs
+phase: national_routing_and_costs
 software_status: hosted_main_verified
-model_status: source_backed_core_stratifiers_and_spatial_sensitivity_complete
+model_status: source_backed_demand_geography_complete_routing_pending
 publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
-  Software, the captured SA2 population denominator, national aggregate demand calibration, and
-  official SA2 routing origins, rurality classes, NZDep2023 area values, overlapping Census
-  ethnicity groups, household vehicle-access proxies, and population-weighted SA1 origin
-  sensitivities are implemented and verifiable, with unsupported or suppressed values explicit
-  unknowns. No
-  fully stratified small-area demand, route, cost, optimisation, or policy estimate is publication
-  ready until the deprivation concordance sensitivity, pinned national road matrix, and aggregate
-  analysis are complete.
+  Software, the public-input freeze, 2,313 aggregate SA2 demand cells, core ecological stratifiers,
+  baseline origins, and population-weighted spatial sensitivity are implemented and verifiable.
+  Unsupported or suppressed values remain explicit unknowns. No route, cost, optimisation, or
+  policy estimate is publication ready until the pinned national road matrix and aggregate analysis
+  are complete.
 next_tracks:
   - CTW-010-national-service-census
-  - CTW-020-public-demand-and-geography
   - CTW-030-clinical-pathway-freeze
   - CTW-040-national-routing-and-costs
   - CTW-050-national-analysis
@@ -26,7 +22,6 @@ next_tracks:
   - CTW-070-microdata-voi-decision
 external_dependencies:
   - "CTW-010 / GitHub issue #2: national service census and licence adjudication"
-  - "CTW-020 / GitHub issue #3: public demand and geography dataset freeze"
   - "CTW-030 / GitHub issue #4: clinical pathway review and freeze"
   - "GitHub issue #5: Māori/equity and ethics-scope work is out of scope for the current harness"
   - "LIB-010 / GitHub issue #6: upstream ecosystem contracts"
@@ -36,7 +31,7 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 142
+  tests: 145
   optional_not_run:
     - Docker container health check
     - Mojo canary

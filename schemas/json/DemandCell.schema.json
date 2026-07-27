@@ -25,10 +25,18 @@
       "type": "string"
     },
     "deprivation_quintile": {
-      "maximum": 5,
-      "minimum": 1,
-      "title": "Deprivation Quintile",
-      "type": "integer"
+      "anyOf": [
+        {
+          "maximum": 5,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Deprivation Quintile"
     },
     "district": {
       "minLength": 1,
@@ -99,7 +107,6 @@
     "region",
     "district",
     "ethnicity",
-    "deprivation_quintile",
     "rurality",
     "expected_courses",
     "data_classification"

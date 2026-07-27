@@ -19,6 +19,7 @@ fetch_attributes = _MODULE.fetch_attributes
 materialize = _MODULE.materialize
 ethnicity_frame = _MODULE._ethnicity_frame
 vehicle_frame = _MODULE._vehicle_frame
+demographic_frame = _MODULE._demographic_frame
 
 
 def test_fetch_attributes_paginates_and_orders() -> None:
@@ -56,6 +57,7 @@ def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
         if is_ethnicity:
             attributes.update(dict.fromkeys(_MODULE.ETHNICITY_FIELDS.values(), 10))
             attributes[_MODULE.ETHNICITY_TOTAL_STATED] = 20
+            attributes[_MODULE.FEMALE_POPULATION_FIELD] = 9
         else:
             attributes.update(
                 {
@@ -71,6 +73,7 @@ def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
         population_path,
         tmp_path / "ethnicity.parquet",
         tmp_path / "vehicle.parquet",
+        tmp_path / "demographic.parquet",
         tmp_path / "report.json",
         getter=getter,
     )
@@ -78,6 +81,8 @@ def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
     assert report["ethnicity_explicit_unknown_rows"] == 6
     assert report["vehicle_access_rows"] == 2
     assert report["vehicle_access_explicit_unknown_rows"] == 1
+    assert report["demographic_allocation_rows"] == 2
+    assert report["demographic_allocation_explicit_unknown_rows"] == 1
     vehicle = pl.read_parquet(tmp_path / "vehicle.parquet")
     assert vehicle.filter(pl.col("geography_code") == "100100")[
         "no_motor_vehicle_share"
@@ -107,3 +112,9 @@ def test_suppression_sentinel_becomes_unknown_not_negative() -> None:
     assert vehicle["no_motor_vehicle"].item() is None
     assert vehicle["no_motor_vehicle_share"].item() is None
     assert vehicle["vehicle_access_status"].item() == "unknown_source_suppressed_or_unavailable"
+    demographic = demographic_frame(
+        population,
+        [{**common, _MODULE.FEMALE_POPULATION_FIELD: -999}],
+    )
+    assert demographic["female_population_2023"].item() is None
+    assert demographic["female_population_status"].item() == "unknown_source_suppressed_or_unavailable"

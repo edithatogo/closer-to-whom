@@ -81,6 +81,14 @@ assumptions:
     lower: 3500
     upper: 3660
     rationale: Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025.
+  - id: D07
+    domain: demand
+    name: small_area_allocation_baseline
+    value: proportional_to_2023_census_female_population
+    status: materialized_model_assumption
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2, candidate.statsnz-population-estimates-2023-base]
+    uncertainty: structural_spatial_temporal
+    rationale: National expected courses are allocated by 2023 Census female population; 84 source-unavailable SA2s use 2025 population scaled by the observed national female share and are explicitly identified. This is a planning baseline, not observed small-area incidence.
   - id: F01
     domain: facilities
     name: conservative_evidence_threshold

@@ -20,7 +20,6 @@
   ],
   "remaining": [
     "on a Docker-capable networked runner, download PBF and record SHA-256 plus image digest",
-    "complete aggregate demand and facility inputs",
     "materialize national road matrix",
     "materialize cost-category receipts"
   ],

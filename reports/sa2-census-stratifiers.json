@@ -1,10 +1,14 @@
 {
   "claim_boundary": "All values are public aggregate Census area statistics. Ethnicity uses overlapping total-response groups and is never an individual attribute. Vehicle access is a household-area proxy, not observed transport availability for any person.",
+  "demographic_allocation_explicit_unknown_rows": 84,
+  "demographic_allocation_fingerprint": "4c369849cdae36274ce0cc794098b58121971fdaf7f1a4a6f9ffc4aa699d8a55",
+  "demographic_allocation_matched_rows": 2229,
+  "demographic_allocation_rows": 2313,
   "ethnicity_explicit_unknown_rows": 535,
   "ethnicity_fingerprint": "ebe52e5d06635831a66dbf5e384462cade14949721c095f2d24dad394fe3a964",
   "ethnicity_matched_rows": 13343,
   "ethnicity_rows": 13878,
-  "generated_at": "2026-07-27T02:39:46.959529+00:00",
+  "generated_at": "2026-07-27T02:51:17.905068+00:00",
   "population_reference_year": 2025,
   "schema_version": "1.0.0",
   "source_feature_counts": {

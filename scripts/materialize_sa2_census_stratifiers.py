@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_POPULATION = ROOT / "data/derived/stats-nz-population.parquet"
 DEFAULT_ETHNICITY_OUTPUT = ROOT / "data/derived/sa2-ethnicity.parquet"
 DEFAULT_VEHICLE_OUTPUT = ROOT / "data/derived/sa2-vehicle-access.parquet"
+DEFAULT_DEMOGRAPHIC_OUTPUT = ROOT / "data/derived/sa2-demographic-allocation.parquet"
 DEFAULT_REPORT = ROOT / "reports/sa2-census-stratifiers.json"
 INDIVIDUALS_LAYER = (
     "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/"
@@ -37,6 +38,7 @@ ETHNICITY_FIELDS = {
     "other_ethnicity": "VAR_1_163",
 }
 ETHNICITY_TOTAL_STATED = "VAR_1_168"
+FEMALE_POPULATION_FIELD = "VAR_1_286"
 VEHICLE_FIELDS = {
     "no_motor_vehicle": "VAR_4_136",
     "not_elsewhere_included": "VAR_4_142",
@@ -61,6 +63,8 @@ def fetch_attributes(
     *,
     getter: JsonGetter = _get_json,
     page_size: int = 2000,
+    snapshot_dir: Path | None = None,
+    snapshot_prefix: str = "arcgis",
 ) -> list[dict[str, Any]]:
     """Fetch all attributes in stable SA2-code order with bounded requests."""
     rows: list[dict[str, Any]] = []
@@ -77,7 +81,15 @@ def fetch_attributes(
                 "f": "json",
             }
         )
-        payload = getter(f"{layer_url}/query?{query}")
+        snapshot = (
+            snapshot_dir / f"{snapshot_prefix}-page{offset // page_size}.json"
+            if snapshot_dir is not None
+            else None
+        )
+        if snapshot is not None and snapshot.is_file():
+            payload = json.loads(snapshot.read_text(encoding="utf-8"))
+        else:
+            payload = getter(f"{layer_url}/query?{query}")
         if payload.get("error"):
             raise ValueError(f"ArcGIS query failed: {payload['error']}")
         features = payload.get("features")
@@ -196,28 +208,68 @@ def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -
     )
 
 
+def _demographic_frame(
+    population: pl.DataFrame, attributes: list[dict[str, Any]]
+) -> pl.DataFrame:
+    rows = []
+    for row in attributes:
+        raw_female = row.get(FEMALE_POPULATION_FIELD)
+        female = int(raw_female) if raw_female is not None and int(raw_female) >= 0 else None
+        rows.append(
+            {
+                "geography_code": str(row["SA22023_V1_00"]),
+                "geography_name_2023": str(row["SA22023_V1_00_NAME"]),
+                "female_population_2023": female,
+            }
+        )
+    return (
+        population.join(pl.DataFrame(rows), on="geography_code", how="left")
+        .with_columns(
+            pl.when(pl.col("geography_name_2023").is_null())
+            .then(pl.lit("unknown_sa2_version_mismatch"))
+            .when(pl.col("female_population_2023").is_null())
+            .then(pl.lit("unknown_source_suppressed_or_unavailable"))
+            .otherwise(pl.lit("matched_2023_sa2_code"))
+            .alias("female_population_status")
+        )
+        .sort("geography_code")
+    )
+
+
 def materialize(
     population_path: Path,
     ethnicity_output: Path,
     vehicle_output: Path,
+    demographic_output: Path,
     report_path: Path,
     *,
     getter: JsonGetter = _get_json,
+    snapshot_dir: Path | None = None,
 ) -> dict[str, object]:
     population = _population_codes(population_path)
     common = ["SA22023_V1_00", "SA22023_V1_00_NAME"]
     ethnicity_attributes = fetch_attributes(
         INDIVIDUALS_LAYER,
-        [*common, *ETHNICITY_FIELDS.values(), ETHNICITY_TOTAL_STATED],
+        [
+            *common,
+            *ETHNICITY_FIELDS.values(),
+            ETHNICITY_TOTAL_STATED,
+            FEMALE_POPULATION_FIELD,
+        ],
         getter=getter,
+        snapshot_dir=snapshot_dir,
+        snapshot_prefix="census-individuals",
     )
     vehicle_attributes = fetch_attributes(
         HOUSEHOLDS_LAYER,
         [*common, *VEHICLE_FIELDS.values()],
         getter=getter,
+        snapshot_dir=snapshot_dir,
+        snapshot_prefix="census-households",
     )
     ethnicity = _ethnicity_frame(population, ethnicity_attributes)
     vehicle = _vehicle_frame(population, vehicle_attributes)
+    demographic = _demographic_frame(population, ethnicity_attributes)
     ethnicity_output.parent.mkdir(parents=True, exist_ok=True)
     ethnicity_fingerprint = write_parquet_deterministic(
         ethnicity, ethnicity_output, sort_by=("geography_code", "ethnicity_group")
@@ -225,11 +277,17 @@ def materialize(
     vehicle_fingerprint = write_parquet_deterministic(
         vehicle, vehicle_output, sort_by=("geography_code",)
     )
+    demographic_fingerprint = write_parquet_deterministic(
+        demographic, demographic_output, sort_by=("geography_code",)
+    )
     ethnicity_unknown = ethnicity.filter(
         pl.col("ethnicity_status") != "matched_2023_sa2_code"
     ).height
     vehicle_unknown = vehicle.filter(
         pl.col("vehicle_access_status") != "matched_2023_sa2_code"
+    ).height
+    demographic_unknown = demographic.filter(
+        pl.col("female_population_status") != "matched_2023_sa2_code"
     ).height
     report: dict[str, object] = {
         "schema_version": "1.0.0",
@@ -257,6 +315,10 @@ def materialize(
         "vehicle_access_matched_rows": vehicle.height - vehicle_unknown,
         "vehicle_access_explicit_unknown_rows": vehicle_unknown,
         "vehicle_access_fingerprint": vehicle_fingerprint,
+        "demographic_allocation_rows": demographic.height,
+        "demographic_allocation_matched_rows": demographic.height - demographic_unknown,
+        "demographic_allocation_explicit_unknown_rows": demographic_unknown,
+        "demographic_allocation_fingerprint": demographic_fingerprint,
         "claim_boundary": (
             "All values are public aggregate Census area statistics. Ethnicity uses overlapping "
             "total-response groups and is never an individual attribute. Vehicle access is a "
@@ -277,7 +339,9 @@ def main() -> int:
     parser.add_argument("--population", type=Path, default=DEFAULT_POPULATION)
     parser.add_argument("--ethnicity-output", type=Path, default=DEFAULT_ETHNICITY_OUTPUT)
     parser.add_argument("--vehicle-output", type=Path, default=DEFAULT_VEHICLE_OUTPUT)
+    parser.add_argument("--demographic-output", type=Path, default=DEFAULT_DEMOGRAPHIC_OUTPUT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT)
+    parser.add_argument("--snapshot-dir", type=Path)
     args = parser.parse_args()
     print(
         json.dumps(
@@ -285,7 +349,9 @@ def main() -> int:
                 args.population,
                 args.ethnicity_output,
                 args.vehicle_output,
+                args.demographic_output,
                 args.report,
+                snapshot_dir=args.snapshot_dir,
             ),
             indent=2,
             sort_keys=True,

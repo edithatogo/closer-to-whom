@@ -10,7 +10,7 @@ from typing import Final
 
 import pyarrow as pa
 
-SCHEMA_VERSION: Final[str] = "1.0.0"
+SCHEMA_VERSION: Final[str] = "1.1.0"
 
 FACILITY_SCHEMA = pa.schema(
     [
@@ -44,7 +44,7 @@ DEMAND_SCHEMA = pa.schema(
         pa.field("region", pa.string(), nullable=False),
         pa.field("district", pa.string(), nullable=False),
         pa.field("ethnicity", pa.string(), nullable=False),
-        pa.field("deprivation_quintile", pa.int8(), nullable=False),
+        pa.field("deprivation_quintile", pa.int8(), nullable=True),
         pa.field("rurality", pa.string(), nullable=False),
         pa.field("expected_courses", pa.float64(), nullable=False),
         pa.field("data_classification", pa.string(), nullable=False),
@@ -59,7 +59,7 @@ RESULT_SCHEMA = pa.schema(
         pa.field("demand_cell_id", pa.string(), nullable=False),
         pa.field("facility_id", pa.string(), nullable=False),
         pa.field("ethnicity", pa.string(), nullable=False),
-        pa.field("deprivation_quintile", pa.int8(), nullable=False),
+        pa.field("deprivation_quintile", pa.int8(), nullable=True),
         pa.field("rurality", pa.string(), nullable=False),
         pa.field("expected_courses", pa.float64(), nullable=False),
         pa.field("one_way_km", pa.float64(), nullable=False),
