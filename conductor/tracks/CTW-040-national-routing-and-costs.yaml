@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-040-national-routing-and-costs
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/19
 objective: Build reproducible national routing and course-level burden estimates after service and demand freezes.
 inputs:
@@ -30,6 +30,11 @@ progress:
     - Verified the PBF byte size and MD5 on GitHub run 30239038525 and recorded SHA-256
       2356424989e598f8eadb40cff52e9ec98da4440fdc5132f01954c24c85da4a5b.
     - Pinned the official OSRM v26.7.3-debian multi-architecture manifest by immutable digest.
+    - Materialized 43,947 baseline OSRM routes for 2,313 aggregate SA2 origins and 19
+      plausible facilities, with zero nulls and no approximation.
+    - Materialized 601,312 spatial-sensitivity routes for 31,648 weighted/fallback origins
+      across all 2,313 SA2s and 19 facilities.
+    - Published immutable routing receipt and Parquet artifacts in successful run 30240382950.
     - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
     - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
     - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
@@ -38,6 +43,4 @@ progress:
     - Decoupled the OSRM matrix input from NZDep and other analysis-only stratifiers through a
       tested minimal aggregate SA2 route-origin contract.
     - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
-  remaining:
-    - On a Docker-capable networked runner, download the PBF, verify its published MD5, record its SHA-256, and record the pulled image digest.
-    - Build the local routing graph and materialize the national matrix against the frozen demand and plausible-facility inputs.
+  remaining: []

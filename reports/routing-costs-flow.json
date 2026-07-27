@@ -15,14 +15,14 @@
   "cost_parameters_sha256": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d",
   "demand_rows": 2313,
   "facility_rows": 19,
-  "generated_at": "2026-07-27T03:03:38.362947+00:00",
-  "parquet_fingerprint": "67d7775421549d6ce8bddd58c617de89cea61feeb98374339b09ce483330c143",
+  "generated_at": "2026-07-27T05:45:09.723062+00:00",
+  "parquet_fingerprint": "1f268ccbf83b274e778706e142c6509a8c2f474c78ddd2d8cdabccaae38b5925",
   "retrieval_date": "2026-07-27",
-  "route_cache_fingerprint": "941a55039686001cdf0eff1e630fd3ecdfee59d4424bd33b688be8dc192b0f7e",
-  "route_engine": "offline-approximation",
-  "route_engine_version": "1",
-  "route_is_approximation": true,
+  "route_cache_fingerprint": "be593ecd304b916007a0ef5efea2b4e0aa59d325bc92d0be6acb05bd395fe174",
+  "route_engine": "osrm",
+  "route_engine_version": "26.7.3",
+  "route_is_approximation": false,
   "route_rows": 43947,
   "schema_version": "1.0.0",
-  "status": "materialized_offline_approximation"
+  "status": "materialized_local_osrm_road_matrix"
 }

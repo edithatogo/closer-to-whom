@@ -2,18 +2,18 @@ schema_version: "1.0.0"
 project_id: closer-to-whom
 updated_at: 2026-07-27
 version: "0.2.0"
-active_track: CTW-040-national-routing-and-costs
-phase: national_routing_and_costs
+active_track: CTW-050-national-analysis
+phase: national_analysis
 software_status: hosted_main_verified
-model_status: source_backed_demand_geography_and_partial_costs_routing_pending
+model_status: national_osrm_routes_complete_analysis_pending
 publication_status: blocked_on_evidence_and_analysis
 current_claim_boundary: >-
   Software, the public-input freeze, 2,313 aggregate SA2 demand cells, core ecological stratifiers,
-  baseline origins, and population-weighted spatial sensitivity are implemented and verifiable.
+  baseline origins, population-weighted spatial sensitivity, and national OSRM route matrices are implemented and verifiable.
   Source-backed vehicle-resource and NTA reimbursement scenarios are frozen; unsupported,
-  route-specific, or suppressed values remain explicit unknowns. No route, national burden,
-  optimisation, or policy estimate is publication ready until the pinned national road matrix and
-  aggregate analysis are complete.
+  route-specific, or suppressed values remain explicit unknowns. No national burden,
+  optimisation, or policy estimate is publication ready until the aggregate national
+  analysis is complete.
 next_tracks:
   - CTW-040-national-routing-and-costs
   - CTW-050-national-analysis

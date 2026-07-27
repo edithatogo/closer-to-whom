@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-040-national-routing-and-costs",
-  "status": "active_network_and_engine_identity_verified_matrix_pending",
+  "status": "completed_national_osrm_evidence_materialized",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/19",
   "materializer": "scripts/materialize_route_costs.py",
   "report": "reports/routing-costs-flow.json",
@@ -26,12 +26,22 @@
     "tests/unit/test_route_sensitivity_materializer.py",
     "tests/unit/test_travel_cost_parameter_materializer.py"
   ],
-  "remaining": [
-    "materialize national road matrix and immutable artifact receipt"
-  ],
+  "remaining": [],
   "local_runtime_blockers": {
     "pbf_transfer": "timed_out_before_payload_after_successful_HEAD",
     "docker": "executable_not_installed"
   },
-  "claim_boundary": "The loopback OSRM client and partial source-backed cost freeze are implemented, but no national road matrix or travel-burden estimate is claimed until the pinned network is materialized."
+  "claim_boundary": "The loopback OSRM client and partial source-backed cost freeze are implemented, but no national road matrix or travel-burden estimate is claimed until the pinned network is materialized.",
+  "routing_run": {
+    "run_id": 30240382950,
+    "commit": "d51536c66e78c5a6bf43f88dfe456e47c810c07c",
+    "conclusion": "success",
+    "artifact_id": 8643121451,
+    "artifact_name": "national-routing-d51536c66e78c5a6bf43f88dfe456e47c810c07c",
+    "artifact_expires_on": "2026-08-10",
+    "receipt": "conductor/receipts/CTW-040-national-routing-run-30240382950.json",
+    "baseline_route_rows": 43947,
+    "sensitivity_route_rows": 601312,
+    "route_is_approximation": false
+  }
 }

@@ -1,0 +1,64 @@
+{
+  "algorithm": "mld",
+  "claim_boundary": "Artifact-only aggregate road-network evidence. No patient, observed journey, service capability, capacity, eligibility, cost, or policy claim is created.",
+  "commit": "d51536c66e78c5a6bf43f88dfe456e47c810c07c",
+  "generated_at": "2026-07-27T05:45:42.566938+00:00",
+  "osrm_image_digest": "ghcr.io/project-osrm/osrm-backend@sha256:a7091038e39a73659767f34ef2d389909b42ea80b09bd2bdca482dce2991cbad",
+  "osrm_version": "26.7.3",
+  "pbf_bytes": 400231615,
+  "pbf_md5": "056bf3eb9d9ddd7c23c99b9f3e444656",
+  "pbf_sha256": "2356424989e598f8eadb40cff52e9ec98da4440fdc5132f01954c24c85da4a5b",
+  "pbf_url": "https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf",
+  "reports": {
+    "reports/routing-costs-flow.json": {
+      "payload": {
+        "claim_boundary": "Offline approximation routes are development fallbacks, not road-network evidence; plausible facilities do not establish drug-specific capability or capacity, and no national burden or service claim is made before the pinned road matrix is complete.",
+        "cost_categories": {
+          "accommodation": "source_backed_reimbursement_cap",
+          "car": "source_backed_scenario",
+          "fares": "route_specific_actual_cost_pending",
+          "ferry": "route_specific_actual_cost_pending",
+          "parking": "location_specific_rate_pending",
+          "provider_travel": "resource_rates_pending",
+          "public_transport": "route_specific_actual_cost_pending",
+          "walking_waiting_transfer": "duration_and_valuation_pending"
+        },
+        "cost_claim_status": "source_backed_partial_cost_parameter_freeze",
+        "cost_parameters_receipt": "reports/travel-cost-parameters.json",
+        "cost_parameters_sha256": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d",
+        "demand_rows": 2313,
+        "facility_rows": 19,
+        "generated_at": "2026-07-27T05:45:09.723062+00:00",
+        "parquet_fingerprint": "1f268ccbf83b274e778706e142c6509a8c2f474c78ddd2d8cdabccaae38b5925",
+        "retrieval_date": "2026-07-27",
+        "route_cache_fingerprint": "be593ecd304b916007a0ef5efea2b4e0aa59d325bc92d0be6acb05bd395fe174",
+        "route_engine": "osrm",
+        "route_engine_version": "26.7.3",
+        "route_is_approximation": false,
+        "route_rows": 43947,
+        "schema_version": "1.0.0",
+        "status": "materialized_local_osrm_road_matrix"
+      },
+      "sha256": "a21aa24ddda04e5119af549281693f9855c1974624384914604d3d6ff3db5b14"
+    },
+    "reports/routing-spatial-sensitivity.json": {
+      "payload": {
+        "claim_boundary": "Routes connect aggregate SA1 centroid sensitivity origins to plausible public-source facilities. They are not observed journeys, patient locations, service capability, capacity, eligibility, or treatment use.",
+        "facility_rows": 19,
+        "generated_at": "2026-07-27T05:45:42.387650+00:00",
+        "origin_rows": 31648,
+        "parquet_fingerprint": "37cdce738fa0ced969dd6463447f2b90d7fb56a3d850fe735b5bbfbfc1e4204d",
+        "route_cache_fingerprint": "3b8dd8d22f08da5146b88884983891e14b8d7d24744f423a9872875c471a6158",
+        "route_engine": "osrm",
+        "route_engine_version": "26.7.3",
+        "route_is_approximation": false,
+        "route_rows": 601312,
+        "schema_version": "1.0.0",
+        "status": "materialized_local_osrm_spatial_sensitivity"
+      },
+      "sha256": "1bbb321ed1d23473c2969bc16215f063b0be80dab0b7f1a910cb79b0f6bfdfb4"
+    }
+  },
+  "repository": "edithatogo/closer-to-whom",
+  "schema_version": "1.0.0"
+}
