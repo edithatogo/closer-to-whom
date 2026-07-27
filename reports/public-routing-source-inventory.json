@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-07-24",
+  "status": "regional_sources_validated_national_matrix_pending",
+  "sources": [
+    {
+      "source_id": "candidate.datagovt-metlink-gtfs",
+      "coverage": "Greater Wellington region",
+      "format": "GTFS ZIP",
+      "artifact_bytes": 11544194,
+      "artifact_sha256": "5016e832d425c4c34ec1513ea4e08018e97e98dc48e70697fa6c019de2d77780",
+      "validated_components": [
+        "agency.txt",
+        "calendar.txt",
+        "calendar_dates.txt",
+        "routes.txt",
+        "shapes.txt",
+        "stop_times.txt",
+        "stops.txt",
+        "transfers.txt",
+        "trips.txt"
+      ],
+      "usable_for": "bounded scheduled public-transport routing scenario"
+    },
+    {
+      "source_id": "candidate.datagovt-waikato-regional-bus",
+      "coverage": "Waikato regional bus network",
+      "format": "GeoJSON",
+      "artifact_bytes": 518237,
+      "artifact_sha256": "1e4fb031b96d86991ec3470b6ff7f4a5af2908f4a8c9b19f115510c9eff9c72d",
+      "usable_for": "bounded route-geometry scenario without timetable travel times"
+    },
+    {
+      "source_id": "candidate.nzta-amds-network-model",
+      "coverage": "national multimodal network metadata",
+      "format": "official source metadata",
+      "usable_for": "national network-source discovery; queryable matrix still pending"
+    },
+    {
+      "source_id": "candidate.osm-geofabrik-nz-network",
+      "coverage": "New Zealand national road network",
+      "format": "OSM PBF",
+      "licence": "ODbL 1.0",
+      "usable_for": "recommended self-hosted OSRM national road-routing matrix after pinning and hashing an extract"
+    },
+    {
+      "source_id": "candidate.nzta-national-road-centreline",
+      "coverage": "New Zealand national road network",
+      "format": "official maintained centreline",
+      "access": "registration and terms acceptance required",
+      "usable_for": "official-network sensitivity scenario after authorised capture"
+    }
+  ],
+  "recommended_next_method": "Pin a dated Geofabrik New Zealand PBF, build a self-hosted OSRM image, and receipt the table matrix; retain regional GTFS as separate public-transport scenarios.",
+  "remaining_gap": "No single validated source currently supplies a nationally complete scheduled multimodal origin-destination matrix; a reproducible national road matrix is now technically sourceable.",
+  "claim_boundary": "These are public network inputs and metadata, not observed journeys, patient travel, or evidence of service feasibility."
+}

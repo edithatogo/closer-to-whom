@@ -2,17 +2,17 @@
   "schema_registry_version": "1.0.0",
   "schemas": {
     "demand": {
-      "fingerprint": "0187317286a42e0be01ce2e5ea56691f91b0bfaead359ea21a5e071ed80ff1ea",
+      "fingerprint": "76600443d14a5ead1be09662d9d9934dbb497a051ec016a9c674c48df9afe1c4",
       "ipc": "demand.schema.arrow",
       "json": "demand.schema.json"
     },
     "facility": {
-      "fingerprint": "8337ecbed8098c998a2a2ce59cca0310255121c14c08ee9b269d1fce9f507a79",
+      "fingerprint": "5f8423206193802d8bec0e5b4dc566b954778cf9c27a34993efdf0e647ad5dce",
       "ipc": "facility.schema.arrow",
       "json": "facility.schema.json"
     },
     "result": {
-      "fingerprint": "f6a9e30ac2efc20cdb14f2c30a1e7113d09e85032072e5a210803546042b3828",
+      "fingerprint": "5c98c9978be9863e3c6473966059c5f472ca1ce6581b6ab07489ad197e4119d7",
       "ipc": "result.schema.arrow",
       "json": "result.schema.json"
     }

@@ -5,11 +5,13 @@ github_issue: https://github.com/edithatogo/closer-to-whom/issues/19
 objective: Build reproducible national routing and course-level burden estimates after service and demand freezes.
 inputs:
   - data/derived/facility-registry.parquet
-  - data/derived/demand-cells.parquet
+  - data/derived/national-demand-cells.parquet
   - protocol/statistical-analysis-plan.yaml
 outputs:
   - data/derived/route-matrix.parquet
   - reports/routing-costs-flow.json
+  - reports/travel-cost-parameters.json
+  - reports/routing-spatial-sensitivity.json
 acceptance_criteria:
   - Route engine, version, cache key, approximation state, and retrieval date are recorded.
   - Routing receipts identify the source registry and licence state for each externally derived route or cost parameter.
@@ -17,3 +19,16 @@ acceptance_criteria:
   - Car, public transport, ferry, walking/waiting/transfer, parking, fares, accommodation, and provider travel are explicit where applicable.
   - National output remains blocked while service/demand registries are empty.
   - Offline approximation is never presented as road-network evidence.
+progress:
+  completed:
+    - Selected the New Zealand OpenStreetMap extract and self-hosted OSRM table-service method.
+    - Implemented a bounded, deterministic, loopback-only OSRM matrix client that fails closed.
+    - Captured national road and regional public-transport source receipts.
+    - Frozen the dated 2026-07-23 New Zealand PBF identity and OSRM v26.7.3 release.
+    - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
+    - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
+    - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
+    - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
+  remaining:
+    - On a Docker-capable networked runner, download the PBF, verify its published MD5, record its SHA-256, and record the pulled image digest.
+    - Build the local routing graph and materialize the national matrix against the frozen demand and plausible-facility inputs.

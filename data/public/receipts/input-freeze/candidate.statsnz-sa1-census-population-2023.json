@@ -1,0 +1,21 @@
+{
+  "source_id": "candidate.statsnz-sa1-census-population-2023",
+  "url": "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA1/FeatureServer/1",
+  "retrieved_on": "2026-07-27",
+  "retrieved_unix_seconds": 1785119040,
+  "bytes": 253611,
+  "sha256": "bc85509cbbee571ded9ad1825aa6cb44c42343383bfd4d1d65347e47812d003b",
+  "content_type": "application/json",
+  "output_path": "data/derived/sa2-population-weighted-origins.parquet",
+  "item_id": "407355b6bd46494498cd760787178ab3",
+  "item_metadata_bytes": 17222,
+  "item_metadata_sha256": "1c3675f5a9ec3d94f71d5b955fd52f64e11d6fef8ced4dad3a311108816fb073",
+  "licence": "Creative Commons Attribution 4.0 International",
+  "attribution": "Stats NZ - Tatauranga Aotearoa",
+  "materializer": "scripts/materialize_sa2_population_weighted_origins.py",
+  "materialization_report": "reports/sa2-population-weighted-origins.json",
+  "source_feature_count": 33148,
+  "positive_population_origin_count": 31599,
+  "parquet_fingerprint": "81e676595d403ba444a5898d494b1a92968f79fedb0c7c9da78881fff7a35f2a",
+  "claim_boundary": "Public aggregate SA1 centroids and population weights are sensitivity origins, never people, addresses, observed journeys, or patient locations."
+}

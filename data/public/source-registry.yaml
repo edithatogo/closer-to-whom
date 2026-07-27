@@ -48,10 +48,13 @@ sources:
     title: Health New Zealand facility code table
     publisher: Health New Zealand
     url: https://www.healthnz.govt.nz/about-us/data-management-and-standards/data-references/code-tables/common-code-tables
-    retrieved_on: 2026-07-11
+    retrieved_on: 2026-07-24
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_capture_and_licence_review
+    evidence_grade: 3_facility_reference_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.healthnz-facility-table.json
+    notes: Code-table discovery only; does not establish oncology service capability or capacity.
   - source_id: candidate.statsnz-geographies
     title: Statistical Standard for Geographic Areas 2023 and public population tables
     publisher: Stats NZ
@@ -65,18 +68,66 @@ sources:
     title: Pharmac anti-HER2 funding decision and Pharmaceutical Schedule material
     publisher: Pharmac
     url: https://www.pharmac.govt.nz/news-and-resources/consultations-and-decisions/2025-11-decision-to-fund-treatments-for-multiple-sclerosis-eye-conditions-breast-cancer-and-lung-cancer
-    retrieved_on: 2026-07-15
+    retrieved_on: 2026-07-24
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_systematic_search
+    evidence_grade: 2_public_medicine_funding_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.pharmac-anti-her2.json
+    notes: Funding-decision context only; eligibility, uptake, and local service capability remain separate evidence questions.
+  - source_id: candidate.medsafe-herceptin-iv
+    title: Herceptin intravenous New Zealand data sheet
+    publisher: Medsafe
+    url: https://medsafe.govt.nz/profs/Datasheet/h/Herceptininf.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-herceptin-iv.json
+    notes: Product administration and safety constraints only.
+  - source_id: candidate.medsafe-herceptin-sc
+    title: Herceptin SC New Zealand data sheet
+    publisher: Medsafe
+    url: https://www.medsafe.govt.nz/profs/Datasheet/h/herceptinscinj.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-herceptin-sc.json
+    notes: Product administration and safety constraints only; outpatient does not imply home.
+  - source_id: candidate.medsafe-phesgo
+    title: Phesgo New Zealand data sheet
+    publisher: Medsafe
+    url: https://www.medsafe.govt.nz/profs/Datasheet/p/Phesgoinj.pdf
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_product_information
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.medsafe-phesgo.json
+    notes: Product administration and safety constraints only.
+  - source_id: candidate.pharmac-schedule-trastuzumab-current
+    title: Current Pharmaceutical Schedule search for trastuzumab
+    publisher: Pharmac - Te Pataka Whaioranga
+    url: https://schedule.pharmac.govt.nz/ScheduleOnline.php?osq=Trastuzumab
+    retrieved_on: 2026-07-27
+    licence_state: public_not_redistributable
+    redistribution_allowed: false
+    evidence_grade: 1_official_current_funding_schedule
+    status: captured_metadata_and_claims
+    receipt_path: data/public/receipts/input-freeze/candidate.pharmac-schedule-trastuzumab-current.json
+    notes: Current captured Schedule-search state; negative search observations remain bounded.
   - source_id: candidate.ird-kilometre-rates
     title: Vehicle kilometre rates
     publisher: Inland Revenue
-    url: https://www.ird.govt.nz/
+    url: https://www.ird.govt.nz/updates/news-folder/2026/kilometre-rates-for-the-2025-2026-income-year
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_analysis_date_refresh
+    status: captured_and_parameterized
+    receipt_path: data/public/receipts/input-freeze/candidate.ird-kilometre-rates-2025-26.json
   - source_id: candidate.healthnz-nta
     title: National Travel Assistance policy and reimbursement
     publisher: Health New Zealand
@@ -84,7 +135,8 @@ sources:
     retrieved_on: 2026-07-11
     licence_state: unknown
     redistribution_allowed: false
-    status: candidate_requires_analysis_date_refresh
+    status: captured_and_parameterized
+    receipt_path: data/public/receipts/input-freeze/candidate.healthnz-nta-2024.json
   - source_id: candidate.gch2023
     title: Geographic Classification for Health 2023 (GCH23)
     publisher: University of Otago
@@ -105,14 +157,15 @@ sources:
     url: https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx
     landing_page: https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes
     retrieved_on: 2026-07-22
-    licence_state: unknown
+    licence_state: open
     redistribution_allowed: false
-    status: captured_metadata_only
+    status: captured_and_materialized_with_explicit_unknowns
     receipt_path: data/public/receipts/input-freeze/candidate.nzdep2023.json
     metadata_evidence: >-
-      Official Otago page identifies NZDep2023 as released on 31 October 2024 and lists SA2 text
-      and Excel downloads. The SA2 Excel download returned HTTP 403 during retrieval; the page
-      does not establish redistribution terms, so no dataset receipt or licence claim is made.
+      The official workbook identifies NZDep2023 as published on 31 October 2024 and declares
+      Creative Commons Attribution 4.0. The unchanged workbook remains outside the repository under
+      the candidate-source contract. Its direct SA2-code join supports 2,208 denominator areas;
+      source blanks and 2023-to-2025 geography mismatches remain explicit unknowns.
   - source_id: source.licence-healthnz-copyright
     title: Health New Zealand copyright and reuse terms
     publisher: Health New Zealand
@@ -353,6 +406,65 @@ sources:
     evidence_grade: 2_public_concept_metadata
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
+  - source_id: candidate.statsnz-ethnicity-2023-sa2
+    title: 2023 Census ethnicity totals by SA2
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA2/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=29a82d5a0ea24a3880219bcb3df126dc
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      Six broad 2023 total-response ethnicity groups cover every denominator SA2 code; source
+      suppression sentinels remain explicit unknowns and are never converted to zero.
+  - source_id: candidate.statsnz-motor-vehicles-2023-sa2
+    title: 2023 Census household motor-vehicle totals by SA2
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/2023_Census_totals_by_topic_for_households_by_SA2/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=7d8a5993db144f95bf9be2f64b14e467
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      No-motor-vehicle and stated-household fields cover every denominator SA2 code; source
+      suppression sentinels remain explicit unknowns and are never converted to zero.
+  - source_id: candidate.statsnz-sa1-census-population-2023
+    title: 2023 Census usually resident population and centroids by SA1
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/2023_Census_totals_by_topic_for_individuals_by_SA1/FeatureServer/1
+    landing_page: https://www.arcgis.com/home/item.html?id=407355b6bd46494498cd760787178ab3
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_public_aggregate
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa1-census-population-2023.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      SA1 true polygon centroids and 2023 usually resident population support bounded aggregate
+      within-SA2 spatial sensitivity.
+  - source_id: candidate.statsnz-sa2-boundaries-2023
+    title: Statistical Area 2 2023 boundaries
+    publisher: Stats NZ - Tatauranga Aotearoa
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/arcgis/rest/services/Statistical_Area_2_2023/FeatureServer/0
+    landing_page: https://www.arcgis.com/home/item.html?id=a5166616764c4499a42d1f45627d69b0
+    retrieved_on: 2026-07-27
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured_and_materialized
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-boundaries-2023.json
+    metadata_evidence: >-
+      The StatsNZGeospatial ArcGIS item is public, attributes Stats NZ, and declares CC BY 4.0.
+      Boundaries assign aggregate SA1 centroid sensitivity origins to denominator SA2s.
   - source_id: candidate.teaho-cancer-stats-2025
     title: State of Cancer in New Zealand 2025 aggregate incidence context
     publisher: Te Aho o Te Kahu
@@ -363,6 +475,16 @@ sources:
     evidence_grade: 2_public_aggregate_context
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json
+  - source_id: candidate.teaho-breast-qpi-2025
+    title: Breast Cancer Quality Improvement Monitoring Report 2025
+    publisher: Te Aho o Te Kahu
+    url: https://teaho.govt.nz/index.php/download_file/view/73eab823-c306-47c4-ba99-e562ed786b2e/549
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 3_public_aggregate_clinical_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.teaho-breast-qpi-2025.json
   - source_id: candidate.statsnz-population-estimates-2023-base
     title: Subnational population estimates (RC, SA2), by age and sex, at 30 June 1996-2025
     publisher: Stats NZ
@@ -373,3 +495,159 @@ sources:
     evidence_grade: 2_public_aggregate_context
     status: captured_artifact_only
     receipt_path: data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json
+  - source_id: candidate.statsnz-sa2-2023-arcgis
+    title: 2023 Census totals by topic for households by SA2 polygon layer
+    publisher: Stats NZ via ArcGIS hosted service
+    url: https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/2023_Census_totals_by_topic_for_households_by_SA2/FeatureServer/1
+    retrieved_on: 2026-07-24
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_geography_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-arcgis.json
+    notes: Public layer metadata identifies polygon geometry and the SA22023 code field. Raw geometry remains external until licence and snapshot handling are adjudicated.
+  - source_id: candidate.statsnz-sa2-2023-centroid-true
+    title: Statistical Area 2 2023 Centroid True
+    publisher: Stats NZ via the Stats NZ Geographic Data Service
+    url: https://datafinder.stats.govt.nz/layer/111211-statistical-area-2-2023-centroid-true/
+    retrieved_on: 2026-07-24
+    publication_date: 2022-12-01
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-centroid-true.json
+    notes: Official true-centroid point layer. All 2,379 features were queried and 2,313 population-denominator SA2 codes matched; the derived Parquet remains unredistributed.
+  - source_id: candidate.statsnz-urban-rural-2023-generalised
+    title: Urban Rural 2023 generalised
+    publisher: Stats NZ via the Stats NZ Geographic Data Service
+    url: https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/
+    retrieved_on: 2026-07-27
+    publication_date: 2022-11-30
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 1_official_geography
+    status: captured
+    receipt_path: data/public/receipts/input-freeze/candidate.statsnz-urban-rural-2023-generalised.json
+    notes: CC BY 4.0. Official classes matched 2,311 of 2,313 denominator SA2 true centroids; the two explicit unknowns both have zero captured population.
+  - source_id: candidate.nzta-amds-network-model
+    title: Asset Management Data Standard multimodal network model
+    publisher: NZ Transport Agency Waka Kotahi
+    url: https://nzta.govt.nz/partners/data-and-tools/asset-management-data-standard/amds-network-model
+    retrieved_on: 2026-07-24
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_routing_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.nzta-amds-network-model.json
+    notes: Candidate official source for future connected multimodal routing scenarios; does not itself provide a successful route matrix receipt.
+  - source_id: candidate.healthnz-health-independence-2024
+    title: Health and Independence Report 2024
+    publisher: Ministry of Health
+    url: https://www.health.govt.nz/publications/health-and-independence-report-2024-online-version
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_public_aggregate_incidence
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.healthnz-health-independence-2024.json
+    notes: Reports 3,660 female breast-cancer registrations in 2022; national aggregate calibration context only.
+  - source_id: candidate.teaho-cancer-medicines-gap-2022
+    title: Understanding the Gap - availability of cancer medicines in Aotearoa
+    publisher: Te Aho o Te Kahu
+    url: https://teaho.govt.nz/index.php/download_file/view/7a6b8acd-db98-46b1-b400-bb2770bb3251/369
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_public_aggregate_clinical_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.teaho-cancer-medicines-gap-2022.json
+    notes: Supports a national 15 percent HER2-positive scenario and stage-distribution context; does not establish small-area demand.
+  - source_id: candidate.otago-rural-radiotherapy-2025
+    title: Rural Urban Differences in Receipt of Radiation Oncology Services
+    publisher: University of Otago
+    url: https://ourarchive.otago.ac.nz/esploro/outputs/journalArticle/Rural-Urban-Differences-in-Receipt-of/9926795055701891
+    retrieved_on: 2026-07-24
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_peer_reviewed_access_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.otago-rural-radiotherapy-2025.json
+    notes: Supports rurality and ethnicity sensitivity analysis; radiotherapy receipt is not substituted for anti-HER2 treatment use.
+  - source_id: candidate.datagovt-metlink-gtfs
+    title: Metlink Public Transport Google Transit Feed Specification
+    publisher: Greater Wellington Regional Council via Data.govt.nz
+    url: https://catalogue.data.govt.nz/api/3/action/package_show?id=metlink-public-transport-google-transit-feed-specification2
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_regional_transport_metadata
+    status: captured_artifact_only
+    receipt_path: data/public/receipts/input-freeze/candidate.datagovt-metlink-gtfs.json
+    notes: CC BY 4.0 regional GTFS candidate; bounded Wellington scenario only.
+  - source_id: candidate.datagovt-waikato-regional-bus
+    title: Public Transport Bus Network - Bus Route Regional
+    publisher: Waikato Regional Council via Data.govt.nz
+    url: https://catalogue.data.govt.nz/api/3/action/package_show?id=public-transport-bus-network-bus-route-regional
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_regional_transport_metadata
+    status: captured_artifact_only
+    receipt_path: data/public/receipts/input-freeze/candidate.datagovt-waikato-regional-bus.json
+    notes: CC BY 4.0 regional route geometry candidate; bounded Waikato scenario only.
+  - source_id: candidate.datagovt-pt-performance
+    title: Performance of Public Transport Services
+    publisher: NZ Transport Agency Waka Kotahi via Data.govt.nz
+    url: https://catalogue.data.govt.nz/api/3/action/package_show?id=performance-of-public-transport-services
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 3_national_transport_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.datagovt-pt-performance.json
+    notes: CC BY 3.0 NZ national performance context; not an origin-destination matrix.
+  - source_id: candidate.datagovt-ethnicity-cancer-burden
+    title: Ethnicity and Cancer Burden NZ
+    publisher: Figshare metadata via Data.govt.nz
+    url: https://catalogue.data.govt.nz/api/3/action/package_show?id=oai-figshare-com-article-2000295
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 4_historical_research_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.datagovt-ethnicity-cancer-burden.json
+    notes: CC BY 4.0 historical research context only; not used for current national calibration.
+  - source_id: candidate.osm-geofabrik-nz-network
+    title: New Zealand OpenStreetMap extract
+    publisher: Geofabrik using OpenStreetMap data
+    url: https://download.geofabrik.de/australia-oceania/new-zealand.html
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_national_routable_network_candidate
+    status: frozen_source_identity_artifact_download_pending
+    receipt_path: data/public/receipts/input-freeze/candidate.osm-geofabrik-nz-network.json
+    notes: Dated 2026-07-23 PBF, 400231615 bytes, published MD5 056bf3eb9d9ddd7c23c99b9f3e444656; local transfer timed out before payload. ODbL attribution and share-alike obligations apply.
+  - source_id: candidate.osrm-table-service
+    title: OSRM HTTP table service
+    publisher: Project OSRM
+    url: https://github.com/Project-OSRM/osrm-backend/blob/master/docs/http.md
+    retrieved_on: 2026-07-24
+    licence_state: open
+    redistribution_allowed: false
+    evidence_grade: 2_reproducible_routing_engine
+    status: frozen_engine_identity_runtime_pending
+    receipt_path: data/public/receipts/input-freeze/candidate.osrm-table-service.json
+    notes: OSRM v26.7.3 release commit 0844e3a with MLD; local container digest remains pending because Docker is not installed. Public demo servers are not release dependencies.
+  - source_id: candidate.nzta-national-road-centreline
+    title: National Road Centreline
+    publisher: NZ Transport Agency Waka Kotahi
+    url: https://www.nzta.govt.nz/about-us/our-data-and-official-information/open-data/national-road-centreline-faqs
+    retrieved_on: 2026-07-24
+    licence_state: restricted
+    redistribution_allowed: false
+    evidence_grade: 2_official_national_network_metadata
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.nzta-national-road-centreline.json
+    notes: Official maintained network alternative, but download requires registration and acceptance of hybrid-data terms.

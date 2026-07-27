@@ -11,12 +11,12 @@ claim_boundary: >-
   service capability.
 inputs:
   - input_id: geography
-    title: Statistical geography and population tables
-    source_ids: [candidate.statsnz-geographies]
-    version: "2023"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-geographies.json
-    evidence_grade: B
+    title: SSGA23 SA2 baseline and SA1 population-weighted sensitivity geography
+    source_ids: [candidate.statsnz-sa2-2023-centroid-true, candidate.statsnz-sa1-census-population-2023, candidate.statsnz-sa2-boundaries-2023]
+    version: "SSGA23 official ArcGIS and Geographic Data Service layers"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-centroid-true.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
@@ -24,39 +24,39 @@ inputs:
     title: New Zealand Index of Deprivation
     source_ids: [candidate.nzdep2023]
     version: "NZDep2023-SA2"
-    licence_state: unknown
+    licence_state: open
     retrieval_receipt: data/public/receipts/input-freeze/candidate.nzdep2023.json
-    evidence_grade: B
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
   - input_id: rurality
-    title: Geographic Classification for Health
-    source_ids: [candidate.gch2023]
-    version: "GCH2023-SA2"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.gch2023.json
-    evidence_grade: B
+    title: Stats NZ Urban Rural 2023 centroid class
+    source_ids: [candidate.statsnz-urban-rural-2023-generalised]
+    version: "Urban Rural 2023 generalised"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-urban-rural-2023-generalised.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
   - input_id: ethnicity
-    title: Public aggregate ethnicity method
-    source_ids: [candidate.statsnz-ethnicity-2023]
-    version: "2023 Census concept"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023.json
-    evidence_grade: B
+    title: 2023 Census total-response ethnicity groups by SA2
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2]
+    version: "2023 Census SA2 ArcGIS item 29a82d5a0ea24a3880219bcb3df126dc"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null
   - input_id: vehicle_access
-    title: Public vehicle-access proxy
-    source_ids: [candidate.statsnz-motor-vehicles-2023]
-    version: "2023 Census concept"
-    licence_state: unknown
-    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023.json
-    evidence_grade: B
+    title: 2023 Census no-motor-vehicle household proxy by SA2
+    source_ids: [candidate.statsnz-motor-vehicles-2023-sa2]
+    version: "2023 Census SA2 ArcGIS item 7d8a5993db144f95bf9be2f64b14e467"
+    licence_state: open
+    retrieval_receipt: data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json
+    evidence_grade: A
     status: frozen
     user_authorized_local_use: true
     pending_reason: null

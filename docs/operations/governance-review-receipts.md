@@ -1,9 +1,9 @@
 # Governance review receipts
 
 `data/public/governance-review.yaml` keeps Māori/equity interpretation review separate from the
-ethics/HDEC scope determination. Its committed state is `pending_external_review`.
+ethics/HDEC scope determination. Both are `out_of_scope_for_public_aggregate_harness` under the
+recorded sole-developer scope decision.
 
-The validator permits that explicit pending state. A completed state must contain both review
-receipts, unresolved equity risks, culturally safe interpretation constraints, and a recorded
-ethics/HDEC determination. It never converts a scope determination into ethical approval or Māori
-endorsement, and it does not authorise a future microdata phase.
+This status does not claim ethical approval, HDEC exemption, Māori endorsement, or culturally safe
+interpretation review. It also does not authorise a future microdata or participant-research phase,
+which would require a separate decision and governance pathway.

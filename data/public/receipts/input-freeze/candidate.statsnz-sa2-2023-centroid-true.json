@@ -1,0 +1,18 @@
+{
+  "source_id": "candidate.statsnz-sa2-2023-centroid-true",
+  "url": "https://datafinder.stats.govt.nz/layer/111211-statistical-area-2-2023-centroid-true/",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784877131,
+  "bytes": 10409,
+  "sha256": "d3ea879f620176bf295615727ec529dea9e6a291cb6bea35df8e8bad22bae92a",
+  "content_type": "text/html; charset=utf-8",
+  "output_path": "data/derived/sa2-routing-points.parquet",
+  "licence_state": "open",
+  "redistribution_allowed": false,
+  "status": "materialized_aggregate_true_centroids",
+  "layer_id": 111211,
+  "source_feature_count": 2379,
+  "matched_population_code_count": 2313,
+  "parquet_fingerprint": "444a4e0b911b137b3050cb2ae89464429b4dc05b20ef9e3f92785f7f03f884ea",
+  "claim_boundary": "Official aggregate SA2 true centroids only; no address, person, patient, observed journey, or small-area treatment-demand claim."
+}

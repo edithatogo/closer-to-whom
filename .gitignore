@@ -29,6 +29,7 @@ data/raw/
 data/licensed/
 data/private/
 data/derived/**
+.tmp/
 !data/derived/.gitkeep
 artifacts/**
 !artifacts/README.md

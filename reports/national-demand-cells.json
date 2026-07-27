@@ -1,0 +1,30 @@
+{
+  "allocation_basis": "2023 Census female population by SA2; source-unavailable cells use 2025 population scaled by the national observed female share and remain explicitly identified",
+  "annual_expected_courses": 322.16967,
+  "audit": {
+    "deprivation_explicit_unknown_rows": 105,
+    "deprivation_known_rows": 2208,
+    "female_population_fallback_rows": 84,
+    "female_population_matched_rows": 2229,
+    "national_female_share_fallback": 0.47460585585585585,
+    "rurality_explicit_unknown_rows": 2,
+    "zero_expected_course_rows": 83
+  },
+  "claim_boundary": "Rows are modelled public aggregate SA2 expectations, not patients, observed demand, small-area incidence, eligibility decisions, or actual treatment use. Ethnicity and vehicle-access profiles remain separate ecological stratifier artifacts.",
+  "demand_cell_count": 2313,
+  "generated_at": "2026-07-27T02:51:19.786687+00:00",
+  "materialized_expected_courses": 322.1696699999999,
+  "parquet_fingerprint": "b7f7bd23e6e8de3ebd7f8b37b73ce2ac7886be5f2e640b739a60625dbb1d1023",
+  "schema_version": "1.0.0",
+  "source_ids": [
+    "candidate.statsnz-population-estimates-2023-base",
+    "candidate.statsnz-sa1-census-population-2023",
+    "candidate.statsnz-sa2-2023-centroid-true",
+    "candidate.statsnz-urban-rural-2023-generalised",
+    "candidate.nzdep2023",
+    "candidate.teaho-breast-qpi-2025",
+    "candidate.teaho-cancer-medicines-gap-2022",
+    "candidate.healthnz-health-independence-2024"
+  ],
+  "status": "materialized_aggregate_baseline"
+}

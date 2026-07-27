@@ -1,0 +1,202 @@
+name: Materialize national routing evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Type ROUTE to authorize the bounded evidence build
+        required: true
+        type: string
+      include_spatial_sensitivity:
+        description: Materialize the population-weighted SA1 origin sensitivity matrix
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: national-routing-evidence
+  cancel-in-progress: false
+
+jobs:
+  route:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'ROUTE'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      STATS_NZ_API_KEY: ${{ secrets.STATS_NZ_API_KEY }}
+      INCLUDE_SPATIAL_SENSITIVITY: ${{ inputs.include_spatial_sensitivity }}
+      OSRM_IMAGE: ghcr.io/project-osrm/osrm-backend:v26.7.3
+      OSRM_VERSION: 26.7.3
+      PBF_URL: https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf
+      PBF_FILE: data/raw/osrm/new-zealand-260723.osm.pbf
+      PBF_BYTES: "400231615"
+      PBF_MD5: 056bf3eb9d9ddd7c23c99b9f3e444656
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.14"
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78
+        with:
+          enable-cache: true
+
+      - name: Require the existing Stats NZ repository secret
+        run: test -n "$STATS_NZ_API_KEY"
+
+      - name: Prepare locked environment
+        run: uv sync --locked --extra geo
+
+      - name: Rebuild the frozen aggregate population denominator
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/source data/derived
+          REQUEST_URL="$(
+            uv run python -c \
+              'import json; print(json.load(open("data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json"))["data_url"])'
+          )"
+          uv run python scripts/fetch_stats_nz_population_chunks.py \
+            "$REQUEST_URL" artifacts/source/population.csv --chunk-size 100
+          uv run python scripts/materialize_stats_nz_population.py \
+            artifacts/source/population.csv \
+            data/derived/stats-nz-population.parquet \
+            artifacts/source/population-quality.json
+
+      - name: Rebuild frozen public geography, stratifiers, and demand
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --location --retry 5 --retry-all-errors \
+            --silent --show-error \
+            https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx \
+            --output artifacts/source/NZDep2023_WgtAvSA2.xlsx
+          echo \
+            "9a7392a72f6412399ce44fc4d7ae84fd816514f31e4eb03327d298407d1b0f2a  artifacts/source/NZDep2023_WgtAvSA2.xlsx" \
+            | sha256sum --check -
+          uv run python scripts/materialize_sa2_true_centroids.py
+          uv run python scripts/materialize_sa2_rurality.py
+          uv run python scripts/materialize_sa2_deprivation.py \
+            --source artifacts/source/NZDep2023_WgtAvSA2.xlsx
+          uv run python scripts/materialize_sa2_census_stratifiers.py
+          uv run python scripts/materialize_national_demand_cells.py
+          uv run python scripts/materialize_service_census.py
+          if [ "$INCLUDE_SPATIAL_SENSITIVITY" = "true" ]; then
+            uv run python scripts/materialize_sa2_population_weighted_origins.py
+          fi
+
+      - name: Download and verify the frozen road-network extract
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$PBF_FILE")" artifacts/routing
+          curl --fail-with-body --location --retry 5 --retry-all-errors \
+            --silent --show-error "$PBF_URL" --output "$PBF_FILE"
+          test "$(stat --format=%s "$PBF_FILE")" = "$PBF_BYTES"
+          echo "$PBF_MD5  $PBF_FILE" | md5sum --check -
+          sha256sum "$PBF_FILE" | tee artifacts/routing/pbf.sha256
+
+      - name: Resolve the pinned OSRM image identity
+        run: |
+          set -euo pipefail
+          docker pull "$OSRM_IMAGE"
+          docker image inspect --format='{{index .RepoDigests 0}}' "$OSRM_IMAGE" \
+            | tee artifacts/routing/osrm-image-digest.txt
+          test -s artifacts/routing/osrm-image-digest.txt
+
+      - name: Build the isolated MLD routing graph
+        run: |
+          set -euo pipefail
+          docker compose -f compose.osrm.yaml run --rm osrm-extract
+          docker compose -f compose.osrm.yaml run --rm osrm-partition
+          docker compose -f compose.osrm.yaml run --rm osrm-customize
+
+      - name: Start and verify loopback-only OSRM
+        run: |
+          set -euo pipefail
+          docker compose -f compose.osrm.yaml up --detach osrm-routed
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error \
+              'http://127.0.0.1:5000/route/v1/driving/174.7765,-36.8603;175.2793,-37.7870?overview=false' \
+              > artifacts/routing/osrm-smoke.json; then
+              break
+            fi
+            sleep 2
+          done
+          grep -q '"code":"Ok"' artifacts/routing/osrm-smoke.json
+
+      - name: Materialize national route matrices
+        run: |
+          set -euo pipefail
+          uv run python scripts/materialize_travel_cost_parameters.py
+          uv run python scripts/materialize_route_costs.py \
+            --demand data/derived/national-demand-cells.parquet \
+            --osrm-base-url http://127.0.0.1:5000 \
+            --osrm-version "$OSRM_VERSION"
+          if [ "$INCLUDE_SPATIAL_SENSITIVITY" = "true" ]; then
+            uv run python scripts/materialize_route_sensitivity.py \
+              --osrm-base-url http://127.0.0.1:5000 \
+              --osrm-version "$OSRM_VERSION"
+          fi
+
+      - name: Write immutable routing evidence receipt
+        run: |
+          uv run python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          root = Path("artifacts/routing")
+          reports = [Path("reports/routing-costs-flow.json")]
+          sensitivity = Path("reports/routing-spatial-sensitivity.json")
+          if sensitivity.exists():
+              reports.append(sensitivity)
+          payload = {
+              "schema_version": "1.0.0",
+              "generated_at": datetime.now(UTC).isoformat(),
+              "repository": os.environ["GITHUB_REPOSITORY"],
+              "commit": os.environ["GITHUB_SHA"],
+              "pbf_url": os.environ["PBF_URL"],
+              "pbf_bytes": int(os.environ["PBF_BYTES"]),
+              "pbf_md5": os.environ["PBF_MD5"],
+              "pbf_sha256": (root / "pbf.sha256").read_text().split()[0],
+              "osrm_version": os.environ["OSRM_VERSION"],
+              "osrm_image_digest": (root / "osrm-image-digest.txt").read_text().strip(),
+              "algorithm": "mld",
+              "reports": {
+                  str(path): {
+                      "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                      "payload": json.loads(path.read_text()),
+                  }
+                  for path in reports
+              },
+              "claim_boundary": (
+                  "Artifact-only aggregate road-network evidence. No patient, observed journey, "
+                  "service capability, capacity, eligibility, cost, or policy claim is created."
+              ),
+          }
+          (root / "receipt.json").write_text(
+              json.dumps(payload, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+
+      - name: Stop routing service
+        if: always()
+        run: docker compose -f compose.osrm.yaml down --remove-orphans
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: national-routing-${{ github.sha }}
+          path: |
+            artifacts/routing
+            reports/national-demand-cells.json
+            reports/travel-cost-parameters.json
+            reports/routing-costs-flow.json
+            reports/routing-spatial-sensitivity.json
+            data/derived/route-matrix.parquet
+            data/derived/route-matrix-spatial-sensitivity.parquet
+          if-no-files-found: error
+          retention-days: 14

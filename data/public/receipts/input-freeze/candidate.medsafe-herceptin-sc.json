@@ -1,0 +1,25 @@
+{
+  "source_id": "candidate.medsafe-herceptin-sc",
+  "title": "Herceptin SC New Zealand data sheet",
+  "publisher": "Medsafe",
+  "url": "https://www.medsafe.govt.nz/profs/Datasheet/h/herceptinscinj.pdf",
+  "retrieved_on": "2026-07-27",
+  "retrieved_unix_seconds": 1785121896,
+  "bytes": 480550,
+  "sha256": "ce392113c12c22df81421c37ddf454775d6446029e18c7db36927cf6d32b22cf",
+  "content_type": "application/pdf",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "status": "captured_metadata_and_claims",
+  "extracted_claims": {
+    "route": "subcutaneous_injection",
+    "dose_mg": 600,
+    "interval": "every_3_weeks",
+    "loading_dose_required": false,
+    "administration_minutes_range": [2, 5],
+    "administrator": "healthcare_professional_prepared_to_manage_anaphylaxis",
+    "life_support_facilities_required": true,
+    "outpatient_setting_permitted": true,
+    "early_breast_cancer_maximum_duration_months": 12
+  },
+  "claim_boundary": "Product data-sheet evidence only; outpatient permission is not evidence for home/community delivery, funding, local capability, capacity, or observed administration."
+}

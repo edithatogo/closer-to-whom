@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.healthnz-facility-table",
+  "url": "https://www.healthnz.govt.nz/about-us/data-management-and-standards/data-references/code-tables/common-code-tables",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784875285,
+  "bytes": 684412,
+  "sha256": "93335dd7424ca8a1c56c55ca87bd2911055f698a565856278625bbfe564d4ceb",
+  "content_type": "text/html; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "unknown",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Facility code-table discovery metadata only; no oncology capability, capacity, or operational status is inferred."
+}

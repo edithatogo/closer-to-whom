@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.statsnz-sa2-2023-arcgis",
+  "url": "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/2023_Census_totals_by_topic_for_households_by_SA2/FeatureServer/1",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784872899,
+  "bytes": 84334,
+  "sha256": "7a87aeaa96df4dd8677e4014e616ee0d1122628e9470459fc0a642da294c11ad",
+  "content_type": "text/html; charset=utf-8",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "unknown",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Official public SA2 polygon-layer metadata and code-field definition only; no census microdata or derived individual-level claims."
+}

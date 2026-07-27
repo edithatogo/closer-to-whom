@@ -1,0 +1,22 @@
+{
+  "source_id": "candidate.osm-geofabrik-nz-network",
+  "url": "https://download.geofabrik.de/australia-oceania/new-zealand.html",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784875373,
+  "bytes": 23878,
+  "sha256": "e074f623b3a627c199b1a9e4722c401d79d32b8f0f3d20b2c34ea36ecde6ada9",
+  "content_type": "text/html",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "open_odbl_1",
+  "redistribution_allowed": false,
+  "status": "frozen_source_identity_artifact_download_pending",
+  "published_bytes": 400231615,
+  "published_md5": "056bf3eb9d9ddd7c23c99b9f3e444656",
+  "artifact_url": "https://download.geofabrik.de/australia-oceania/new-zealand-260723.osm.pbf",
+  "local_attempt": {
+    "pbf_head_status": 200,
+    "transfer_status": "timed_out_before_payload",
+    "local_sha256": null
+  },
+  "claim_boundary": "Candidate national routable road-network extract; no route result or observed journey is asserted before a pinned PBF and engine run are receipted."
+}

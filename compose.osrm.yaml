@@ -1,0 +1,40 @@
+services:
+  osrm-extract:
+    image: ghcr.io/project-osrm/osrm-backend:v26.7.3
+    command: ["osrm-extract", "-p", "/opt/car.lua", "/data/new-zealand-260723.osm.pbf"]
+    volumes:
+      - ./data/raw/osrm:/data
+    network_mode: none
+    security_opt:
+      - no-new-privileges:true
+  osrm-partition:
+    image: ghcr.io/project-osrm/osrm-backend:v26.7.3
+    command: ["osrm-partition", "/data/new-zealand-260723.osrm"]
+    volumes:
+      - ./data/raw/osrm:/data
+    network_mode: none
+    security_opt:
+      - no-new-privileges:true
+
+  osrm-customize:
+    image: ghcr.io/project-osrm/osrm-backend:v26.7.3
+    command: ["osrm-customize", "/data/new-zealand-260723.osrm"]
+    volumes:
+      - ./data/raw/osrm:/data
+    network_mode: none
+    security_opt:
+      - no-new-privileges:true
+
+  osrm-routed:
+    image: ghcr.io/project-osrm/osrm-backend:v26.7.3
+    command:
+      ["osrm-routed", "--algorithm", "mld", "--max-table-size", "1000", "/data/new-zealand-260723.osrm"]
+    volumes:
+      - ./data/raw/osrm:/data:ro
+    ports:
+      - "127.0.0.1:5000:5000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true

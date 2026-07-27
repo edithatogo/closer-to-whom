@@ -103,3 +103,75 @@ decisions:
     rationale: >-
       Repeatedly reopening the already-granted project authorization adds no evidence. The harness
       still records source uncertainty and prevents source payload redistribution.
+  - id: DEC-017
+    date: 2026-07-24
+    status: accepted
+    decision: >-
+      Use the captured SA2 population artifact as the authorized local denominator backbone;
+      calibrate breast-cancer demand only to public aggregate incidence, retain HER2 and uptake
+      as uncertainty scenarios, use versioned road/public-transport routing scenarios, and keep
+      restricted inputs artifact-only until redistribution permissions are explicit.
+    rationale: >-
+      The user approved these operating decisions for autonomous continuation. They define model
+      methods without converting synthetic parameters, unknown capability, or licence uncertainty
+      into observed clinical or operational claims.
+  - id: DEC-018
+    date: 2026-07-24
+    status: accepted
+    decision: >-
+      Use official SSGA23 polygon centroids as the deterministic aggregate routing baseline and
+      a loopback-only OSRM table service built from a pinned New Zealand OpenStreetMap extract for
+      national road routing. Retain population-weighted multi-point origins and regional public
+      transport feeds as separate sensitivity scenarios.
+    rationale: >-
+      This closes the method-selection gap with reproducible public sources while keeping centroid
+      bias, network vintage, mode availability, and regional feed coverage explicit. Public OSRM
+      demo services are excluded from release dependencies.
+  - id: DEC-019
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Use official 2023 Census SA2 total-response broad ethnicity groups and the share of occupied
+      private dwellings reporting no motor vehicle as ecological stratifiers. Preserve ethnicity
+      groups as overlapping measures and vehicle access as a household-area proxy.
+    rationale: >-
+      The public Stats NZ ArcGIS layers match all 2,313 population-denominator SA2 codes and declare
+      CC BY 4.0. These aggregate measures support distributional scenarios without creating
+      individuals, assigning exclusive ethnicity, or asserting observed personal transport access.
+  - id: DEC-020
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Use every positive-population 2023 Census SA1 true polygon centroid as a population-weighted
+      within-SA2 sensitivity origin, retaining the official SA2 true centroid as the primary
+      baseline and as a declared fallback where no unambiguous positive SA1 origin is available.
+    rationale: >-
+      This quantifies centroid bias with public aggregate geography while avoiding pseudo-people.
+      All 2,313 denominator SA2s remain covered and weights reconcile to one; 45 zero-population and
+      four positive-population SA2s retain explicit fallback because the source offers no
+      unambiguous positive SA1 assignment.
+  - id: DEC-021
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Materialize one baseline aggregate demand cell per SA2, allocating the national expected-course
+      scenario in proportion to public 2023 Census female population. Keep overlapping ethnicity and
+      vehicle-access profiles separate, permit explicit unknown deprivation, and retain multi-point
+      origins as a routing sensitivity rather than duplicating demand.
+    rationale: >-
+      This produces a reconciled national demand table without pseudo-patients or double counting.
+      Source-unavailable female counts use a declared population-scaled national-share fallback;
+      the allocation is a structural planning assumption, not observed small-area incidence.
+  - id: DEC-022
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Freeze official IRD kilometre rates as private-vehicle resource-cost scenarios and official
+      National Travel Assistance mileage and accommodation rates as reimbursement scenarios.
+      Report distance, duration, reimbursement, and resource costs separately; keep route-specific
+      fares, parking, walking/waiting/transfer valuation, and provider travel costs unknown until
+      suitable evidence is materialized.
+    rationale: >-
+      Tax kilometre rates and reimbursement schedules are transparent public policy parameters,
+      but neither measures observed patient expenditure or behaviour. Explicit unknown categories
+      prevent unsupported zeroes or synthetic averages from entering national policy results.

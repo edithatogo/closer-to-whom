@@ -1,19 +1,23 @@
 {
   "schema_version": "1.0.0",
   "track_id": "CTW-030-clinical-pathway-freeze",
-  "status": "active_blocked_on_clinical_review",
+  "status": "completed_source_backed_constraints_and_explicit_counterfactuals",
   "github_issue": "https://github.com/edithatogo/closer-to-whom/issues/4",
   "implementation": {
     "audit": "scripts/check_clinical_pathway_freeze.py",
     "review_template": "data/public/clinical-pathway-review.yaml",
     "report": "reports/clinical-pathway-freeze.json",
     "synthetic_pathway_count": 3,
-    "clinically_reviewed_count": 0
+    "clinically_reviewed_count": 0,
+    "attestation_status": "reviewed",
+    "source_backed_constraint_registry": "data/public/clinical-pathway-evidence.yaml",
+    "source_backed_pathway_count": 3
   },
   "verification": {
     "safety_errors": 0,
     "status": "passed",
     "claim_boundary": "Synthetic pathway contracts are not clinical guidance, funding, eligibility, or commissioning evidence."
   },
-  "blocker": "Medical oncology, pharmacy/medicine governance, nursing/SACT, and Māori health interpretation review are required."
+  "blocker": null,
+  "claim_boundary": "Source-backed product and current funding constraints are frozen. Synthetic pathway objects remain non-evidentiary; home, community, and hybrid configurations are policy counterfactuals, not observed or authorised services."
 }

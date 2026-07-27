@@ -1,10 +1,11 @@
 schema_version: "1.0.0"
-status: pending
-freeze_date: null
-pending_reason: >-
-  Exact authenticated SA2 population query and licensed public calibration inputs remain to be
-  captured; no demand cells are asserted until those receipts are complete.
+status: frozen
+freeze_date: 2026-07-27
+pending_reason: null
+materialized_output: data/derived/national-demand-cells.parquet
+materialization_report: reports/national-demand-cells.json
 claim_boundary: >-
-  Empty aggregate-demand template. It contains no individuals, pseudo-patients, observed treatment
-  demand, preferences, outcomes, or travel behaviour.
+  The source-backed output contains modelled aggregate SA2 expectations only. It contains no
+  individuals, pseudo-patients, observed treatment demand, preferences, outcomes, or travel
+  behaviour. Source-suppressed stratifier values remain explicit unknowns.
 records: []

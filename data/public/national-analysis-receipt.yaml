@@ -7,6 +7,7 @@ prerequisites:
   clinical_pathway_review: complete
   route_costs: pending
   governance_review: out_of_scope_for_public_aggregate_harness
+calibration_status: complete_national_scenario_spatially_allocated
 required_outputs:
   - scenario_summary
   - optimisation_frontier
@@ -19,9 +20,13 @@ output_contracts:
   uncertainty_analysis: blocked_pending_prerequisites
   mcda_outputs: blocked_pending_prerequisites
   voi_outputs: blocked_pending_prerequisites
-analysis_receipts: []
+analysis_receipts:
+  - reports/national-demand-calibration.json
+  - reports/national-demand-cells.json
 claim_boundary: >-
-  This analysis is blocked only on aggregate demand materialization and route-cost/rate evidence.
+  This analysis is blocked on reproducible route-cost evidence. A source-backed national aggregate
+  calibration scenario is allocated to SA2 geographies as a modelled planning baseline, not
+  observed current or small-area demand.
   Governance and clinical scope are recorded for this sole-developer public aggregate harness.
   Synthetic demonstrations are not national policy estimates and do not establish observed
   capacity, clinical eligibility, or operational feasibility.

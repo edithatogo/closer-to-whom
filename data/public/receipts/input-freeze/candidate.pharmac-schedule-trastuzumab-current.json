@@ -1,0 +1,22 @@
+{
+  "source_id": "candidate.pharmac-schedule-trastuzumab-current",
+  "title": "Current Pharmaceutical Schedule search for trastuzumab",
+  "publisher": "Pharmac - Te Pataka Whaioranga",
+  "url": "https://schedule.pharmac.govt.nz/ScheduleOnline.php?osq=Trastuzumab",
+  "retrieved_on": "2026-07-27",
+  "retrieved_unix_seconds": 1785122052,
+  "bytes": 836671,
+  "sha256": "613025b53775fe1f32b7d5f18fe1358e64f2c79c29b539eec1dc3adf9d35a45d",
+  "content_type": "text/html",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "status": "captured_metadata_and_claims",
+  "extracted_claims": {
+    "iv_trastuzumab_brand": "Herzuma",
+    "iv_trastuzumab_schedule_scope": "PCT_only",
+    "iv_trastuzumab_special_authority": "SA2293",
+    "phesgo_schedule_scope": "PCT_only",
+    "phesgo_special_authority": "SA2534",
+    "standalone_sc_trastuzumab_listing_observed": false
+  },
+  "claim_boundary": "A negative schedule-search observation is recorded as not listed in this captured search, not as proof that a medicine is clinically inappropriate, unavailable, or unfunded under every mechanism."
+}

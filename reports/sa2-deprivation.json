@@ -1,0 +1,15 @@
+{
+  "claim_boundary": "NZDep is an ecological area measure, never an individual attribute. Unmatched or source-blank areas remain unknown.",
+  "generated_at": "2026-07-27T02:12:02.019782+00:00",
+  "matched_rows": 2208,
+  "parquet_fingerprint": "7d9a896620efd61c51bb49bf96ca3dca1124de40620a218acecd82c0b3e8b74d",
+  "population_reference_year": 2025,
+  "rows": 2313,
+  "schema_version": "1.0.0",
+  "source_geography_version": "SA2 2023",
+  "source_id": "candidate.nzdep2023",
+  "source_sha256": "9a7392a72f6412399ce44fc4d7ae84fd816514f31e4eb03327d298407d1b0f2a",
+  "status": "materialized_with_explicit_unknowns",
+  "unknown_sa2_version_mismatch_rows": 57,
+  "unknown_source_value_blank_rows": 48
+}

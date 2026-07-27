@@ -1,0 +1,24 @@
+{
+  "canonical_point_refinement_count": 249,
+  "claim_boundary": "This is an aggregate geographic stratifier, not an individual residence, patient classification, observed travel mode, or treatment-access outcome.",
+  "generated_at": "2026-07-27T02:01:48.113400+00:00",
+  "parquet_fingerprint": "d6858188c368e7f59d662c67232d52750a30941ed397884abe8b663c4d7912f3",
+  "retrieval_url": "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/UR2023/FeatureServer/0",
+  "retrieval_variant": "official_coastline_clipped_cartographic_layer",
+  "routing_point_count": 2313,
+  "rurality_row_count": 2313,
+  "schema_version": "1.0.0",
+  "source_empty_geometry_count": 4,
+  "source_feature_count": 689,
+  "source_id": "candidate.statsnz-urban-rural-2023-generalised",
+  "source_layer_id": 111198,
+  "source_total_feature_count": 745,
+  "source_url": "https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/",
+  "status": "materialized_with_explicit_unknowns",
+  "status_counts": {
+    "matched_official_urban_rural_2023": 2064,
+    "matched_official_urban_rural_2023_refined": 247,
+    "unknown_no_polygon": 2
+  },
+  "uncertainty": "The class is assigned at the official SA2 true centroid. Boundary-spanning SA2s and within-area population distributions require separate spatial sensitivity analysis."
+}
