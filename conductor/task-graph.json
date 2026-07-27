@@ -51,6 +51,26 @@
       "id": "CTW-070-microdata-voi-decision",
       "status": "completed",
       "kind": "decision"
+    },
+    {
+      "id": "SEC-020-harness-and-supply-chain-hardening",
+      "status": "active",
+      "kind": "security"
+    },
+    {
+      "id": "CTW-080-national-scientific-completeness",
+      "status": "planned",
+      "kind": "analysis"
+    },
+    {
+      "id": "CTW-090-public-product-completeness",
+      "status": "planned",
+      "kind": "product"
+    },
+    {
+      "id": "CTW-100-publication-release-completion",
+      "status": "planned",
+      "kind": "publication"
     }
   ],
   "edges": [
@@ -102,6 +122,36 @@
     {
       "from": "CTW-050-national-analysis",
       "to": "CTW-070-microdata-voi-decision",
+      "type": "requires"
+    },
+    {
+      "from": "CTW-002-maximal-handover",
+      "to": "SEC-020-harness-and-supply-chain-hardening",
+      "type": "requires"
+    },
+    {
+      "from": "CTW-050-national-analysis",
+      "to": "CTW-080-national-scientific-completeness",
+      "type": "extends"
+    },
+    {
+      "from": "CTW-060-publication-and-space",
+      "to": "CTW-090-public-product-completeness",
+      "type": "extends"
+    },
+    {
+      "from": "CTW-080-national-scientific-completeness",
+      "to": "CTW-090-public-product-completeness",
+      "type": "requires"
+    },
+    {
+      "from": "CTW-080-national-scientific-completeness",
+      "to": "CTW-100-publication-release-completion",
+      "type": "requires"
+    },
+    {
+      "from": "CTW-090-public-product-completeness",
+      "to": "CTW-100-publication-release-completion",
       "type": "requires"
     }
   ]

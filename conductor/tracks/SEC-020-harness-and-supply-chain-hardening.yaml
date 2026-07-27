@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+track_id: SEC-020-harness-and-supply-chain-hardening
+status: active
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/110
+objective: Close local container, supply-chain, GitHub-policy, observability, and maintenance gaps in the sole-developer harness.
+dependencies: [CTW-002-maximal-handover]
+claim_boundary: >-
+  Security controls must be verified rather than inferred. Unavailable account features remain explicit
+  residual risks, and the sole-developer repository has zero mandatory second-reviewer requirements.
+work_packages:
+  - id: SEC-020a
+    title: Container secret boundary, least privilege, and locked dependencies
+    acceptance:
+      - Exclude local secrets and developer state from Docker contexts and test image layers with seeded sentinels.
+      - Replace broad context copies where practical, run as a fixed unprivileged user, and support a read-only root filesystem.
+      - Install every runtime dependency from the frozen lock and scan the built image.
+  - id: SEC-020b
+    title: GitHub environment, Actions, and artifact supply-chain enforcement
+    acceptance:
+      - Reconcile declared publication environments and constrain deployment credentials to trusted main-branch workflows without mandatory reviewers.
+      - Require immutable external Action SHAs and an approved owner/action inventory in repository checks where account controls are unavailable.
+      - Generate artifact-scoped wheel and container SBOMs and attest exact shipped artifacts.
+  - id: SEC-020c
+    title: Deployment verification, uptime, and scheduled-assurance monitoring
+    acceptance:
+      - Poll and verify the public Space after deployment using revision, report identifiers, and content hashes.
+      - Detect unavailable public surfaces and missing, cancelled, stale, or repeatedly failing scheduled workflows.
+      - Route actionable alerts to a documented sole-developer channel without exposing secrets.
+  - id: SEC-020d
+    title: Fail-closed local security and Conductor coherence
+    acceptance:
+      - Make the selected static security scanner a locked required gate and remove unconditional success handling.
+      - Add a canonical Conductor index for the project-specific YAML schema and validate issue, subissue, track, receipt, revision, and test-count coherence.
+      - Reject stale duplicated completion evidence.
+  - id: SEC-020e
+    title: Dependency automation ownership
+    acceptance:
+      - Assign one authoritative update system per ecosystem while preserving security updates and immutable pins.
+      - Define grouping, minimum release age, and automerge policy.
+      - Verify Python 3.14 wheel availability before runtime upgrade proposals.
+verification_contract:
+  - Container-context, runtime-user, lock, SBOM, workflow, live-settings, monitoring, and drift checks have machine receipts.
+  - make check and the hardened hosted workflows pass.

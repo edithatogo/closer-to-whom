@@ -16,6 +16,10 @@ parent_issues:
   CTW-040-national-routing-and-costs: 19
   CTW-050-national-analysis: 20
   CTW-060-publication-and-space: 21
+  SEC-020-harness-and-supply-chain-hardening: 110
+  CTW-080-national-scientific-completeness: 116
+  CTW-090-public-product-completeness: 123
+  CTW-100-publication-release-completion: 128
   CTW-070-microdata-voi-decision: 22
 implementation_pr: 8
 post_merge_actions:
@@ -32,6 +36,10 @@ subissues:
   CTW-050-national-analysis: [25, 26]
   CTW-060-publication-and-space: [27, 28]
   CTW-070-microdata-voi-decision: [29, 30]
+  SEC-020-harness-and-supply-chain-hardening: [111, 112, 113, 114, 115]
+  CTW-080-national-scientific-completeness: [117, 118, 119, 120, 121, 122]
+  CTW-090-public-product-completeness: [124, 125, 126, 127]
+  CTW-100-publication-release-completion: [129, 130, 131, 132]
 status_semantics:
   Todo: planned but not started
   In Progress: active implementation or external review
