@@ -1,0 +1,125 @@
+{
+  "analysis_population": "aggregate_expected_course_cells",
+  "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+  "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
+  "configurations": [
+    {
+      "candidate_facility_ids": [
+        "NZ-WKO-WAIKATO"
+      ],
+      "candidate_site_count": 1,
+      "configuration_id": "candidate_network_01",
+      "expected_annual_round_trip_km": 270694.5423690633,
+      "maximum_one_way_minutes": 1868.6316666666667,
+      "share_expected_courses_within_60_minutes": 0.07136845205180391,
+      "vehicle_resource_cost_nzd": 100156.98067655342,
+      "weighted_mean_one_way_km": 420.11177273308084,
+      "weighted_mean_one_way_minutes": 373.55773955502536,
+      "weighted_median_one_way_minutes": 204.19833333333332,
+      "weighted_p90_one_way_minutes": 928.06,
+      "weighted_p95_one_way_minutes": 1211.2883333333334
+    },
+    {
+      "candidate_facility_ids": [
+        "NZ-WKO-WAIKATO",
+        "NZ-CAN-CHRISTCHURCH",
+        "NZ-MWT-PALMERSTON-NORTH"
+      ],
+      "candidate_site_count": 3,
+      "configuration_id": "candidate_network_03",
+      "expected_annual_round_trip_km": 95352.00030071873,
+      "maximum_one_way_minutes": 966.4983333333333,
+      "share_expected_courses_within_60_minutes": 0.21821731008669365,
+      "vehicle_resource_cost_nzd": 35280.24011126593,
+      "weighted_mean_one_way_km": 147.9841356585782,
+      "weighted_mean_one_way_minutes": 123.08542397496754,
+      "weighted_median_one_way_minutes": 99.65666666666667,
+      "weighted_p90_one_way_minutes": 301.3066666666667,
+      "weighted_p95_one_way_minutes": 340.57
+    },
+    {
+      "candidate_facility_ids": [
+        "NZ-WKO-WAIKATO",
+        "NZ-CAN-CHRISTCHURCH",
+        "NZ-MWT-PALMERSTON-NORTH",
+        "NZ-AKL-TE-PURIRI",
+        "NZ-OTA-DUNEDIN"
+      ],
+      "candidate_site_count": 5,
+      "configuration_id": "candidate_network_05",
+      "expected_annual_round_trip_km": 56327.19005558126,
+      "maximum_one_way_minutes": 664.4816666666667,
+      "share_expected_courses_within_60_minutes": 0.5527478563864849,
+      "vehicle_resource_cost_nzd": 20841.060320565066,
+      "weighted_mean_one_way_km": 87.41851778843933,
+      "weighted_mean_one_way_minutes": 76.64214918797624,
+      "weighted_median_one_way_minutes": 35.90333333333333,
+      "weighted_p90_one_way_minutes": 186.42000000000002,
+      "weighted_p95_one_way_minutes": 263.1633333333333
+    },
+    {
+      "candidate_facility_ids": [
+        "NZ-WKO-WAIKATO",
+        "NZ-CAN-CHRISTCHURCH",
+        "NZ-MWT-PALMERSTON-NORTH",
+        "NZ-AKL-TE-PURIRI",
+        "NZ-OTA-DUNEDIN",
+        "NZ-NSN-NELSON",
+        "NZ-WGN-WELLINGTON-REGIONAL",
+        "NZ-BOP-TAURANGA",
+        "NZ-HKB-HASTINGS",
+        "NZ-TKI-NEW-PLYMOUTH"
+      ],
+      "candidate_site_count": 10,
+      "configuration_id": "candidate_network_10",
+      "expected_annual_round_trip_km": 30828.60366582433,
+      "maximum_one_way_minutes": 664.4816666666667,
+      "share_expected_courses_within_60_minutes": 0.778659485979929,
+      "vehicle_resource_cost_nzd": 11406.583356355002,
+      "weighted_mean_one_way_km": 47.84529168407493,
+      "weighted_mean_one_way_minutes": 44.87042001862365,
+      "weighted_median_one_way_minutes": 21.603333333333335,
+      "weighted_p90_one_way_minutes": 134.85166666666666,
+      "weighted_p95_one_way_minutes": 179.495
+    },
+    {
+      "candidate_facility_ids": [
+        "NZ-WKO-WAIKATO",
+        "NZ-CAN-CHRISTCHURCH",
+        "NZ-MWT-PALMERSTON-NORTH",
+        "NZ-AKL-TE-PURIRI",
+        "NZ-OTA-DUNEDIN",
+        "NZ-NSN-NELSON",
+        "NZ-WGN-WELLINGTON-REGIONAL",
+        "NZ-BOP-TAURANGA",
+        "NZ-HKB-HASTINGS",
+        "NZ-TKI-NEW-PLYMOUTH",
+        "NZ-NTH-DARGAVILLE",
+        "NZ-STL-INVERCARGILL",
+        "NZ-TGI-GISBORNE",
+        "NZ-SCD-TIMARU",
+        "NZ-LAK-ROTORUA",
+        "NZ-WAI-MASTERTON",
+        "NZ-BOP-WHAKATANE",
+        "NZ-LAK-TAUPO",
+        "NZ-WKO-TE-KUITI"
+      ],
+      "candidate_site_count": 19,
+      "configuration_id": "candidate_network_19",
+      "expected_annual_round_trip_km": 19752.46228718199,
+      "maximum_one_way_minutes": 497.56166666666667,
+      "share_expected_courses_within_60_minutes": 0.8715135700099692,
+      "vehicle_resource_cost_nzd": 7308.411046257335,
+      "weighted_mean_one_way_km": 30.655372194381286,
+      "weighted_mean_one_way_minutes": 30.83419058349956,
+      "weighted_median_one_way_minutes": 19.634999999999998,
+      "weighted_p90_one_way_minutes": 67.145,
+      "weighted_p95_one_way_minutes": 102.7
+    }
+  ],
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "schema_version": "1.0.0",
+  "status": "materialized_source_backed_candidate_network_comparison"
+}

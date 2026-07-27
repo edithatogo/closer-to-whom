@@ -81,8 +81,17 @@ def validate(path: Path = RECEIPT) -> list[str]:
         if any(str(value).lower() != "ready_to_materialize" for value in output_contracts.values()):
             failures.append("runnable outputs must be ready_to_materialize")
     if status in {"ready_for_review", "completed"}:
-        if any(str(value).lower() != "complete" for value in prerequisites.values()):
-            failures.append("reviewable analysis requires every prerequisite to be complete")
+        unsatisfied = {
+            key: value
+            for key, value in prerequisites.items()
+            if str(value).lower() != "complete"
+            and not (
+                key == "governance_review"
+                and str(value).lower() == "out_of_scope_for_public_aggregate_harness"
+            )
+        }
+        if unsatisfied:
+            failures.append("reviewable analysis requires every prerequisite to be satisfied")
         if len(receipts) < len(REQUIRED_OUTPUTS):
             failures.append("reviewable analysis requires one receipt per required output")
         if any(

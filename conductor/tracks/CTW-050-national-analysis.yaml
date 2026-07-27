@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/20
 objective: Execute national scenario, optimisation, uncertainty, MCDA, and VOI analyses after upstream freezes.
 dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs]
@@ -21,6 +21,6 @@ progress:
     - National aggregate expected-course calibration is materialized with parameter-level provenance.
     - Received 43,947 baseline and 601,312 spatial-sensitivity non-approximate OSRM routes from CTW-040.
     - Implemented and locally exercised a bounded source-backed five-output analysis materializer.
-  remaining:
-    - Merge the hardened national-analysis workflow to main and execute it against routing artifact 8643121451.
-    - Validate and register the hosted output receipt before marking CTW-050 complete.
+    - Merged PR 101 and completed hosted workflow run 30243407303 on main.
+    - Independently validated all five output hashes and registered the immutable run receipt.
+  remaining: []

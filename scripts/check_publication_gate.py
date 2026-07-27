@@ -45,7 +45,12 @@ def validate(path: Path = GATE) -> list[str]:
     payload = _load(path)
     failures: list[str] = []
     status = str(payload.get("status", "")).lower()
-    if status not in {"blocked_on_national_analysis", "ready_for_review", "published"}:
+    if status not in {
+        "blocked_on_national_analysis",
+        "blocked_on_release_assurance",
+        "ready_for_review",
+        "published",
+    }:
         failures.append(f"unsupported publication gate status: {status or '<blank>'}")
     evidence = payload.get("required_evidence")
     if not isinstance(evidence, dict) or set(map(str, evidence)) != REQUIRED_EVIDENCE:

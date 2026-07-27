@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-050-national-analysis",
+  "status": "completed",
+  "repository": "edithatogo/closer-to-whom",
+  "commit": "f31057cad1780e92dc55f5d85eb529a0773fce24",
+  "workflow_run_id": 30243407303,
+  "workflow_url": "https://github.com/edithatogo/closer-to-whom/actions/runs/30243407303",
+  "artifact_id": 8644081436,
+  "artifact_name": "national-analysis-f31057cad1780e92dc55f5d85eb529a0773fce24",
+  "artifact_expires_at": "2026-08-10T06:39:03Z",
+  "generated_at": "2026-07-27T16:38:23+10:00",
+  "seed": 20260727,
+  "inputs": {
+    "aggregate_demand": "73ac7bf966141c23b45c06f1f8ce1c123e10f640d4d36d50b9ecccf081b633e4",
+    "baseline_osrm_routes": "332b3a1c05c611cfb266efc56e71293a332b4b4a10c4686b491b2d683dee7145",
+    "candidate_facilities": "372339503d80aaf9d2caf982ee911d41c199f218286b23d1163a14516cb78c54",
+    "spatial_sensitivity_osrm_routes": "68ecfccad124ffa15260ff7ca015bcb6e6f1457fc0446b660406436cd7822721",
+    "travel_cost_parameters": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d"
+  },
+  "outputs": [
+    {
+      "output": "scenario_summary",
+      "path": "scenario_summary.json",
+      "sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8"
+    },
+    {
+      "output": "optimisation_frontier",
+      "path": "optimisation_frontier.json",
+      "sha256": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3"
+    },
+    {
+      "output": "uncertainty_analysis",
+      "path": "uncertainty_analysis.json",
+      "sha256": "803d66fa2b2264e8cf1cb1403680391502264fe3357e2a4ee316467b59792ccc"
+    },
+    {
+      "output": "mcda_outputs",
+      "path": "mcda_outputs.json",
+      "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
+    },
+    {
+      "output": "voi_outputs",
+      "path": "voi_outputs.json",
+      "sha256": "6c71eb329ba8634d97fbaf694266f4840fd142bcd25afc517c0519439cf6ebe2"
+    }
+  ],
+  "independent_hash_validation": "passed_2026-07-27",
+  "claim_boundary": "Aggregate model outputs compare plausible candidate networks under declared assumptions. They do not establish clinical eligibility, confirmed service capability, observed capacity, operational feasibility, or a policy recommendation."
+}

@@ -1,0 +1,138 @@
+{
+  "analysis_population": "aggregate_expected_course_cells",
+  "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+  "claim_boundary": "Spatial, temporal-demand, and vehicle-rate scenarios are reported separately and are not pooled into a confidence interval or interpreted as observed variability.",
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "probabilistic_interval_status": "not_estimated_no_source_backed_probability_distributions",
+  "rows": [
+    {
+      "configuration_id": "candidate_network_01",
+      "lower_or_baseline": 373.55773955502536,
+      "parameter": "within_sa2_origin_structure",
+      "uncertainty_type": "spatial_structural",
+      "unit": "weighted_mean_one_way_minutes",
+      "upper_or_sensitivity": 373.04059275523605
+    },
+    {
+      "configuration_id": "candidate_network_01",
+      "lower_or_baseline": 258860.9011726015,
+      "parameter": "annual_registration_calibration",
+      "uncertainty_type": "temporal_scenario",
+      "unit": "expected_annual_round_trip_km",
+      "upper_or_sensitivity": 270694.5423690633
+    },
+    {
+      "base": 100156.98067655342,
+      "configuration_id": "candidate_network_01",
+      "lower_or_baseline": 62259.74474488456,
+      "parameter": "vehicle_resource_rate",
+      "uncertainty_type": "deterministic_cost_scenario",
+      "unit": "NZD_2025_26",
+      "upper_or_sensitivity": 324833.4508428759
+    },
+    {
+      "configuration_id": "candidate_network_03",
+      "lower_or_baseline": 123.08542397496754,
+      "parameter": "within_sa2_origin_structure",
+      "uncertainty_type": "spatial_structural",
+      "unit": "weighted_mean_one_way_minutes",
+      "upper_or_sensitivity": 122.53446494549164
+    },
+    {
+      "configuration_id": "candidate_network_03",
+      "lower_or_baseline": 91183.60684494961,
+      "parameter": "annual_registration_calibration",
+      "uncertainty_type": "temporal_scenario",
+      "unit": "expected_annual_round_trip_km",
+      "upper_or_sensitivity": 95352.00030071873
+    },
+    {
+      "base": 35280.24011126593,
+      "configuration_id": "candidate_network_03",
+      "lower_or_baseline": 21930.96006916531,
+      "parameter": "vehicle_resource_rate",
+      "uncertainty_type": "deterministic_cost_scenario",
+      "unit": "NZD_2025_26",
+      "upper_or_sensitivity": 114422.40036086248
+    },
+    {
+      "configuration_id": "candidate_network_05",
+      "lower_or_baseline": 76.64214918797624,
+      "parameter": "within_sa2_origin_structure",
+      "uncertainty_type": "spatial_structural",
+      "unit": "weighted_mean_one_way_minutes",
+      "upper_or_sensitivity": 76.10245746226295
+    },
+    {
+      "configuration_id": "candidate_network_05",
+      "lower_or_baseline": 53864.799233479345,
+      "parameter": "annual_registration_calibration",
+      "uncertainty_type": "temporal_scenario",
+      "unit": "expected_annual_round_trip_km",
+      "upper_or_sensitivity": 56327.19005558126
+    },
+    {
+      "base": 20841.060320565066,
+      "configuration_id": "candidate_network_05",
+      "lower_or_baseline": 12955.253712783691,
+      "parameter": "vehicle_resource_rate",
+      "uncertainty_type": "deterministic_cost_scenario",
+      "unit": "NZD_2025_26",
+      "upper_or_sensitivity": 67592.6280666975
+    },
+    {
+      "configuration_id": "candidate_network_10",
+      "lower_or_baseline": 44.87042001862365,
+      "parameter": "within_sa2_origin_structure",
+      "uncertainty_type": "spatial_structural",
+      "unit": "weighted_mean_one_way_minutes",
+      "upper_or_sensitivity": 44.317013701361184
+    },
+    {
+      "configuration_id": "candidate_network_10",
+      "lower_or_baseline": 29480.905144913973,
+      "parameter": "annual_registration_calibration",
+      "uncertainty_type": "temporal_scenario",
+      "unit": "expected_annual_round_trip_km",
+      "upper_or_sensitivity": 30828.60366582433
+    },
+    {
+      "base": 11406.583356355002,
+      "configuration_id": "candidate_network_10",
+      "lower_or_baseline": 7090.578843139596,
+      "parameter": "vehicle_resource_rate",
+      "uncertainty_type": "deterministic_cost_scenario",
+      "unit": "NZD_2025_26",
+      "upper_or_sensitivity": 36994.32439898919
+    },
+    {
+      "configuration_id": "candidate_network_19",
+      "lower_or_baseline": 30.83419058349956,
+      "parameter": "within_sa2_origin_structure",
+      "uncertainty_type": "spatial_structural",
+      "unit": "weighted_mean_one_way_minutes",
+      "upper_or_sensitivity": 30.263863918105187
+    },
+    {
+      "configuration_id": "candidate_network_19",
+      "lower_or_baseline": 18888.966668070207,
+      "parameter": "annual_registration_calibration",
+      "uncertainty_type": "temporal_scenario",
+      "unit": "expected_annual_round_trip_km",
+      "upper_or_sensitivity": 19752.46228718199
+    },
+    {
+      "base": 7308.411046257335,
+      "configuration_id": "candidate_network_19",
+      "lower_or_baseline": 4543.066326051858,
+      "parameter": "vehicle_resource_rate",
+      "uncertainty_type": "deterministic_cost_scenario",
+      "unit": "NZD_2025_26",
+      "upper_or_sensitivity": 23702.954744618386
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "materialized_separated_uncertainty_scenarios"
+}

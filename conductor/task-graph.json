@@ -39,12 +39,12 @@
     },
     {
       "id": "CTW-050-national-analysis",
-      "status": "active",
+      "status": "completed",
       "kind": "analysis"
     },
     {
       "id": "CTW-060-publication-and-space",
-      "status": "blocked",
+      "status": "active",
       "kind": "release"
     },
     {

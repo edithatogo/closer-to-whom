@@ -2,21 +2,17 @@ schema_version: "1.0.0"
 project_id: closer-to-whom
 updated_at: 2026-07-27
 version: "0.2.0"
-active_track: CTW-050-national-analysis
-phase: national_analysis
+active_track: CTW-060-publication-and-space
+phase: release_assurance
 software_status: hosted_main_verified
-model_status: national_osrm_routes_complete_analysis_pending
-publication_status: blocked_on_evidence_and_analysis
+model_status: national_aggregate_analysis_complete
+publication_status: blocked_on_release_assurance
 current_claim_boundary: >-
-  Software, the public-input freeze, 2,313 aggregate SA2 demand cells, core ecological stratifiers,
-  baseline origins, population-weighted spatial sensitivity, and national OSRM route matrices are implemented and verifiable.
-  Source-backed vehicle-resource and NTA reimbursement scenarios are frozen; unsupported,
-  route-specific, or suppressed values remain explicit unknowns. No national burden,
-  optimisation, or policy estimate is publication ready until the aggregate national
-  analysis is complete.
+  Software, frozen public aggregate inputs, national OSRM matrices, and five national decision-analysis
+  outputs are implemented and verifiable. Candidate locations remain plausible rather than confirmed
+  anti-HER2 services; observed capacity and operational feasibility remain unknown. Publication is
+  blocked until release assurance and aggregate-artifact review are complete.
 next_tracks:
-  - CTW-040-national-routing-and-costs
-  - CTW-050-national-analysis
   - CTW-060-publication-and-space
   - CTW-070-microdata-voi-decision
 external_dependencies:
