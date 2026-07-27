@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Validate source-backed pathway constraints and unfrozen setting boundaries."""
 
 from __future__ import annotations
