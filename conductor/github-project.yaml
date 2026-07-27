@@ -22,6 +22,7 @@ parent_issues:
   CTW-100-publication-release-completion: 128
   CTW-070-microdata-voi-decision: 22
 implementation_pr: 8
+roadmap_pr: 133
 post_merge_actions:
   OPS-010-python314-container: 31
   OPS-020-node24-action-pins: 32
