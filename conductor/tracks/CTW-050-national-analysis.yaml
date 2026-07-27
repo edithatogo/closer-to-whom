@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
-status: blocked
+status: active
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/20
 objective: Execute national scenario, optimisation, uncertainty, MCDA, and VOI analyses after upstream freezes.
 dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs]
@@ -9,6 +9,7 @@ output_contract: Every required output has an explicit blocked/ready/completed s
 progress:
   completed:
     - National aggregate expected-course calibration is materialized with parameter-level provenance.
+    - Received 43,947 baseline and 601,312 spatial-sensitivity non-approximate OSRM routes from CTW-040.
   remaining:
     - Await the national road matrix.
-    - Run scenario, optimisation, uncertainty, MCDA, and VOI outputs only after those dependencies pass.
+    - Run scenario, optimisation, uncertainty, MCDA, and VOI outputs against the frozen aggregate inputs and route evidence.

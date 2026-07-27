@@ -1,12 +1,13 @@
 schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
-status: blocked_on_prerequisites
+status: ready_to_run
 prerequisites:
   service_census: complete
   public_input_freeze: complete
   clinical_pathway_review: complete
-  route_costs: pending
+  route_costs: complete
   governance_review: out_of_scope_for_public_aggregate_harness
+route_costs_receipt: conductor/receipts/CTW-040-national-routing-run-30240382950.json
 calibration_status: complete_national_scenario_spatially_allocated
 required_outputs:
   - scenario_summary
@@ -15,16 +16,19 @@ required_outputs:
   - mcda_outputs
   - voi_outputs
 output_contracts:
-  scenario_summary: blocked_pending_prerequisites
-  optimisation_frontier: blocked_pending_prerequisites
-  uncertainty_analysis: blocked_pending_prerequisites
-  mcda_outputs: blocked_pending_prerequisites
-  voi_outputs: blocked_pending_prerequisites
+  scenario_summary: ready_to_materialize
+  optimisation_frontier: ready_to_materialize
+  uncertainty_analysis: ready_to_materialize
+  mcda_outputs: ready_to_materialize
+  voi_outputs: ready_to_materialize
 analysis_receipts:
   - reports/national-demand-calibration.json
   - reports/national-demand-cells.json
+  - reports/routing-costs-flow.json
+  - reports/routing-spatial-sensitivity.json
+  - conductor/receipts/CTW-040-national-routing-run-30240382950.json
 claim_boundary: >-
-  This analysis is blocked on reproducible route-cost evidence. A source-backed national aggregate
+  Publication remains blocked while national outputs are unmaterialized. Reproducible route-cost evidence is complete. A source-backed national aggregate
   calibration scenario is allocated to SA2 geographies as a modelled planning baseline, not
   observed current or small-area demand.
   Governance and clinical scope are recorded for this sole-developer public aggregate harness.
