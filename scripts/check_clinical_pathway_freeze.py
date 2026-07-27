@@ -33,12 +33,14 @@ def audit(output_path: Path = DEFAULT_OUTPUT) -> dict[str, Any]:
         "generated_at": datetime.now(UTC).isoformat(),
         "pathway_count": len(pathways),
         "clinically_reviewed_count": clinically_reviewed,
-        "status": "blocked_pending_clinical_review"
-        if clinically_reviewed < len(pathways)
-        else "ready_for_review_receipt",
+        "status": "synthetic_fixtures_valid_non_evidentiary",
         "safety_errors": errors,
         "pathway_ids": [pathway.pathway_id for pathway in pathways],
-        "claim_boundary": "Synthetic pathway contracts demonstrate software behaviour and are not clinical guidance or evidence of funding/eligibility.",
+        "claim_boundary": (
+            "Synthetic pathway contracts demonstrate software behaviour and are not clinical "
+            "guidance or evidence of funding/eligibility. The separate public pathway-evidence "
+            "registry is the source of product, funding, and counterfactual constraints."
+        ),
     }
     if errors:
         raise ValueError(json.dumps(report, sort_keys=True))

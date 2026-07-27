@@ -6,8 +6,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "31 6 * * 1"
-  push:
-    branches: [main]
 permissions:
   contents: read
 concurrency:

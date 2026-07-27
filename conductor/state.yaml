@@ -1,46 +1,38 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-21
+updated_at: 2026-07-27
 version: "0.2.0"
-active_track: CTW-020-public-demand-and-geography
-phase: demand_input_preparation
-software_status: hosted_main_verified
-model_status: synthetic_demonstration_only
-publication_status: blocked_on_evidence_and_governance
+active_track: LIB-010-upstream-contracts
+phase: published_maintenance
+software_status: clean_main_release_assured
+model_status: national_aggregate_analysis_complete
+publication_status: published_free_static_space
 current_claim_boundary: >-
-  Software and synthetic fixtures are implemented and verifiable; no policy estimate is publication
-  ready until national public-data calibration, source/licence receipts, national routing, and
-  aggregate analysis are complete. Māori/equity review and ethics/HDEC determination are out of
-  scope for this public aggregate harness and are not claimed.
+  The reviewed five-report public aggregate analysis is published on a free static Space and tied to
+  verified GitHub and Space revisions. Candidate locations remain plausible, observed capacity and
+  operational feasibility remain unknown, and the site is not clinical guidance or a policy recommendation.
 next_tracks:
-  - CTW-010-national-service-census
-  - CTW-020-public-demand-and-geography
-  - CTW-030-clinical-pathway-freeze
-  - CTW-040-national-routing-and-costs
-  - CTW-050-national-analysis
-  - CTW-060-publication-and-space
-  - CTW-070-microdata-voi-decision
+  - LIB-010-upstream-contracts
 external_dependencies:
-  - "CTW-010 / GitHub issue #2: national service census and licence adjudication"
-  - "CTW-020 / GitHub issue #3: public demand and geography dataset freeze"
-  - "CTW-030 / GitHub issue #4: clinical pathway review and freeze"
-  - "GitHub issue #5: Māori/equity and ethics-scope work is out of scope for the current harness"
-  - "LIB-010 / GitHub issue #6: upstream ecosystem contracts"
-  - local credentials for optional integrations
+  - "LIB-010 / GitHub issue #6: optional upstream ecosystem enhancements; local fallbacks remain active"
+  - protected credentials for future optional integrations and republication
 verification_status:
   profile: local
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 115
+  tests: 159
   optional_not_run:
     - Docker container health check
     - Mojo canary
     - Bandit executable (not installed locally; security target continued by declared fallback)
 release_status:
   candidate_tag: not_created
+  release_assurance_run: 30246144787
+  release_artifact_id: 8645100321
+  space_deployment_run: 30245222214
+  space_revision: dc6ebdcc44a9466daa74016d15022c0bc490c15a
   reason: >-
-    No release candidate was created. The latest local profile passed all 27 required gates at 89.56%
-    coverage. The full Windows/OneDrive attempt then timed out during clean-room wheel installation;
-    the equivalent GitHub clean-double-build and full Linux assurance gates are green. Publication
-    remains blocked on external evidence and governance review.
+    The clean main revision passed all 27 required release gates and the reviewed aggregate payload
+    is published on the free Static Space. No version tag was created because this completion records
+    a deployment and release-candidate artifact rather than authorising a new semantic version.

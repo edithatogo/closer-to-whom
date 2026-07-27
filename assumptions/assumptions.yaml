@@ -25,40 +25,70 @@ assumptions:
     domain: demand
     name: principal_geography
     value: SA2_SSGA23
-    status: planned_public_input
+    status: frozen_public_input_artifact_only
     source_ids: [candidate.statsnz-geographies]
     uncertainty: spatial
-    rationale: SA2 under Stats NZ SSGA23 balances public availability, interpretability, and disclosure protection; input and licence freeze remains pending.
+    rationale: SA2 under Stats NZ SSGA23 is frozen from the authenticated POPES_SUB_004 artifact for authorized local use; redistribution remains blocked pending licence adjudication.
   - id: D02
     domain: demand
     name: within_area_allocation
-    value: population_weighted_multiple_points
-    status: planned_method
-    source_ids: [protocol.public-data]
+    value: official_true_centroid_baseline
+    status: materialized_public_aggregate_with_spatial_sensitivity
+    source_ids: [candidate.statsnz-sa2-2023-centroid-true, candidate.statsnz-sa1-census-population-2023, candidate.statsnz-sa2-boundaries-2023]
     uncertainty: spatial
-    rationale: Multiple routing points reduce centroid bias in large areas.
+    rationale: The official Stats NZ true-centroid layer provides the deterministic baseline; 31,599 positive-population SA1 centroids provide population-weighted sensitivity origins, with 49 SA2s retaining an explicit true-centroid fallback.
   - id: D03
     domain: demand
     name: her2_positive_probability
-    value: 0.175
+    value: 0.15
     unit: proportion
-    status: placeholder_requires_source_freeze
-    source_ids: [candidate.pharmac-anti-her2]
-    uncertainty: beta
+    status: captured_public_aggregate_estimate
+    source_ids: [candidate.teaho-cancer-medicines-gap-2022]
+    uncertainty: structural_scenario
     lower: 0.15
-    upper: 0.20
-    rationale: Midpoint of a public range used only until pathway-specific calibration.
+    upper: 0.15
+    rationale: Te Aho reports approximately 15 percent HER2-positive nationally; subgroup differences remain structural scenarios and are not applied to SA2 cells.
   - id: D04
     domain: demand
     name: treatment_uptake
-    value: 0.85
+    value: 0.631
     unit: proportion
-    status: illustrative
-    source_ids: [synthetic.parameter-fixture]
-    uncertainty: beta
-    lower: 0.60
-    upper: 1.00
-    rationale: Wide uncertainty prevents false precision before public calibration.
+    status: captured_public_aggregate_qpi_2020_21
+    source_ids: [candidate.teaho-breast-qpi-2025]
+    uncertainty: structural_scenario
+    lower: 0.631
+    upper: 0.631
+    rationale: Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate.
+  - id: D05
+    domain: demand
+    name: stage_i_iii_probability
+    value: 0.93
+    unit: proportion
+    status: captured_public_aggregate_estimate
+    source_ids: [candidate.teaho-cancer-medicines-gap-2022]
+    uncertainty: structural_scenario
+    lower: 0.93
+    upper: 0.93
+    rationale: Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario.
+  - id: D06
+    domain: demand
+    name: annual_female_breast_cancer_registrations
+    value: 3660
+    unit: registrations_per_year
+    status: captured_public_aggregate_2022
+    source_ids: [candidate.healthnz-health-independence-2024]
+    uncertainty: temporal_scenario
+    lower: 3500
+    upper: 3660
+    rationale: Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025.
+  - id: D07
+    domain: demand
+    name: small_area_allocation_baseline
+    value: proportional_to_2023_census_female_population
+    status: materialized_model_assumption
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2, candidate.statsnz-population-estimates-2023-base]
+    uncertainty: structural_spatial_temporal
+    rationale: National expected courses are allocated by 2023 Census female population; 84 source-unavailable SA2s use 2025 population scaled by the observed national female share and are explicitly identified. This is a planning baseline, not observed small-area incidence.
   - id: F01
     domain: facilities
     name: conservative_evidence_threshold
@@ -114,11 +144,11 @@ assumptions:
   - id: T01
     domain: routing
     name: publication_route_method
-    value: versioned_road_and_public_transport_engines
-    status: planned_method
-    source_ids: [protocol.routing]
+    value: self_hosted_osrm_on_pinned_osm_pbf
+    status: implemented_pending_network_build_and_matrix
+    source_ids: [candidate.osm-geofabrik-nz-network, candidate.osrm-table-service]
     uncertainty: structural
-    rationale: Straight-line distance is not the publication access measure.
+    rationale: The national road matrix uses a pinned OSM extract and loopback-only OSRM table client; public demo servers and straight-line distances are not release evidence.
   - id: T02
     domain: routing
     name: synthetic_road_circuity
@@ -146,23 +176,26 @@ assumptions:
     name: vehicle_running_cost
     value: 0.37
     unit: NZD_per_km
-    price_year: 2025_26
-    status: requires_analysis_date_refresh
+    price_year: "2025_26"
+    status: source_backed_2025_26_petrol_tier_2_scenario
     source_ids: [candidate.ird-kilometre-rates]
     uncertainty: deterministic_scenario
-    lower: 0.30
+    lower: 0.23
     upper: 1.20
-    rationale: Marginal running-cost base with broader-cost scenario.
+    rationale: >-
+      Official IRD rates are tax kilometre-rate proxies rather than observed patient costs.
+      The petrol Tier 2 rate is the base private-vehicle resource-cost scenario; 0.23 to 1.20
+      spans the published electric Tier 2 and petrol Tier 1 rates.
   - id: K02
     domain: cost
     name: nta_reimbursement
-    value: 0.44
+    value: 0.34
     unit: NZD_per_km
-    status: temporary_rate_requires_date_check
+    status: source_backed_2024_reimbursement_scenario
     source_ids: [candidate.healthnz-nta]
     uncertainty: deterministic_scenario
     lower: 0.34
-    upper: 0.44
+    upper: 0.34
     rationale: Report gross burden, reimbursement, and societal resource cost separately.
   - id: K03
     domain: cost
@@ -175,22 +208,46 @@ assumptions:
     lower: 10
     upper: 50
     rationale: Primary reporting keeps time separate; monetisation is secondary.
+  - id: K04
+    domain: cost
+    name: nta_accommodation_cap
+    value: 140
+    unit: NZD_per_night
+    price_year: 2024
+    status: source_backed_2024_reimbursement_cap
+    source_ids: [candidate.healthnz-nta]
+    uncertainty: deterministic_scenario
+    lower: 140
+    upper: 140
+    rationale: Eligibility-dependent reimbursement cap, not observed accommodation expenditure.
+  - id: K05
+    domain: cost
+    name: nta_friends_whanau_accommodation_rate
+    value: 35
+    unit: NZD_per_night
+    price_year: 2024
+    status: source_backed_2024_reimbursement_rate
+    source_ids: [candidate.healthnz-nta]
+    uncertainty: deterministic_scenario
+    lower: 35
+    upper: 35
+    rationale: Eligibility-dependent reimbursement rate, not observed accommodation expenditure.
   - id: E01
     domain: equity
     name: rurality_measure
-    value: GCH23_stratifier
-    status: planned_public_input
-    source_ids: [candidate.gch2023]
+    value: Stats_NZ_Urban_Rural_2023_centroid_class
+    status: materialized_public_aggregate
+    source_ids: [candidate.statsnz-urban-rural-2023-generalised]
     uncertainty: structural
-    rationale: GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission.
+    rationale: Stats NZ Urban Rural 2023 is the open baseline stratifier at each official SA2 true centroid; network travel remains the access measure, and GCH23 remains a separate restricted sensitivity input.
   - id: E02
     domain: equity
     name: deprivation_measure
     value: NZDep2023
-    status: planned_public_input
+    status: materialized_public_aggregate_with_explicit_unknowns
     source_ids: [candidate.nzdep2023]
     uncertainty: ecological
-    rationale: Area deprivation is not interpreted as an individual attribute.
+    rationale: The official SA2 workbook supports 2,208 denominator areas; 48 source-blank and 57 version-mismatched areas remain explicit unknowns. Area deprivation is never interpreted as an individual attribute.
   - id: E03
     domain: equity
     name: equity_weights
@@ -199,6 +256,22 @@ assumptions:
     source_ids: [protocol.mcda]
     uncertainty: stochastic_mcda
     rationale: No single weight set is represented as stakeholder-derived without governance.
+  - id: E04
+    domain: equity
+    name: ethnicity_measure
+    value: Stats_NZ_2023_Census_total_response_broad_groups
+    status: materialized_public_aggregate
+    source_ids: [candidate.statsnz-ethnicity-2023-sa2]
+    uncertainty: ecological
+    rationale: Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments; suppressed source cells remain explicit unknowns.
+  - id: E05
+    domain: equity
+    name: vehicle_access_measure
+    value: occupied_private_dwellings_no_motor_vehicle_share
+    status: materialized_public_aggregate_proxy
+    source_ids: [candidate.statsnz-motor-vehicles-2023-sa2]
+    uncertainty: ecological_proxy
+    rationale: The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey; suppressed source cells remain explicit unknowns.
   - id: O01
     domain: optimisation
     name: safety_constraints

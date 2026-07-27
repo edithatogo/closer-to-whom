@@ -1,15 +1,17 @@
 schema_version: "1.0.0"
 track_id: CTW-040-national-routing-and-costs
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/19
 objective: Build reproducible national routing and course-level burden estimates after service and demand freezes.
 inputs:
   - data/derived/facility-registry.parquet
-  - data/derived/demand-cells.parquet
+  - data/derived/baseline-route-origins.parquet
   - protocol/statistical-analysis-plan.yaml
 outputs:
   - data/derived/route-matrix.parquet
   - reports/routing-costs-flow.json
+  - reports/travel-cost-parameters.json
+  - reports/routing-spatial-sensitivity.json
 acceptance_criteria:
   - Route engine, version, cache key, approximation state, and retrieval date are recorded.
   - Routing receipts identify the source registry and licence state for each externally derived route or cost parameter.
@@ -17,3 +19,28 @@ acceptance_criteria:
   - Car, public transport, ferry, walking/waiting/transfer, parking, fares, accommodation, and provider travel are explicit where applicable.
   - National output remains blocked while service/demand registries are empty.
   - Offline approximation is never presented as road-network evidence.
+  - Route construction consumes only stable aggregate origin identifiers and coordinates; equity
+    stratifiers and expected-demand values remain separate analysis inputs.
+progress:
+  completed:
+    - Selected the New Zealand OpenStreetMap extract and self-hosted OSRM table-service method.
+    - Implemented a bounded, deterministic, loopback-only OSRM matrix client that fails closed.
+    - Captured national road and regional public-transport source receipts.
+    - Frozen the dated 2026-07-23 New Zealand PBF identity and OSRM v26.7.3 release.
+    - Verified the PBF byte size and MD5 on GitHub run 30239038525 and recorded SHA-256
+      2356424989e598f8eadb40cff52e9ec98da4440fdc5132f01954c24c85da4a5b.
+    - Pinned the official OSRM v26.7.3-debian multi-architecture manifest by immutable digest.
+    - Materialized 43,947 baseline OSRM routes for 2,313 aggregate SA2 origins and 19
+      plausible facilities, with zero nulls and no approximation.
+    - Materialized 601,312 spatial-sensitivity routes for 31,648 weighted/fallback origins
+      across all 2,313 SA2s and 19 facilities.
+    - Published immutable routing receipt and Parquet artifacts in successful run 30240382950.
+    - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
+    - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
+    - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
+    - Canonicalized the frozen population receipt to the successful 2,314-selector query and
+      required exactly 2,313 unique six-digit SA2 rows before routing.
+    - Decoupled the OSRM matrix input from NZDep and other analysis-only stratifiers through a
+      tested minimal aggregate SA2 route-origin contract.
+    - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
+  remaining: []

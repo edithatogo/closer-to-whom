@@ -1,8 +1,26 @@
 schema_version: "1.0.0"
 track_id: CTW-050-national-analysis
-status: blocked
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/20
 objective: Execute national scenario, optimisation, uncertainty, MCDA, and VOI analyses after upstream freezes.
 dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs]
 claim_boundary: No policy estimate is publication-ready without evidence, clinical, equity, ethics, licensing, and reproducibility gates.
 output_contract: Every required output has an explicit blocked/ready/completed state and cannot be treated as a policy estimate while prerequisites are incomplete.
+acceptance_criteria:
+  - Materialize scenario, optimisation, uncertainty, MCDA, and VOI outputs from verified aggregate demand and non-approximate OSRM routes.
+  - Keep plausible facilities distinct from confirmed capability and observed capacity.
+  - Keep clinical safety outside compensatory MCDA and preserve unknown cost components.
+  - Separate spatial, temporal-demand, monetary-rate, and normative-weight uncertainty.
+  - Emit deterministic hashes and a hosted immutable analysis receipt before completion.
+verification_contract:
+  - Focused unit and integration tests cover allocation, output completeness, and claim boundaries.
+  - make check passes on the implementation commit.
+  - The hardened main-branch workflow succeeds and its downloaded artifact hashes validate.
+progress:
+  completed:
+    - National aggregate expected-course calibration is materialized with parameter-level provenance.
+    - Received 43,947 baseline and 601,312 spatial-sensitivity non-approximate OSRM routes from CTW-040.
+    - Implemented and locally exercised a bounded source-backed five-output analysis materializer.
+    - Merged PR 101 and completed hosted workflow run 30243407303 on main.
+    - Independently validated all five output hashes and registered the immutable run receipt.
+  remaining: []

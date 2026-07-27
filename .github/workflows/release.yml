@@ -35,7 +35,11 @@ jobs:
         run: |
           git archive --format=zip --output=release/closer-to-whom-${GITHUB_REF_NAME}.zip HEAD
           git bundle create release/closer-to-whom-${GITHUB_REF_NAME}.bundle --all
-          sha256sum release/* > release/SHA256SUMS
+          checksum_file="$(mktemp)"
+          find release -maxdepth 1 -type f ! -name SHA256SUMS -print0 \
+            | sort -z \
+            | xargs -0 sha256sum > "$checksum_file"
+          mv "$checksum_file" release/SHA256SUMS
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: release-candidate

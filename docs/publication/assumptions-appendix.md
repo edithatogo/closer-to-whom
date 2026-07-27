@@ -9,28 +9,35 @@ Generated from `assumptions/assumptions.yaml`; do not edit by hand.
 | C01 | early_iv_demo_administrations = 18. Demonstrates cumulative travel; publication value requires clinical source and review. | synthetic_fixture | discrete |  |
 | C02 | home_self_administration = excluded. Home scenarios are healthcare-professional administered. | hard_constraint | none |  |
 | C03 | initial_higher_risk_doses = hospital_capable_setting. Initial and clinically constrained administrations remain at eligible facilities. | hard_constraint | pathway_specific |  |
-| D01 | principal_geography = SA2_SSGA23. SA2 under Stats NZ SSGA23 balances public availability, interpretability, and disclosure protection; input and licence freeze remains pending. | planned_public_input | spatial |  |
-| D02 | within_area_allocation = population_weighted_multiple_points. Multiple routing points reduce centroid bias in large areas. | planned_method | spatial |  |
-| D03 | her2_positive_probability = 0.175. Midpoint of a public range used only until pathway-specific calibration. | placeholder_requires_source_freeze | beta |  |
-| D04 | treatment_uptake = 0.85. Wide uncertainty prevents false precision before public calibration. | illustrative | beta |  |
-| E01 | rurality_measure = GCH23_stratifier. GCH23 is a rurality stratifier; network travel remains the access measure. Its CC BY-ND restriction means transformed redistribution requires permission. | planned_public_input | structural |  |
-| E02 | deprivation_measure = NZDep2023. Area deprivation is not interpreted as an individual attribute. | planned_public_input | ecological |  |
+| D01 | principal_geography = SA2_SSGA23. SA2 under Stats NZ SSGA23 is frozen from the authenticated POPES_SUB_004 artifact for authorized local use; redistribution remains blocked pending licence adjudication. | frozen_public_input_artifact_only | spatial |  |
+| D02 | within_area_allocation = official_true_centroid_baseline. The official Stats NZ true-centroid layer provides the deterministic baseline; 31,599 positive-population SA1 centroids provide population-weighted sensitivity origins, with 49 SA2s retaining an explicit true-centroid fallback. | materialized_public_aggregate_with_spatial_sensitivity | spatial |  |
+| D03 | her2_positive_probability = 0.15. Te Aho reports approximately 15 percent HER2-positive nationally; subgroup differences remain structural scenarios and are not applied to SA2 cells. | captured_public_aggregate_estimate | structural_scenario |  |
+| D04 | treatment_uptake = 0.631. Observed national QPI for chemotherapy plus trastuzumab among HER2-positive stage I-III diagnoses in 2020-2021; not a current small-area uptake rate. | captured_public_aggregate_qpi_2020_21 | structural_scenario |  |
+| D05 | stage_i_iii_probability = 0.93. Te Aho reports approximately 80 percent stage I-II and 13 percent stage III; the sum is used only for a bounded national scenario. | captured_public_aggregate_estimate | structural_scenario |  |
+| D06 | annual_female_breast_cancer_registrations = 3660. Ministry of Health reports 3,660 female breast-cancer registrations in 2022; Te Aho describes approximately 3,500 diagnoses in 2025. | captured_public_aggregate_2022 | temporal_scenario |  |
+| D07 | small_area_allocation_baseline = proportional_to_2023_census_female_population. National expected courses are allocated by 2023 Census female population; 84 source-unavailable SA2s use 2025 population scaled by the observed national female share and are explicitly identified. This is a planning baseline, not observed small-area incidence. | materialized_model_assumption | structural_spatial_temporal |  |
+| E01 | rurality_measure = Stats_NZ_Urban_Rural_2023_centroid_class. Stats NZ Urban Rural 2023 is the open baseline stratifier at each official SA2 true centroid; network travel remains the access measure, and GCH23 remains a separate restricted sensitivity input. | materialized_public_aggregate | structural |  |
+| E02 | deprivation_measure = NZDep2023. The official SA2 workbook supports 2,208 denominator areas; 48 source-blank and 57 version-mismatched areas remain explicit unknowns. Area deprivation is never interpreted as an individual attribute. | materialized_public_aggregate_with_explicit_unknowns | ecological |  |
 | E03 | equity_weights = scenario_range. No single weight set is represented as stakeholder-derived without governance. | normative_uncertainty | stochastic_mcda |  |
+| E04 | ethnicity_measure = Stats_NZ_2023_Census_total_response_broad_groups. Broad ethnicity groups overlap under total-response coding and are area distributions, never exclusive or individual assignments; suppressed source cells remain explicit unknowns. | materialized_public_aggregate | ecological |  |
+| E05 | vehicle_access_measure = occupied_private_dwellings_no_motor_vehicle_share. The SA2 household share is a contextual transport-access proxy, not observed vehicle availability for any person or treatment journey; suppressed source cells remain explicit unknowns. | materialized_public_aggregate_proxy | ecological_proxy |  |
 | F01 | conservative_evidence_threshold = 2. Primary analysis requires current explicit named treatment or solid-tumour SACT evidence. | protocol_rule | structural |  |
 | F02 | undocumented_capability = unknown. Lack of public evidence is not evidence of absence. | hard_constraint | structural |  |
 | F03 | observed_capacity = unavailable. The model estimates implied capacity and tests explicit capacity envelopes. | structural_limitation | structural |  |
-| K01 | vehicle_running_cost = 0.37. Marginal running-cost base with broader-cost scenario. | requires_analysis_date_refresh | deterministic_scenario |  |
-| K02 | nta_reimbursement = 0.44. Report gross burden, reimbursement, and societal resource cost separately. | temporary_rate_requires_date_check | deterministic_scenario |  |
+| K01 | vehicle_running_cost = 0.37. Official IRD rates are tax kilometre-rate proxies rather than observed patient costs. The petrol Tier 2 rate is the base private-vehicle resource-cost scenario; 0.23 to 1.20 spans the published electric Tier 2 and petrol Tier 1 rates. | source_backed_2025_26_petrol_tier_2_scenario | deterministic_scenario |  |
+| K02 | nta_reimbursement = 0.34. Report gross burden, reimbursement, and societal resource cost separately. | source_backed_2024_reimbursement_scenario | deterministic_scenario |  |
 | K03 | patient_time_value = 25. Primary reporting keeps time separate; monetisation is secondary. | illustrative | gamma |  |
+| K04 | nta_accommodation_cap = 140. Eligibility-dependent reimbursement cap, not observed accommodation expenditure. | source_backed_2024_reimbursement_cap | deterministic_scenario |  |
+| K05 | nta_friends_whanau_accommodation_rate = 35. Eligibility-dependent reimbursement rate, not observed accommodation expenditure. | source_backed_2024_reimbursement_rate | deterministic_scenario |  |
 | O01 | safety_constraints = non_compensatory. Clinical eligibility and safety cannot be traded against travel convenience. | hard_constraint | none |  |
 | O02 | uncapacitated_interpretation = potential_geography_and_implied_capacity. Results do not claim current operational feasibility. | hard_constraint | structural |  |
 | R01 | canonical_exchange = Arrow_Parquet. Language-neutral contracts enable Python, Rust, Julia, Mojo, and JAX components. | architecture | none |  |
 | R02 | healthpoint_payloads = fail_closed. Live payloads remain private unless redistribution and dashboard permissions are explicit. | hard_constraint | none |  |
-| T01 | publication_route_method = versioned_road_and_public_transport_engines. Straight-line distance is not the publication access measure. | planned_method | structural |  |
+| T01 | publication_route_method = self_hosted_osrm_on_pinned_osm_pbf. The national road matrix uses a pinned OSM extract and loopback-only OSRM table client; public demo servers and straight-line distances are not release evidence. | implemented_pending_network_build_and_matrix | structural |  |
 | T02 | synthetic_road_circuity = 1.25. Offline software tests only; never a policy estimate. | synthetic_fixture | uniform |  |
 | T03 | synthetic_average_speed = 65. Offline software tests only. | synthetic_fixture | uniform |  |
 | U01 | psa_sampling = scrambled_sobol. Low-discrepancy draws improve coverage for repeated model evaluation. | method | none |  |
 | U02 | structural_uncertainty = reported_separately. Structural alternatives are not collapsed into false-precision intervals. | hard_constraint | none |  |
 | V01 | microdata_decision_rule = positive_ENBS_and_decision_relevance. Granular research is justified only when it may change a material decision or equity conclusion. | method | decision |  |
 
-Total assumptions: **28**.
+Total assumptions: **35**.

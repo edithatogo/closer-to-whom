@@ -59,6 +59,7 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_service_census_capabilities.py
 	$(UV) run python scripts/check_input_freeze.py
 	$(UV) run python scripts/check_clinical_review_receipt.py
+	$(UV) run python scripts/check_clinical_pathway_evidence.py
 	$(UV) run python scripts/check_governance_review.py
 	$(UV) run python scripts/check_national_analysis_receipt.py
 	$(UV) run python scripts/check_microdata_voi_decision.py
@@ -103,6 +104,9 @@ clinical-pathway-audit: ## Audit synthetic pathway safety invariants and review 
 
 route-costs: ## Materialise deterministic route matrices with fail-closed fallbacks
 	$(UV) run python scripts/materialize_route_costs.py
+
+national-analysis: ## Materialise bounded aggregate CTW-050 outputs from verified route evidence
+	$(UV) run python scripts/materialize_national_analysis.py
 
 benchmark: ## Run portable correctness-first benchmark
 	$(UV) run python benchmarks/benchmark_core.py

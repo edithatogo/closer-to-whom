@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-020-public-demand-and-geography
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/3
 objective: Build aggregate expected-demand cells and within-area spatial draws from public data.
 acceptance_criteria:
@@ -9,3 +9,17 @@ acceptance_criteria:
   - Routing-point weights sum to one and spatial uncertainty is reproducible.
   - Aggregate model calibrates to declared public totals.
   - Every non-frozen input records an explicit pending reason; pending state is never inferred from missing metadata.
+progress:
+  completed:
+    - Captured and deterministically materialized the 2,313-row Stats NZ SA2 population denominator.
+    - Calibrated national expected annual courses to declared public aggregate totals.
+    - Implemented and tested paginated official SA2 polygon-centroid retrieval with deterministic weights.
+    - Materialized the alternate official Stats NZ true-centroid layer for all 2,313 denominator SA2s.
+    - Materialized official Urban Rural 2023 classes for 2,311 SA2s and retained two zero-population SA2s as explicit unknowns.
+    - Materialized NZDep2023 for 2,208 SA2s and retained 105 source-blank or geography-version-mismatched areas as explicit unknowns.
+    - Materialized six overlapping 2023 Census total-response ethnicity groups across all 2,313 denominator SA2 codes, retaining 535 suppressed group cells as explicit unknowns.
+    - Materialized the 2023 Census no-motor-vehicle household proxy across all 2,313 denominator SA2 codes, retaining 101 suppressed values as explicit unknowns.
+    - Materialized 31,599 positive-population SA1 centroid sensitivity origins with weights summing to one in every denominator SA2 and explicit true-centroid fallback for 49 SA2s.
+    - Verified all 57 NZDep code mismatches have zero captured population; 48 official source blanks remain explicit unknowns and classified values cover 99.977 percent of the captured population.
+    - Materialized 2,313 aggregate baseline demand cells, reconciled exactly to 322.16967 annual expected courses without duplicating multi-point origins.
+  remaining: []

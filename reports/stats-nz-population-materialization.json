@@ -1,0 +1,14 @@
+{
+  "claim_boundary": "Aggregate population denominator only; never patient records.",
+  "columns": [
+    "DATAFLOW",
+    "YEAR_POPES_SUB_004",
+    "SEX_POPES_SUB_004",
+    "AGE_POPES_SUB_004",
+    "AREA_POPES_SUB_004",
+    "OBS_VALUE"
+  ],
+  "rows": 2313,
+  "schema_version": "1.0.0",
+  "source_format": "text/csv"
+}

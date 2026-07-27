@@ -1,0 +1,77 @@
+schema_version: "1.0.0"
+status: frozen_with_explicit_policy_counterfactuals
+review_receipt: data/public/clinical-pathway-review.yaml
+pathways:
+  - pathway_id: early_trastuzumab_iv
+    evidence_state: product_and_current_funding_constraints_captured
+    source_ids: [candidate.medsafe-herceptin-iv, candidate.pharmac-schedule-trastuzumab-current]
+    indication: early_HER2_positive_breast_cancer
+    route: intravenous_infusion
+    schedule:
+      interval: every_3_weeks
+      loading_dose_mg_per_kg: 8
+      maintenance_dose_mg_per_kg: 6
+      loading_administration_minutes: 90
+      subsequent_administration_minutes_if_loading_tolerated: 30
+    funding:
+      schedule_scope: PCT_only
+      special_authority: SA2293
+    setting_constraints:
+      healthcare_professional: required
+      anaphylaxis_management: required
+      adequate_life_support_facilities: required
+      home_or_community_evidence: unknown
+  - pathway_id: early_trastuzumab_sc
+    evidence_state: product_constraints_captured_funding_explicit_unknown
+    source_ids: [candidate.medsafe-herceptin-sc, candidate.pharmac-schedule-trastuzumab-current]
+    indication: early_HER2_positive_breast_cancer
+    route: subcutaneous_injection
+    schedule:
+      interval: every_3_weeks
+      dose_mg: 600
+      loading_dose_required: false
+      administration_minutes_range: [2, 5]
+      maximum_duration_months: 12
+    funding:
+      status: unknown
+      evidence: standalone_SC_not_listed_in_captured_current_schedule_search
+      interpretation: negative_search_observation_not_proof_of_unfunded_status
+    setting_constraints:
+      healthcare_professional: required
+      anaphylaxis_management: required
+      adequate_life_support_facilities: required
+      outpatient_permitted: true
+      home_or_community_evidence: unknown
+  - pathway_id: metastatic_phesgo
+    evidence_state: product_and_current_funding_constraints_captured
+    source_ids: [candidate.medsafe-phesgo, candidate.pharmac-anti-her2, candidate.pharmac-schedule-trastuzumab-current]
+    indication: HER2_positive_metastatic_breast_cancer
+    route: subcutaneous_injection
+    schedule:
+      interval: every_3_weeks
+      loading_administration_minutes: 8
+      maintenance_administration_minutes: 5
+      loading_observation_minutes: 30
+      maintenance_observation_minutes: 15
+    funding:
+      effective_from: 2025-12-01
+      schedule_scope: PCT_only
+      eligibility: special_authority_criteria_apply
+    setting_constraints:
+      healthcare_professional: required
+      reaction_management: required
+      home_or_community_evidence: unknown
+counterfactuals:
+  community_sc:
+    status: unfrozen_policy_counterfactual
+    hard_constraints: [healthcare_professional, reaction_management_capability]
+  healthcare_professional_home_sc:
+    status: unfrozen_policy_counterfactual
+    hard_constraints: [healthcare_professional, reaction_management_capability]
+  hybrid:
+    status: unfrozen_policy_counterfactual
+    hard_constraints: [formulation_specific_eligibility, setting_specific_safety]
+claim_boundary: >-
+  Data-sheet and Schedule evidence defines product, administration, safety, and current funding
+  constraints. It does not prove local capability, capacity, individual eligibility, observed use,
+  or that home/community delivery is authorised or operationally feasible.

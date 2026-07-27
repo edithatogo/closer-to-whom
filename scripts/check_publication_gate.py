@@ -45,7 +45,12 @@ def validate(path: Path = GATE) -> list[str]:
     payload = _load(path)
     failures: list[str] = []
     status = str(payload.get("status", "")).lower()
-    if status not in {"blocked_on_national_analysis", "ready_for_review", "published"}:
+    if status not in {
+        "blocked_on_national_analysis",
+        "blocked_on_release_assurance",
+        "ready_for_review",
+        "published",
+    }:
         failures.append(f"unsupported publication gate status: {status or '<blank>'}")
     evidence = payload.get("required_evidence")
     if not isinstance(evidence, dict) or set(map(str, evidence)) != REQUIRED_EVIDENCE:
@@ -64,6 +69,7 @@ def validate(path: Path = GATE) -> list[str]:
             str(value).lower()
             not in {
                 "complete",
+                "completed",
                 "reviewed",
                 "determined",
                 "configured",
@@ -74,7 +80,10 @@ def validate(path: Path = GATE) -> list[str]:
         ):
             failures.append("reviewable publication requires every evidence receipt to be complete")
     boundary = str(payload.get("claim_boundary", "")).lower()
-    for term in ("blocked", "aggregate", "synthetic", "service capability", "authorisation"):
+    required_boundary_terms = ("aggregate", "synthetic", "service capability", "authorisation")
+    if status != "published":
+        required_boundary_terms = ("blocked", *required_boundary_terms)
+    for term in required_boundary_terms:
         if term not in boundary:
             failures.append(f"claim_boundary must preserve the {term} boundary")
     return failures

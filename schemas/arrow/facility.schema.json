@@ -76,9 +76,9 @@
       "type": "bool"
     }
   ],
-  "fingerprint": "8337ecbed8098c998a2a2ce59cca0310255121c14c08ee9b269d1fce9f507a79",
+  "fingerprint": "5f8423206193802d8bec0e5b4dc566b954778cf9c27a34993efdf0e647ad5dce",
   "metadata": {
     "ctw:schema": "facility",
-    "ctw:version": "1.0.0"
+    "ctw:version": "1.1.0"
   }
 }

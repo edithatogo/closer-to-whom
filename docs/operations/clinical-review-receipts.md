@@ -1,10 +1,12 @@
 # Clinical review receipts
 
-`data/public/clinical-pathway-review.yaml` separates software safety checks from external clinical
-review. The committed state is `pending_external_review`, and synthetic pathway fixtures remain
-non-evidence.
+`data/public/clinical-pathway-review.yaml` separates software safety checks from clinical
+attestation. The committed sole-developer receipt is `reviewed`; the reviewer is recorded as a
+qualified clinician and no second GitHub reviewer is required. Synthetic pathway fixtures still
+remain non-evidence.
 
-The receipt validator permits that explicit pending state. A reviewed state must list every required
-review role, a dated receipt reference for each role, and at least one decision. It must also retain
-the synthetic-fixture claim boundary. `make contracts` runs this check without converting a fixture
-into clinical, funding, or eligibility guidance.
+The reviewed state lists every required scope, a dated receipt reference for each scope, and the
+accepted decisions. Product and funding constraints are recorded separately in
+`data/public/clinical-pathway-evidence.yaml`; home, community, and hybrid pathways remain unfrozen
+counterfactuals. `make contracts` validates these boundaries without converting a fixture into
+clinical guidance or facility evidence.

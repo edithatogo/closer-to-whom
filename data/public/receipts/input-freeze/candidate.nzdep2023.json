@@ -6,7 +6,15 @@
   "bytes": 122773,
   "sha256": "9a7392a72f6412399ce44fc4d7ae84fd816514f31e4eb03327d298407d1b0f2a",
   "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  "output_path": "external_source_not_committed_due_to_redistribution_boundary",
+  "output_path": "data/derived/sa2-deprivation.parquet",
   "retrieval_method": "curl_with_desktop_user_agent",
-  "access_note": "Direct retrieval succeeded with curl; source file is retained only in the local external-input cache until redistribution terms are resolved."
+  "licence": "Creative Commons Attribution 4.0 International",
+  "licence_evidence": "The workbook Notes on NZDep2023 sheet, row 13, expressly permits copying, distribution, and adaptation with University of Otago attribution.",
+  "materializer": "scripts/materialize_sa2_deprivation.py",
+  "materialization_report": "reports/sa2-deprivation.json",
+  "materialized_rows": 2313,
+  "matched_rows": 2208,
+  "explicit_unknown_rows": 105,
+  "parquet_fingerprint": "7d9a896620efd61c51bb49bf96ca3dca1124de40620a218acecd82c0b3e8b74d",
+  "access_note": "Direct retrieval succeeded; the unchanged source workbook remains in the ignored local cache and the deterministic aggregate derivative is materialized."
 }

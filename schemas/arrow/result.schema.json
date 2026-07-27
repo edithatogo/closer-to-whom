@@ -27,7 +27,7 @@
     },
     {
       "name": "deprivation_quintile",
-      "nullable": false,
+      "nullable": true,
       "type": "int8"
     },
     {
@@ -101,9 +101,9 @@
       "type": "string"
     }
   ],
-  "fingerprint": "f6a9e30ac2efc20cdb14f2c30a1e7113d09e85032072e5a210803546042b3828",
+  "fingerprint": "5c98c9978be9863e3c6473966059c5f472ca1ce6581b6ab07489ad197e4119d7",
   "metadata": {
     "ctw:schema": "result",
-    "ctw:version": "1.0.0"
+    "ctw:version": "1.1.0"
   }
 }

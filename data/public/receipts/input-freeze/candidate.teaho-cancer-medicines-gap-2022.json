@@ -1,0 +1,14 @@
+{
+  "source_id": "candidate.teaho-cancer-medicines-gap-2022",
+  "url": "https://teaho.govt.nz/index.php/download_file/view/7a6b8acd-db98-46b1-b400-bb2770bb3251/369",
+  "retrieved_on": "2026-07-24",
+  "retrieved_unix_seconds": 1784874751,
+  "bytes": 6948624,
+  "sha256": "6a9add234c2316c35a579581ff2f7dea5cc9ff6edd530233eba092890d8503a5",
+  "content_type": "application/pdf",
+  "output_path": "external_source_not_committed_due_to_source_snapshot_policy",
+  "licence_state": "open_cc_by_4",
+  "redistribution_allowed": false,
+  "status": "captured_metadata_only",
+  "claim_boundary": "Public aggregate HER2 prevalence, stage distribution, and medicine-availability context; not observed small-area demand or clinical eligibility."
+}

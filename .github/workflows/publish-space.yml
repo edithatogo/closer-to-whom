@@ -42,22 +42,26 @@ jobs:
             */*) ;;
             *) echo "HF_SPACE_ID must be a namespace/name Space identifier" >&2; exit 1 ;;
           esac
-      - name: Build reproducible aggregate payload
+      - name: Validate the reviewed aggregate payload
         run: |
-          uv sync --locked --all-extras
-          uv run closer-to-whom demo --output artifacts/demo
-          uv run python scripts/dashboard_smoke.py
+          uv sync --locked
+          uv run python scripts/check_national_analysis_receipt.py
+          uv run python scripts/check_publication_gate.py
       - name: Assemble free Static Space repository
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p space-dist
           cp spaces/static/README.md space-dist/README.md
-          uv run python scripts/build_static_space.py --results artifacts/demo --output space-dist
+          uv run python scripts/build_national_static_space.py \
+            --analysis reports/national-analysis \
+            --output space-dist \
+            --revision "$GITHUB_SHA"
           test ! -e space-dist/data/raw
           test ! -e space-dist/data/licensed
           test ! -e space-dist/data/private
-      - name: Publish Space commit
+          grep -q "$GITHUB_SHA" space-dist/index.html
+      - name: Publish Space commit and write deployment receipt
         shell: bash
         run: |
           set -euo pipefail
@@ -66,9 +70,48 @@ jobs:
           git config user.name "closer-to-whom publisher"
           git config user.email "actions@users.noreply.github.com"
           git add README.md index.html
-          git commit -m "publish aggregate dashboard ${GITHUB_SHA}"
+          git commit -m "publish national aggregate dashboard ${GITHUB_SHA}"
+          SPACE_REVISION="$(git rev-parse HEAD)"
+          export SPACE_REVISION
           GIT_CONFIG_COUNT=1 \
             GIT_CONFIG_KEY_0=http.extraheader \
             GIT_CONFIG_VALUE_0="Authorization: Basic $(printf 'oauth2:%s' "$HF_TOKEN" | base64 -w0)" \
             GIT_TERMINAL_PROMPT=0 \
             git push --force "https://huggingface.co/spaces/${HF_SPACE_ID}.git" HEAD:main
+          cd ..
+          uv run python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          payload = {
+              "schema_version": "1.0.0",
+              "workflow": "Publish Hugging Face Space",
+              "workflow_run_id": int(os.environ["GITHUB_RUN_ID"]),
+              "source_revision": os.environ["GITHUB_SHA"],
+              "space_revision": os.environ["SPACE_REVISION"],
+              "status": "succeeded",
+              "published_payload": "five_precomputed_national_aggregate_reports",
+              "hosting_tier": "free_static_space",
+              "space_identifier": "protected_environment_secret:HF_SPACE_ID",
+              "claim_boundary": (
+                  "Technical publication of reviewed aggregate scenario reports only; no confirmed "
+                  "service capability, observed capacity, operational feasibility, clinical guidance, "
+                  "raw source payload, or policy recommendation is published."
+              ),
+              "generated_at": datetime.now(UTC).isoformat(),
+          }
+          Path("space-deployment-receipt.json").write_text(
+              json.dumps(payload, indent=2, sort_keys=True) + "\n"
+          )
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: space-deployment-${{ github.sha }}
+          path: |
+            space-deployment-receipt.json
+            space-dist/README.md
+            space-dist/index.html
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,14 @@
+{
+  "claim_boundary": "Routes connect aggregate SA1 centroid sensitivity origins to plausible public-source facilities. They are not observed journeys, patient locations, service capability, capacity, eligibility, or treatment use.",
+  "facility_rows": 19,
+  "generated_at": "2026-07-27T05:45:42.387650+00:00",
+  "origin_rows": 31648,
+  "parquet_fingerprint": "37cdce738fa0ced969dd6463447f2b90d7fb56a3d850fe735b5bbfbfc1e4204d",
+  "route_cache_fingerprint": "3b8dd8d22f08da5146b88884983891e14b8d7d24744f423a9872875c471a6158",
+  "route_engine": "osrm",
+  "route_engine_version": "26.7.3",
+  "route_is_approximation": false,
+  "route_rows": 601312,
+  "schema_version": "1.0.0",
+  "status": "materialized_local_osrm_spatial_sensitivity"
+}

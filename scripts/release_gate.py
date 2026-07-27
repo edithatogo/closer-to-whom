@@ -399,6 +399,12 @@ def main() -> int:
     parser.add_argument("--profile", choices=("push", "local", "full"), default="local")
     parser.add_argument("--keep-going", action="store_true", default=True)
     args = parser.parse_args()
+    initial_git = {
+        "revision": git(["rev-parse", "HEAD"]),
+        "describe": git(["describe", "--always", "--dirty", "--tags"]),
+        "branch": git(["branch", "--show-current"]),
+        "dirty": bool(git(["status", "--porcelain"])),
+    }
     RELEASE.mkdir(parents=True, exist_ok=True)
 
     env = os.environ.copy()
@@ -420,12 +426,7 @@ def main() -> int:
         "generated_at": datetime.now(UTC).isoformat(),
         "profile": args.profile,
         "project": "closer-to-whom",
-        "git": {
-            "revision": git(["rev-parse", "HEAD"]),
-            "describe": git(["describe", "--always", "--dirty", "--tags"]),
-            "branch": git(["branch", "--show-current"]),
-            "dirty": bool(git(["status", "--porcelain"])),
-        },
+        "git": initial_git,
         "environment": {
             "python": sys.version,
             "platform": platform.platform(),

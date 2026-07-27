@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-060-publication-and-space",
+  "status": "completed",
+  "release_assurance": {
+    "workflow_run_id": 30246144787,
+    "workflow_url": "https://github.com/edithatogo/closer-to-whom/actions/runs/30246144787",
+    "artifact_id": 8645100321,
+    "source_revision": "1d88061e31f00afeb3e3deb5487b7592b0ad1635",
+    "clean_at_start": true,
+    "required_status": "passed",
+    "passed": 27,
+    "failed": 0,
+    "publication_ready": true
+  },
+  "space_deployment": {
+    "workflow_run_id": 30245222214,
+    "workflow_url": "https://github.com/edithatogo/closer-to-whom/actions/runs/30245222214",
+    "artifact_id": 8644721577,
+    "source_revision": "5e23127a14ff27ecb6898ef78a6c5debeb16ec5b",
+    "space_revision": "dc6ebdcc44a9466daa74016d15022c0bc490c15a",
+    "space_id": "edithatogo/closer-to-whom",
+    "url": "https://edithatogo-closer-to-whom.static.hf.space",
+    "sdk": "static",
+    "hosting_tier": "free",
+    "runtime_stage": "RUNNING",
+    "public": true
+  },
+  "independent_validation": "passed_2026-07-27",
+  "claim_boundary": "Reviewed five-report public aggregate Static Space only; no confirmed service capability, observed capacity, operational feasibility, clinical guidance, raw source payload, or policy recommendation."
+}

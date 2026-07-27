@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-070-microdata-voi-decision
-status: blocked_on_ctw050
+status: determined
 microdata_build_dependency: false
 required_outputs:
   - voi_summary
@@ -8,11 +8,15 @@ required_outputs:
   - governance_burden_assessment
   - ethics_scope_boundary
 output_contracts:
-  voi_summary: blocked_pending_governance_decision
-  research_design_comparison: blocked_pending_governance_decision
-  governance_burden_assessment: blocked_pending_governance_decision
-  ethics_scope_boundary: blocked_pending_governance_decision
-decision_receipts: []
+  voi_summary: complete
+  research_design_comparison: complete
+  governance_burden_assessment: complete
+  ethics_scope_boundary: complete
+decision_receipts:
+  - reports/national-analysis/voi_outputs.json
+  - assumptions/research-designs.yaml
+  - data/public/governance-review.yaml
+  - reports/microdata-voi-decision.json
 claim_boundary: >-
   No individual, confidential, de-identified-but-non-public, or row-level health data is required
   or permitted in this build. A future microdata or participant-research phase requires a separate

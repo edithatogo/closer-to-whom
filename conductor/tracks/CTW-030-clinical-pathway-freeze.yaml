@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-030-clinical-pathway-freeze
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/4
 objective: Freeze indication-specific IV, SC, PHESGO, community, home, and hybrid pathway contracts.
 acceptance_criteria:
@@ -9,3 +9,12 @@ acceptance_criteria:
   - Home is healthcare-professional administered.
   - Clinical reviewers and unresolved ambiguity are recorded.
   - Each required attestation scope has an explicit pending or reviewed state; sole-developer attestation does not imply external governance approval.
+progress:
+  completed:
+    - Recorded reviewed sole-developer qualified-clinician attestation for all three required scopes.
+    - Captured official Medsafe IV trastuzumab, SC trastuzumab, and PHESGO product constraints.
+    - Captured current Pharmac PCT-only PHESGO metastatic funding context.
+    - Captured current PCT-only IV trastuzumab Schedule state and retained standalone SC funding as explicit unknown.
+    - Preserved healthcare-professional and reaction-management requirements as hard constraints.
+    - Froze home, community, and hybrid configurations as explicit policy counterfactuals rather than observed delivery claims.
+  remaining: []

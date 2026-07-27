@@ -1,0 +1,158 @@
+{
+  "assumptions_sha256": "d454975d00a6d2d379becb6bc9ef6f7cd66cfb0e784ed4f224799bcb933e7e08",
+  "categories": {
+    "accommodation": {
+      "applicability": "eligibility_scenario_not_observed_cost",
+      "parameter_ids": [
+        "K04",
+        "K05"
+      ],
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "source_backed_reimbursement_cap"
+    },
+    "car": {
+      "applicability": "private_vehicle_resource_cost_scenario",
+      "parameter_ids": [
+        "K01"
+      ],
+      "source_ids": [
+        "candidate.ird-kilometre-rates"
+      ],
+      "status": "source_backed_scenario"
+    },
+    "fares": {
+      "applicability": "exclude_from_primary_monetary_result",
+      "parameter_ids": [],
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "route_specific_actual_cost_pending"
+    },
+    "ferry": {
+      "applicability": "mode_specific_sensitivity_only",
+      "parameter_ids": [],
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "route_specific_actual_cost_pending"
+    },
+    "parking": {
+      "applicability": "exclude_from_primary_monetary_result",
+      "parameter_ids": [],
+      "source_ids": [],
+      "status": "location_specific_rate_pending"
+    },
+    "provider_travel": {
+      "applicability": "exclude_until_service_model_requires_provider_travel",
+      "parameter_ids": [],
+      "source_ids": [],
+      "status": "resource_rates_pending"
+    },
+    "public_transport": {
+      "applicability": "mode_specific_sensitivity_only",
+      "parameter_ids": [],
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "route_specific_actual_cost_pending"
+    },
+    "walking_waiting_transfer": {
+      "applicability": "report_time_separately_until_source_backed",
+      "parameter_ids": [
+        "K03"
+      ],
+      "source_ids": [
+        "synthetic.parameter-fixture"
+      ],
+      "status": "duration_and_valuation_pending"
+    }
+  },
+  "claim_boundary": "These are transparent policy scenarios and reimbursement caps, not observed patient costs, eligibility, uptake, travel mode, accommodation use, or provider expenditure.",
+  "currency": "NZD",
+  "parameters": [
+    {
+      "domain": "cost",
+      "id": "K01",
+      "lower": 0.23,
+      "name": "vehicle_running_cost",
+      "price_year": "2025_26",
+      "rationale": "Official IRD rates are tax kilometre-rate proxies rather than observed patient costs. The petrol Tier 2 rate is the base private-vehicle resource-cost scenario; 0.23 to 1.20 spans the published electric Tier 2 and petrol Tier 1 rates.",
+      "source_ids": [
+        "candidate.ird-kilometre-rates"
+      ],
+      "status": "source_backed_2025_26_petrol_tier_2_scenario",
+      "uncertainty": "deterministic_scenario",
+      "unit": "NZD_per_km",
+      "upper": 1.2,
+      "value": 0.37
+    },
+    {
+      "domain": "cost",
+      "id": "K02",
+      "lower": 0.34,
+      "name": "nta_reimbursement",
+      "rationale": "Report gross burden, reimbursement, and societal resource cost separately.",
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "source_backed_2024_reimbursement_scenario",
+      "uncertainty": "deterministic_scenario",
+      "unit": "NZD_per_km",
+      "upper": 0.34,
+      "value": 0.34
+    },
+    {
+      "domain": "cost",
+      "id": "K03",
+      "lower": 10,
+      "name": "patient_time_value",
+      "rationale": "Primary reporting keeps time separate; monetisation is secondary.",
+      "source_ids": [
+        "synthetic.parameter-fixture"
+      ],
+      "status": "illustrative",
+      "uncertainty": "gamma",
+      "unit": "NZD_per_hour",
+      "upper": 50,
+      "value": 25
+    },
+    {
+      "domain": "cost",
+      "id": "K04",
+      "lower": 140,
+      "name": "nta_accommodation_cap",
+      "price_year": 2024,
+      "rationale": "Eligibility-dependent reimbursement cap, not observed accommodation expenditure.",
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "source_backed_2024_reimbursement_cap",
+      "uncertainty": "deterministic_scenario",
+      "unit": "NZD_per_night",
+      "upper": 140,
+      "value": 140
+    },
+    {
+      "domain": "cost",
+      "id": "K05",
+      "lower": 35,
+      "name": "nta_friends_whanau_accommodation_rate",
+      "price_year": 2024,
+      "rationale": "Eligibility-dependent reimbursement rate, not observed accommodation expenditure.",
+      "source_ids": [
+        "candidate.healthnz-nta"
+      ],
+      "status": "source_backed_2024_reimbursement_rate",
+      "uncertainty": "deterministic_scenario",
+      "unit": "NZD_per_night",
+      "upper": 35,
+      "value": 35
+    }
+  ],
+  "primary_analysis_rule": "Report distance, duration, and each monetary component separately. Use K01 only as a private-vehicle resource-cost scenario and K02/K04/K05 only as reimbursement scenarios. K03 remains illustrative and is excluded from primary monetised results.",
+  "schema_version": "1.0.0",
+  "status": "source_backed_partial_cost_parameter_freeze",
+  "unknown_rule": "A missing route-, facility-, or provider-specific rate remains unknown and is not replaced with zero, a national average, or a synthetic value."
+}

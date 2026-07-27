@@ -5,6 +5,7 @@ import pyarrow as pa
 from closer_to_whom.contracts import (
     DEMAND_SCHEMA,
     FACILITY_SCHEMA,
+    RESULT_SCHEMA,
     registry_manifest,
     schema_fingerprint,
     table_fingerprint,
@@ -42,3 +43,8 @@ def test_registry_manifest_contains_all_contracts() -> None:
     manifest = registry_manifest()
     assert set(manifest) == {"facility", "demand", "result"}
     assert all(len(value["sha256"]) == 64 for value in manifest.values())
+
+
+def test_unknown_deprivation_is_nullable_in_demand_and_result_contracts() -> None:
+    assert DEMAND_SCHEMA.field("deprivation_quintile").nullable
+    assert RESULT_SCHEMA.field("deprivation_quintile").nullable
