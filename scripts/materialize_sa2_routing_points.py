@@ -180,9 +180,7 @@ def main() -> int:
                 args.output,
                 args.report,
                 page_size=args.page_size,
-                fetcher=snapshot_fetcher(args.snapshot_dir)
-                if args.snapshot_dir
-                else fetch_page,
+                fetcher=snapshot_fetcher(args.snapshot_dir) if args.snapshot_dir else fetch_page,
             ),
             indent=2,
             sort_keys=True,

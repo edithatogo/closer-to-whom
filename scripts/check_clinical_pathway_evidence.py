@@ -47,9 +47,7 @@ def validate(
     if not isinstance(pathways, list):
         return ["pathways must be a list"]
     pathway_ids = {
-        str(pathway.get("pathway_id"))
-        for pathway in pathways
-        if isinstance(pathway, dict)
+        str(pathway.get("pathway_id")) for pathway in pathways if isinstance(pathway, dict)
     }
     if pathway_ids != REQUIRED_PATHWAYS:
         failures.append("pathways must enumerate the three required product pathways")
@@ -77,8 +75,7 @@ def validate(
     if not isinstance(counterfactuals, dict) or set(counterfactuals) != REQUIRED_COUNTERFACTUALS:
         failures.append("counterfactuals must enumerate community, home, and hybrid settings")
     elif any(
-        not isinstance(value, dict)
-        or value.get("status") != "unfrozen_policy_counterfactual"
+        not isinstance(value, dict) or value.get("status") != "unfrozen_policy_counterfactual"
         for value in counterfactuals.values()
     ):
         failures.append("home, community, and hybrid counterfactuals must remain unfrozen")

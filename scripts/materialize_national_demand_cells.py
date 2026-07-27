@@ -83,9 +83,7 @@ def build_demand_cells(
         .then(pl.lit("census_female_population_2023"))
         .otherwise(pl.lit("population_2025_scaled_by_national_female_share"))
         .alias("allocation_method"),
-        ((pl.col("deprivation_decile") + 1) // 2)
-        .cast(pl.Int8)
-        .alias("deprivation_quintile"),
+        ((pl.col("deprivation_decile") + 1) // 2).cast(pl.Int8).alias("deprivation_quintile"),
         pl.col("urban_rural_name").fill_null("unknown").alias("rurality"),
     )
     weight_total = frame["allocation_weight"].sum()
@@ -137,18 +135,13 @@ def build_demand_cells(
             pl.col("allocation_method") == "census_female_population_2023"
         ).height,
         "female_population_fallback_rows": result.filter(
-            pl.col("allocation_method")
-            == "population_2025_scaled_by_national_female_share"
+            pl.col("allocation_method") == "population_2025_scaled_by_national_female_share"
         ).height,
         "deprivation_known_rows": result["deprivation_quintile"].len()
         - result["deprivation_quintile"].null_count(),
         "deprivation_explicit_unknown_rows": result["deprivation_quintile"].null_count(),
-        "rurality_explicit_unknown_rows": result.filter(
-            pl.col("rurality") == "unknown"
-        ).height,
-        "zero_expected_course_rows": result.filter(
-            pl.col("expected_courses") == 0
-        ).height,
+        "rurality_explicit_unknown_rows": result.filter(pl.col("rurality") == "unknown").height,
+        "zero_expected_course_rows": result.filter(pl.col("expected_courses") == 0).height,
     }
     return result.sort("demand_cell_id"), audit
 
@@ -172,9 +165,7 @@ def materialize(
         annual_expected_courses=annual_expected_courses,
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    fingerprint = write_parquet_deterministic(
-        frame, output_path, sort_by=("demand_cell_id",)
-    )
+    fingerprint = write_parquet_deterministic(frame, output_path, sort_by=("demand_cell_id",))
     report: dict[str, Any] = {
         "schema_version": "1.0.0",
         "generated_at": datetime.now(UTC).isoformat(),

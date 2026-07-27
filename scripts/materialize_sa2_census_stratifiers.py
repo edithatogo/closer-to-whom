@@ -172,11 +172,7 @@ def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -
     rows = []
     for row in attributes:
         values = {
-            name: (
-                int(row[field])
-                if row.get(field) is not None and int(row[field]) >= 0
-                else None
-            )
+            name: (int(row[field]) if row.get(field) is not None and int(row[field]) >= 0 else None)
             for name, field in VEHICLE_FIELDS.items()
         }
         rows.append(
@@ -196,10 +192,7 @@ def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -
             .alias("no_motor_vehicle_share"),
             pl.when(pl.col("geography_name_2023").is_null())
             .then(pl.lit("unknown_sa2_version_mismatch"))
-            .when(
-                pl.col("no_motor_vehicle").is_null()
-                | pl.col("total_stated").is_null()
-            )
+            .when(pl.col("no_motor_vehicle").is_null() | pl.col("total_stated").is_null())
             .then(pl.lit("unknown_source_suppressed_or_unavailable"))
             .otherwise(pl.lit("matched_2023_sa2_code"))
             .alias("vehicle_access_status"),
@@ -208,9 +201,7 @@ def _vehicle_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -
     )
 
 
-def _demographic_frame(
-    population: pl.DataFrame, attributes: list[dict[str, Any]]
-) -> pl.DataFrame:
+def _demographic_frame(population: pl.DataFrame, attributes: list[dict[str, Any]]) -> pl.DataFrame:
     rows = []
     for row in attributes:
         raw_female = row.get(FEMALE_POPULATION_FIELD)

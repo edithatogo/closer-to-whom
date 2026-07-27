@@ -74,7 +74,9 @@ class LocalOsrmTableClient:
             payload = self._table(batch, destination_rows)
             distances = payload.get("distances")
             durations = payload.get("durations")
-            if payload.get("code") != "Ok" or not _valid_matrix(distances, len(batch), len(destination_rows)):
+            if payload.get("code") != "Ok" or not _valid_matrix(
+                distances, len(batch), len(destination_rows)
+            ):
                 raise ValueError("OSRM returned an invalid distance matrix")
             if not _valid_matrix(durations, len(batch), len(destination_rows)):
                 raise ValueError("OSRM returned an invalid duration matrix")
@@ -106,13 +108,10 @@ class LocalOsrmTableClient:
     ) -> dict[str, Any]:
         points = [*origins, *destinations]
         coordinates = ";".join(
-            f"{float(point['longitude']):.8f},{float(point['latitude']):.8f}"
-            for point in points
+            f"{float(point['longitude']):.8f},{float(point['latitude']):.8f}" for point in points
         )
         source_indexes = ";".join(str(index) for index in range(len(origins)))
-        destination_indexes = ";".join(
-            str(index) for index in range(len(origins), len(points))
-        )
+        destination_indexes = ";".join(str(index) for index in range(len(origins), len(points)))
         query = urlencode(
             {
                 "sources": source_indexes,

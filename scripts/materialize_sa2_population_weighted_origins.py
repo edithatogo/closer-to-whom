@@ -113,9 +113,7 @@ def fetch_sa2_polygons(
     page = 0
     while True:
         snapshot = (
-            snapshot_dir / f"sa2-polygons-page{page}.geojson"
-            if snapshot_dir is not None
-            else None
+            snapshot_dir / f"sa2-polygons-page{page}.geojson" if snapshot_dir is not None else None
         )
         if snapshot is not None and snapshot.is_file():
             payload = json.loads(snapshot.read_text(encoding="utf-8"))
@@ -162,7 +160,9 @@ def assign_sa2(
     for row in sa1_rows:
         point = Point(float(row["longitude"]), float(row["latitude"]))
         candidates = tree.query(point, predicate="intersects")
-        matches = sorted(codes[int(index)] for index in candidates if polygons[int(index)].covers(point))
+        matches = sorted(
+            codes[int(index)] for index in candidates if polygons[int(index)].covers(point)
+        )
         if len(matches) != 1:
             continue
         assigned.append({**row, "geography_code": matches[0]})

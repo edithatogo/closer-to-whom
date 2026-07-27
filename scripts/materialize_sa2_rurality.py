@@ -33,13 +33,10 @@ DEFAULT_CACHE = ROOT / ".tmp/sa2-rurality-layer-cache"
 LAYER_ID = 111198
 EXPECTED_TOTAL_FEATURE_COUNT = 745
 EXPECTED_EMPTY_GEOMETRY_COUNT = 4
-EXPECTED_DIGITISED_FEATURE_COUNT = (
-    EXPECTED_TOTAL_FEATURE_COUNT - EXPECTED_EMPTY_GEOMETRY_COUNT
-)
+EXPECTED_DIGITISED_FEATURE_COUNT = EXPECTED_TOTAL_FEATURE_COUNT - EXPECTED_EMPTY_GEOMETRY_COUNT
 LAYER_URL = "https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/"
 ARCGIS_LAYER_URL = (
-    "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/"
-    "UR2023/FeatureServer/0"
+    "https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/UR2023/FeatureServer/0"
 )
 ARCGIS_EXPECTED_FEATURE_COUNT = 689
 QUERY_URL = "https://datafinder.stats.govt.nz/services/query/v1/vector.json"
@@ -181,10 +178,7 @@ def fetch_arcgis_polygons(cache_dir: Path = DEFAULT_CACHE) -> list[dict[str, Any
         query = urlencode(
             {
                 "where": "1=1",
-                "outFields": (
-                    "UR2023_V1_00,UR2023_V1_00_NAME,"
-                    "IUR2023_V1_00,IUR2023_V1_00_NAME"
-                ),
+                "outFields": ("UR2023_V1_00,UR2023_V1_00_NAME,IUR2023_V1_00,IUR2023_V1_00_NAME"),
                 "returnGeometry": "true",
                 "outSR": "4326",
                 "f": "geojson",
@@ -477,9 +471,7 @@ def materialize(
     rows = [_classify_with_index(point, features, geometries, tree) for point in point_rows]
     refinement_count = 0
     if source == "arcgis":
-        refinement_count = sum(
-            str(row["rurality_status"]).startswith("unknown_") for row in rows
-        )
+        refinement_count = sum(str(row["rurality_status"]).startswith("unknown_") for row in rows)
         if refinement_count:
             rows = refine_unknowns(
                 rows,

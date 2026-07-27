@@ -31,9 +31,7 @@ def materialize(
 ) -> dict[str, object]:
     origins = pl.read_parquet(origins_path)
     facilities = pl.read_parquet(facilities_path)
-    route_origins = origins.with_columns(
-        pl.col("routing_point_id").alias("demand_cell_id")
-    )
+    route_origins = origins.with_columns(pl.col("routing_point_id").alias("demand_cell_id"))
     engine = LocalOsrmTableClient(osrm_base_url, osrm_version)
     routes = (
         engine.matrix(route_origins, facilities)
@@ -81,9 +79,7 @@ def materialize(
         "route_engine": "osrm",
         "route_engine_version": osrm_version,
         "route_is_approximation": False,
-        "route_cache_fingerprint": route_cache_fingerprint(
-            route_origins, facilities, engine
-        ),
+        "route_cache_fingerprint": route_cache_fingerprint(route_origins, facilities, engine),
         "parquet_fingerprint": fingerprint,
         "claim_boundary": (
             "Routes connect aggregate SA1 centroid sensitivity origins to plausible public-source "

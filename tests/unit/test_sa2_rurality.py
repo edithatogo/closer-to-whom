@@ -26,7 +26,9 @@ def test_classifies_one_official_polygon() -> None:
         "type": "Feature",
         "geometry": {
             "type": "Polygon",
-            "coordinates": [[[173.0, -36.0], [175.0, -36.0], [175.0, -34.0], [173.0, -34.0], [173.0, -36.0]]],
+            "coordinates": [
+                [[173.0, -36.0], [175.0, -36.0], [175.0, -34.0], [173.0, -34.0], [173.0, -36.0]]
+            ],
         },
         "properties": {
             "UR2023_V1_00": "1013",
@@ -46,8 +48,22 @@ def test_classifies_one_official_polygon() -> None:
         ([], "unknown_no_polygon"),
         (
             [
-                {"geometry": {"type": "Polygon", "coordinates": [[[173, -36], [175, -36], [175, -34], [173, -34], [173, -36]]]}},
-                {"geometry": {"type": "Polygon", "coordinates": [[[173, -36], [175, -36], [175, -34], [173, -34], [173, -36]]]}},
+                {
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [[173, -36], [175, -36], [175, -34], [173, -34], [173, -36]]
+                        ],
+                    }
+                },
+                {
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [[173, -36], [175, -36], [175, -34], [173, -34], [173, -36]]
+                        ],
+                    }
+                },
             ],
             "unknown_ambiguous",
         ),

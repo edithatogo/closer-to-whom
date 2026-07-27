@@ -99,10 +99,7 @@ def materialize(
             else None
         ),
         "cost_categories": (
-            {
-                name: details["status"]
-                for name, details in cost_parameters["categories"].items()
-            }
+            {name: details["status"] for name, details in cost_parameters["categories"].items()}
             if cost_parameters
             else dict.fromkeys(
                 (

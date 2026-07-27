@@ -27,10 +27,7 @@ CELL_COLUMN = re.compile(r"[A-Z]+")
 
 def _shared_strings(archive: ZipFile) -> list[str]:
     root = ET.fromstring(archive.read("xl/sharedStrings.xml"))
-    return [
-        "".join(node.text or "" for node in item.iter(f"{{{MAIN_NS}}}t"))
-        for item in root
-    ]
+    return ["".join(node.text or "" for node in item.iter(f"{{{MAIN_NS}}}t")) for item in root]
 
 
 def _cell_value(cell: ET.Element, shared: list[str]) -> str | None:
@@ -113,15 +110,11 @@ def materialize(
     )
     matched = joined.filter(pl.col("deprivation_decile").is_not_null()).height
     blank = joined.filter(pl.col("deprivation_status") == "unknown_source_value_blank").height
-    mismatch = joined.filter(
-        pl.col("deprivation_status") == "unknown_sa2_version_mismatch"
-    ).height
+    mismatch = joined.filter(pl.col("deprivation_status") == "unknown_sa2_version_mismatch").height
     if matched + blank + mismatch != population.height:
         raise ValueError("NZDep classification counts do not reconcile")
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    fingerprint = write_parquet_deterministic(
-        joined, output_path, sort_by=("geography_code",)
-    )
+    fingerprint = write_parquet_deterministic(joined, output_path, sort_by=("geography_code",))
     report: dict[str, object] = {
         "schema_version": "1.0.0",
         "generated_at": datetime.now(UTC).isoformat(),

@@ -24,10 +24,7 @@ DEFAULT_POPULATION = ROOT / "data/derived/stats-nz-population.parquet"
 DEFAULT_OUTPUT = ROOT / "data/derived/sa2-routing-points.parquet"
 DEFAULT_REPORT = ROOT / "reports/sa2-routing-points.json"
 LAYER_ID = 111211
-LAYER_URL = (
-    "https://datafinder.stats.govt.nz/layer/"
-    "111211-statistical-area-2-2023-centroid-true/"
-)
+LAYER_URL = "https://datafinder.stats.govt.nz/layer/111211-statistical-area-2-2023-centroid-true/"
 QUERY_URL = "https://datafinder.stats.govt.nz/services/query/v1/vector.json"
 TOKEN_PATTERN = re.compile(
     r'<script id="pre-cached-token" type="application/json">(.*?)</script>',
@@ -130,7 +127,9 @@ def initial_cells() -> list[Cell]:
     return cells
 
 
-def fetch_all(token: str, *, getter: JsonGetter = _get_json, workers: int = 8) -> list[dict[str, Any]]:
+def fetch_all(
+    token: str, *, getter: JsonGetter = _get_json, workers: int = 8
+) -> list[dict[str, Any]]:
     """Query an adaptive complete-cover grid, subdividing any capped cell."""
     if not 1 <= workers <= 16:
         raise ValueError("workers must be between 1 and 16")

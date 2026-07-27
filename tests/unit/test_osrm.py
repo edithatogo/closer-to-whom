@@ -51,12 +51,8 @@ def test_osrm_table_batches_and_records_engine() -> None:
 
 
 def test_osrm_fails_closed_on_unroutable_pair() -> None:
-    origins = pl.DataFrame(
-        {"demand_cell_id": ["a"], "latitude": [-40.0], "longitude": [175.0]}
-    )
-    destinations = pl.DataFrame(
-        {"facility_id": ["f1"], "latitude": [-41.1], "longitude": [174.1]}
-    )
+    origins = pl.DataFrame({"demand_cell_id": ["a"], "latitude": [-40.0], "longitude": [175.0]})
+    destinations = pl.DataFrame({"facility_id": ["f1"], "latitude": [-41.1], "longitude": [174.1]})
     client = LocalOsrmTableClient(
         "http://localhost:5000",
         "6.0.0",

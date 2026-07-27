@@ -40,9 +40,9 @@ def test_route_cost_materializer_requires_version_for_osrm(tmp_path: Path) -> No
     pl.DataFrame(
         {"demand_cell_id": ["d"], "latitude": [-41.0], "longitude": [174.0]}
     ).write_parquet(demand)
-    pl.DataFrame(
-        {"facility_id": ["f"], "latitude": [-41.1], "longitude": [174.1]}
-    ).write_parquet(facilities)
+    pl.DataFrame({"facility_id": ["f"], "latitude": [-41.1], "longitude": [174.1]}).write_parquet(
+        facilities
+    )
     try:
         materialize(
             demand,

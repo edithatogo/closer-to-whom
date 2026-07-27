@@ -33,9 +33,9 @@ def test_materializes_source_backed_national_scenario(tmp_path: Path) -> None:
     assert result["annual_expected_courses"] == pytest.approx(322.16967)
     assert result["status"] == "materialized_national_scenario_not_spatially_allocated"
     assert result["source_ids"] == ["her2", "incidence", "stage", "uptake"]
-    assert json.loads(report.read_text(encoding="utf-8"))["annual_expected_courses"] == pytest.approx(
-        322.16967
-    )
+    assert json.loads(report.read_text(encoding="utf-8"))[
+        "annual_expected_courses"
+    ] == pytest.approx(322.16967)
 
 
 def test_rejects_invalid_proportion(tmp_path: Path) -> None:

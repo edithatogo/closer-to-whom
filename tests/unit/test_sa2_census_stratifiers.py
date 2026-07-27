@@ -39,14 +39,19 @@ def test_fetch_attributes_paginates_and_orders() -> None:
             "exceededTransferLimit": offset + page_size < len(rows),
         }
 
-    assert fetch_attributes("https://example.test/layer", ["SA22023_V1_00"], getter=getter, page_size=2) == rows
+    assert (
+        fetch_attributes(
+            "https://example.test/layer", ["SA22023_V1_00"], getter=getter, page_size=2
+        )
+        == rows
+    )
 
 
 def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
     population_path = tmp_path / "population.parquet"
-    pl.DataFrame(
-        {"AREA_POPES_SUB_004": [100100, 999999], "OBS_VALUE": [100, 10]}
-    ).write_parquet(population_path)
+    pl.DataFrame({"AREA_POPES_SUB_004": [100100, 999999], "OBS_VALUE": [100, 10]}).write_parquet(
+        population_path
+    )
 
     def getter(url: str) -> dict[str, object]:
         is_ethnicity = "individuals" in url
@@ -84,9 +89,10 @@ def test_materialize_keeps_unmatched_codes_unknown(tmp_path: Path) -> None:
     assert report["demographic_allocation_rows"] == 2
     assert report["demographic_allocation_explicit_unknown_rows"] == 1
     vehicle = pl.read_parquet(tmp_path / "vehicle.parquet")
-    assert vehicle.filter(pl.col("geography_code") == "100100")[
-        "no_motor_vehicle_share"
-    ].item() == 2 / 9
+    assert (
+        vehicle.filter(pl.col("geography_code") == "100100")["no_motor_vehicle_share"].item()
+        == 2 / 9
+    )
 
 
 def test_suppression_sentinel_becomes_unknown_not_negative() -> None:
@@ -103,7 +109,9 @@ def test_suppression_sentinel_becomes_unknown_not_negative() -> None:
     ethnicity = ethnicity_frame(population, [ethnicity_attributes])
     assert ethnicity["ethnicity_count_2023"].null_count() == 6
     assert ethnicity["total_response_share"].null_count() == 6
-    assert ethnicity["ethnicity_status"].unique().item() == "unknown_source_suppressed_or_unavailable"
+    assert (
+        ethnicity["ethnicity_status"].unique().item() == "unknown_source_suppressed_or_unavailable"
+    )
     vehicle_attributes = {
         **common,
         **dict.fromkeys(_MODULE.VEHICLE_FIELDS.values(), -999),
@@ -117,4 +125,6 @@ def test_suppression_sentinel_becomes_unknown_not_negative() -> None:
         [{**common, _MODULE.FEMALE_POPULATION_FIELD: -999}],
     )
     assert demographic["female_population_2023"].item() is None
-    assert demographic["female_population_status"].item() == "unknown_source_suppressed_or_unavailable"
+    assert (
+        demographic["female_population_status"].item() == "unknown_source_suppressed_or_unavailable"
+    )

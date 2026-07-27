@@ -43,10 +43,7 @@ def test_complete_product_constraints_preserve_setting_unknowns(tmp_path: Path) 
         ),
     }
     registry = {
-        "sources": [
-            {"source_id": source_id}
-            for source_id in ("iv", "sc", "phesgo", "pharmac")
-        ]
+        "sources": [{"source_id": source_id} for source_id in ("iv", "sc", "phesgo", "pharmac")]
     }
     evidence_path = tmp_path / "evidence.yaml"
     registry_path = tmp_path / "registry.yaml"

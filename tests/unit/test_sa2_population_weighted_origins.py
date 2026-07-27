@@ -46,9 +46,7 @@ def test_assign_sa2_uses_polygon_containment() -> None:
 
 
 def test_build_origins_weights_and_fallback() -> None:
-    population = pl.DataFrame(
-        {"geography_code": ["100100", "100200"], "population_2025": [100, 0]}
-    )
+    population = pl.DataFrame({"geography_code": ["100100", "100200"], "population_2025": [100, 0]})
     baseline = pl.DataFrame(
         {
             "geography_code": ["100100", "100200"],
@@ -74,9 +72,10 @@ def test_build_origins_weights_and_fallback() -> None:
         },
     ]
     result = build_origins(population, baseline, assigned)
-    assert result.filter(pl.col("geography_code") == "100100")[
-        "routing_weight"
-    ].to_list() == [0.25, 0.75]
+    assert result.filter(pl.col("geography_code") == "100100")["routing_weight"].to_list() == [
+        0.25,
+        0.75,
+    ]
     fallback = result.filter(pl.col("geography_code") == "100200")
     assert fallback["routing_weight"].item() == 1.0
     assert fallback["routing_point_method"].item() == "true_centroid_zero_sa1_population_fallback"
