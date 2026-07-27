@@ -71,6 +71,8 @@ jobs:
           set -euo pipefail
           curl --fail-with-body --location --retry 5 --retry-all-errors \
             --silent --show-error \
+            --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36' \
+            --referer 'https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes' \
             https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx \
             --output artifacts/source/NZDep2023_WgtAvSA2.xlsx
           echo \
