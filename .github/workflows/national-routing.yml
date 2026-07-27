@@ -66,29 +66,15 @@ jobs:
             data/derived/stats-nz-population.parquet \
             artifacts/source/population-quality.json
 
-      - name: Rebuild frozen public geography, stratifiers, and demand
+      - name: Rebuild frozen public aggregate routing origins
         run: |
           set -euo pipefail
-          curl --fail-with-body --location --retry 5 --retry-all-errors \
-            --silent --show-error \
-            --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36' \
-            --referer 'https://www.otago.ac.nz/wellington/research/groups/research-groups-in-the-department-of-public-health/hirp/socioeconomic-deprivation-indexes' \
-            https://www.otago.ac.nz/__data/assets/excel_doc/0024/593142/NZDep2023_WgtAvSA2.xlsx \
-            --output artifacts/source/NZDep2023_WgtAvSA2.xlsx
-          echo \
-            "9a7392a72f6412399ce44fc4d7ae84fd816514f31e4eb03327d298407d1b0f2a  artifacts/source/NZDep2023_WgtAvSA2.xlsx" \
-            | sha256sum --check -
           uv run python scripts/materialize_sa2_true_centroids.py
-          uv run python scripts/materialize_sa2_rurality.py
-          uv run python scripts/materialize_sa2_deprivation.py \
-            --source artifacts/source/NZDep2023_WgtAvSA2.xlsx
-          uv run python scripts/materialize_sa2_census_stratifiers.py
-          uv run python scripts/materialize_national_demand_cells.py
+          uv run python scripts/materialize_baseline_route_origins.py
           uv run python scripts/materialize_service_census.py
           if [ "$INCLUDE_SPATIAL_SENSITIVITY" = "true" ]; then
             uv run python scripts/materialize_sa2_population_weighted_origins.py
           fi
-
       - name: Download and verify the frozen road-network extract
         run: |
           set -euo pipefail
@@ -133,7 +119,7 @@ jobs:
           set -euo pipefail
           uv run python scripts/materialize_travel_cost_parameters.py
           uv run python scripts/materialize_route_costs.py \
-            --demand data/derived/national-demand-cells.parquet \
+            --demand data/derived/baseline-route-origins.parquet \
             --osrm-base-url http://127.0.0.1:5000 \
             --osrm-version "$OSRM_VERSION"
           if [ "$INCLUDE_SPATIAL_SENSITIVITY" = "true" ]; then
@@ -194,7 +180,7 @@ jobs:
           name: national-routing-${{ github.sha }}
           path: |
             artifacts/routing
-            reports/national-demand-cells.json
+            reports/baseline-route-origins.json
             reports/travel-cost-parameters.json
             reports/routing-costs-flow.json
             reports/routing-spatial-sensitivity.json

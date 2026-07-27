@@ -5,7 +5,7 @@ github_issue: https://github.com/edithatogo/closer-to-whom/issues/19
 objective: Build reproducible national routing and course-level burden estimates after service and demand freezes.
 inputs:
   - data/derived/facility-registry.parquet
-  - data/derived/national-demand-cells.parquet
+  - data/derived/baseline-route-origins.parquet
   - protocol/statistical-analysis-plan.yaml
 outputs:
   - data/derived/route-matrix.parquet
@@ -19,6 +19,8 @@ acceptance_criteria:
   - Car, public transport, ferry, walking/waiting/transfer, parking, fares, accommodation, and provider travel are explicit where applicable.
   - National output remains blocked while service/demand registries are empty.
   - Offline approximation is never presented as road-network evidence.
+  - Route construction consumes only stable aggregate origin identifiers and coordinates; equity
+    stratifiers and expected-demand values remain separate analysis inputs.
 progress:
   completed:
     - Selected the New Zealand OpenStreetMap extract and self-hosted OSRM table-service method.
@@ -28,6 +30,8 @@ progress:
     - Added a hardened loopback-only MLD compose pipeline and wired the route materializer to it.
     - Received the completed 2,313-row national aggregate demand-cell input from CTW-020.
     - Added a manual, read-only, artifact-only GitHub workflow for a pinned national OSRM evidence build.
+    - Decoupled the OSRM matrix input from NZDep and other analysis-only stratifiers through a
+      tested minimal aggregate SA2 route-origin contract.
     - Materialized source-backed IRD and NTA cost scenarios while preserving unsupported categories as unknown.
   remaining:
     - On a Docker-capable networked runner, download the PBF, verify its published MD5, record its SHA-256, and record the pulled image digest.
