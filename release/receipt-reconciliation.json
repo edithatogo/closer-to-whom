@@ -1,8 +1,8 @@
 {
   "claim_boundary": "This is a reconciliation of repository and historical receipt metadata; it does not establish current Space availability or deployment.",
   "drift": {
-    "current_payload_sha256": "bfd08a3dfd1059138689544403a1af653e6fd352040fd29f36d6b17891411283",
-    "historical_receipt_sha256": "d95426a08bbcb4f7ec8a3cd2b0085ab5e85c0117e06529973d506c3a91d3c3fd",
+    "current_payload_sha256": "1f3faf9d388db0139fc88e4348b0bd750596ba1b4856f2c6247ba72d8ebb9507",
+    "historical_receipt_sha256": "dca8f5e589e84c68dcd3122f6ca4e1676a2b10058dca2a05db46990602b625f8",
     "report_scope": {
       "current_report_count": 9,
       "current_report_names": [
@@ -20,8 +20,8 @@
       "matches": true
     },
     "source_revision": {
-      "current": "abef8fc344fe72e277fc9ddef6dd09bd66de6f01",
-      "historical": "abef8fc344fe72e277fc9ddef6dd09bd66de6f01",
+      "current": "dc2e9fa3b143cae80b56425e262bdbc71b2b7ade",
+      "historical": "dc2e9fa3b143cae80b56425e262bdbc71b2b7ade",
       "matches": true
     }
   },
