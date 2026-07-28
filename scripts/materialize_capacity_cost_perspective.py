@@ -108,6 +108,14 @@ def build_report(scenario_path: Path, demand_path: Path, costs_path: Path) -> di
             "status": "not_estimated",
             "components": ["public_transport_fares", "parking"],
             "reason": "No national mode split or fare/parking receipt is available.",
+            "source_context": {
+                "source_ids": ["candidate.healthnz-nta"],
+                "scope": "official National Travel Assistance reimbursement and eligibility metadata",
+                "boundary": (
+                    "This source does not provide observed national uptake, mode split, fares, "
+                    "parking costs, or patient-level eligibility; no transport cost is calculated."
+                ),
+            },
         },
     }
     return {
@@ -135,6 +143,7 @@ def build_report(scenario_path: Path, demand_path: Path, costs_path: Path) -> di
             "national_demand_cells_sha256": hashlib.sha256(demand_path.read_bytes()).hexdigest(),
             "travel_cost_parameters_sha256": hashlib.sha256(costs_path.read_bytes()).hexdigest(),
             "pathway_source_id": "synthetic.clinical-fixture",
+            "patient_other_transport_context_source_ids": ["candidate.healthnz-nta"],
         },
         "claim_boundary": (
             "Expected courses are aggregate model cells, not patients or observed workload. "
