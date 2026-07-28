@@ -21,6 +21,7 @@ REPORTS = (
     "resilience-sensitivity",
     "optimisation-comparison",
 )
+SCENARIO_REGISTER = "treatment-delivery-scenarios"
 
 
 def _load(name: str) -> dict[str, Any]:
@@ -35,6 +36,22 @@ def _load(name: str) -> dict[str, Any]:
 
 def validate() -> dict[str, Any]:
     reports = {name: _load(name) for name in REPORTS}
+    scenario_register = _load(SCENARIO_REGISTER)
+    scenarios = scenario_register.get("scenarios", [])
+    if not scenarios or any(
+        row.get("capability_state") != "unknown"
+        or row.get("clinical_eligibility_state") != "not_estimated"
+        or row.get("patient_travel_status") != "not_estimated"
+        or row.get("provider_travel_status") != "not_estimated"
+        for row in scenarios
+    ):
+        raise ValueError(
+            "Treatment scenario register must preserve unknown/not-estimated boundaries"
+        )
+    if "Synthetic pathway profiles only" not in str(
+        scenario_register.get("resource_profile_scope", "")
+    ):
+        raise ValueError("Treatment scenario register lacks its synthetic profile boundary")
     for name, payload in reports.items():
         if payload.get("operational_recommendation") is not False:
             raise ValueError(f"{name} crosses the operational recommendation boundary")
