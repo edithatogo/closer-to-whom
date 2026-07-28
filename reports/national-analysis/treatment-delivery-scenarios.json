@@ -1,7 +1,7 @@
 {
   "claim_boundary": "Scenario definitions are aggregate policy-model inputs. They do not establish funding, clinical eligibility, service capability, observed capacity, or operational feasibility.",
   "generated_at": "derived_from_scenario_catalogue",
-  "resource_profile_scope": "Synthetic pathway profiles only; no national treatment mix or capability is inferred.",
+  "resource_profile_scope": "Synthetic pathway profiles only; formulation evidence links constrain interpretation but no national treatment mix or capability is inferred.",
   "scenario_count": 11,
   "scenarios": [
     {
@@ -16,6 +16,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 1,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "infrastructure_exploratory",
       "name": "Auckland-only IV counterfactual",
       "patient_travel_status": "not_estimated",
@@ -46,6 +50,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "commissioning_counterfactual",
       "name": "Domicile-district IV assignment",
       "patient_travel_status": "not_estimated",
@@ -76,6 +84,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "current_documented",
       "name": "Nearest publicly documented eligible IV service",
       "patient_travel_status": "not_estimated",
@@ -106,6 +118,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 3,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "infrastructure_exploratory",
       "name": "Optimised additional IV satellite sites",
       "patient_travel_status": "not_estimated",
@@ -135,6 +151,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-sc",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "licensed_funding_uncertain",
       "name": "Hospital-based standalone subcutaneous trastuzumab",
       "patient_travel_status": "not_estimated",
@@ -164,6 +184,11 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "current_documented",
       "name": "Hospital or satellite PHESGO",
       "patient_travel_status": "not_estimated",
@@ -194,6 +219,12 @@
       "capacity_envelope": "medium",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 3,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-sc",
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "commissioning_counterfactual",
       "name": "GP or community healthcare-professional SC administration",
       "patient_travel_status": "not_estimated",
@@ -232,6 +263,12 @@
       "capacity_envelope": "medium",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 3,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-sc",
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "commissioning_counterfactual",
       "name": "Home or mobile healthcare-professional SC administration",
       "patient_travel_status": "not_estimated",
@@ -273,6 +310,12 @@
       "capacity_envelope": "medium",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 3,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-sc",
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "commissioning_counterfactual",
       "name": "Central initiation with local or home maintenance",
       "patient_travel_status": "not_estimated",
@@ -311,6 +354,10 @@
       "capacity_envelope": "none",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "commissioning_counterfactual",
       "name": "Existing network plus parking, shuttle or travel support",
       "patient_travel_status": "not_estimated",
@@ -344,6 +391,13 @@
       "capacity_envelope": "high",
       "clinical_eligibility_state": "not_estimated",
       "evidence_grade_threshold": 2,
+      "formulation_evidence_source_ids": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.medsafe-herceptin-sc",
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current"
+      ],
       "kind": "infrastructure_exploratory",
       "name": "Temporary loss of a major treatment site",
       "patient_travel_status": "not_estimated",

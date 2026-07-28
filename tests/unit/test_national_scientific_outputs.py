@@ -30,3 +30,8 @@ def test_national_reports_form_a_claim_bounded_scientific_set() -> None:
     assert optimisation["multiobjective_frontier"]["frontier"]
     assert all(row["solver_status"] == "optimal" for row in optimisation["rows"])
     assert all(row["optimality_gap"] == 0.0 for row in optimisation["rows"])
+
+    scenario_report = json.loads(
+        (_module().REPORT_DIR / "treatment-delivery-scenarios.json").read_text(encoding="utf-8")
+    )
+    assert all(row["formulation_evidence_source_ids"] for row in scenario_report["scenarios"])

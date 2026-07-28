@@ -12,6 +12,22 @@ import yaml
 
 from closer_to_whom.pathways import default_synthetic_pathways, pathway_summary
 
+FORMULATION_EVIDENCE_SOURCES = {
+    "trastuzumab_iv": [
+        "candidate.medsafe-herceptin-iv",
+        "candidate.pharmac-schedule-trastuzumab-current",
+    ],
+    "trastuzumab_sc": [
+        "candidate.medsafe-herceptin-sc",
+        "candidate.pharmac-schedule-trastuzumab-current",
+    ],
+    "phesgo_sc": [
+        "candidate.medsafe-phesgo",
+        "candidate.pharmac-anti-her2",
+        "candidate.pharmac-schedule-trastuzumab-current",
+    ],
+}
+
 
 def _resource_profiles() -> dict[str, dict[str, Any]]:
     profiles = {}
@@ -48,6 +64,13 @@ def materialize(catalogue: Path, output: Path) -> None:
                 "status": status,
                 "allowed_delivery_modes": source["allowed_delivery_modes"],
                 "allowed_formulations": source["allowed_formulations"],
+                "formulation_evidence_source_ids": sorted(
+                    {
+                        source_id
+                        for formulation in source["allowed_formulations"]
+                        for source_id in FORMULATION_EVIDENCE_SOURCES.get(formulation, [])
+                    }
+                ),
                 "evidence_grade_threshold": source["evidence_grade_threshold"],
                 "candidate_site_count": source["candidate_site_count"],
                 "capacity_envelope": source["capacity_envelope"],
@@ -68,7 +91,7 @@ def materialize(catalogue: Path, output: Path) -> None:
         "status": "materialized_evidence_bounded_scenario_register",
         "scenario_count": len(scenarios),
         "scenarios": scenarios,
-        "resource_profile_scope": "Synthetic pathway profiles only; no national treatment mix or capability is inferred.",
+        "resource_profile_scope": "Synthetic pathway profiles only; formulation evidence links constrain interpretation but no national treatment mix or capability is inferred.",
         "claim_boundary": (
             "Scenario definitions are aggregate policy-model inputs. They do not establish funding, "
             "clinical eligibility, service capability, observed capacity, or operational feasibility."
