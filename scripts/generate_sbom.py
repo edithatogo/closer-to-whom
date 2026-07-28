@@ -33,19 +33,21 @@ def build_sbom(artifact: Path | None = None) -> dict[str, object]:
     metadata: dict[str, Any] = {
         "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}
     }
+    properties: list[dict[str, str]] = []
     if artifact is not None:
         digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
-        metadata["artifact"] = {
-            "path": artifact.as_posix(),
-            "sha256": digest,
-            "type": "python-wheel",
-        }
+        properties = [
+            {"name": "closer-to-whom:artifact:path", "value": artifact.as_posix()},
+            {"name": "closer-to-whom:artifact:sha256", "value": digest},
+            {"name": "closer-to-whom:artifact:type", "value": "python-wheel"},
+        ]
     return {
         "bomFormat": "CycloneDX",
         "specVersion": "1.5",
         "version": 1,
         "metadata": metadata,
         "components": components,
+        "properties": properties,
     }
 
 

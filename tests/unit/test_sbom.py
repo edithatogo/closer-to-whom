@@ -16,5 +16,9 @@ def test_sbom_binds_exact_artifact_digest(tmp_path: Path) -> None:
     artifact = tmp_path / "example.whl"
     artifact.write_bytes(b"wheel-content")
     payload = _module().build_sbom(artifact)
-    assert payload["metadata"]["artifact"]["sha256"] == hashlib.sha256(b"wheel-content").hexdigest()
-    assert payload["metadata"]["artifact"]["type"] == "python-wheel"
+    properties = {item["name"]: item["value"] for item in payload["properties"]}
+    assert (
+        properties["closer-to-whom:artifact:sha256"] == hashlib.sha256(b"wheel-content").hexdigest()
+    )
+    assert properties["closer-to-whom:artifact:type"] == "python-wheel"
+    assert "artifact" not in payload["metadata"]
