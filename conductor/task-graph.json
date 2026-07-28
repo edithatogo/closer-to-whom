@@ -54,7 +54,7 @@
     },
     {
       "id": "SEC-020-harness-and-supply-chain-hardening",
-      "status": "active",
+      "status": "completed",
       "kind": "security"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "id": "CTW-100-publication-release-completion",
-      "status": "planned",
+      "status": "active",
       "kind": "publication"
     }
   ],

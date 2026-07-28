@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-100-publication-release-completion
-status: planned
+status: active
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/128
 objective: Reconcile publication evidence, complete manuscript packages, and create durable release and recovery evidence.
 dependencies: [CTW-080-national-scientific-completeness, CTW-090-public-product-completeness]
