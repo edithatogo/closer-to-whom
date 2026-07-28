@@ -15,6 +15,9 @@ on:
       - "scripts/fetch_stats_nz_population_chunks.py"
       - "scripts/materialize_treatment_delivery_scenarios.py"
       - "reports/national-analysis/**"
+      - "release/**"
+      - "Makefile"
+      - "scripts/reconcile_release_receipts.py"
       - ".github/workflows/**"
       # Dependency manifests must trigger lockfile and schema compatibility checks.
       - "Dockerfile"
