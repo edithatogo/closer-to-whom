@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -31,20 +32,24 @@ def build_sbom(artifact: Path | None = None) -> dict[str, object]:
             }
         )
     metadata: dict[str, Any] = {
-        "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}
+        "timestamp": datetime(1970, 1, 1, tzinfo=UTC).isoformat().replace("+00:00", "Z"),
+        "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"},
     }
     properties: list[dict[str, str]] = []
+    artifact_digest = "0" * 64
     if artifact is not None:
-        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        artifact_digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
         properties = [
             {"name": "closer-to-whom:artifact:path", "value": artifact.as_posix()},
-            {"name": "closer-to-whom:artifact:sha256", "value": digest},
+            {"name": "closer-to-whom:artifact:sha256", "value": artifact_digest},
             {"name": "closer-to-whom:artifact:type", "value": "python-wheel"},
         ]
     return {
+        "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
         "bomFormat": "CycloneDX",
         "specVersion": "1.5",
         "version": 1,
+        "serialNumber": f"urn:uuid:{artifact_digest[:8]}-{artifact_digest[8:12]}-4{artifact_digest[13:16]}-8{artifact_digest[17:20]}-{artifact_digest[20:32]}",
         "metadata": metadata,
         "components": components,
         "properties": properties,
