@@ -1,7 +1,7 @@
 name: Dashboard container
 on:
   pull_request:
-    paths: ["src/closer_to_whom/dashboard/**", "containers/**", "app.py", "artifacts/demo/**"]
+    paths: ["src/closer_to_whom/dashboard/**", "containers/**", "app.py", "artifacts/demo/**", "Dockerfile", ".github/workflows/dashboard.yml"]
   push:
     branches: [main]
     paths: ["src/closer_to_whom/dashboard/**", "containers/**", "app.py", "artifacts/demo/**"]
@@ -15,6 +15,10 @@ jobs:
   build-smoke:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -34,3 +38,17 @@ jobs:
         run: |
           docker run --rm --entrypoint sh closer-to-whom-space:${{ github.sha }} -c \
             'test ! -e /app/data/raw && test ! -e /app/data/licensed && test ! -e /app/data/private'
+      - name: Generate image SBOM
+        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610
+        with:
+          image: closer-to-whom-space:${{ github.sha }}
+          format: cyclonedx-json
+          output-file: release/container-sbom.cdx.json
+          artifact-name: container-sbom-${{ github.sha }}.cdx.json
+          upload-artifact: true
+          upload-artifact-retention: 30
+      - name: Attest image SBOM
+        uses: actions/attest-sbom@c604332985a26aa8cf1bdc465b92731239ec6b9e
+        with:
+          subject-path: release/container-sbom.cdx.json
+          sbom-path: release/container-sbom.cdx.json
