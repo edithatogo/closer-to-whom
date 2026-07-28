@@ -59,6 +59,15 @@ def validate() -> dict[str, Any]:
     capacity = reports["capacity-cost-perspective"]
     if capacity.get("capacity_status") != "not_estimable_observed_capacity_and_staffing_unknown":
         raise ValueError("Capacity report must keep observed capacity and staffing unknown")
+    envelopes = capacity.get("treatment_pathway_envelopes")
+    if not isinstance(envelopes, list) or not envelopes:
+        raise ValueError("Capacity report must contain treatment pathway envelopes")
+    if any(
+        row.get("profile_status") != "synthetic_clinical_fixture_envelope_only"
+        for row in envelopes
+        if isinstance(row, dict)
+    ):
+        raise ValueError("Capacity envelopes must declare their synthetic fixture boundary")
     if capacity.get("operational_recommendation") is not False:
         raise ValueError("Capacity report crosses the operational recommendation boundary")
     resilience = reports["resilience-sensitivity"]
