@@ -20,6 +20,8 @@ on:
       - "release/**"
       - "Makefile"
       - "scripts/reconcile_release_receipts.py"
+      - "scripts/generate_sbom.py"
+      - "tests/unit/test_sbom.py"
       - ".github/workflows/**"
       # Dependency manifests must trigger lockfile and schema compatibility checks.
       - "Dockerfile"
