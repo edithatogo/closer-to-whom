@@ -25,8 +25,9 @@ jobs:
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           enable-cache: true
-      - run: uv sync --locked --extra dev
+      - run: uv sync --locked --all-extras
       - run: uv run pip-audit
+      - run: uv run bandit -c .bandit -q -r src scripts
       - run: uv run python scripts/secret_scan.py
       - run: uv run python scripts/check_privacy_and_licences.py
       - run: uv run python scripts/check_workflows.py

@@ -2,8 +2,8 @@ schema_version: "1.0.0"
 project_id: closer-to-whom
 updated_at: 2026-07-27
 version: "0.2.0"
-active_track: null
-phase: published_maintenance_complete
+active_track: SEC-020-harness-and-supply-chain-hardening
+phase: post_publication_completeness_planned
 software_status: upstream_compatibility_harness_verified
 model_status: national_aggregate_analysis_complete
 publication_status: published_free_static_space
@@ -11,11 +11,16 @@ current_claim_boundary: >-
   The reviewed five-report public aggregate analysis is published on a free static Space and tied to
   verified GitHub and Space revisions. Candidate locations remain plausible, observed capacity and
   operational feasibility remain unknown, and the site is not clinical guidance or a policy recommendation.
-next_tracks: []
+next_tracks:
+  - CTW-080-national-scientific-completeness
+  - CTW-090-public-product-completeness
+  - CTW-100-publication-release-completion
 external_dependencies:
   - protected credentials for future optional integrations and republication
   - optional cross-repository publication of prepared upstream proposals requires separate repository scope
   - GitHub account or plan support for non-provider secret patterns and secret validity checks
+  - source-backed probability distributions are required before empirical national PSA or monetary VOI
+  - author disclosures and authenticated journal submission remain human-controlled publication actions
 verification_status:
   profile: local
   status: passed

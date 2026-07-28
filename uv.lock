@@ -116,6 +116,21 @@ wheels = [
 ]
 
 [[package]]
+name = "bandit"
+version = "1.9.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "pyyaml" },
+    { name = "rich" },
+    { name = "stevedore" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/aa/c3/0cb80dfe0f3076e5da7e4c5ad8e57bac6ac357ff4a6406205501cade4965/bandit-1.9.4.tar.gz", hash = "sha256:b589e5de2afe70bd4d53fa0c1da6199f4085af666fde00e8a034f152a52cd628", size = 4242677, upload-time = "2026-02-25T06:44:15.503Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/05/a4/a26d5b25671d27e03afb5401a0be5899d94ff8fab6a698b1ac5be3ec29ef/bandit-1.9.4-py3-none-any.whl", hash = "sha256:f89ffa663767f5a0585ea075f01020207e966a9c0f2b9ef56a57c7963a3f6f8e", size = 134741, upload-time = "2026-02-25T06:44:13.694Z" },
+]
+
+[[package]]
 name = "blinker"
 version = "1.9.0"
 source = { registry = "https://pypi.org/simple" }
@@ -255,10 +270,12 @@ accel = [
     { name = "jaxlib" },
 ]
 all = [
+    { name = "bandit" },
     { name = "build" },
     { name = "codespell" },
     { name = "coverage" },
     { name = "dash" },
+    { name = "defusedxml" },
     { name = "deptry" },
     { name = "duckdb" },
     { name = "geopandas" },
@@ -298,9 +315,11 @@ dashboard = [
     { name = "plotly" },
 ]
 dev = [
+    { name = "bandit" },
     { name = "build" },
     { name = "codespell" },
     { name = "coverage" },
+    { name = "defusedxml" },
     { name = "deptry" },
     { name = "hypothesis" },
     { name = "interrogate" },
@@ -339,11 +358,13 @@ optimisation = [
 
 [package.metadata]
 requires-dist = [
+    { name = "bandit", marker = "extra == 'dev'", specifier = ">=1.8" },
     { name = "build", marker = "extra == 'dev'", specifier = ">=1.2" },
     { name = "closer-to-whom", extras = ["accel", "geo", "optimisation", "dashboard", "docs", "dev"], marker = "extra == 'all'" },
     { name = "codespell", marker = "extra == 'dev'", specifier = ">=2.4" },
     { name = "coverage", extras = ["toml"], marker = "extra == 'dev'", specifier = ">=7.6" },
     { name = "dash", marker = "extra == 'dashboard'", specifier = ">=2.18" },
+    { name = "defusedxml", marker = "extra == 'dev'", specifier = ">=0.7.1" },
     { name = "deptry", marker = "extra == 'dev'", specifier = ">=0.21" },
     { name = "duckdb", marker = "extra == 'geo'", specifier = ">=1.2" },
     { name = "geopandas", marker = "extra == 'geo'", specifier = ">=1.0" },
@@ -2087,6 +2108,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88", size = 30594, upload-time = "2021-05-16T22:03:42.897Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0", size = 29575, upload-time = "2021-05-16T22:03:41.177Z" },
+]
+
+[[package]]
+name = "stevedore"
+version = "5.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/dd/04d56c2a5232358df41f3d0f0e31833d378b6c8ed7803a6b1b7867b0eba6/stevedore-5.9.0.tar.gz", hash = "sha256:abbd0af7a38a8bbb1d6adea2e35b17609cf004eaac323e88a8d8963640dd2b3c", size = 514850, upload-time = "2026-07-02T11:38:08.509Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/62/8d/008761f6e1000600e5303db30d05724bdcf3d2d186cbb59fac79b52e39ed/stevedore-5.9.0-py3-none-any.whl", hash = "sha256:e520945d4c257700eddc1eb1d79df04b2ea578eef185e0e3fa5b442fc848d3f7", size = 54463, upload-time = "2026-07-02T11:38:07.43Z" },
 ]
 
 [[package]]

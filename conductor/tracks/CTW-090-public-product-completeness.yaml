@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+track_id: CTW-090-public-product-completeness
+status: planned
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/123
+objective: Make the free Static Space and supported interfaces complete, interpretable, accessible, and independently auditable.
+dependencies: [CTW-060-publication-and-space, CTW-080-national-scientific-completeness]
+claim_boundary: >-
+  The public product presents only reviewed precomputed aggregates. Unavailable outcomes are labelled
+  not estimated, raw or restricted inputs are excluded, and interpretation remains non-operational.
+work_packages:
+  - id: CTW-090a
+    title: Dashboard outcome coverage and interpretability
+    acceptance:
+      - Present meaningful fields from every reviewed report and reconcile every declared dashboard outcome as implemented or not estimated.
+      - Display optimisation, separated uncertainty, stochastic rank acceptability, service evidence, equity, and implied-resource outputs when available.
+      - Replace opaque identifiers with plain-language labels, facility composition, units, denominators, definitions, and baseline contrasts.
+  - id: CTW-090b
+    title: Dashboard provenance and aggregate downloads
+    acceptance:
+      - Generate revision, workflow, Space revision, generation time, and report hashes from build metadata rather than hardcoded identifiers.
+      - Publish a deterministic downloadable aggregate bundle and link methods, assumptions, source registry, model card, and release receipt.
+      - Reject stale or incomplete provenance and verify every exposed hash during deployment.
+  - id: CTW-090c
+    title: Static accessibility and no-JavaScript resilience
+    acceptance:
+      - Adopt and test a WCAG 2.2 AA-oriented contract with landmarks, skip navigation, captions, scoped headers, focus styles, and equivalent text or tables.
+      - Provide useful content without JavaScript.
+      - Record automated and manual keyboard, zoom, and screen-reader checks without claiming unverified conformance.
+  - id: CTW-090d
+    title: Supported national CLI, API, and public documentation
+    acceptance:
+      - Expose national analysis, report validation, Space build, and provenance inspection through supported CLI contracts with machine-readable receipts.
+      - Document report schemas, examples, and synthetic-versus-national boundaries.
+      - Reconcile README, Space READMEs, publication state, dashboard scope, and direct public links with drift tests.
+verification_contract:
+  - Tests prove meaningful presentation of each reviewed report and reject missing accessibility or provenance contracts.
+  - The deployed free Static Space is smoke-tested at keyboard, mobile, zoom, no-JavaScript, and low-bandwidth boundaries.

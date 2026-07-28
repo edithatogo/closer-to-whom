@@ -12,7 +12,23 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOWS = ROOT / ".github" / "workflows"
+ACTION_REFERENCE = re.compile(r"^\s*-\s*uses:\s*([^\s@]+)@([^\s#]+)")
+FULL_SHA = re.compile(r"^[0-9a-f]{40}$")
 DANGEROUS = ("pull_request_target",)
+
+
+def _action_reference_failures(text: str, workflow_name: str) -> list[str]:
+    failures: list[str] = []
+    for line in text.splitlines():
+        match = ACTION_REFERENCE.match(line)
+        if not match or match.group(1).startswith("./"):
+            continue
+        action, reference = match.groups()
+        if not FULL_SHA.fullmatch(reference):
+            failures.append(
+                f"{workflow_name}: mutable or non-commit action reference: {action}@{reference}"
+            )
+    return failures
 
 
 def main() -> int:
@@ -43,6 +59,7 @@ def main() -> int:
                 continue
             if "timeout-minutes" not in job:
                 warnings.append(f"{path.name}:{job_name}: no timeout-minutes")
+        failures.extend(_action_reference_failures(text, path.name))
         if re.search(r"uses:\s*[^\s@]+@(?:main|master)\b", text):
             failures.append(f"{path.name}: action pinned to mutable main/master")
     if warnings:

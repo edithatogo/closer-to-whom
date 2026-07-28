@@ -17,7 +17,7 @@ A public-data, aggregate geospatial policy simulation of alternative anti-HER2 c
 | Community health | 100% | [GitHub community profile](https://github.com/edithatogo/closer-to-whom/community) |
 | Automated quality | Passing on the protected PR path | [Actions](https://github.com/edithatogo/closer-to-whom/actions) |
 | Security analysis | CodeQL, dependency audit, secret scanning, and push protection enabled | [`SECURITY.md`](SECURITY.md) |
-| Scientific publication | Blocked pending external service, input, clinical, licensing, Māori/equity, and ethics receipts | [`data/public/publication-gate.yaml`](data/public/publication-gate.yaml) |
+| Public aggregate publication | Reviewed five-report payload published; manuscript and broader outcome tracks remain open | [`data/public/publication-gate.yaml`](data/public/publication-gate.yaml) |
 
 This is a high-assurance research-software repository, not a claim that the
 underlying national evidence is complete. Synthetic fixtures validate software
@@ -30,20 +30,14 @@ This repository estimates **potential geographic and economic accessibility** un
 
 ## What is implemented
 
-- nationwide, evidence-graded service-registry contracts;
+- reusable pathway, equity, capacity, optimisation, uncertainty, value-of-information, MCDA, and acceleration library components;
 - aggregate expected-demand cells rather than synthetic people;
-- IV trastuzumab, subcutaneous trastuzumab, PHESGO, satellite, community, home/mobile, and hybrid scenarios;
-- Polars and Arrow-first data flow with schema fingerprints;
-- route-engine protocols and deterministic offline routing fixtures;
-- patient, whānau, public-payer, provider, and societal travel-cost perspectives;
-- distributional access and equity metrics;
-- implied capacity, p-median, p-centre, maximal-coverage, and Pareto analysis;
-- DSA, PSA, structural uncertainty, EVPI, EVPPI, EVSI, ENBS, and break-even research costs;
-- MCDA and stochastic rank acceptability;
-- JAX/XLA acceleration with a NumPy reference oracle and differential tests;
-- a Mojo accelerator track with canary, numerical-equivalence, and promotion gates;
+- bounded national five-report candidate-network analysis with reviewed public aggregate inputs;
+- Polars and Arrow-first data flow with schema fingerprints, plus deterministic routing fixtures;
 - an aggregate-only free Hugging Face Static Space;
 - machine-readable assumptions, provenance, decisions, tracks, tasks, and release receipts.
+
+Reusable library components are not automatically materialized national findings. The current national payload does not estimate unsupported delivery-setting capability, observed capacity, full cost perspectives, empirical PSA, monetary VOI, or broader distributional outcomes. Those remain tracked deliverables.
 
 ## Quick start
 

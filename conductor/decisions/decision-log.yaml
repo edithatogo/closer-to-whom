@@ -221,3 +221,17 @@ decisions:
       to verify patch-ready interfaces and local fallback behaviour while explicitly avoiding claims that
       upstream issues were opened, code was executed, patches merged, releases published, suitability
       established, licences approved, or endorsements obtained.
+  - id: DEC-027
+    date: 2026-07-27
+    status: accepted
+    decision: >-
+      Treat v0.2 as a completed bounded candidate-network analysis and free static publication, while
+      reopening the roadmap for the broader scientific, product, manuscript, release, and harness outcomes
+      explicitly declared but not yet materialized. Represent the work as four parent Conductor tracks with
+      native GitHub subissues and preserve all completed historical tracks.
+    rationale: >-
+      Independent modelling, publication, product, and engineering reviews agreed that the reusable library
+      is broader than the national outputs. New tracks avoid rewriting valid historical evidence, distinguish
+      analytical equity from out-of-scope governance approval, and create executable acceptance contracts for
+      delivery scenarios, equity, capacity, optimisation, uncertainty, dashboard, manuscripts, release
+      provenance, containers, supply chain, monitoring, and maintenance.

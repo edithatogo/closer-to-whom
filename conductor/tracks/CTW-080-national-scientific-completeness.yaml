@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+track_id: CTW-080-national-scientific-completeness
+status: planned
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/116
+objective: Complete the national scientific outcomes declared beyond the bounded v0.2 candidate-network analysis.
+dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs, CTW-050-national-analysis]
+claim_boundary: >-
+  All outputs remain public, aggregate, ecological policy simulations. Unknown capability or cost
+  components remain unknown; implied resources are not observed capacity; and no result is clinical
+  guidance, operational feasibility evidence, or a policy recommendation.
+work_packages:
+  - id: CTW-080a
+    title: National treatment, delivery-setting, and capability-evidence scenarios
+    acceptance:
+      - Materialize IV, SC, PHESGO, hospital, satellite, community, home/mobile, and hybrid scenarios only where frozen evidence and clinical hard constraints permit.
+      - Distinguish confirmed-current, plausible expansion, commissioning counterfactual, and exploratory infrastructure networks.
+      - Preserve unsupported formulation and setting capability as unknown.
+      - Report visits, on-site time, patient travel, and provider travel without fabricating unavailable components.
+  - id: CTW-080b
+    title: Distributional access and ecological equity
+    acceptance:
+      - Join aggregate assignments to rurality, deprivation, ethnicity, and vehicle-access stratifiers without creating individual-like rows.
+      - Report central tendency, tails, threshold coverage, worst-served shares, missingness, and changes from baseline.
+      - Preserve overlapping ethnicity, ecological interpretation, suppression, and unknown states.
+  - id: CTW-080c
+    title: Implied capacity, resource envelopes, and national cost perspectives
+    acceptance:
+      - Materialize administrations, chair hours, active nursing hours, FTE-equivalent requirements, peak activity, and provider workload under transparent envelopes.
+      - Keep implied requirements distinct from observed capacity and operational feasibility.
+      - Separate patient, whanau, reimbursement, provider, and resource-cost ledgers and mark incomplete perspectives explicitly.
+  - id: CTW-080d
+    title: National optimisation, Pareto frontier, and resilience
+    acceptance:
+      - Materialize p-median, p-centre, maximal coverage, robust, and outage analyses where tractable.
+      - Compare heuristic and exact solutions and report solver, gap, bound, runtime, and optimality status.
+      - Validate a genuine non-dominated frontier across access, equity, resource, and resilience outcomes.
+  - id: CTW-080e
+    title: National uncertainty and value of information
+    acceptance:
+      - Separate deterministic, structural, spatial, empirical-parameter, and normative-weight uncertainty.
+      - Use probability distributions only where source-backed and fingerprinted.
+      - Keep EVSI, ENBS, and monetary VOI unestimated unless defensible decision values and evidence inputs exist.
+      - Evaluate feasible aggregate evidence questions before any future microdata escalation.
+  - id: CTW-080f
+    title: Scientific validation and regression coverage
+    acceptance:
+      - Add independent oracles for demand and assignment conservation, referential integrity, weighted summaries, costs, optimisation feasibility, and seeded MCDA/VOI reproducibility.
+      - Validate scientific dimensions and claim boundaries, not only filenames.
+      - Register deterministic fixture and hosted-artifact hashes.
+verification_contract:
+  - Every new national report has a schema, deterministic generator, tests, source and assumption fingerprints, and an immutable receipt.
+  - make check passes and the hosted analysis artifact independently validates.
+  - README and publication claims distinguish reusable library, synthetic demonstration, materialized national output, and not-estimated states.

@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+track_id: CTW-100-publication-release-completion
+status: planned
+github_issue: https://github.com/edithatogo/closer-to-whom/issues/128
+objective: Reconcile publication evidence, complete manuscript packages, and create durable release and recovery evidence.
+dependencies: [CTW-080-national-scientific-completeness, CTW-090-public-product-completeness]
+claim_boundary: >-
+  Repository completion does not establish journal submission, acceptance, external endorsement, or
+  operational authority. Human author disclosures and authenticated submissions remain external gates.
+work_packages:
+  - id: CTW-100a
+    title: Source, licence, and publication-gate reconciliation
+    acceptance:
+      - Classify every source contributing to a published value and record the basis for publishing each derived aggregate.
+      - Distinguish local-use authorization, raw redistribution, and derived-output publication.
+      - Fail closed on unresolved published derivations and generate an exact-payload licence decision receipt.
+  - id: CTW-100b
+    title: Evidence-linked NZMJ and methods manuscript packages
+    acceptance:
+      - Populate methods, results, limitations, and bounded conclusions from canonical reports.
+      - Generate tables and figures deterministically, cite material claims, and complete reproducibility and data/code statements.
+      - Treat out_of_scope_for_public_aggregate_harness as a valid governance terminal state without claiming endorsement or exemption.
+      - Leave author-dependent funding, conflicts, AI disclosure, submission, and journal decisions explicit.
+  - id: CTW-100c
+    title: Current release and Space receipt reconciliation
+    acceptance:
+      - Validate and register the latest clean-main Release and Space artifacts and preserve superseded receipts as immutable history.
+      - Make receipt checks reject revision drift and verify the live Space contains the approved source revision.
+      - Reconcile Conductor state, README status, test counts, and embedded workflow identifiers.
+  - id: CTW-100d
+    title: Signed release, durable archive, and recovery drill
+    acceptance:
+      - Decide the supported status of v0.2.0 before creating any tag.
+      - Publish signed, attested distributions and artifact-scoped SBOMs from a receipt-current commit.
+      - Preserve permitted release and publication bundles in durable independent storage.
+      - Define RTO and RPO and verify reconstruction of source, package, and static-site hashes in a restoration drill.
+verification_contract:
+  - Manuscript and release artifacts are tied to exact code, inputs, reports, tools, and receipts.
+  - External publication or tag creation requires its own explicit authorization at action time.
