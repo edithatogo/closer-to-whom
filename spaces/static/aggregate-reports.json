@@ -5,8 +5,15 @@
   "reports": {
     "capacity-cost-perspective": {
       "analysis_population": "aggregate_expected_course_cells",
+      "capacity_assumptions": {
+        "active_nursing_fraction_of_on_site_time": 0.45,
+        "chair_utilisation_target": 0.8,
+        "peak_to_mean_factor": 1.25,
+        "productive_hours_per_fte_year": 1500.0,
+        "working_days_per_year": 240.0
+      },
       "capacity_status": "not_estimable_observed_capacity_and_staffing_unknown",
-      "claim_boundary": "Expected courses are aggregate model cells, not patients or observed workload. Per-site values are arithmetic workload envelopes, not staffing requirements or capacity. Vehicle costs are a source-backed private-vehicle resource scenario; omitted cost components remain unpriced and no operational or policy recommendation is made.",
+      "claim_boundary": "Expected courses are aggregate model cells, not patients or observed workload. Per-site values are arithmetic workload envelopes, not staffing requirements or capacity. Vehicle costs are a source-backed private-vehicle resource scenario; omitted cost components remain unpriced and no operational or policy recommendation is made. Treatment pathway envelopes use synthetic clinical fixtures and are not estimates of actual treatment mix, staffing, capacity, or service workload.",
       "configurations": [
         {
           "candidate_site_count": 1,
@@ -57,12 +64,57 @@
       "source_inputs": {
         "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-demand-cells.json",
         "national_demand_cells_sha256": "2c3a76ed68ecf1d4228b7cad6a1b7fdf43be4445b114f030f9d56d659f5a3e0e",
+        "pathway_source_id": "synthetic.clinical-fixture",
         "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
         "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8",
         "travel_cost_parameters": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/travel-cost-parameters.json",
         "travel_cost_parameters_sha256": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d"
       },
       "status": "materialized_implied_workload_and_partial_travel_resource_perspective",
+      "treatment_pathway_envelopes": [
+        {
+          "annual_active_nursing_hours": 5219.148653999998,
+          "annual_administrations": 5799.054059999998,
+          "annual_chair_hours": 11598.108119999995,
+          "annual_expected_courses": 322.1696699999999,
+          "annual_on_site_minutes": 695886.4871999997,
+          "annual_patient_visits": 5799.054059999998,
+          "formulation": "trastuzumab_iv",
+          "implied_chair_fte_equivalent": 9.665090099999997,
+          "implied_nursing_fte": 3.4794324359999984,
+          "pathway_id": "early_trastuzumab_iv_demo",
+          "peak_equivalent_visits_per_day": 30.20340656249999,
+          "profile_status": "synthetic_clinical_fixture_envelope_only"
+        },
+        {
+          "annual_active_nursing_hours": 1522.2516907499996,
+          "annual_administrations": 5799.054059999998,
+          "annual_chair_hours": 3382.781534999999,
+          "annual_expected_courses": 322.1696699999999,
+          "annual_on_site_minutes": 202966.89209999994,
+          "annual_patient_visits": 5799.054059999998,
+          "formulation": "trastuzumab_sc",
+          "implied_chair_fte_equivalent": 2.818984612499999,
+          "implied_nursing_fte": 1.0148344604999997,
+          "pathway_id": "early_trastuzumab_sc_demo",
+          "peak_equivalent_visits_per_day": 30.20340656249999,
+          "profile_status": "synthetic_clinical_fixture_envelope_only"
+        },
+        {
+          "annual_active_nursing_hours": 1070.4087285749995,
+          "annual_administrations": 3866.0360399999986,
+          "annual_chair_hours": 2378.686063499999,
+          "annual_expected_courses": 322.1696699999999,
+          "annual_on_site_minutes": 142721.16380999994,
+          "annual_patient_visits": 3866.0360399999986,
+          "formulation": "phesgo_sc",
+          "implied_chair_fte_equivalent": 1.982238386249999,
+          "implied_nursing_fte": 0.7136058190499996,
+          "pathway_id": "metastatic_phesgo_demo",
+          "peak_equivalent_visits_per_day": 20.135604374999993,
+          "profile_status": "synthetic_clinical_fixture_envelope_only"
+        }
+      ],
       "unpriced_cost_components": [
         "treatment_drug_and_administration_cost",
         "facility_overhead",
