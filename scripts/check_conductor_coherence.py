@@ -45,7 +45,8 @@ def main() -> None:
     )
     if result.returncode != 0:
         raise SystemExit("Unable to collect tests for Conductor test-count coherence")
-    lines = [line for line in result.stdout.splitlines() if line.endswith("tests collected")]
+    output = f"{result.stdout}\n{result.stderr}"
+    lines = [line for line in output.splitlines() if line.strip().endswith("tests collected")]
     if not lines:
         raise SystemExit("Pytest collection did not report a test count")
     collected = int(lines[-1].split()[0])
