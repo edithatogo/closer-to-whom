@@ -82,7 +82,9 @@ def build(output: Path) -> dict[str, Any]:
             "historical": historical_revision,
             "current": current_revision,
             "matches": source_matches,
-            "mode": "exact" if historical_revision == current_revision else "receipt_only_descendant",
+            "mode": "exact"
+            if historical_revision == current_revision
+            else "receipt_only_descendant",
         },
         "report_scope": {
             "historical": historical_reports,
