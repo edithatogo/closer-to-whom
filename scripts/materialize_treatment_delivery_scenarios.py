@@ -10,9 +10,27 @@ from typing import Any
 
 import yaml
 
+from closer_to_whom.pathways import default_synthetic_pathways, pathway_summary
+
+
+def _resource_profiles() -> dict[str, dict[str, Any]]:
+    profiles = {}
+    for pathway in default_synthetic_pathways():
+        summary = pathway_summary(pathway)
+        profiles[str(summary["formulation"])] = {
+            "pathway_id": summary["pathway_id"],
+            "expected_administrations": summary["expected_administrations"],
+            "course_on_site_minutes": summary["course_on_site_minutes"],
+            "hospital_required_visits": summary["hospital_required_visits"],
+            "home_eligible_visits": summary["home_eligible_visits"],
+            "profile_status": "synthetic_clinical_fixture_only",
+        }
+    return profiles
+
 
 def materialize(catalogue: Path, output: Path) -> None:
     payload = yaml.safe_load(catalogue.read_text(encoding="utf-8"))
+    resource_profiles = _resource_profiles()
     scenarios: list[dict[str, Any]] = []
     for source in payload.get("scenarios", []):
         kind = str(source["kind"])
@@ -35,6 +53,13 @@ def materialize(catalogue: Path, output: Path) -> None:
                 "capacity_envelope": source["capacity_envelope"],
                 "capability_state": "unknown",
                 "clinical_eligibility_state": "not_estimated",
+                "resource_profiles": [
+                    resource_profiles[formulation]
+                    for formulation in source["allowed_formulations"]
+                    if formulation in resource_profiles
+                ],
+                "patient_travel_status": "not_estimated",
+                "provider_travel_status": "not_estimated",
             }
         )
     result = {
@@ -43,6 +68,7 @@ def materialize(catalogue: Path, output: Path) -> None:
         "status": "materialized_evidence_bounded_scenario_register",
         "scenario_count": len(scenarios),
         "scenarios": scenarios,
+        "resource_profile_scope": "Synthetic pathway profiles only; no national treatment mix or capability is inferred.",
         "claim_boundary": (
             "Scenario definitions are aggregate policy-model inputs. They do not establish funding, "
             "clinical eligibility, service capability, observed capacity, or operational feasibility."
