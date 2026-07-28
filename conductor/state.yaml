@@ -26,11 +26,11 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 164
+  tests: 167
   optional_not_run:
     - Docker container health check
     - Mojo canary
-    - Bandit executable (not installed locally; security target continued by declared fallback)
+    - Artifact-scoped container SBOM verification
 release_status:
   candidate_tag: not_created
   release_assurance_run: 30246144787
