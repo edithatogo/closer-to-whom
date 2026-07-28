@@ -8,30 +8,30 @@
     },
     "release/space-deployment-receipt.json": {
       "matches": true,
-      "reconstructed_sha256": "ed67f19e211ad15a1a6ebec2c2ddc675b34b63f1c92b2ffe87188561cf95ebcf",
-      "source_sha256": "ed67f19e211ad15a1a6ebec2c2ddc675b34b63f1c92b2ffe87188561cf95ebcf"
+      "reconstructed_sha256": "dca8f5e589e84c68dcd3122f6ca4e1676a2b10058dca2a05db46990602b625f8",
+      "source_sha256": "dca8f5e589e84c68dcd3122f6ca4e1676a2b10058dca2a05db46990602b625f8"
     },
     "release/space-monitor-receipt.json": {
       "matches": true,
-      "reconstructed_sha256": "1b9d316f7fe07c1e79ab1779e238b75285d8440fe7632067db55a813274b07b9",
-      "source_sha256": "1b9d316f7fe07c1e79ab1779e238b75285d8440fe7632067db55a813274b07b9"
+      "reconstructed_sha256": "c6f3c52708547b9124326f03741fa8c363276ee4deeaaa935b9afed796609580",
+      "source_sha256": "c6f3c52708547b9124326f03741fa8c363276ee4deeaaa935b9afed796609580"
     },
     "spaces/static/aggregate-reports.json": {
       "matches": true,
-      "reconstructed_sha256": "a8b4481ab76172d6eeffe59bb119b0014b4ebe25dd6f5da9e7b9d9943b375d73",
-      "source_sha256": "a8b4481ab76172d6eeffe59bb119b0014b4ebe25dd6f5da9e7b9d9943b375d73"
+      "reconstructed_sha256": "855b0524d74ecec80c959095a0cfd1a04f5bd53a6bf474adb96040272c38286e",
+      "source_sha256": "855b0524d74ecec80c959095a0cfd1a04f5bd53a6bf474adb96040272c38286e"
     },
     "spaces/static/index.html": {
       "matches": true,
-      "reconstructed_sha256": "549b78049251b5b8b0a3c7212bfdf4c7cf038494d0e2167aa7448a39b8600e0c",
-      "source_sha256": "549b78049251b5b8b0a3c7212bfdf4c7cf038494d0e2167aa7448a39b8600e0c"
+      "reconstructed_sha256": "1b2b20fe99ce5da9bb2d150779008eb3d9538cd0ab308cec37648f8c38f7b789",
+      "source_sha256": "1b2b20fe99ce5da9bb2d150779008eb3d9538cd0ab308cec37648f8c38f7b789"
     }
   },
-  "elapsed_seconds": 1.051,
+  "elapsed_seconds": 9.676,
   "independent_storage": "not_claimed_by_local_drill",
   "rpo": "latest merged main commit",
   "rto_seconds": 300,
   "schema_version": "1.0.0",
-  "source_revision": "825632db133831ac5bdf3acaec1fde99f812e403",
+  "source_revision": "b818ad0588e90ff88ee40df6ff861b10b38e3aec",
   "status": "passed"
 }

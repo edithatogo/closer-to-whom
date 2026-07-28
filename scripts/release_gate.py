@@ -17,8 +17,7 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
-
-from defusedxml import ElementTree as ET  # noqa: N817
+from xml.etree import ElementTree as ET  # nosec B405 - serialization only; no XML is parsed
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE = ROOT / "release"
