@@ -53,6 +53,7 @@ test: ## Full test suite with branch coverage gate
 
 contracts: ## Validate schemas, assumptions, source registry, generated files, and workflow contracts
 	$(UV) run python scripts/check_contracts.py
+	$(UV) run python scripts/check_conductor_coherence.py
 	$(UV) run python scripts/check_machine_readability.py
 	$(UV) run python scripts/check_assumption_coverage.py
 	$(UV) run python scripts/check_source_registry.py
