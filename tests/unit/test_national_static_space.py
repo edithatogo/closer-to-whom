@@ -46,6 +46,16 @@ def _write_reports(path: Path, *, operational: bool = False) -> None:
             "evpi_per_policy_decision": 0.01,
             "next_information_priority": "aggregate capability",
         },
+        "distributional-equity": {
+            **common,
+            "dimensions": ["deprivation_quintile", "rurality"],
+            "rows": [],
+        },
+        "capacity-cost-perspective": {**common, "capacity_status": "not_estimable"},
+        "resilience-sensitivity": {
+            **common,
+            "outage_scenario_type": "counterfactual_candidate_site_removal",
+        },
     }
     path.mkdir()
     for name, payload in payloads.items():
@@ -60,6 +70,8 @@ def test_national_space_embeds_only_bounded_precomputed_reports(tmp_path: Path) 
     assert "abc123" in html
     assert "No patient records" in html
     assert "candidate_network_01" in html
+    assert "No-JavaScript summary" in html
+    assert "Additional reviewed outputs" in html
 
 
 def test_national_space_rejects_operational_claim(tmp_path: Path) -> None:

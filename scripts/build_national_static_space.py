@@ -14,6 +14,9 @@ REPORT_NAMES = (
     "uncertainty_analysis",
     "mcda_outputs",
     "voi_outputs",
+    "distributional-equity",
+    "capacity-cost-perspective",
+    "resilience-sensitivity",
 )
 
 TEMPLATE = r"""<!doctype html>
@@ -37,12 +40,14 @@ TEMPLATE = r"""<!doctype html>
   <header>
     <h1>Closer to whom?</h1>
     <p class="warning"><strong>Boundary:</strong> Public aggregate planning scenarios - not confirmed anti-HER2 services, observed capacity, operational feasibility, clinical guidance, or a policy recommendation.</p>
-    <p>This free static site serves only five precomputed, hash-receipted reports. No patient records, individual locations, raw source payloads, live APIs, or paid compute are used.</p>
+  <p>This free static site serves eight precomputed, hash-receipted reports. No patient records, individual locations, raw source payloads, live APIs, or paid compute are used.</p>
   </header>
+  <noscript><section><h2>No-JavaScript summary</h2><p>The table below is rendered into the page at build time; interactive enhancements are not required.</p><div style="overflow:auto"><table><thead><tr><th>Configuration</th><th>Sites</th><th>Mean minutes</th><th>P95 minutes</th><th>Within 60 min</th></tr></thead><tbody>__NOSCRIPT_ROWS__</tbody></table></div></section></noscript>
   <section><h2>Candidate-network comparison</h2><div class="cards" id="cards"></div><div style="overflow:auto"><table><thead><tr><th>Configuration</th><th>Sites</th><th>Mean minutes</th><th>P95 minutes</th><th>Within 60 min</th></tr></thead><tbody id="scenarios"></tbody></table></div></section>
   <section><h2>Normative viewpoints</h2><p class="muted">Clinical eligibility and safety are hard gates and are never traded off here.</p><div id="viewpoints"></div></section>
   <section><h2>Decision uncertainty</h2><p id="voi"></p></section>
   <section><h2>Uncertainty and provenance</h2><p>Spatial, temporal-demand, vehicle-rate, and normative-weight uncertainty remain separate. Probabilistic clinical intervals and monetary ENBS are not estimated without source-backed distributions.</p><p>Source revision: <code>__REVISION__</code>. National analysis workflow: <a href="https://github.com/edithatogo/closer-to-whom/actions/runs/30243407303">30243407303</a>. <a href="aggregate-reports.json">Download the deterministic aggregate report bundle</a>.</p></section>
+  <section><h2>Additional reviewed outputs</h2><ul><li>Distributional equity: aggregate access summaries by deprivation and rurality; ecological only, with unknowns retained.</li><li>Capacity and cost: implied aggregate course envelopes and private-vehicle resource costs; observed staffing, capacity, treatment cost, and omitted components are not estimated.</li><li>Resilience: hypothetical single-candidate-site routing sensitivity; this is not an observed outage or resilience guarantee.</li></ul></section>
   <script type="application/json" id="analysis-data">__DATA__</script>
   <script>
     const DATA=JSON.parse(document.querySelector('#analysis-data').textContent);
@@ -73,10 +78,22 @@ def build(analysis: Path, output: Path, *, revision: str) -> Path:
     """Build one static HTML file with no runtime data or network dependency."""
     payload = load_reports(analysis)
     encoded = json.dumps(payload, separators=(",", ":")).replace("<", "\\u003c")
+    fallback_rows = "".join(
+        "<tr>"
+        f"<th scope='row'>{row['configuration_id']}</th>"
+        f"<td>{row['candidate_site_count']}</td>"
+        f"<td>{row['weighted_mean_one_way_minutes']:.1f}</td>"
+        f"<td>{row['weighted_p95_one_way_minutes']:.1f}</td>"
+        f"<td>{row['share_expected_courses_within_60_minutes']:.1%}</td>"
+        "</tr>"
+        for row in payload["scenario_summary"]["configurations"]
+    )
     output.mkdir(parents=True, exist_ok=True)
     target = output / "index.html"
     target.write_text(
-        TEMPLATE.replace("__DATA__", encoded).replace("__REVISION__", revision),
+        TEMPLATE.replace("__DATA__", encoded)
+        .replace("__REVISION__", revision)
+        .replace("__NOSCRIPT_ROWS__", fallback_rows),
         encoding="utf-8",
     )
     (output / "aggregate-reports.json").write_text(

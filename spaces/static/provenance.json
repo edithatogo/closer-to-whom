@@ -6,11 +6,20 @@
   "javascript_required": false,
   "schema_version": "1.0.0",
   "source_reports": {
+    "capacity-cost-perspective.json": {
+      "sha256": "15320131b5d24ee68aaedcc37422dcb53f6abe606297779ca2d4ba97b8f736d4"
+    },
+    "distributional-equity.json": {
+      "sha256": "0d2a09b224144400be84e6167f611cfb87674566831d8df31cb75af669d365f4"
+    },
     "mcda_outputs.json": {
       "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
     },
     "optimisation_frontier.json": {
       "sha256": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3"
+    },
+    "resilience-sensitivity.json": {
+      "sha256": "861efb7c1161f3e4715bc0f8b81c2a8cd72bc7933206a382e95c0d2a01e25672"
     },
     "scenario_summary.json": {
       "sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8"
