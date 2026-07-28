@@ -78,6 +78,38 @@ def build_report(scenario_path: Path, demand_path: Path, costs_path: Path) -> di
                 "vehicle_resource_cost_nzd": row["vehicle_resource_cost_nzd"],
             }
         )
+    cost_ledgers = {
+        "patient_direct": {
+            "status": "not_estimated",
+            "components": ["treatment_drug_and_administration_cost", "patient_out_of_pocket_cost"],
+            "reason": "No national treatment mix or tariff receipt is available in the frozen public inputs.",
+        },
+        "whanau_time": {
+            "status": "not_estimated",
+            "components": ["whanau_travel_time", "caregiving_time"],
+            "reason": "No source-backed national time valuation has been selected.",
+        },
+        "provider": {
+            "status": "not_estimated",
+            "components": ["provider_travel", "provider_time"],
+            "reason": "Provider capability, staffing, and travel are unknown.",
+        },
+        "facility": {
+            "status": "not_estimated",
+            "components": ["facility_overhead", "chair_capacity"],
+            "reason": "Observed capacity and facility cost data are unavailable.",
+        },
+        "patient_vehicle_resource": {
+            "status": "source_backed_scenario",
+            "components": ["private_vehicle_distance_resource_cost"],
+            "basis": "travel_cost_parameters.json",
+        },
+        "patient_other_transport": {
+            "status": "not_estimated",
+            "components": ["public_transport_fares", "parking"],
+            "reason": "No national mode split or fare/parking receipt is available.",
+        },
+    }
     return {
         "schema_version": "1.0.0",
         "status": "materialized_implied_workload_and_partial_travel_resource_perspective",
@@ -85,6 +117,7 @@ def build_report(scenario_path: Path, demand_path: Path, costs_path: Path) -> di
         "configurations": configurations,
         "treatment_pathway_envelopes": treatment_envelopes,
         "capacity_assumptions": capacity_assumptions,
+        "cost_ledgers": cost_ledgers,
         "capacity_status": "not_estimable_observed_capacity_and_staffing_unknown",
         "unpriced_cost_components": [
             "treatment_drug_and_administration_cost",
