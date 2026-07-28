@@ -1,0 +1,551 @@
+{
+  "artifact": "reviewed-national-aggregate-reports",
+  "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "reports": {
+    "mcda_outputs": {
+      "alternatives": [
+        "candidate_network_01",
+        "candidate_network_03",
+        "candidate_network_05",
+        "candidate_network_10",
+        "candidate_network_19"
+      ],
+      "analysis_population": "aggregate_expected_course_cells",
+      "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+      "claim_boundary": "Weights are explicit normative viewpoints. Candidate-site count is not cost or capacity, and clinical eligibility and safety are excluded from trade-offs.",
+      "clinical_safety_is_compensatory": false,
+      "criteria": [
+        "weighted_mean_one_way_minutes",
+        "weighted_p95_one_way_minutes",
+        "candidate_site_count_proxy"
+      ],
+      "generated_at": "2026-07-27T06:38:23+00:00",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "schema_version": "1.0.0",
+      "status": "materialized_normative_viewpoint_analysis",
+      "stochastic_weight_analysis": {
+        "draws": 16384,
+        "expected_rank": {
+          "candidate_network_01": 4.57513427734375,
+          "candidate_network_03": 2.6719970703125,
+          "candidate_network_05": 2.0078125,
+          "candidate_network_10": 2.3489990234375,
+          "candidate_network_19": 3.39605712890625
+        },
+        "first_rank_probability": {
+          "candidate_network_01": 0.0159912109375,
+          "candidate_network_03": 0.25732421875,
+          "candidate_network_05": 0.31378173828125,
+          "candidate_network_10": 0.222900390625,
+          "candidate_network_19": 0.19000244140625
+        },
+        "seed": 20260727
+      },
+      "viewpoints": {
+        "access_priority": {
+          "ranking": [
+            "candidate_network_10",
+            "candidate_network_19",
+            "candidate_network_05",
+            "candidate_network_03",
+            "candidate_network_01"
+          ],
+          "scores": [
+            0.1,
+            0.7657452865774084,
+            0.853604557810824,
+            0.9032292973360511,
+            0.9
+          ],
+          "weights": [
+            0.55,
+            0.35,
+            0.1
+          ]
+        },
+        "infrastructure_sparing": {
+          "ranking": [
+            "candidate_network_03",
+            "candidate_network_05",
+            "candidate_network_10",
+            "candidate_network_01",
+            "candidate_network_19"
+          ],
+          "scores": [
+            0.5,
+            0.8235091541576518,
+            0.8192878211778242,
+            0.7224430638931373,
+            0.5
+          ],
+          "weights": [
+            0.25,
+            0.25,
+            0.5
+          ]
+        },
+        "tail_access_priority": {
+          "ranking": [
+            "candidate_network_19",
+            "candidate_network_10",
+            "candidate_network_05",
+            "candidate_network_03",
+            "candidate_network_01"
+          ],
+          "scores": [
+            0.1,
+            0.7821255259631695,
+            0.8502784520719361,
+            0.8947339503508396,
+            0.9
+          ],
+          "weights": [
+            0.25,
+            0.65,
+            0.1
+          ]
+        }
+      }
+    },
+    "optimisation_frontier": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+      "claim_boundary": "This is an exploratory candidate-location frontier, not a service configuration recommendation. Clinical capability and observed capacity remain hard unknown gates.",
+      "generated_at": "2026-07-27T06:38:23+00:00",
+      "objectives": [
+        "minimise_candidate_site_count",
+        "minimise_weighted_mean_one_way_minutes",
+        "minimise_weighted_p95_one_way_minutes"
+      ],
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "optimality_claimed": false,
+      "points": [
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO"
+          ],
+          "candidate_site_count": 1,
+          "configuration_id": "candidate_network_01",
+          "expected_annual_round_trip_km": 270694.5423690633,
+          "maximum_one_way_minutes": 1868.6316666666667,
+          "share_expected_courses_within_60_minutes": 0.07136845205180391,
+          "vehicle_resource_cost_nzd": 100156.98067655342,
+          "weighted_mean_one_way_km": 420.11177273308084,
+          "weighted_mean_one_way_minutes": 373.55773955502536,
+          "weighted_median_one_way_minutes": 204.19833333333332,
+          "weighted_p90_one_way_minutes": 928.06,
+          "weighted_p95_one_way_minutes": 1211.2883333333334
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH"
+          ],
+          "candidate_site_count": 3,
+          "configuration_id": "candidate_network_03",
+          "expected_annual_round_trip_km": 95352.00030071873,
+          "maximum_one_way_minutes": 966.4983333333333,
+          "share_expected_courses_within_60_minutes": 0.21821731008669365,
+          "vehicle_resource_cost_nzd": 35280.24011126593,
+          "weighted_mean_one_way_km": 147.9841356585782,
+          "weighted_mean_one_way_minutes": 123.08542397496754,
+          "weighted_median_one_way_minutes": 99.65666666666667,
+          "weighted_p90_one_way_minutes": 301.3066666666667,
+          "weighted_p95_one_way_minutes": 340.57
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN"
+          ],
+          "candidate_site_count": 5,
+          "configuration_id": "candidate_network_05",
+          "expected_annual_round_trip_km": 56327.19005558126,
+          "maximum_one_way_minutes": 664.4816666666667,
+          "share_expected_courses_within_60_minutes": 0.5527478563864849,
+          "vehicle_resource_cost_nzd": 20841.060320565066,
+          "weighted_mean_one_way_km": 87.41851778843933,
+          "weighted_mean_one_way_minutes": 76.64214918797624,
+          "weighted_median_one_way_minutes": 35.90333333333333,
+          "weighted_p90_one_way_minutes": 186.42000000000002,
+          "weighted_p95_one_way_minutes": 263.1633333333333
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN",
+            "NZ-NSN-NELSON",
+            "NZ-WGN-WELLINGTON-REGIONAL",
+            "NZ-BOP-TAURANGA",
+            "NZ-HKB-HASTINGS",
+            "NZ-TKI-NEW-PLYMOUTH"
+          ],
+          "candidate_site_count": 10,
+          "configuration_id": "candidate_network_10",
+          "expected_annual_round_trip_km": 30828.60366582433,
+          "maximum_one_way_minutes": 664.4816666666667,
+          "share_expected_courses_within_60_minutes": 0.778659485979929,
+          "vehicle_resource_cost_nzd": 11406.583356355002,
+          "weighted_mean_one_way_km": 47.84529168407493,
+          "weighted_mean_one_way_minutes": 44.87042001862365,
+          "weighted_median_one_way_minutes": 21.603333333333335,
+          "weighted_p90_one_way_minutes": 134.85166666666666,
+          "weighted_p95_one_way_minutes": 179.495
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN",
+            "NZ-NSN-NELSON",
+            "NZ-WGN-WELLINGTON-REGIONAL",
+            "NZ-BOP-TAURANGA",
+            "NZ-HKB-HASTINGS",
+            "NZ-TKI-NEW-PLYMOUTH",
+            "NZ-NTH-DARGAVILLE",
+            "NZ-STL-INVERCARGILL",
+            "NZ-TGI-GISBORNE",
+            "NZ-SCD-TIMARU",
+            "NZ-LAK-ROTORUA",
+            "NZ-WAI-MASTERTON",
+            "NZ-BOP-WHAKATANE",
+            "NZ-LAK-TAUPO",
+            "NZ-WKO-TE-KUITI"
+          ],
+          "candidate_site_count": 19,
+          "configuration_id": "candidate_network_19",
+          "expected_annual_round_trip_km": 19752.46228718199,
+          "maximum_one_way_minutes": 497.56166666666667,
+          "share_expected_courses_within_60_minutes": 0.8715135700099692,
+          "vehicle_resource_cost_nzd": 7308.411046257335,
+          "weighted_mean_one_way_km": 30.655372194381286,
+          "weighted_mean_one_way_minutes": 30.83419058349956,
+          "weighted_median_one_way_minutes": 19.634999999999998,
+          "weighted_p90_one_way_minutes": 67.145,
+          "weighted_p95_one_way_minutes": 102.7
+        }
+      ],
+      "schema_version": "1.0.0",
+      "solver": "deterministic-greedy",
+      "status": "materialized_deterministic_greedy_frontier"
+    },
+    "scenario_summary": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+      "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
+      "configurations": [
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO"
+          ],
+          "candidate_site_count": 1,
+          "configuration_id": "candidate_network_01",
+          "expected_annual_round_trip_km": 270694.5423690633,
+          "maximum_one_way_minutes": 1868.6316666666667,
+          "share_expected_courses_within_60_minutes": 0.07136845205180391,
+          "vehicle_resource_cost_nzd": 100156.98067655342,
+          "weighted_mean_one_way_km": 420.11177273308084,
+          "weighted_mean_one_way_minutes": 373.55773955502536,
+          "weighted_median_one_way_minutes": 204.19833333333332,
+          "weighted_p90_one_way_minutes": 928.06,
+          "weighted_p95_one_way_minutes": 1211.2883333333334
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH"
+          ],
+          "candidate_site_count": 3,
+          "configuration_id": "candidate_network_03",
+          "expected_annual_round_trip_km": 95352.00030071873,
+          "maximum_one_way_minutes": 966.4983333333333,
+          "share_expected_courses_within_60_minutes": 0.21821731008669365,
+          "vehicle_resource_cost_nzd": 35280.24011126593,
+          "weighted_mean_one_way_km": 147.9841356585782,
+          "weighted_mean_one_way_minutes": 123.08542397496754,
+          "weighted_median_one_way_minutes": 99.65666666666667,
+          "weighted_p90_one_way_minutes": 301.3066666666667,
+          "weighted_p95_one_way_minutes": 340.57
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN"
+          ],
+          "candidate_site_count": 5,
+          "configuration_id": "candidate_network_05",
+          "expected_annual_round_trip_km": 56327.19005558126,
+          "maximum_one_way_minutes": 664.4816666666667,
+          "share_expected_courses_within_60_minutes": 0.5527478563864849,
+          "vehicle_resource_cost_nzd": 20841.060320565066,
+          "weighted_mean_one_way_km": 87.41851778843933,
+          "weighted_mean_one_way_minutes": 76.64214918797624,
+          "weighted_median_one_way_minutes": 35.90333333333333,
+          "weighted_p90_one_way_minutes": 186.42000000000002,
+          "weighted_p95_one_way_minutes": 263.1633333333333
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN",
+            "NZ-NSN-NELSON",
+            "NZ-WGN-WELLINGTON-REGIONAL",
+            "NZ-BOP-TAURANGA",
+            "NZ-HKB-HASTINGS",
+            "NZ-TKI-NEW-PLYMOUTH"
+          ],
+          "candidate_site_count": 10,
+          "configuration_id": "candidate_network_10",
+          "expected_annual_round_trip_km": 30828.60366582433,
+          "maximum_one_way_minutes": 664.4816666666667,
+          "share_expected_courses_within_60_minutes": 0.778659485979929,
+          "vehicle_resource_cost_nzd": 11406.583356355002,
+          "weighted_mean_one_way_km": 47.84529168407493,
+          "weighted_mean_one_way_minutes": 44.87042001862365,
+          "weighted_median_one_way_minutes": 21.603333333333335,
+          "weighted_p90_one_way_minutes": 134.85166666666666,
+          "weighted_p95_one_way_minutes": 179.495
+        },
+        {
+          "candidate_facility_ids": [
+            "NZ-WKO-WAIKATO",
+            "NZ-CAN-CHRISTCHURCH",
+            "NZ-MWT-PALMERSTON-NORTH",
+            "NZ-AKL-TE-PURIRI",
+            "NZ-OTA-DUNEDIN",
+            "NZ-NSN-NELSON",
+            "NZ-WGN-WELLINGTON-REGIONAL",
+            "NZ-BOP-TAURANGA",
+            "NZ-HKB-HASTINGS",
+            "NZ-TKI-NEW-PLYMOUTH",
+            "NZ-NTH-DARGAVILLE",
+            "NZ-STL-INVERCARGILL",
+            "NZ-TGI-GISBORNE",
+            "NZ-SCD-TIMARU",
+            "NZ-LAK-ROTORUA",
+            "NZ-WAI-MASTERTON",
+            "NZ-BOP-WHAKATANE",
+            "NZ-LAK-TAUPO",
+            "NZ-WKO-TE-KUITI"
+          ],
+          "candidate_site_count": 19,
+          "configuration_id": "candidate_network_19",
+          "expected_annual_round_trip_km": 19752.46228718199,
+          "maximum_one_way_minutes": 497.56166666666667,
+          "share_expected_courses_within_60_minutes": 0.8715135700099692,
+          "vehicle_resource_cost_nzd": 7308.411046257335,
+          "weighted_mean_one_way_km": 30.655372194381286,
+          "weighted_mean_one_way_minutes": 30.83419058349956,
+          "weighted_median_one_way_minutes": 19.634999999999998,
+          "weighted_p90_one_way_minutes": 67.145,
+          "weighted_p95_one_way_minutes": 102.7
+        }
+      ],
+      "generated_at": "2026-07-27T06:38:23+00:00",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "schema_version": "1.0.0",
+      "status": "materialized_source_backed_candidate_network_comparison"
+    },
+    "uncertainty_analysis": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+      "claim_boundary": "Spatial, temporal-demand, and vehicle-rate scenarios are reported separately and are not pooled into a confidence interval or interpreted as observed variability.",
+      "generated_at": "2026-07-27T06:38:23+00:00",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "probabilistic_interval_status": "not_estimated_no_source_backed_probability_distributions",
+      "rows": [
+        {
+          "configuration_id": "candidate_network_01",
+          "lower_or_baseline": 373.55773955502536,
+          "parameter": "within_sa2_origin_structure",
+          "uncertainty_type": "spatial_structural",
+          "unit": "weighted_mean_one_way_minutes",
+          "upper_or_sensitivity": 373.04059275523605
+        },
+        {
+          "configuration_id": "candidate_network_01",
+          "lower_or_baseline": 258860.9011726015,
+          "parameter": "annual_registration_calibration",
+          "uncertainty_type": "temporal_scenario",
+          "unit": "expected_annual_round_trip_km",
+          "upper_or_sensitivity": 270694.5423690633
+        },
+        {
+          "base": 100156.98067655342,
+          "configuration_id": "candidate_network_01",
+          "lower_or_baseline": 62259.74474488456,
+          "parameter": "vehicle_resource_rate",
+          "uncertainty_type": "deterministic_cost_scenario",
+          "unit": "NZD_2025_26",
+          "upper_or_sensitivity": 324833.4508428759
+        },
+        {
+          "configuration_id": "candidate_network_03",
+          "lower_or_baseline": 123.08542397496754,
+          "parameter": "within_sa2_origin_structure",
+          "uncertainty_type": "spatial_structural",
+          "unit": "weighted_mean_one_way_minutes",
+          "upper_or_sensitivity": 122.53446494549164
+        },
+        {
+          "configuration_id": "candidate_network_03",
+          "lower_or_baseline": 91183.60684494961,
+          "parameter": "annual_registration_calibration",
+          "uncertainty_type": "temporal_scenario",
+          "unit": "expected_annual_round_trip_km",
+          "upper_or_sensitivity": 95352.00030071873
+        },
+        {
+          "base": 35280.24011126593,
+          "configuration_id": "candidate_network_03",
+          "lower_or_baseline": 21930.96006916531,
+          "parameter": "vehicle_resource_rate",
+          "uncertainty_type": "deterministic_cost_scenario",
+          "unit": "NZD_2025_26",
+          "upper_or_sensitivity": 114422.40036086248
+        },
+        {
+          "configuration_id": "candidate_network_05",
+          "lower_or_baseline": 76.64214918797624,
+          "parameter": "within_sa2_origin_structure",
+          "uncertainty_type": "spatial_structural",
+          "unit": "weighted_mean_one_way_minutes",
+          "upper_or_sensitivity": 76.10245746226295
+        },
+        {
+          "configuration_id": "candidate_network_05",
+          "lower_or_baseline": 53864.799233479345,
+          "parameter": "annual_registration_calibration",
+          "uncertainty_type": "temporal_scenario",
+          "unit": "expected_annual_round_trip_km",
+          "upper_or_sensitivity": 56327.19005558126
+        },
+        {
+          "base": 20841.060320565066,
+          "configuration_id": "candidate_network_05",
+          "lower_or_baseline": 12955.253712783691,
+          "parameter": "vehicle_resource_rate",
+          "uncertainty_type": "deterministic_cost_scenario",
+          "unit": "NZD_2025_26",
+          "upper_or_sensitivity": 67592.6280666975
+        },
+        {
+          "configuration_id": "candidate_network_10",
+          "lower_or_baseline": 44.87042001862365,
+          "parameter": "within_sa2_origin_structure",
+          "uncertainty_type": "spatial_structural",
+          "unit": "weighted_mean_one_way_minutes",
+          "upper_or_sensitivity": 44.317013701361184
+        },
+        {
+          "configuration_id": "candidate_network_10",
+          "lower_or_baseline": 29480.905144913973,
+          "parameter": "annual_registration_calibration",
+          "uncertainty_type": "temporal_scenario",
+          "unit": "expected_annual_round_trip_km",
+          "upper_or_sensitivity": 30828.60366582433
+        },
+        {
+          "base": 11406.583356355002,
+          "configuration_id": "candidate_network_10",
+          "lower_or_baseline": 7090.578843139596,
+          "parameter": "vehicle_resource_rate",
+          "uncertainty_type": "deterministic_cost_scenario",
+          "unit": "NZD_2025_26",
+          "upper_or_sensitivity": 36994.32439898919
+        },
+        {
+          "configuration_id": "candidate_network_19",
+          "lower_or_baseline": 30.83419058349956,
+          "parameter": "within_sa2_origin_structure",
+          "uncertainty_type": "spatial_structural",
+          "unit": "weighted_mean_one_way_minutes",
+          "upper_or_sensitivity": 30.263863918105187
+        },
+        {
+          "configuration_id": "candidate_network_19",
+          "lower_or_baseline": 18888.966668070207,
+          "parameter": "annual_registration_calibration",
+          "uncertainty_type": "temporal_scenario",
+          "unit": "expected_annual_round_trip_km",
+          "upper_or_sensitivity": 19752.46228718199
+        },
+        {
+          "base": 7308.411046257335,
+          "configuration_id": "candidate_network_19",
+          "lower_or_baseline": 4543.066326051858,
+          "parameter": "vehicle_resource_rate",
+          "uncertainty_type": "deterministic_cost_scenario",
+          "unit": "NZD_2025_26",
+          "upper_or_sensitivity": 23702.954744618386
+        }
+      ],
+      "schema_version": "1.0.0",
+      "status": "materialized_separated_uncertainty_scenarios"
+    },
+    "voi_outputs": {
+      "alternatives": [
+        "candidate_network_01",
+        "candidate_network_03",
+        "candidate_network_05",
+        "candidate_network_10",
+        "candidate_network_19"
+      ],
+      "analysis_population": "aggregate_expected_course_cells",
+      "candidate_site_evidence_state": "plausible_not_confirmed_capability",
+      "claim_boundary": "VOI quantifies uncertainty about normative criterion weights in unitless utility. It is not monetary ENBS, does not justify microdata, and is not a policy recommendation.",
+      "current_best_under_mean_weights": "candidate_network_05",
+      "evpi_per_policy_decision": 0.03426667440850517,
+      "evppi_by_normative_weight": {
+        "candidate_site_count_proxy": 0.03326740882435797,
+        "weighted_mean_one_way_minutes": 0.010049951512134614,
+        "weighted_p95_one_way_minutes": 0.006217964951090171
+      },
+      "expected_opportunity_loss": {
+        "candidate_network_01": 0.5361626415146249,
+        "candidate_network_03": 0.06614379621810784,
+        "candidate_network_05": 0.03426667440850365,
+        "candidate_network_10": 0.07008585314921328,
+        "candidate_network_19": 0.19895951086253574
+      },
+      "generated_at": "2026-07-27T06:38:23+00:00",
+      "microdata_enbs_status": "not_estimable_from_public_inputs",
+      "monetary_evpi_status": "not_estimated",
+      "next_information_priority": "aggregate facility capability and resource-envelope evidence before microdata",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "probability_optimal": {
+        "candidate_network_01": 0.0159912109375,
+        "candidate_network_03": 0.25732421875,
+        "candidate_network_05": 0.31378173828125,
+        "candidate_network_10": 0.222900390625,
+        "candidate_network_19": 0.19000244140625
+      },
+      "schema_version": "1.0.0",
+      "status": "materialized_normative_decision_uncertainty",
+      "value_unit": "normalised_normative_utility"
+    }
+  },
+  "schema_version": "1.0.0"
+}

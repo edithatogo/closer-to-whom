@@ -42,7 +42,7 @@ TEMPLATE = r"""<!doctype html>
   <section><h2>Candidate-network comparison</h2><div class="cards" id="cards"></div><div style="overflow:auto"><table><thead><tr><th>Configuration</th><th>Sites</th><th>Mean minutes</th><th>P95 minutes</th><th>Within 60 min</th></tr></thead><tbody id="scenarios"></tbody></table></div></section>
   <section><h2>Normative viewpoints</h2><p class="muted">Clinical eligibility and safety are hard gates and are never traded off here.</p><div id="viewpoints"></div></section>
   <section><h2>Decision uncertainty</h2><p id="voi"></p></section>
-  <section><h2>Uncertainty and provenance</h2><p>Spatial, temporal-demand, vehicle-rate, and normative-weight uncertainty remain separate. Probabilistic clinical intervals and monetary ENBS are not estimated without source-backed distributions.</p><p>Source revision: <code>__REVISION__</code>. National analysis workflow: <a href="https://github.com/edithatogo/closer-to-whom/actions/runs/30243407303">30243407303</a>.</p></section>
+  <section><h2>Uncertainty and provenance</h2><p>Spatial, temporal-demand, vehicle-rate, and normative-weight uncertainty remain separate. Probabilistic clinical intervals and monetary ENBS are not estimated without source-backed distributions.</p><p>Source revision: <code>__REVISION__</code>. National analysis workflow: <a href="https://github.com/edithatogo/closer-to-whom/actions/runs/30243407303">30243407303</a>. <a href="aggregate-reports.json">Download the deterministic aggregate report bundle</a>.</p></section>
   <script type="application/json" id="analysis-data">__DATA__</script>
   <script>
     const DATA=JSON.parse(document.querySelector('#analysis-data').textContent);
@@ -77,6 +77,24 @@ def build(analysis: Path, output: Path, *, revision: str) -> Path:
     target = output / "index.html"
     target.write_text(
         TEMPLATE.replace("__DATA__", encoded).replace("__REVISION__", revision),
+        encoding="utf-8",
+    )
+    (output / "aggregate-reports.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "1.0.0",
+                "artifact": "reviewed-national-aggregate-reports",
+                "source_revision": revision,
+                "claim_boundary": payload["scenario_summary"].get(
+                    "claim_boundary",
+                    "Reviewed aggregate scenarios only; no operational recommendation or clinical claim.",
+                ),
+                "reports": payload,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
         encoding="utf-8",
     )
     return target

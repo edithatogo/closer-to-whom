@@ -47,6 +47,20 @@ def build(output: Path) -> None:
             ("voi_outputs.json", "VOI outputs"),
         )
     )
+    report_names = (
+        "scenario_summary.json",
+        "optimisation_frontier.json",
+        "uncertainty_analysis.json",
+        "mcda_outputs.json",
+        "voi_outputs.json",
+    )
+    bundle = {
+        "schema_version": "1.0.0",
+        "artifact": "reviewed-national-aggregate-reports",
+        "claim_boundary": summary["claim_boundary"],
+        "generated_at": summary["generated_at"],
+        "reports": {name.removesuffix(".json"): _read(name) for name in report_names},
+    }
     page = f"""<!doctype html>
 <html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Closer to whom? — reviewed aggregate results</title>
@@ -56,10 +70,13 @@ def build(output: Path) -> None:
 <h2>Reviewed candidate-network comparison</h2><p>Values are expected aggregate courses, not people or observed service use.</p>
 <table><caption>Travel and vehicle-resource results</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Candidate sites</th><th scope="col">Weighted mean one-way minutes</th><th scope="col">Expected courses within 60 minutes</th><th scope="col">Vehicle resource cost (NZD)</th></tr></thead><tbody>{"".join(rows)}</tbody></table>
 <h2>Evidence and interpretation</h2><ul><li>Optimisation frontier: {html.escape(frontier["status"])}; optimality claimed: {str(frontier["optimality_claimed"]).lower()}.</li><li>Uncertainty is separated into spatial, temporal-demand, and deterministic cost scenarios; probabilistic intervals are not estimated.</li><li>MCDA and VOI outputs are exploratory research artifacts and do not recommend a policy.</li></ul>
-<h2>Auditable downloads and source records</h2><ul>{links}</ul><p>Generated from report revision {html.escape(summary["generated_at"])}. The repository's assumptions, source registry, model card, and release receipts remain the authoritative provenance records.</p>
+<h2>Auditable downloads and source records</h2><p><a href='aggregate-reports.json'>Download the deterministic aggregate report bundle</a>.</p><ul>{links}</ul><p>Generated from report revision {html.escape(summary["generated_at"])}. The repository's assumptions, source registry, model card, and release receipts remain the authoritative provenance records.</p>
 <p>MCDA status: {html.escape(str(mcda.get("status", "not declared")))}. VOI status: {html.escape(str(voi.get("status", "not declared")))}.</p></main></body></html>\n"""
     output.mkdir(parents=True, exist_ok=True)
     (output / "index.html").write_text(page, encoding="utf-8")
+    (output / "aggregate-reports.json").write_text(
+        json.dumps(bundle, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     manifest = {
         "schema_version": "1.0.0",
         "artifact": "static-space-summary",

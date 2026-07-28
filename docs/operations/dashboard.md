@@ -16,3 +16,15 @@ Required pages for publication:
 10. assumptions, provenance, source, and limitation ledger.
 
 Accessibility, keyboard navigation, plain-language definitions, alternative text, downloadable aggregate tables, and low-bandwidth behaviour are release requirements.
+## Supported command-line interfaces
+
+The reviewed public product has read-only, machine-readable inspection commands:
+
+```text
+closer-to-whom national-summary
+closer-to-whom space-provenance
+```
+
+`national-summary` reads the reviewed candidate-network report. `space-provenance`
+reads the static product provenance manifest. Neither command fetches live
+service data or changes a published artifact.
