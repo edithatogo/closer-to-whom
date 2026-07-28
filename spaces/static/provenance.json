@@ -15,6 +15,9 @@
     "mcda_outputs.json": {
       "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
     },
+    "optimisation-comparison.json": {
+      "sha256": "c5385be669117562795729b679c42243660a5b8967d8a4662850ef2c52f9605b"
+    },
     "optimisation_frontier.json": {
       "sha256": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3"
     },

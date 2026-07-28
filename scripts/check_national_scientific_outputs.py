@@ -19,6 +19,7 @@ REPORTS = (
     "distributional-equity",
     "capacity-cost-perspective",
     "resilience-sensitivity",
+    "optimisation-comparison",
 )
 
 
@@ -75,6 +76,12 @@ def validate() -> dict[str, Any]:
         raise ValueError("Resilience report must declare its counterfactual scenario type")
     if "hypothetical" not in str(resilience.get("claim_boundary", "")).lower():
         raise ValueError("Resilience report lacks its hypothetical claim boundary")
+    optimisation = reports["optimisation-comparison"]
+    rows = optimisation.get("rows", [])
+    if not rows or not all(row.get("optimal") is True for row in rows):
+        raise ValueError("Tractable optimisation comparison must contain exact optimal rows")
+    if "p=1,3,5" not in str(optimisation.get("solver_scope", "")):
+        raise ValueError("Optimisation comparison lacks its finite solver scope")
     summary_ids = {row["configuration_id"] for row in reports["scenario_summary"]["configurations"]}
     frontier_ids = {row["configuration_id"] for row in reports["optimisation_frontier"]["points"]}
     if summary_ids != frontier_ids:
