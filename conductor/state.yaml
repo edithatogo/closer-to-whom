@@ -23,17 +23,17 @@ verification_status:
   profile: local
   status: passed
   receipt: release/verification-receipt.json
-  coverage: 89.56
-  tests: 178
+  coverage: 89.43
+  tests: 179
   optional_not_run:
     - Docker container health check
     - Mojo canary
 release_status:
   candidate_tag: not_created
-  release_assurance_run: 30376965759
+  release_assurance_run: 30378811709
   release_artifact_id: 8695312766
-  space_deployment_run: 30376893058
-  space_revision: 2546f4f10742d33b06de616dc8129db375ce1f9e
+  space_deployment_run: 30378744517
+  space_revision: 13c186324e1fec3adbaa2e798ad06a4e6a794d28
   reason: >-
     The clean main revision passed all 27 required release gates and the reviewed aggregate payload
     is published on the free Static Space. No version tag was created because this completion records
