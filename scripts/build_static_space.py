@@ -26,6 +26,9 @@ def build(output: Path) -> None:
     frontier = _read("optimisation_frontier.json")
     mcda = _read("mcda_outputs.json")
     voi = _read("voi_outputs.json")
+    equity = _read("distributional-equity.json")
+    capacity = _read("capacity-cost-perspective.json")
+    resilience = _read("resilience-sensitivity.json")
     rows = []
     for row in summary["configurations"]:
         rows.append(
@@ -45,6 +48,9 @@ def build(output: Path) -> None:
             ("uncertainty_analysis.json", "Separated uncertainty"),
             ("mcda_outputs.json", "MCDA outputs"),
             ("voi_outputs.json", "VOI outputs"),
+            ("distributional-equity.json", "Distributional equity"),
+            ("capacity-cost-perspective.json", "Capacity and cost perspective"),
+            ("resilience-sensitivity.json", "Resilience sensitivity"),
         )
     )
     report_names = (
@@ -53,6 +59,9 @@ def build(output: Path) -> None:
         "uncertainty_analysis.json",
         "mcda_outputs.json",
         "voi_outputs.json",
+        "distributional-equity.json",
+        "capacity-cost-perspective.json",
+        "resilience-sensitivity.json",
     )
     bundle = {
         "schema_version": "1.0.0",
@@ -70,8 +79,9 @@ def build(output: Path) -> None:
 <h2>Reviewed candidate-network comparison</h2><p>Values are expected aggregate courses, not people or observed service use.</p>
 <table><caption>Travel and vehicle-resource results</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Candidate sites</th><th scope="col">Weighted mean one-way minutes</th><th scope="col">Expected courses within 60 minutes</th><th scope="col">Vehicle resource cost (NZD)</th></tr></thead><tbody>{"".join(rows)}</tbody></table>
 <h2>Evidence and interpretation</h2><ul><li>Optimisation frontier: {html.escape(frontier["status"])}; optimality claimed: {str(frontier["optimality_claimed"]).lower()}.</li><li>Uncertainty is separated into spatial, temporal-demand, and deterministic cost scenarios; probabilistic intervals are not estimated.</li><li>MCDA and VOI outputs are exploratory research artifacts and do not recommend a policy.</li></ul>
+<p>Distributional equity is ecological and retains unknown groups. Capacity and cost report implied aggregate workload and a private-vehicle resource scenario only. Resilience is hypothetical candidate-site routing sensitivity, not an observed outage or guarantee.</p>
 <h2>Auditable downloads and source records</h2><p><a href='aggregate-reports.json'>Download the deterministic aggregate report bundle</a>.</p><ul>{links}</ul><p>Generated from report revision {html.escape(summary["generated_at"])}. The repository's assumptions, source registry, model card, and release receipts remain the authoritative provenance records.</p>
-<p>MCDA status: {html.escape(str(mcda.get("status", "not declared")))}. VOI status: {html.escape(str(voi.get("status", "not declared")))}.</p></main></body></html>\n"""
+<p>MCDA status: {html.escape(str(mcda.get("status", "not declared")))}. VOI status: {html.escape(str(voi.get("status", "not declared")))}. Equity status: {html.escape(str(equity.get("status", "not declared")))}. Capacity/cost status: {html.escape(str(capacity.get("status", "not declared")))}. Resilience status: {html.escape(str(resilience.get("status", "not declared")))}.</p></main></body></html>\n"""
     output.mkdir(parents=True, exist_ok=True)
     (output / "index.html").write_text(page, encoding="utf-8")
     (output / "aggregate-reports.json").write_text(
@@ -90,6 +100,9 @@ def build(output: Path) -> None:
                 "uncertainty_analysis.json",
                 "mcda_outputs.json",
                 "voi_outputs.json",
+                "distributional-equity.json",
+                "capacity-cost-perspective.json",
+                "resilience-sensitivity.json",
             )
         },
         "javascript_required": False,

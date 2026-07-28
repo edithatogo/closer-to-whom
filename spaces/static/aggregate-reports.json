@@ -3,6 +3,3102 @@
   "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
   "generated_at": "2026-07-27T06:38:23+00:00",
   "reports": {
+    "capacity-cost-perspective": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "capacity_status": "not_estimable_observed_capacity_and_staffing_unknown",
+      "claim_boundary": "Expected courses are aggregate model cells, not patients or observed workload. Per-site values are arithmetic workload envelopes, not staffing requirements or capacity. Vehicle costs are a source-backed private-vehicle resource scenario; omitted cost components remain unpriced and no operational or policy recommendation is made.",
+      "configurations": [
+        {
+          "candidate_site_count": 1,
+          "configuration_id": "candidate_network_01",
+          "expected_annual_courses": 322.1696699999999,
+          "expected_annual_round_trip_km": 270694.5423690633,
+          "expected_courses_per_candidate_site": 322.1696699999999,
+          "vehicle_resource_cost_nzd": 100156.98067655342
+        },
+        {
+          "candidate_site_count": 3,
+          "configuration_id": "candidate_network_03",
+          "expected_annual_courses": 322.1696699999999,
+          "expected_annual_round_trip_km": 95352.00030071873,
+          "expected_courses_per_candidate_site": 107.38988999999997,
+          "vehicle_resource_cost_nzd": 35280.24011126593
+        },
+        {
+          "candidate_site_count": 5,
+          "configuration_id": "candidate_network_05",
+          "expected_annual_courses": 322.1696699999999,
+          "expected_annual_round_trip_km": 56327.19005558126,
+          "expected_courses_per_candidate_site": 64.43393399999998,
+          "vehicle_resource_cost_nzd": 20841.060320565066
+        },
+        {
+          "candidate_site_count": 10,
+          "configuration_id": "candidate_network_10",
+          "expected_annual_courses": 322.1696699999999,
+          "expected_annual_round_trip_km": 30828.60366582433,
+          "expected_courses_per_candidate_site": 32.21696699999999,
+          "vehicle_resource_cost_nzd": 11406.583356355002
+        },
+        {
+          "candidate_site_count": 19,
+          "configuration_id": "candidate_network_19",
+          "expected_annual_courses": 322.1696699999999,
+          "expected_annual_round_trip_km": 19752.46228718199,
+          "expected_courses_per_candidate_site": 16.956298421052626,
+          "vehicle_resource_cost_nzd": 7308.411046257335
+        }
+      ],
+      "cost_scope": "private_vehicle_resource_cost_scenario_only",
+      "generated_at": "derived_from_frozen_national_inputs",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "schema_version": "1.0.0",
+      "source_inputs": {
+        "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-demand-cells.json",
+        "national_demand_cells_sha256": "2c3a76ed68ecf1d4228b7cad6a1b7fdf43be4445b114f030f9d56d659f5a3e0e",
+        "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
+        "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8",
+        "travel_cost_parameters": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/travel-cost-parameters.json",
+        "travel_cost_parameters_sha256": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d"
+      },
+      "status": "materialized_implied_workload_and_partial_travel_resource_perspective",
+      "unpriced_cost_components": [
+        "treatment_drug_and_administration_cost",
+        "facility_overhead",
+        "provider_travel",
+        "public_transport_fares",
+        "parking"
+      ]
+    },
+    "distributional-equity": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "claim_boundary": "These are area-level ecological access summaries of modelled aggregate expected courses. They are not individual attributes, patient outcomes, observed journeys, realised access, ethnicity effects, or evidence of service capability or capacity.",
+      "dimensions": [
+        "deprivation_quintile",
+        "rurality"
+      ],
+      "generated_at": "derived_from_frozen_national_inputs",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "rows": [
+        {
+          "demand_cell_count": 57,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 0.0,
+          "group": null,
+          "share_expected_courses_within_60_minutes": null,
+          "status": "unknown_sa2_version_mismatch",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 48,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 0.048530985024874955,
+          "group": null,
+          "share_expected_courses_within_60_minutes": 0.6867428202213289,
+          "status": "unknown_source_value_blank",
+          "weighted_mean_minimum_one_way_minutes": 59.267442682206145
+        },
+        {
+          "demand_cell_count": 441,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 64.3940446953127,
+          "group": "1",
+          "share_expected_courses_within_60_minutes": 0.9125331962648847,
+          "status": "matched_nzdep2023_sa2_code",
+          "weighted_mean_minimum_one_way_minutes": 30.128643544268517
+        },
+        {
+          "demand_cell_count": 444,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 65.25777017885912,
+          "group": "2",
+          "share_expected_courses_within_60_minutes": 0.8579830207591147,
+          "status": "matched_nzdep2023_sa2_code",
+          "weighted_mean_minimum_one_way_minutes": 31.297319314020047
+        },
+        {
+          "demand_cell_count": 441,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 63.348668916184636,
+          "group": "3",
+          "share_expected_courses_within_60_minutes": 0.8441677189010319,
+          "status": "matched_nzdep2023_sa2_code",
+          "weighted_mean_minimum_one_way_minutes": 30.906632144840113
+        },
+        {
+          "demand_cell_count": 447,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 64.37907135207604,
+          "group": "4",
+          "share_expected_courses_within_60_minutes": 0.8579909905498702,
+          "status": "matched_nzdep2023_sa2_code",
+          "weighted_mean_minimum_one_way_minutes": 27.81526869465168
+        },
+        {
+          "demand_cell_count": 435,
+          "dimension": "deprivation_quintile",
+          "expected_courses": 64.7415838725426,
+          "group": "5",
+          "share_expected_courses_within_60_minutes": 0.8430652936021032,
+          "status": "matched_nzdep2023_sa2_code",
+          "weighted_mean_minimum_one_way_minutes": 32.45934806870085
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08865795337497617,
+          "group": "Ahipara",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 129.25927503686742
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.04413195901332148,
+          "group": "Akaroa",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 52.256438259284856
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3699991920849006,
+          "group": "Alexandra",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 133.75752745107357
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.17258748256995363,
+          "group": "Amberley",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 54.288666014808335
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1879548611549495,
+          "group": "Arrowtown",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 196.39307111320397
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 1.3594219517496346,
+          "group": "Ashburton",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 83.33315141144935
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.21317312344827602,
+          "group": "Ashhurst",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 21.66374583238481
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.060681443643317026,
+          "group": "Athenree",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 42.58375689827293
+        },
+        {
+          "demand_cell_count": 470,
+          "dimension": "rurality",
+          "expected_courses": 87.07534271698573,
+          "group": "Auckland",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 17.734613147303104
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1394885133099625,
+          "group": "Auckland",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 8.959951113332574
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.28685773358658956,
+          "group": "Balclutha",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 87.47144766685373
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.5146101649231951,
+          "group": "Beachlands-Pine Harbour",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 28.383631999246624
+        },
+        {
+          "demand_cell_count": 12,
+          "dimension": "rurality",
+          "expected_courses": 1.89728020222449,
+          "group": "Blenheim",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 76.48858431745637
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11702849845496856,
+          "group": "Bluff",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.966374070580045
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.09456848359997459,
+          "group": "Brighton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 20.315641646521154
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.15012746771495966,
+          "group": "Brightwater",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 26.449929193397004
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.13160780634329797,
+          "group": "Bulls",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 36.30742734955061
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.04255581761998856,
+          "group": "Burnham Camp",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 37.2167493091546
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 1.4717220260246044,
+          "group": "Cambridge",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 28.720263891399803
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.4015220199515588,
+          "group": "Carterton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 21.642699134444154
+        },
+        {
+          "demand_cell_count": 162,
+          "dimension": "rurality",
+          "expected_courses": 25.16152120316657,
+          "group": "Christchurch",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 11.199030767138341
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10205515521830591,
+          "group": "Clarks Beach",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 41.4370928840667
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07526075153164644,
+          "group": "Clyde",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 142.34970953737653
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.035857216698323695,
+          "group": "Cooks Beach-Ferry Landing",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 103.59447743494268
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1808622248849514,
+          "group": "Coopers Beach",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 131.5449295761263
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11860463984830145,
+          "group": "Coromandel",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 80.08776720849238
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.43580309525654953,
+          "group": "Cromwell",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 163.71862742946453
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.37827393439989837,
+          "group": "Dannevirke",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 56.93224333321229
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.21435522949327573,
+          "group": "Darfield",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 55.21163570855756
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.33493004608324334,
+          "group": "Dargaville",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 6.01145464042808
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1059955087016382,
+          "group": "Diamond Harbour",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 20.817215043464067
+        },
+        {
+          "demand_cell_count": 50,
+          "dimension": "rurality",
+          "expected_courses": 6.820357844299833,
+          "group": "Dunedin",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 9.088498561800884
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11663446310663533,
+          "group": "Edgecumbe",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 21.891765465762482
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1363362305232967,
+          "group": "Eltham",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 55.13259444200571
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.057529160856651204,
+          "group": "Fairlie",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 60.07597220937906
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.18559064906495013,
+          "group": "Featherston",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 43.45751036391508
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 1.1462488283013585,
+          "group": "Feilding",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 22.861064248823002
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.2880398396315893,
+          "group": "Foxton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 39.11051784120354
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1394885133099625,
+          "group": "Foxton Beach",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.560747988957225
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.21317312344827602,
+          "group": "Geraldine",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 43.92770778040412
+        },
+        {
+          "demand_cell_count": 18,
+          "dimension": "rurality",
+          "expected_courses": 2.3484506760660357,
+          "group": "Gisborne",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 7.608428453124911
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.5520435230148517,
+          "group": "Gore",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 70.40642134377329
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.060681443643317026,
+          "group": "Governors Bay",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 17.085927448875793
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.5504673816215188,
+          "group": "Greymouth",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 196.5519507653555
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.18756082580661626,
+          "group": "Greytown",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 31.028606026575396
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06580390317164898,
+          "group": "Grovetown",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 75.46344799183728
+        },
+        {
+          "demand_cell_count": 67,
+          "dimension": "rurality",
+          "expected_courses": 11.514894984341906,
+          "group": "Hamilton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 9.555922051109288
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0760488222283129,
+          "group": "Hamurana",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 18.688794865194435
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07013829200331448,
+          "group": "Hanmer Springs",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 135.73312799971654
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07801899896997903,
+          "group": "Haruru",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 91.37601514318742
+        },
+        {
+          "demand_cell_count": 20,
+          "dimension": "rurality",
+          "expected_courses": 3.1991729931174735,
+          "group": "Hastings",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 8.053622727977821
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07486671618331321,
+          "group": "Haumoana",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 15.490836030665417
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 1.058378945623049,
+          "group": "Havelock North",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 10.743720851287774
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2179015476282748,
+          "group": "Helensville",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 45.49455259826338
+        },
+        {
+          "demand_cell_count": 25,
+          "dimension": "rurality",
+          "expected_courses": 4.30365407449551,
+          "group": "Hibiscus Coast",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 38.06556271535841
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10008497847663976,
+          "group": "Hikurangi",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 66.4502217537011
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2210538304149406,
+          "group": "Hokitika",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 190.67741942856065
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.052406701328319254,
+          "group": "Hope",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 23.270050543724476
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0445259943616547,
+          "group": "Horotiu",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 18.808792543140896
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3278374098132452,
+          "group": "Huntly",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 38.020540108148076
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.6931081777181471,
+          "group": "H\u0101wera",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 72.9272638763073
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2573050824615975,
+          "group": "Inglewood",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 20.878588771901967
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.200958027649946,
+          "group": "Inland water Auckland",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 14.977311542440937
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2068685578749444,
+          "group": "Inland water Central Otago District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 167.44261484227508
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Christchurch City",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.16470677560328906,
+          "group": "Inland water Hamilton City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 6.117894288747943
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Mackenzie District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.024036156248326872,
+          "group": "Inland water Queenstown-Lakes District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 193.49404233466544
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.11939271054496792,
+          "group": "Inland water Rotorua District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 31.009715964757124
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Selwyn District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water South Wairarapa District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Southland District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Taupo District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Wairoa District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inland water Waitaki District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Gisborne District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Hawke's Bay Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Napier City",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.16628291699662198,
+          "group": "Inlet Porirua City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 32.52644860340357
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Taranaki Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Timaru District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Waitaki District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.07447268083497999,
+          "group": "Inlet Wellington Region",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 7.165702216948191
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet Whakatane District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlet \u014cp\u014dtiki District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.457475039414877,
+          "group": "Inlets Auckland",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 18.18921812870108
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.052406701328319254,
+          "group": "Inlets Christchurch City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 51.10429491740306
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.053588807373318934,
+          "group": "Inlets Dunedin City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 19.768931392120795
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10560147335330496,
+          "group": "Inlets Far North District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 107.15457038112983
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Invercargill City",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Marlborough District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.001970176741666137,
+          "group": "Inlets Nelson City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 7.717910983484449
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Northland Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Tasman District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.25336472897826523,
+          "group": "Inlets Waikato District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 47.23512739540743
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Western Bay of Plenty District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets Westland District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.00039403534833322743,
+          "group": "Inlets Whangarei District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 63.43557034866507
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Inlets \u014ctorohanga District",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 20,
+          "dimension": "rurality",
+          "expected_courses": 3.2216330079724678,
+          "group": "Invercargill",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 8.243807482581131
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Island Canterbury Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Island Hawke's Bay Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.8704240844680995,
+          "group": "Kaiapoi",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.96389915460497
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.3085296777449171,
+          "group": "Kaikohe",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 73.23284423152808
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.15840221002995744,
+          "group": "Kaik\u014dura",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 155.86678046509724
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.40388623204155816,
+          "group": "Kait\u0101ia",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 128.74101206861775
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.38497253532156317,
+          "group": "Katikati",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 34.49729792891377
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07132039804831417,
+          "group": "Kaukapakapa",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 47.19937178728151
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0989028724316401,
+          "group": "Kawakawa",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 79.0761946838472
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.5004248923831989,
+          "group": "Kawerau",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 40.592452157133124
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.5512554523181852,
+          "group": "Kerikeri",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 97.01569339671268
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.22932857272993834,
+          "group": "Kihikihi",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 37.95120244909166
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07998917571164517,
+          "group": "Kinloch",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 20.149182062124382
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.4629915342915423,
+          "group": "Kume\u016b-Huapai",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 31.71836839990747
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1276674528599657,
+          "group": "Lake H\u0101wea",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 189.18836981494837
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.15130957375995935,
+          "group": "Leeston",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 47.608572590209505
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 1.3397201843329731,
+          "group": "Levin",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 51.70739323387125
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.7171443339664739,
+          "group": "Lincoln",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.387079385739607
+        },
+        {
+          "demand_cell_count": 43,
+          "dimension": "rurality",
+          "expected_courses": 7.062689583524769,
+          "group": "Lower Hutt",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.073991157794065
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.20923276996494378,
+          "group": "Lyttelton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 16.73448603970254
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0890519887233094,
+          "group": "Maket\u016b",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 36.644597300690826
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06974425665498125,
+          "group": "Manaia",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 65.41467896772306
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.052406701328319254,
+          "group": "Mangakino",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 55.53699056704733
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08156531710497808,
+          "group": "Mangawhai",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 81.20884650128431
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.1781039774466188,
+          "group": "Mangawhai Heads",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 81.39749059503988
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.16982923513162101,
+          "group": "Maraetai",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 32.065672099904916
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.12609131146663277,
+          "group": "Martinborough",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.70774157518686
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.44723012035821313,
+          "group": "Marton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 47.322062254544775
+        },
+        {
+          "demand_cell_count": 10,
+          "dimension": "rurality",
+          "expected_courses": 1.4780265915979363,
+          "group": "Masterton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 7.081996466408679
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.6217877796698329,
+          "group": "Matamata",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 48.00589212649513
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1036312966116388,
+          "group": "Mataura",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 59.38667573490891
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0890519887233094,
+          "group": "Maungat\u016broto",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 58.83312572627002
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1280614882082989,
+          "group": "Methven",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 97.62506883136206
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1406706193549622,
+          "group": "Milton",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 62.33896303359293
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.12293902867996696,
+          "group": "Moerewa",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 76.37191596540146
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.6178474261865006,
+          "group": "Morrinsville",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 35.74154226680991
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 1.0173992693963934,
+          "group": "Mosgiel",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 18.315540248118392
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.5437687806998539,
+          "group": "Motueka",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 38.22269952885313
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07171443339664739,
+          "group": "Muriwai",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 40.93988498572636
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.12333306402830019,
+          "group": "Murupara",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 66.4013598800699
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10560147335330496,
+          "group": "M\u0101pua",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 23.522500146417265
+        },
+        {
+          "demand_cell_count": 31,
+          "dimension": "rurality",
+          "expected_courses": 4.3832492148588225,
+          "group": "Napier",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 21.700669744609222
+        },
+        {
+          "demand_cell_count": 24,
+          "dimension": "rurality",
+          "expected_courses": 3.303592360425779,
+          "group": "Nelson",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 9.504173461374426
+        },
+        {
+          "demand_cell_count": 24,
+          "dimension": "rurality",
+          "expected_courses": 3.9277443521856115,
+          "group": "New Plymouth",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 8.938267575620195
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10757165009497109,
+          "group": "Ngatea",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 74.15140528625568
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.34635707118490694,
+          "group": "Ngongotah\u0101",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 13.492460631839686
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07723092827331257,
+          "group": "Ngunguru",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 81.761367433238
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.5280073667665248,
+          "group": "Ng\u0101ruaw\u0101hia",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.84478281369309
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06304565573331639,
+          "group": "Normanby",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 67.19554727245765
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.9220427150997523,
+          "group": "Oamaru",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 97.53126910807508
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.009850883708330687,
+          "group": "Oceanic Auckland Region",
+          "share_expected_courses_within_60_minutes": 0.96,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 36.859822656671206
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.002364212089999365,
+          "group": "Oceanic Bay of Plenty Region",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 48.39548076022194
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Canterbury Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Gisborne Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Manawat\u016b-Whanganui Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.001970176741666137,
+          "group": "Oceanic Marlborough District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 86.22807788859402
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Nelson Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Otago Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Southland Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic Tasman Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.0007880706966664549,
+          "group": "Oceanic Waikato Region",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 109.16632529644457
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "Oceanic West Coast Region",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.19898785090827983,
+          "group": "One Tree Point",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 67.32511463874062
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.663555526593155,
+          "group": "Other rural Ashburton District",
+          "share_expected_courses_within_60_minutes": 0.1336104513064133,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 78.99105786265315
+        },
+        {
+          "demand_cell_count": 40,
+          "dimension": "rurality",
+          "expected_courses": 4.666560630310413,
+          "group": "Other rural Auckland",
+          "share_expected_courses_within_60_minutes": 0.7700751498775648,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.778226010656745
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.31049985448658324,
+          "group": "Other rural Buller District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 160.21502692065675
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.27464263778825954,
+          "group": "Other rural Carterton District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 25.515692150930818
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.5477091341831861,
+          "group": "Other rural Central Hawke's Bay District",
+          "share_expected_courses_within_60_minutes": 0.4482014388489209,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 65.2961985630846
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.48466347844986973,
+          "group": "Other rural Central Otago District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 119.3846765397925
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.3333539046899104,
+          "group": "Other rural Christchurch City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 26.101413793130828
+        },
+        {
+          "demand_cell_count": 9,
+          "dimension": "rurality",
+          "expected_courses": 0.7234488995398055,
+          "group": "Other rural Clutha District",
+          "share_expected_courses_within_60_minutes": 0.19771241830065361,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 87.90149701408644
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.7108397683931423,
+          "group": "Other rural Dunedin City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 25.293023647452678
+        },
+        {
+          "demand_cell_count": 33,
+          "dimension": "rurality",
+          "expected_courses": 2.5237964060743217,
+          "group": "Other rural Far North District",
+          "share_expected_courses_within_60_minutes": 0.014051522248243561,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 106.29721551400942
+        },
+        {
+          "demand_cell_count": 9,
+          "dimension": "rurality",
+          "expected_courses": 1.0292203298463902,
+          "group": "Other rural Gisborne District",
+          "share_expected_courses_within_60_minutes": 0.7534456355283307,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 49.23162971805953
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.1792860834916185,
+          "group": "Other rural Gore District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 76.26660757149261
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.278977026619925,
+          "group": "Other rural Grey District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 177.35580048563466
+        },
+        {
+          "demand_cell_count": 14,
+          "dimension": "rurality",
+          "expected_courses": 1.3444486085129723,
+          "group": "Other rural Hastings District",
+          "share_expected_courses_within_60_minutes": 0.9152989449003515,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 26.14026340423987
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.33493004608324334,
+          "group": "Other rural Hauraki District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 71.11919167357681
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.5882947750615086,
+          "group": "Other rural Horowhenua District",
+          "share_expected_courses_within_60_minutes": 0.9042196918955123,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 49.19203023232669
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.6296684866364975,
+          "group": "Other rural Hurunui District",
+          "share_expected_courses_within_60_minutes": 0.33541927409261574,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 89.6117673660479
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.3719693688265667,
+          "group": "Other rural Invercargill City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 12.053169696711002
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11899867519663469,
+          "group": "Other rural Kaikoura District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 128.3781096768919
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 1.0103066331263952,
+          "group": "Other rural Kaipara District",
+          "share_expected_courses_within_60_minutes": 0.6485959438377534,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.265181054598216
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.33532408143157655,
+          "group": "Other rural Kapiti Coast District",
+          "share_expected_courses_within_60_minutes": 0.5569917743830788,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 59.57184056560823
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.06698600921664867,
+          "group": "Other rural Lower Hutt City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.476879308316324
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.1580081746816242,
+          "group": "Other rural Mackenzie District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 84.94455873339052
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.921648679751419,
+          "group": "Other rural Manawatu District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 31.888527275190203
+        },
+        {
+          "demand_cell_count": 9,
+          "dimension": "rurality",
+          "expected_courses": 0.8125008882631151,
+          "group": "Other rural Marlborough District",
+          "share_expected_courses_within_60_minutes": 0.17022308438409312,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 71.7961084298987
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.39127710089489487,
+          "group": "Other rural Masterton District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 20.355602352422224
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 0.9054932304697566,
+          "group": "Other rural Matamata-Piako District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 45.678363425324186
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.13042570029829828,
+          "group": "Other rural Nelson City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 18.338583677227554
+        },
+        {
+          "demand_cell_count": 10,
+          "dimension": "rurality",
+          "expected_courses": 1.0170052340480602,
+          "group": "Other rural New Plymouth District",
+          "share_expected_courses_within_60_minutes": 0.9403332041844243,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.683213609766888
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.3743335809165661,
+          "group": "Other rural Palmerston North City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 13.476461244606828
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.08747584732997649,
+          "group": "Other rural Porirua City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 37.28390369220315
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.3573900609382373,
+          "group": "Other rural Queenstown-Lakes District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 194.95856520567077
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.33374794003824365,
+          "group": "Other rural Rangitikei District",
+          "share_expected_courses_within_60_minutes": 0.16883116883116883,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 71.46263867012333
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.5398284272165217,
+          "group": "Other rural Rotorua District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 26.610585304846463
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.31207599587991613,
+          "group": "Other rural Ruapehu District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 89.14797971296444
+        },
+        {
+          "demand_cell_count": 16,
+          "dimension": "rurality",
+          "expected_courses": 1.578505605422909,
+          "group": "Other rural Selwyn District",
+          "share_expected_courses_within_60_minutes": 0.7838242636045931,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 43.55755682889128
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 0.7317236418548033,
+          "group": "Other rural South Taranaki District",
+          "share_expected_courses_within_60_minutes": 0.4216478190630049,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 67.1497736064335
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.42043571667155366,
+          "group": "Other rural South Waikato District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 49.596856558238656
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.27700684987825885,
+          "group": "Other rural South Wairarapa District",
+          "share_expected_courses_within_60_minutes": 0.6372688477951636,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 48.83196502575069
+        },
+        {
+          "demand_cell_count": 21,
+          "dimension": "rurality",
+          "expected_courses": 1.533585575712921,
+          "group": "Other rural Southland District",
+          "share_expected_courses_within_60_minutes": 0.5272353545734841,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 65.43335654094145
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.24193770387660163,
+          "group": "Other rural Stratford District",
+          "share_expected_courses_within_60_minutes": 0.7996742671009772,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 47.43309746359432
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.5398284272165216,
+          "group": "Other rural Tararua District",
+          "share_expected_courses_within_60_minutes": 0.6394160583941605,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 50.09602516962676
+        },
+        {
+          "demand_cell_count": 16,
+          "dimension": "rurality",
+          "expected_courses": 1.5201883738695912,
+          "group": "Other rural Tasman District",
+          "share_expected_courses_within_60_minutes": 0.6721099015033697,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 50.43748204819562
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 0.6647376326381548,
+          "group": "Other rural Taupo District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 27.96103586612053
+        },
+        {
+          "demand_cell_count": 11,
+          "dimension": "rurality",
+          "expected_courses": 0.7281773237198044,
+          "group": "Other rural Thames-Coromandel District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 91.01759745349902
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.6552807842781573,
+          "group": "Other rural Timaru District",
+          "share_expected_courses_within_60_minutes": 0.9873722188815394,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.98643929426448
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.1867727551099498,
+          "group": "Other rural Upper Hutt City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 45.4949799696773
+        },
+        {
+          "demand_cell_count": 29,
+          "dimension": "rurality",
+          "expected_courses": 3.354816955709099,
+          "group": "Other rural Waikato District",
+          "share_expected_courses_within_60_minutes": 0.7587502936340144,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 35.80220592139137
+        },
+        {
+          "demand_cell_count": 15,
+          "dimension": "rurality",
+          "expected_courses": 1.4626592130129403,
+          "group": "Other rural Waimakariri District",
+          "share_expected_courses_within_60_minutes": 0.9065193965517242,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 38.54378587061016
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.2805531680132579,
+          "group": "Other rural Waimate District",
+          "share_expected_courses_within_60_minutes": 0.5351123595505619,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 52.02084467166495
+        },
+        {
+          "demand_cell_count": 15,
+          "dimension": "rurality",
+          "expected_courses": 1.2419994179463332,
+          "group": "Other rural Waipa District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.87125800158288
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.2604573652482633,
+          "group": "Other rural Wairoa District",
+          "share_expected_courses_within_60_minutes": 0.3388804841149774,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 74.70327290165294
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.5551958058015175,
+          "group": "Other rural Waitaki District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 93.92189322020052
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.3116819605315829,
+          "group": "Other rural Waitomo District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 30.04956871954072
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.1938653913799479,
+          "group": "Other rural Wellington City",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 10.589337016771493
+        },
+        {
+          "demand_cell_count": 14,
+          "dimension": "rurality",
+          "expected_courses": 1.8957040608311575,
+          "group": "Other rural Western Bay of Plenty District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.367193604412634
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.3502974246682392,
+          "group": "Other rural Westland District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 179.0238920609076
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.9137679727847544,
+          "group": "Other rural Whakatane District",
+          "share_expected_courses_within_60_minutes": 0.8926261319534282,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 33.51539630994568
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.37118129812990025,
+          "group": "Other rural Whanganui District",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 89.88839216440745
+        },
+        {
+          "demand_cell_count": 17,
+          "dimension": "rurality",
+          "expected_courses": 2.1474926484160894,
+          "group": "Other rural Whangarei District",
+          "share_expected_courses_within_60_minutes": 0.4902752293577981,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 60.24149767513675
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.341234611656575,
+          "group": "Other rural \u014cp\u014dtiki District",
+          "share_expected_courses_within_60_minutes": 0.638568129330254,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 55.22629434140436
+        },
+        {
+          "demand_cell_count": 5,
+          "dimension": "rurality",
+          "expected_courses": 0.43225677712155053,
+          "group": "Other rural \u014ctorohanga District",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 34.522887188159736
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.15012746771495966,
+          "group": "Oxford",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 56.27525408674976
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.117816569151635,
+          "group": "Paek\u0101k\u0101riki",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 51.650593658485
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.43816730734654885,
+          "group": "Paeroa",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 69.45004205271513
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.19544153277328083,
+          "group": "Pahiatua",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 30.93850337236692
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10441936730830527,
+          "group": "Paihia",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 91.71216089521447
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06816811526164834,
+          "group": "Palmerston",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 58.65432511843185
+        },
+        {
+          "demand_cell_count": 36,
+          "dimension": "rurality",
+          "expected_courses": 5.248944875146922,
+          "group": "Palmerston North",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 8.097274159825965
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07013829200331448,
+          "group": "Parakai",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 48.6025312003729
+        },
+        {
+          "demand_cell_count": 10,
+          "dimension": "rurality",
+          "expected_courses": 1.9894844737344652,
+          "group": "Paraparaumu",
+          "share_expected_courses_within_60_minutes": 0.38839374133491783,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 60.3791612247363
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2624275419899295,
+          "group": "Pegasus",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 33.97861553024596
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.315228278666582,
+          "group": "Picton",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 75.43205800573065
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06856215060998158,
+          "group": "Piha",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 38.63748254998169
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08511163523997713,
+          "group": "Pirongia",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 32.65873186023218
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.09378041290330813,
+          "group": "Pleasant Point",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 26.01597694485577
+        },
+        {
+          "demand_cell_count": 23,
+          "dimension": "rurality",
+          "expected_courses": 3.7232400064006663,
+          "group": "Porirua",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 30.49919091054644
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3636946265115689,
+          "group": "Prebbleton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 17.907063289302865
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.05437687806998539,
+          "group": "Pukehina Beach",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 41.41506076781377
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.3030131828682519,
+          "group": "Put\u0101ruru",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 53.17874580997689
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08668777663331004,
+          "group": "P\u0101tea",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 99.87526741903179
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07092636269998094,
+          "group": "P\u0101uanui",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 94.14523258367697
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.39718763111989325,
+          "group": "P\u014dkeno",
+          "share_expected_courses_within_60_minutes": 0.5615079365079365,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 60.36564673331444
+        },
+        {
+          "demand_cell_count": 13,
+          "dimension": "rurality",
+          "expected_courses": 1.6027710979353467,
+          "group": "Queenstown",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 185.9056166260764
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07250250409331385,
+          "group": "Raetihi",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 127.85801253589035
+        },
+        {
+          "demand_cell_count": 10,
+          "dimension": "rurality",
+          "expected_courses": 1.3093794625113149,
+          "group": "Rangiora",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 34.427473951875456
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.06422776177831607,
+          "group": "Reefton",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 178.68205530190167
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.15840221002995744,
+          "group": "Renwick",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 65.27693006759273
+        },
+        {
+          "demand_cell_count": 9,
+          "dimension": "rurality",
+          "expected_courses": 1.2581548672279952,
+          "group": "Richmond",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 17.826128817392306
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2372092796966029,
+          "group": "Riverhead",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 27.97584247378456
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11308814497163629,
+          "group": "Riverton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 35.60385716839515
+        },
+        {
+          "demand_cell_count": 9,
+          "dimension": "rurality",
+          "expected_courses": 1.887823353864493,
+          "group": "Rolleston",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.570382866991327
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1347600891299638,
+          "group": "Rotoiti",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 28.40457249377011
+        },
+        {
+          "demand_cell_count": 29,
+          "dimension": "rurality",
+          "expected_courses": 3.7200877236139998,
+          "group": "Rotorua",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 8.386600659038765
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.18637871976161657,
+          "group": "Ruak\u0101k\u0101",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 66.02948666769808
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.05398284272165216,
+          "group": "Russell",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 96.08811615206292
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10205515521830591,
+          "group": "R\u0101kaia",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 68.91698007503686
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07526075153164644,
+          "group": "R\u016bnanga",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 200.2951981048684
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10560147335330496,
+          "group": "Shannon",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 36.69683250122365
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2439078806182678,
+          "group": "Snells Beach",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 61.7067357618268
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.060681443643317026,
+          "group": "Stillwater",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 34.173409531831666
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.42358799945821946,
+          "group": "Stratford",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.09286358552631
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.10954182683663724,
+          "group": "Taihape",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 93.46766905362058
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11032989753330368,
+          "group": "Tairua",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 98.88502775246914
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.3199567028465807,
+          "group": "Taumarunui",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 76.34933425817795
+        },
+        {
+          "demand_cell_count": 14,
+          "dimension": "rurality",
+          "expected_courses": 1.5844161356479076,
+          "group": "Taup\u014d",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 7.822225320664632
+        },
+        {
+          "demand_cell_count": 59,
+          "dimension": "rurality",
+          "expected_courses": 10.394652489030538,
+          "group": "Tauranga",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 12.503021685213989
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.31010581913824997,
+          "group": "Te Aroha",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 55.34354802273417
+        },
+        {
+          "demand_cell_count": 8,
+          "dimension": "rurality",
+          "expected_courses": 0.9098276193014222,
+          "group": "Te Awamutu",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 34.062544299742555
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.04413195901332148,
+          "group": "Te Awanga",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 17.62697561950972
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.2900100163732554,
+          "group": "Te Kauwhata",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 56.46858536801576
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.30971178378991676,
+          "group": "Te K\u016biti",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 5.87118975164421
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.599327764814839,
+          "group": "Te Puke",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 25.081940985886607
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1867727551099498,
+          "group": "Te \u0100nau",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 145.25881721084394
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3045893242615848,
+          "group": "Temuka",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 25.12158648573503
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.5000308570348656,
+          "group": "Thames",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 90.89767933472596
+        },
+        {
+          "demand_cell_count": 16,
+          "dimension": "rurality",
+          "expected_courses": 1.8795486115494948,
+          "group": "Timaru",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 8.127641170548173
+        },
+        {
+          "demand_cell_count": 7,
+          "dimension": "rurality",
+          "expected_courses": 0.9303174574147501,
+          "group": "Tokoroa",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 45.71897217489816
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.38694271206322933,
+          "group": "Tuakau",
+          "share_expected_courses_within_60_minutes": 0.609979633401222,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 59.83505672071156
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.100479013824973,
+          "group": "Twizel",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 113.75887384978599
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.09378041290330813,
+          "group": "T\u0101kaka",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 74.52530590176973
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.25336472897826523,
+          "group": "T\u016brangi",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 52.430992260886676
+        },
+        {
+          "demand_cell_count": 17,
+          "dimension": "rurality",
+          "expected_courses": 2.821687129414241,
+          "group": "Upper Hutt",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 40.87940020963303
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.5331298262948567,
+          "group": "Waiheke West",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 33.51564253749868
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.540616497913188,
+          "group": "Waih\u012b",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 55.74271514409903
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1761338007049527,
+          "group": "Waih\u012b Beach-Bowentown",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 44.55401232475531
+        },
+        {
+          "demand_cell_count": 4,
+          "dimension": "rurality",
+          "expected_courses": 0.9106156899980886,
+          "group": "Waikanae",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 64.13198866468878
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08589970593664358,
+          "group": "Waikouaiti",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 43.46660364622641
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07013829200331448,
+          "group": "Waikuku Beach",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 37.45979185314357
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.2454840220116007,
+          "group": "Waimate",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 52.300172345174204
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08708181198164326,
+          "group": "Waimauku",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 36.428913954547035
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3290195158582449,
+          "group": "Waipukurau",
+          "share_expected_courses_within_60_minutes": 0.42275449101796403,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 59.904301785528084
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1619485281649565,
+          "group": "Waip\u0101wa",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 50.96561684606065
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.09575058964497427,
+          "group": "Waip\u016b",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 64.60481481365466
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.31365213727324903,
+          "group": "Wairoa",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 81.82555222394245
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.4976666449448663,
+          "group": "Waitara",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 24.20199313387515
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11821060449996823,
+          "group": "Wait\u0101kere Village",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 29.302667008728175
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.04886038319332021,
+          "group": "Wai\u014duru",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 112.93745707731482
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.18007415418828493,
+          "group": "Wakefield",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 33.92272751395525
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.4511704738415454,
+          "group": "Warkworth",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 65.43316856349523
+        },
+        {
+          "demand_cell_count": 83,
+          "dimension": "rurality",
+          "expected_courses": 13.388533065666401,
+          "group": "Wellington",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 11.075492365054757
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.13081973564663152,
+          "group": "Wellsford",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 82.46652397721104
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.16076642211995681,
+          "group": "West Melton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 29.006300063851597
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.2907980870699219,
+          "group": "Westport",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 176.77452964909983
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 1.1237888134463645,
+          "group": "Whakat\u0101ne",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 7.1404704171975375
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.28370545079992376,
+          "group": "Whangamat\u0101",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 73.35202811247969
+        },
+        {
+          "demand_cell_count": 24,
+          "dimension": "rurality",
+          "expected_courses": 2.8319320484709056,
+          "group": "Whanganui",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 83.47390922153784
+        },
+        {
+          "demand_cell_count": 22,
+          "dimension": "rurality",
+          "expected_courses": 3.6783199766906782,
+          "group": "Whang\u0101rei",
+          "share_expected_courses_within_60_minutes": 0.477664702731655,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 59.15833237184447
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.2829173801032573,
+          "group": "Whitianga",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 99.47924598412857
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.16943519978328778,
+          "group": "Winton",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 39.50720704415632
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3034072182165851,
+          "group": "Woodend",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 32.435650927777665
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.1059955087016382,
+          "group": "Woodville",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 30.32285348289498
+        },
+        {
+          "demand_cell_count": 6,
+          "dimension": "rurality",
+          "expected_courses": 0.779795954351457,
+          "group": "W\u0101naka",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 200.02273592220763
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.0,
+          "group": "unknown",
+          "share_expected_courses_within_60_minutes": null,
+          "status": "unknown_no_polygon",
+          "weighted_mean_minimum_one_way_minutes": null
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.11939271054496792,
+          "group": "\u014cakura (New Plymouth District)",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 18.11025308910986
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.07920110501497872,
+          "group": "\u014chakea",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 32.33792531643353
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08156531710497808,
+          "group": "\u014chakune",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 119.35489319239497
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.20411031043661182,
+          "group": "\u014chope",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 14.945108639638033
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.375909722309899,
+          "group": "\u014cmokoroa",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 19.58296089675879
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.08156531710497808,
+          "group": "\u014cpua",
+          "share_expected_courses_within_60_minutes": 0.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 88.99205446068659
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.09969094312830654,
+          "group": "\u014cpunake",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 57.13943651651217
+        },
+        {
+          "demand_cell_count": 2,
+          "dimension": "rurality",
+          "expected_courses": 0.3254731977232459,
+          "group": "\u014cp\u014dtiki",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 35.159747484446235
+        },
+        {
+          "demand_cell_count": 3,
+          "dimension": "rurality",
+          "expected_courses": 0.4960905035515334,
+          "group": "\u014ctaki",
+          "share_expected_courses_within_60_minutes": 0.17474185861795075,
+          "status": "matched_official_urban_rural_2023",
+          "weighted_mean_minimum_one_way_minutes": 61.33071953245843
+        },
+        {
+          "demand_cell_count": 1,
+          "dimension": "rurality",
+          "expected_courses": 0.2119910174032764,
+          "group": "\u014ctorohanga",
+          "share_expected_courses_within_60_minutes": 1.0,
+          "status": "matched_official_urban_rural_2023_refined",
+          "weighted_mean_minimum_one_way_minutes": 24.766436611583266
+        }
+      ],
+      "schema_version": "1.0.0",
+      "source_inputs": {
+        "demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/national-demand-cells.parquet",
+        "demand_cells_sha256": "e198e77eae3ec9d5d9afe94fd9c2bb829e2fc877aede36bc4a3101fb4a5e7785",
+        "route_matrix": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/route-matrix.parquet",
+        "route_matrix_sha256": "9dcb9cba37de8d2e7c332d8799daefb61a641fc5437e98e3416e95c21282190b"
+      },
+      "status": "materialized_aggregate_ecological_access_stratifiers",
+      "unknown_policy": "Unknown or unmatched area stratifiers remain explicit unknown groups."
+    },
     "mcda_outputs": {
       "alternatives": [
         "candidate_network_01",
@@ -240,6 +3336,359 @@
       "schema_version": "1.0.0",
       "solver": "deterministic-greedy",
       "status": "materialized_deterministic_greedy_frontier"
+    },
+    "resilience-sensitivity": {
+      "analysis_population": "aggregate_expected_course_cells",
+      "claim_boundary": "This is a deterministic routing sensitivity for hypothetical candidate-site removal. It is not an observed outage, service-continuity result, resilience guarantee, capacity claim, or operational recommendation; candidate capability remains unknown.",
+      "generated_at": "derived_from_frozen_national_inputs",
+      "observed_capacity": "unknown",
+      "operational_recommendation": false,
+      "outage_scenario_type": "counterfactual_candidate_site_removal",
+      "rows": [
+        {
+          "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+          "change_in_weighted_mean_one_way_minutes": 100.6768132172154,
+          "configuration_id": "candidate_network_03",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.10579291824747972,
+          "post_removal_weighted_mean_one_way_minutes": 242.78017578900543,
+          "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+          "change_in_weighted_mean_one_way_minutes": 47.54062395657439,
+          "configuration_id": "candidate_network_03",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.17887733441754325,
+          "post_removal_weighted_mean_one_way_minutes": 189.64398652836442,
+          "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+          "change_in_weighted_mean_one_way_minutes": 159.96825771614166,
+          "configuration_id": "candidate_network_03",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.1467864815772767,
+          "post_removal_weighted_mean_one_way_minutes": 302.0716202879317,
+          "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+          "change_in_weighted_mean_one_way_minutes": 41.17441828871789,
+          "configuration_id": "candidate_network_05",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.24364488957252123,
+          "post_removal_weighted_mean_one_way_minutes": 120.90274514461782,
+          "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+          "change_in_weighted_mean_one_way_minutes": 42.28614093336431,
+          "configuration_id": "candidate_network_05",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.44138631046228727,
+          "post_removal_weighted_mean_one_way_minutes": 122.01446778926424,
+          "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+          "change_in_weighted_mean_one_way_minutes": 47.54062395657438,
+          "configuration_id": "candidate_network_05",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.5144707266323508,
+          "post_removal_weighted_mean_one_way_minutes": 127.26895081247432,
+          "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+          "change_in_weighted_mean_one_way_minutes": 21.20061742717222,
+          "configuration_id": "candidate_network_05",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.523405236884586,
+          "post_removal_weighted_mean_one_way_minutes": 100.92894428307216,
+          "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+          "change_in_weighted_mean_one_way_minutes": 17.129289111701695,
+          "configuration_id": "candidate_network_05",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.4823798737920842,
+          "post_removal_weighted_mean_one_way_minutes": 96.85761596760163,
+          "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 41.15293376012708,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.4571277042195979,
+          "post_removal_weighted_mean_one_way_minutes": 86.96619043821809,
+          "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 5.378631593820366,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7163405125532162,
+          "post_removal_weighted_mean_one_way_minutes": 51.19188827191138,
+          "removed_candidate_facility_id": "NZ-BOP-TAURANGA"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 33.59739300632014,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.654869125109364,
+          "post_removal_weighted_mean_one_way_minutes": 79.41064968441115,
+          "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 5.431016996669243,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7320985180412105,
+          "post_removal_weighted_mean_one_way_minutes": 51.24427367476026,
+          "removed_candidate_facility_id": "NZ-HKB-HASTINGS"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 5.192889109506105,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7279535412794276,
+          "post_removal_weighted_mean_one_way_minutes": 51.00614578759712,
+          "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 3.5455128781548453,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7434302411742645,
+          "post_removal_weighted_mean_one_way_minutes": 49.35876955624586,
+          "removed_candidate_facility_id": "NZ-NSN-NELSON"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 21.200617427172183,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7368880515316627,
+          "post_removal_weighted_mean_one_way_minutes": 67.0138741052632,
+          "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 4.43851891519396,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7433250573437794,
+          "post_removal_weighted_mean_one_way_minutes": 50.251775593284975,
+          "removed_candidate_facility_id": "NZ-TKI-NEW-PLYMOUTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 10.482229560045631,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.6753457261556229,
+          "post_removal_weighted_mean_one_way_minutes": 56.29548623813665,
+          "removed_candidate_facility_id": "NZ-WGN-WELLINGTON-REGIONAL"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+          "change_in_weighted_mean_one_way_minutes": 5.071266187463401,
+          "configuration_id": "candidate_network_10",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.699712905862027,
+          "post_removal_weighted_mean_one_way_minutes": 50.884522865554416,
+          "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 34.18150213544946,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.5554709165195946,
+          "post_removal_weighted_mean_one_way_minutes": 64.71032124448142,
+          "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 2.0466984557088317,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8360287040348702,
+          "post_removal_weighted_mean_one_way_minutes": 32.575517564740785,
+          "removed_candidate_facility_id": "NZ-BOP-TAURANGA"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 0.5783099289760649,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8549507859119859,
+          "post_removal_weighted_mean_one_way_minutes": 31.10712903800802,
+          "removed_candidate_facility_id": "NZ-BOP-WHAKATANE"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 17.580750609293613,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7532123374093604,
+          "post_removal_weighted_mean_one_way_minutes": 48.10956971832557,
+          "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 4.116785504779042,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8304417303412069,
+          "post_removal_weighted_mean_one_way_minutes": 34.645604613810995,
+          "removed_candidate_facility_id": "NZ-HKB-HASTINGS"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 0.8584433132587641,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.846010160320769,
+          "post_removal_weighted_mean_one_way_minutes": 31.387262422290718,
+          "removed_candidate_facility_id": "NZ-LAK-ROTORUA"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 0.5190072785747972,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8553495060135915,
+          "post_removal_weighted_mean_one_way_minutes": 31.04782638760675,
+          "removed_candidate_facility_id": "NZ-LAK-TAUPO"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 2.8825805998928438,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8292027626635184,
+          "post_removal_weighted_mean_one_way_minutes": 33.4113997089248,
+          "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 3.545512878154856,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8417734534742608,
+          "post_removal_weighted_mean_one_way_minutes": 34.07433198718681,
+          "removed_candidate_facility_id": "NZ-NSN-NELSON"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 4.457586972050979,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.850966031031523,
+          "post_removal_weighted_mean_one_way_minutes": 34.98640608108293,
+          "removed_candidate_facility_id": "NZ-NTH-DARGAVILLE"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 5.591024290628756,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.835231263831659,
+          "post_removal_weighted_mean_one_way_minutes": 36.11984339966071,
+          "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 2.0228587130886417,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8519041240313127,
+          "post_removal_weighted_mean_one_way_minutes": 32.551677822120595,
+          "removed_candidate_facility_id": "NZ-SCD-TIMARU"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 3.461054847118458,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8479218152864424,
+          "post_removal_weighted_mean_one_way_minutes": 33.98987395615041,
+          "removed_candidate_facility_id": "NZ-STL-INVERCARGILL"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 1.2850178456388335,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8531773376072986,
+          "post_removal_weighted_mean_one_way_minutes": 31.813836954670787,
+          "removed_candidate_facility_id": "NZ-TGI-GISBORNE"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 3.2296750051983985,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.841668269643776,
+          "post_removal_weighted_mean_one_way_minutes": 33.75849411423035,
+          "removed_candidate_facility_id": "NZ-TKI-NEW-PLYMOUTH"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 0.6507275660584639,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8522453599464905,
+          "post_removal_weighted_mean_one_way_minutes": 31.179546675090418,
+          "removed_candidate_facility_id": "NZ-WAI-MASTERTON"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 6.0019006428847455,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.7740362897097789,
+          "post_removal_weighted_mean_one_way_minutes": 36.5307197519167,
+          "removed_candidate_facility_id": "NZ-WGN-WELLINGTON-REGIONAL"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 0.19958017780647808,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8606270435547817,
+          "post_removal_weighted_mean_one_way_minutes": 30.72839928683843,
+          "removed_candidate_facility_id": "NZ-WKO-TE-KUITI"
+        },
+        {
+          "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+          "change_in_weighted_mean_one_way_minutes": 3.6286272122280643,
+          "configuration_id": "candidate_network_19",
+          "expected_courses": 322.1696699999999,
+          "post_removal_share_expected_courses_within_60_minutes": 0.8048881748723568,
+          "post_removal_weighted_mean_one_way_minutes": 34.15744632126002,
+          "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+        }
+      ],
+      "schema_version": "1.0.0",
+      "source_inputs": {
+        "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/national-demand-cells.parquet",
+        "national_demand_cells_sha256": "e198e77eae3ec9d5d9afe94fd9c2bb829e2fc877aede36bc4a3101fb4a5e7785",
+        "route_matrix": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/route-matrix.parquet",
+        "route_matrix_sha256": "9dcb9cba37de8d2e7c332d8799daefb61a641fc5437e98e3416e95c21282190b",
+        "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
+        "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8"
+      },
+      "status": "materialized_candidate_network_single_site_routing_sensitivity"
     },
     "scenario_summary": {
       "analysis_population": "aggregate_expected_course_cells",
