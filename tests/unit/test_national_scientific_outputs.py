@@ -16,4 +16,5 @@ def test_national_reports_form_a_claim_bounded_scientific_set() -> None:
     assert receipt["status"] == "passed"
     assert receipt["configuration_count"] == 5
     assert "spatial_structural" in receipt["uncertainty_types"]
-    assert len(receipt["report_sha256"]) == 5
+    assert len(receipt["report_sha256"]) == 6
+    assert "distributional-equity" in receipt["report_names"]
