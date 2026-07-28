@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: CTW-080-national-scientific-completeness
-status: planned
+status: in_progress
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/116
 objective: Complete the national scientific outcomes declared beyond the bounded v0.2 candidate-network analysis.
 dependencies: [CTW-010-national-service-census, CTW-020-public-demand-and-geography, CTW-030-clinical-pathway-freeze, CTW-040-national-routing-and-costs, CTW-050-national-analysis]

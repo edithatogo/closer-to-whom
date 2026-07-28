@@ -7,7 +7,7 @@
   "schema_version": "1.0.0",
   "source_reports": {
     "capacity-cost-perspective.json": {
-      "sha256": "d74dfaa75370a3e9e6e27c9140fd9d301b59770d1eb59ec86aaf9d5c53a56121"
+      "sha256": "d673b56f574cb201706de6564107037b2e953bce41cf120911f82a03a4851896"
     },
     "distributional-equity.json": {
       "sha256": "f1f21d80866ff6cbe0590b7621ed82165c59da5e1a7d8076f0e8f7f0d77f6531"
@@ -16,7 +16,7 @@
       "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
     },
     "optimisation-comparison.json": {
-      "sha256": "c5385be669117562795729b679c42243660a5b8967d8a4662850ef2c52f9605b"
+      "sha256": "2a38ddd13b8025b60719560cda7bdcaca9f277b27d4458b163a6c7ae6ccf41d7"
     },
     "optimisation_frontier.json": {
       "sha256": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3"

@@ -117,6 +117,26 @@ def validate() -> dict[str, Any]:
         raise ValueError("Tractable optimisation comparison must contain exact optimal rows")
     if "p=1,3,5" not in str(optimisation.get("solver_scope", "")):
         raise ValueError("Optimisation comparison lacks its finite solver scope")
+    robust = optimisation.get("robust_analysis")
+    if (
+        not isinstance(robust, dict)
+        or robust.get("status") != "materialized_exact_counterfactual_robust_p_median"
+    ):
+        raise ValueError("Optimisation comparison lacks exact bounded robust analysis")
+    if robust.get("optimality") != "exact_within_declared_scope" or len(robust.get("rows", [])) < 3:
+        raise ValueError("Robust analysis lacks finite-scope optimality evidence")
+    if any(row.get("observed") is not False for row in robust.get("scenario_definitions", [])[1:]):
+        raise ValueError("Robust stress scenarios must be explicitly counterfactual")
+    frontier = optimisation.get("multiobjective_frontier")
+    if (
+        not isinstance(frontier, dict)
+        or frontier.get("status") != "materialized_non_dominated_frontier"
+    ):
+        raise ValueError("Optimisation comparison lacks a multi-objective frontier")
+    if frontier.get("candidate_count", 0) < 3 or not frontier.get("frontier"):
+        raise ValueError("Multi-objective frontier lacks candidate and non-dominated rows")
+    if "not a policy" not in str(frontier.get("claim_boundary", "")).lower():
+        raise ValueError("Multi-objective frontier lacks its claim boundary")
     summary_ids = {row["configuration_id"] for row in reports["scenario_summary"]["configurations"]}
     frontier_ids = {row["configuration_id"] for row in reports["optimisation_frontier"]["points"]}
     if summary_ids != frontier_ids:

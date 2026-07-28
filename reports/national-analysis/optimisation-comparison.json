@@ -3,8 +3,211 @@
   "claim_boundary": "Exactness applies only to the declared finite p=1,3,5 route-selection problems and their stated objectives. Candidate facilities remain plausible locations, not confirmed services; the results are not operational or policy recommendations.",
   "coverage_threshold_minutes": 60.0,
   "generated_at": "derived_from_frozen_national_inputs",
+  "multiobjective_frontier": {
+    "candidate_count": 9,
+    "claim_boundary": "Non-dominated configurations within the enumerated candidate set only; not a policy or operational recommendation.",
+    "equity_scope": "aggregate travel-dispersion proxy; not individual or protected-group equity evidence",
+    "frontier": [
+      {
+        "access_weighted_mean_minutes": 433.5175268189961,
+        "equity_p90_minus_p50_minutes": 160.52271587798646,
+        "label": "p_center-p1",
+        "objective": "p_center",
+        "resilience_stress_delta_weighted_mean_minutes": 43.35175268189965,
+        "resource_site_count": 1.0,
+        "selected_facility_ids": [
+          "NZ-WKO-TE-KUITI"
+        ],
+        "site_count": 1
+      },
+      {
+        "access_weighted_mean_minutes": 147.72469568438112,
+        "equity_p90_minus_p50_minutes": 52.284395795674186,
+        "label": "p_center-p5",
+        "objective": "p_center",
+        "resilience_stress_delta_weighted_mean_minutes": 14.772469568438122,
+        "resource_site_count": 5.0,
+        "selected_facility_ids": [
+          "NZ-CAN-CHRISTCHURCH",
+          "NZ-HKB-HASTINGS",
+          "NZ-WAI-MASTERTON",
+          "NZ-WKO-TE-KUITI",
+          "NZ-WKO-WAIKATO"
+        ],
+        "site_count": 5
+      },
+      {
+        "access_weighted_mean_minutes": 379.0698692507528,
+        "equity_p90_minus_p50_minutes": 391.1412636357492,
+        "label": "p_median-p1",
+        "objective": "p_median",
+        "resilience_stress_delta_weighted_mean_minutes": 37.906986925075316,
+        "resource_site_count": 1.0,
+        "selected_facility_ids": [
+          "NZ-LAK-TAUPO"
+        ],
+        "site_count": 1
+      },
+      {
+        "access_weighted_mean_minutes": 132.675593217132,
+        "equity_p90_minus_p50_minutes": 150.42505325441704,
+        "label": "p_median-p3",
+        "objective": "p_median",
+        "resilience_stress_delta_weighted_mean_minutes": 13.267559321713213,
+        "resource_site_count": 3.0,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-STL-INVERCARGILL",
+          "NZ-WGN-WELLINGTON-REGIONAL"
+        ],
+        "site_count": 3
+      },
+      {
+        "access_weighted_mean_minutes": 88.16576382272817,
+        "equity_p90_minus_p50_minutes": 126.44082603248928,
+        "label": "p_median-p5",
+        "objective": "p_median",
+        "resilience_stress_delta_weighted_mean_minutes": 8.816576382272826,
+        "resource_site_count": 5.0,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-BOP-WHAKATANE",
+          "NZ-NSN-NELSON",
+          "NZ-STL-INVERCARGILL",
+          "NZ-WAI-MASTERTON"
+        ],
+        "site_count": 5
+      }
+    ],
+    "objective_directions": {
+      "access_weighted_mean_minutes": "minimise",
+      "equity_p90_minus_p50_minutes": "minimise",
+      "resilience_stress_delta_weighted_mean_minutes": "minimise",
+      "resource_site_count": "minimise"
+    },
+    "scenario": "counterfactual_uniform_route_time_stress_10_percent",
+    "status": "materialized_non_dominated_frontier"
+  },
   "observed_capacity": "unknown",
   "operational_recommendation": false,
+  "robust_analysis": {
+    "claim_boundary": "Stress scenario is structural and hypothetical; it is not an observed disruption forecast or operational assurance.",
+    "optimality": "exact_within_declared_scope",
+    "rows": [
+      {
+        "expected_weighted_minutes": 128231.05541763108,
+        "maximum_regret_weighted_minutes": 0.0,
+        "selected_facility_ids": [
+          "NZ-LAK-TAUPO"
+        ],
+        "site_count": 1,
+        "worst_case_weighted_minutes": 134337.296151804
+      },
+      {
+        "expected_weighted_minutes": 128779.67038735354,
+        "maximum_regret_weighted_minutes": 574.7394920901861,
+        "selected_facility_ids": [
+          "NZ-NTH-DARGAVILLE"
+        ],
+        "site_count": 1,
+        "worst_case_weighted_minutes": 134912.0356438942
+      },
+      {
+        "expected_weighted_minutes": 132070.5757375136,
+        "maximum_regret_weighted_minutes": 4022.354620829283,
+        "selected_facility_ids": [
+          "NZ-WGN-WELLINGTON-REGIONAL"
+        ],
+        "site_count": 1,
+        "worst_case_weighted_minutes": 138359.6507726333
+      },
+      {
+        "expected_weighted_minutes": 44881.25468800854,
+        "maximum_regret_weighted_minutes": 0.0,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-STL-INVERCARGILL",
+          "NZ-WGN-WELLINGTON-REGIONAL"
+        ],
+        "site_count": 3,
+        "worst_case_weighted_minutes": 47018.457292199426
+      },
+      {
+        "expected_weighted_minutes": 45218.559741589146,
+        "maximum_regret_weighted_minutes": 353.36719898921,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-CAN-CHRISTCHURCH",
+          "NZ-WGN-WELLINGTON-REGIONAL"
+        ],
+        "site_count": 3,
+        "worst_case_weighted_minutes": 47371.824491188636
+      },
+      {
+        "expected_weighted_minutes": 45794.972298922505,
+        "maximum_regret_weighted_minutes": 957.2279733384348,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-NSN-NELSON",
+          "NZ-STL-INVERCARGILL"
+        ],
+        "site_count": 3,
+        "worst_case_weighted_minutes": 47975.68526553786
+      },
+      {
+        "expected_weighted_minutes": 29824.55178786959,
+        "maximum_regret_weighted_minutes": 0.0,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-BOP-WHAKATANE",
+          "NZ-NSN-NELSON",
+          "NZ-STL-INVERCARGILL",
+          "NZ-WAI-MASTERTON"
+        ],
+        "site_count": 5,
+        "worst_case_weighted_minutes": 31244.768539672903
+      },
+      {
+        "expected_weighted_minutes": 29985.01376456072,
+        "maximum_regret_weighted_minutes": 168.10302320023402,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-BOP-WHAKATANE",
+          "NZ-NSN-NELSON",
+          "NZ-STL-INVERCARGILL",
+          "NZ-TKI-NEW-PLYMOUTH"
+        ],
+        "site_count": 5,
+        "worst_case_weighted_minutes": 31412.871562873137
+      },
+      {
+        "expected_weighted_minutes": 30738.28415908001,
+        "maximum_regret_weighted_minutes": 957.2434365061563,
+        "selected_facility_ids": [
+          "NZ-AKL-TE-PURIRI",
+          "NZ-HKB-HASTINGS",
+          "NZ-NSN-NELSON",
+          "NZ-STL-INVERCARGILL",
+          "NZ-WAI-MASTERTON"
+        ],
+        "site_count": 5,
+        "worst_case_weighted_minutes": 32202.01197617906
+      }
+    ],
+    "runtime_seconds": 0.548713,
+    "scenario_definitions": [
+      {
+        "id": "nominal_route_matrix",
+        "observed": true
+      },
+      {
+        "id": "counterfactual_uniform_route_time_stress_10_percent",
+        "observed": false
+      }
+    ],
+    "solver": "robust_p_median_oracle",
+    "status": "materialized_exact_counterfactual_robust_p_median"
+  },
   "rows": [
     {
       "objective": "p_median",
@@ -12,6 +215,9 @@
       "optimal": true,
       "selected_facility_ids": [
         "NZ-LAK-TAUPO"
+      ],
+      "selected_facility_indices": [
+        6
       ],
       "site_count": 1,
       "solver": "enumeration-oracle"
@@ -23,6 +229,9 @@
       "selected_facility_ids": [
         "NZ-WKO-TE-KUITI"
       ],
+      "selected_facility_indices": [
+        17
+      ],
       "site_count": 1,
       "solver": "enumeration-oracle"
     },
@@ -32,6 +241,9 @@
       "optimal": true,
       "selected_facility_ids": [
         "NZ-AKL-TE-PURIRI"
+      ],
+      "selected_facility_indices": [
+        0
       ],
       "site_count": 1,
       "solver": "enumeration-oracle"
@@ -45,6 +257,11 @@
         "NZ-STL-INVERCARGILL",
         "NZ-WGN-WELLINGTON-REGIONAL"
       ],
+      "selected_facility_indices": [
+        0,
+        12,
+        16
+      ],
       "site_count": 3,
       "solver": "enumeration-oracle"
     },
@@ -57,6 +274,11 @@
         "NZ-BOP-WHAKATANE",
         "NZ-NSN-NELSON"
       ],
+      "selected_facility_indices": [
+        0,
+        2,
+        8
+      ],
       "site_count": 3,
       "solver": "enumeration-oracle"
     },
@@ -68,6 +290,11 @@
         "NZ-AKL-TE-PURIRI",
         "NZ-NSN-NELSON",
         "NZ-STL-INVERCARGILL"
+      ],
+      "selected_facility_indices": [
+        0,
+        8,
+        12
       ],
       "site_count": 3,
       "solver": "enumeration-oracle"
@@ -83,6 +310,13 @@
         "NZ-STL-INVERCARGILL",
         "NZ-WAI-MASTERTON"
       ],
+      "selected_facility_indices": [
+        0,
+        2,
+        8,
+        12,
+        15
+      ],
       "site_count": 5,
       "solver": "enumeration-oracle"
     },
@@ -96,6 +330,13 @@
         "NZ-WAI-MASTERTON",
         "NZ-WKO-TE-KUITI",
         "NZ-WKO-WAIKATO"
+      ],
+      "selected_facility_indices": [
+        3,
+        4,
+        15,
+        17,
+        18
       ],
       "site_count": 5,
       "solver": "enumeration-oracle"
@@ -111,6 +352,13 @@
         "NZ-STL-INVERCARGILL",
         "NZ-WGN-WELLINGTON-REGIONAL"
       ],
+      "selected_facility_indices": [
+        0,
+        8,
+        10,
+        12,
+        16
+      ],
       "site_count": 5,
       "solver": "enumeration-oracle"
     }
@@ -121,7 +369,7 @@
     3,
     5
   ],
-  "solver_scope": "Exact deterministic enumeration for p=1,3,5; larger networks remain heuristic in the existing frontier.",
+  "solver_scope": "Exact deterministic enumeration for p=1,3,5; robust enumeration is exact within the two-scenario finite scope.",
   "source_inputs": {
     "demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/national-demand-cells.parquet",
     "demand_cells_sha256": "e198e77eae3ec9d5d9afe94fd9c2bb829e2fc877aede36bc4a3101fb4a5e7785",

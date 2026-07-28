@@ -21,3 +21,10 @@ def test_national_reports_form_a_claim_bounded_scientific_set() -> None:
     assert "capacity-cost-perspective" in receipt["report_names"]
     assert "resilience-sensitivity" in receipt["report_names"]
     assert "optimisation-comparison" in receipt["report_names"]
+
+    report = _module().REPORT_DIR.joinpath("optimisation-comparison.json")
+    import json
+
+    optimisation = json.loads(report.read_text(encoding="utf-8"))
+    assert optimisation["robust_analysis"]["optimality"] == "exact_within_declared_scope"
+    assert optimisation["multiobjective_frontier"]["frontier"]
