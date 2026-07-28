@@ -28,3 +28,5 @@ def test_national_reports_form_a_claim_bounded_scientific_set() -> None:
     optimisation = json.loads(report.read_text(encoding="utf-8"))
     assert optimisation["robust_analysis"]["optimality"] == "exact_within_declared_scope"
     assert optimisation["multiobjective_frontier"]["frontier"]
+    assert all(row["solver_status"] == "optimal" for row in optimisation["rows"])
+    assert all(row["optimality_gap"] == 0.0 for row in optimisation["rows"])

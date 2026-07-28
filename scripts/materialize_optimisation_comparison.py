@@ -97,6 +97,7 @@ def build_report(demand_path: Path, routes_path: Path) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for count in SITE_COUNTS:
         for objective in ("p_median", "p_center"):
+            started = time.perf_counter()
             solution = solve_location_allocation(
                 costs, weights, site_count=count, objective=objective
             )
@@ -105,22 +106,31 @@ def build_report(demand_path: Path, routes_path: Path) -> dict[str, Any]:
                     "site_count": count,
                     "objective": objective,
                     "solver": solution.solver,
+                    "solver_status": "optimal" if solution.optimal else "feasible",
                     "optimal": solution.optimal,
                     "objective_value": solution.objective_value,
+                    "bound": solution.objective_value if solution.optimal else None,
+                    "optimality_gap": 0.0 if solution.optimal else None,
+                    "runtime_seconds": round(time.perf_counter() - started, 6),
                     "selected_facility_indices": list(solution.selected_indices),
                     "selected_facility_ids": [
                         facilities[index] for index in solution.selected_indices
                     ],
                 }
             )
+        started = time.perf_counter()
         coverage = maximal_coverage(costs, weights, site_count=count, threshold=60.0)
         rows.append(
             {
                 "site_count": count,
                 "objective": "maximal_coverage_at_60_minutes",
                 "solver": coverage.solver,
+                "solver_status": "optimal" if coverage.optimal else "feasible",
                 "optimal": coverage.optimal,
                 "objective_value": coverage.objective_value,
+                "bound": coverage.objective_value if coverage.optimal else None,
+                "optimality_gap": 0.0 if coverage.optimal else None,
+                "runtime_seconds": round(time.perf_counter() - started, 6),
                 "selected_facility_indices": list(coverage.selected_indices),
                 "selected_facility_ids": [facilities[index] for index in coverage.selected_indices],
             }
@@ -149,7 +159,7 @@ def build_report(demand_path: Path, routes_path: Path) -> dict[str, Any]:
         "site_counts": list(SITE_COUNTS),
         "coverage_threshold_minutes": 60.0,
         "rows": rows,
-        "solver_scope": "Exact deterministic enumeration for p=1,3,5; robust enumeration is exact within the two-scenario finite scope.",
+        "solver_scope": "Exact deterministic enumeration for p=1,3,5; each row records status, bound, gap, and runtime. Robust enumeration is exact within the two-scenario finite scope.",
         "robust_analysis": {
             "status": "materialized_exact_counterfactual_robust_p_median",
             "solver": "robust_p_median_oracle",

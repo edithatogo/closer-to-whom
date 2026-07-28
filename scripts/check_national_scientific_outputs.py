@@ -115,6 +115,13 @@ def validate() -> dict[str, Any]:
     rows = optimisation.get("rows", [])
     if not rows or not all(row.get("optimal") is True for row in rows):
         raise ValueError("Tractable optimisation comparison must contain exact optimal rows")
+    required_solver_fields = {"solver_status", "bound", "optimality_gap", "runtime_seconds"}
+    if any(not required_solver_fields <= row.keys() for row in rows):
+        raise ValueError("Optimisation rows must expose solver status, bound, gap, and runtime")
+    if any(
+        row.get("solver_status") != "optimal" or row.get("optimality_gap") != 0.0 for row in rows
+    ):
+        raise ValueError("Exact optimisation rows must report optimal status and zero gap")
     if "p=1,3,5" not in str(optimisation.get("solver_scope", "")):
         raise ValueError("Optimisation comparison lacks its finite solver scope")
     robust = optimisation.get("robust_analysis")
