@@ -8,13 +8,13 @@
     },
     "release/space-deployment-receipt.json": {
       "matches": true,
-      "reconstructed_sha256": "dca8f5e589e84c68dcd3122f6ca4e1676a2b10058dca2a05db46990602b625f8",
-      "source_sha256": "dca8f5e589e84c68dcd3122f6ca4e1676a2b10058dca2a05db46990602b625f8"
+      "reconstructed_sha256": "a2f86cea0b5a1154e2ac17b17700b0d4570f3f92bd68b2cf9d3ae3e2a8aa2ac0",
+      "source_sha256": "a2f86cea0b5a1154e2ac17b17700b0d4570f3f92bd68b2cf9d3ae3e2a8aa2ac0"
     },
     "release/space-monitor-receipt.json": {
       "matches": true,
-      "reconstructed_sha256": "c6f3c52708547b9124326f03741fa8c363276ee4deeaaa935b9afed796609580",
-      "source_sha256": "c6f3c52708547b9124326f03741fa8c363276ee4deeaaa935b9afed796609580"
+      "reconstructed_sha256": "8b088b726aecb9b31403d98cc5b8efe88855c6ddc6fba3209560fee0009cd13d",
+      "source_sha256": "8b088b726aecb9b31403d98cc5b8efe88855c6ddc6fba3209560fee0009cd13d"
     },
     "spaces/static/aggregate-reports.json": {
       "matches": true,
@@ -27,11 +27,11 @@
       "source_sha256": "1b2b20fe99ce5da9bb2d150779008eb3d9538cd0ab308cec37648f8c38f7b789"
     }
   },
-  "elapsed_seconds": 9.676,
+  "elapsed_seconds": 9.761,
   "independent_storage": "not_claimed_by_local_drill",
   "rpo": "latest merged main commit",
   "rto_seconds": 300,
   "schema_version": "1.0.0",
-  "source_revision": "b818ad0588e90ff88ee40df6ff861b10b38e3aec",
+  "source_revision": "be29c0d0fc0606626e7092267251c71f6b9f697f",
   "status": "passed"
 }
