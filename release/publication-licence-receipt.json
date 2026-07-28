@@ -1,0 +1,119 @@
+{
+  "claim_boundary": "This receipt records a project-scope decision for the exact aggregate payload. It is not a source-owner licence grant, endorsement, or permission to redistribute raw inputs.",
+  "decision": {
+    "derived_output_publication": "aggregate_only_and_claim_bounded",
+    "live_payloads": "prohibited",
+    "local_use": "authorized_by_recorded_project_scope",
+    "raw_payload_redistribution": "prohibited"
+  },
+  "exact_payload": {
+    "artifact": "reviewed-national-aggregate-reports",
+    "payload_sha256": "04ec69215538182509dcd23df7201be3aa284c26947cdea4ce13eb6b64b14136",
+    "report_names": [
+      "scenario_summary",
+      "optimisation_frontier",
+      "uncertainty_analysis",
+      "mcda_outputs",
+      "voi_outputs",
+      "distributional-equity",
+      "capacity-cost-perspective",
+      "resilience-sensitivity",
+      "optimisation-comparison"
+    ]
+  },
+  "input_freeze": {
+    "path": "data/public/input-freeze.yaml",
+    "sha256": "ba20f93a3e991c21f2d1db5a6ffb24b8a55fa79ec9aeb29e0ae584a274f3bde2",
+    "source_count": 7
+  },
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "geography",
+      "licence_state": "open",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.statsnz-sa2-2023-centroid-true.json",
+      "retrieval_receipt_sha256": "3c9caad0613c7c718bae623df4b7dbdeba2ee4e615e1af66d6329d72b2e12d6c",
+      "source_ids": [
+        "candidate.statsnz-sa2-2023-centroid-true",
+        "candidate.statsnz-sa1-census-population-2023",
+        "candidate.statsnz-sa2-boundaries-2023"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "deprivation",
+      "licence_state": "open",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.nzdep2023.json",
+      "retrieval_receipt_sha256": "b3b20bf816fa433dfc62abf9a79d3f45452599013bd7a2d0388a35ea4cba082a",
+      "source_ids": [
+        "candidate.nzdep2023"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "rurality",
+      "licence_state": "open",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.statsnz-urban-rural-2023-generalised.json",
+      "retrieval_receipt_sha256": "503d59160cd48fbbeb6ef3ddae428fcdcf0aac62fd509a909e41d730b61823ff",
+      "source_ids": [
+        "candidate.statsnz-urban-rural-2023-generalised"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "ethnicity",
+      "licence_state": "open",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.statsnz-ethnicity-2023-sa2.json",
+      "retrieval_receipt_sha256": "e1108e4138487740abedcddd370f90c08fb0aceaf8d3434184fe69a25c5c4f5a",
+      "source_ids": [
+        "candidate.statsnz-ethnicity-2023-sa2"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "vehicle_access",
+      "licence_state": "open",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.statsnz-motor-vehicles-2023-sa2.json",
+      "retrieval_receipt_sha256": "829aebcebe3dab520a0ac8db79b3f50fc26db2b080fb4c4d533801896a01057e",
+      "source_ids": [
+        "candidate.statsnz-motor-vehicles-2023-sa2"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "incidence",
+      "licence_state": "unknown",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.teaho-cancer-stats-2025.json",
+      "retrieval_receipt_sha256": "40c7f54db025d06927741a04057bf419087cf669aa51530024a87e9a88bc4189",
+      "source_ids": [
+        "candidate.teaho-cancer-stats-2025"
+      ]
+    },
+    {
+      "derived_aggregate_publication": "permitted_under_project_scope_only",
+      "input_id": "population",
+      "licence_state": "unknown",
+      "local_use_authorized": true,
+      "raw_redistribution": "not_permitted_by_default",
+      "retrieval_receipt": "data/public/receipts/input-freeze/candidate.statsnz-population-estimates.json",
+      "retrieval_receipt_sha256": "98ec7f95c66620080cffb6da7d3ab9b09a7d53b568e21f770bd3266c34548a78",
+      "source_ids": [
+        "candidate.statsnz-population-estimates-2023-base"
+      ]
+    }
+  ],
+  "status": "approved_derived_aggregate_nonredistribution"
+}
