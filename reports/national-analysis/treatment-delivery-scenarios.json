@@ -1,0 +1,210 @@
+{
+  "claim_boundary": "Scenario definitions are aggregate policy-model inputs. They do not establish funding, clinical eligibility, service capability, observed capacity, or operational feasibility.",
+  "generated_at": "derived_from_scenario_catalogue",
+  "scenario_count": 11,
+  "scenarios": [
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 1,
+      "kind": "infrastructure_exploratory",
+      "name": "Auckland-only IV counterfactual",
+      "scenario_id": "s0_auckland_only_iv",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital",
+        "iv_satellite"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "commissioning_counterfactual",
+      "name": "Domicile-district IV assignment",
+      "scenario_id": "s1_domicile_district_iv",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital",
+        "iv_satellite"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "current_documented",
+      "name": "Nearest publicly documented eligible IV service",
+      "scenario_id": "s2_nearest_eligible_iv",
+      "status": "definition_only_current_documented_evidence"
+    },
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital",
+        "iv_satellite"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv"
+      ],
+      "candidate_site_count": 3,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 3,
+      "kind": "infrastructure_exploratory",
+      "name": "Optimised additional IV satellite sites",
+      "scenario_id": "s3_additional_iv_satellites",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "sc_hospital"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_sc"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "licensed_funding_uncertain",
+      "name": "Hospital-based standalone subcutaneous trastuzumab",
+      "scenario_id": "s4_hospital_sc_trastuzumab",
+      "status": "definition_only_evidence_pending"
+    },
+    {
+      "allowed_delivery_modes": [
+        "sc_hospital"
+      ],
+      "allowed_formulations": [
+        "phesgo_sc"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "current_documented",
+      "name": "Hospital or satellite PHESGO",
+      "scenario_id": "s5_hospital_phesgo",
+      "status": "definition_only_current_documented_evidence"
+    },
+    {
+      "allowed_delivery_modes": [
+        "sc_community"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "candidate_site_count": 20,
+      "capability_state": "unknown",
+      "capacity_envelope": "medium",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 3,
+      "kind": "commissioning_counterfactual",
+      "name": "GP or community healthcare-professional SC administration",
+      "scenario_id": "s6_community_sc",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "sc_home"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "medium",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 3,
+      "kind": "commissioning_counterfactual",
+      "name": "Home or mobile healthcare-professional SC administration",
+      "scenario_id": "s7_home_sc",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "hybrid",
+        "sc_hospital",
+        "sc_community",
+        "sc_home"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "candidate_site_count": 10,
+      "capability_state": "unknown",
+      "capacity_envelope": "medium",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 3,
+      "kind": "commissioning_counterfactual",
+      "name": "Central initiation with local or home maintenance",
+      "scenario_id": "s8_hybrid",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital",
+        "iv_satellite"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "none",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "commissioning_counterfactual",
+      "name": "Existing network plus parking, shuttle or travel support",
+      "scenario_id": "s9_travel_support",
+      "status": "definition_only_not_estimated_counterfactual"
+    },
+    {
+      "allowed_delivery_modes": [
+        "iv_hospital",
+        "iv_satellite",
+        "sc_hospital"
+      ],
+      "allowed_formulations": [
+        "trastuzumab_iv",
+        "trastuzumab_sc",
+        "phesgo_sc"
+      ],
+      "candidate_site_count": 0,
+      "capability_state": "unknown",
+      "capacity_envelope": "high",
+      "clinical_eligibility_state": "not_estimated",
+      "evidence_grade_threshold": 2,
+      "kind": "infrastructure_exploratory",
+      "name": "Temporary loss of a major treatment site",
+      "scenario_id": "s10_site_outage",
+      "status": "definition_only_not_estimated_counterfactual"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "materialized_evidence_bounded_scenario_register"
+}
