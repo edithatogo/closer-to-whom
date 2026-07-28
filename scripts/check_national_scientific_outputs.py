@@ -42,8 +42,16 @@ def validate() -> dict[str, Any]:
         if payload.get("analysis_population") != "aggregate_expected_course_cells":
             raise ValueError(f"{name} lacks the aggregate analysis population contract")
     equity = reports["distributional-equity"]
-    if set(equity.get("dimensions", [])) != {"deprivation_quintile", "rurality"}:
-        raise ValueError("Distributional report must cover deprivation and rurality")
+    required_dimensions = {
+        "deprivation_quintile",
+        "rurality",
+        "vehicle_access",
+        "ethnicity_total_response",
+    }
+    if set(equity.get("dimensions", [])) != required_dimensions:
+        raise ValueError(
+            "Distributional report must cover all four aggregate stratifier dimensions"
+        )
     if "unknown" not in {row.get("group") for row in equity.get("rows", [])}:
         raise ValueError("Distributional report must retain explicit unknown groups")
     if "ecological" not in str(equity.get("claim_boundary", "")).lower():
