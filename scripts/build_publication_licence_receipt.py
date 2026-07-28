@@ -39,7 +39,7 @@ def build(output: Path) -> dict[str, Any]:
     source_rows = []
     for source in sources:
         if not isinstance(source, dict):
-            raise ValueError("input freeze source must be an object")
+            raise TypeError("input freeze source must be an object")
         receipt = source.get("retrieval_receipt")
         if not receipt:
             raise ValueError(f"missing retrieval receipt for {source.get('source_id')}")
