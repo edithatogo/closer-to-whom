@@ -85,7 +85,10 @@ def build(analysis: Path, output: Path, *, revision: str) -> Path:
                 "schema_version": "1.0.0",
                 "artifact": "reviewed-national-aggregate-reports",
                 "source_revision": revision,
-                "claim_boundary": payload["scenario_summary"]["claim_boundary"],
+                "claim_boundary": payload["scenario_summary"].get(
+                    "claim_boundary",
+                    "Reviewed aggregate scenarios only; no operational recommendation or clinical claim.",
+                ),
                 "reports": payload,
             },
             indent=2,
