@@ -25,7 +25,7 @@ def _load(name: str) -> dict[str, Any]:
         raise ValueError(f"Missing national report: {path}")
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
-        raise ValueError(f"National report is not an object: {name}")
+        raise TypeError(f"National report is not an object: {name}")
     return payload
 
 
