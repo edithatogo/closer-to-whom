@@ -77,6 +77,24 @@ def validate() -> dict[str, Any]:
     capacity = reports["capacity-cost-perspective"]
     if capacity.get("capacity_status") != "not_estimable_observed_capacity_and_staffing_unknown":
         raise ValueError("Capacity report must keep observed capacity and staffing unknown")
+    ledgers = capacity.get("cost_ledgers", {})
+    required_ledgers = {
+        "patient_direct",
+        "whanau_time",
+        "provider",
+        "facility",
+        "patient_vehicle_resource",
+        "patient_other_transport",
+    }
+    if set(ledgers) != required_ledgers:
+        raise ValueError("Capacity report must expose all distinct cost ledgers")
+    if ledgers["patient_vehicle_resource"].get("status") != "source_backed_scenario":
+        raise ValueError("Vehicle resource ledger must retain its source-backed scenario status")
+    if any(
+        ledgers[name].get("status") != "not_estimated"
+        for name in required_ledgers - {"patient_vehicle_resource"}
+    ):
+        raise ValueError("Unestimated cost ledgers must remain explicitly not_estimated")
     envelopes = capacity.get("treatment_pathway_envelopes")
     if not isinstance(envelopes, list) or not envelopes:
         raise ValueError("Capacity report must contain treatment pathway envelopes")

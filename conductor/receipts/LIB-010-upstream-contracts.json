@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "track_id": "LIB-010-upstream-contracts",
-  "verified_on": "2026-07-27",
+  "verified_on": "2026-07-29",
   "status": "passed",
   "libraries": 9,
-  "tests": 164,
+  "tests": 175,
   "commands": [
     "make check",
     "uv run python scripts/check_upstream_compatibility.py"
