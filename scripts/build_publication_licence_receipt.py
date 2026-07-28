@@ -13,9 +13,15 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT_NAMES = (
-    "scenario_summary", "optimisation_frontier", "uncertainty_analysis", "mcda_outputs",
-    "voi_outputs", "distributional-equity", "capacity-cost-perspective",
-    "resilience-sensitivity", "optimisation-comparison",
+    "scenario_summary",
+    "optimisation_frontier",
+    "uncertainty_analysis",
+    "mcda_outputs",
+    "voi_outputs",
+    "distributional-equity",
+    "capacity-cost-perspective",
+    "resilience-sensitivity",
+    "optimisation-comparison",
 )
 
 
@@ -40,16 +46,18 @@ def build(output: Path) -> dict[str, Any]:
         receipt_path = ROOT / str(receipt)
         if not receipt_path.is_file():
             raise ValueError(f"missing retrieval receipt file: {receipt}")
-        source_rows.append({
-            "input_id": source.get("input_id"),
-            "source_ids": source.get("source_ids", []),
-            "licence_state": source.get("licence_state", "unknown"),
-            "local_use_authorized": True,
-            "raw_redistribution": "not_permitted_by_default",
-            "derived_aggregate_publication": "permitted_under_project_scope_only",
-            "retrieval_receipt": str(receipt),
-            "retrieval_receipt_sha256": _sha(receipt_path),
-        })
+        source_rows.append(
+            {
+                "input_id": source.get("input_id"),
+                "source_ids": source.get("source_ids", []),
+                "licence_state": source.get("licence_state", "unknown"),
+                "local_use_authorized": True,
+                "raw_redistribution": "not_permitted_by_default",
+                "derived_aggregate_publication": "permitted_under_project_scope_only",
+                "retrieval_receipt": str(receipt),
+                "retrieval_receipt_sha256": _sha(receipt_path),
+            }
+        )
     payload = {
         name: json.loads((analysis / f"{name}.json").read_text(encoding="utf-8"))
         for name in REPORT_NAMES
@@ -63,7 +71,11 @@ def build(output: Path) -> dict[str, Any]:
             "report_names": list(REPORT_NAMES),
             "payload_sha256": hashlib.sha256(encoded).hexdigest(),
         },
-        "input_freeze": {"path": "data/public/input-freeze.yaml", "sha256": _sha(freeze_path), "source_count": len(source_rows)},
+        "input_freeze": {
+            "path": "data/public/input-freeze.yaml",
+            "sha256": _sha(freeze_path),
+            "source_count": len(source_rows),
+        },
         "sources": source_rows,
         "decision": {
             "local_use": "authorized_by_recorded_project_scope",
@@ -80,7 +92,9 @@ def build(output: Path) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "release/publication-licence-receipt.json")
+    parser.add_argument(
+        "--output", type=Path, default=ROOT / "release/publication-licence-receipt.json"
+    )
     args = parser.parse_args()
     build(args.output)
     print(args.output)
