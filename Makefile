@@ -142,6 +142,9 @@ release: full ## Build complete release metadata after full verification
 archive: release ## Create handover archives and checksums
 	$(UV) run python scripts/package_handover.py
 
+recovery-drill: ## Reconstruct critical release and Space files from Git history
+	$(UV) run python scripts/recovery_drill.py
+
 clean: ## Remove generated runtime artefacts, caches, and build outputs
 	rm -rf .coverage .mypy_cache .pytest_cache .ruff_cache .hypothesis htmlcov site dist build artifacts/demo artifacts/benchmark
 	find . -type d -name __pycache__ -prune -exec rm -rf {} +
