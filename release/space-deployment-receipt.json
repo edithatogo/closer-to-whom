@@ -1,15 +1,15 @@
 {
-  "aggregate_bundle_sha256": "1da89f3a9b610e0075277bbca1f204452f82b2507e3f4ffcadfc9ebf4873ba62",
+  "aggregate_bundle_sha256": "60dca0982a682b342e27ada3e1f62ec30bf6d2dd158fafd3141fba16775da319",
   "claim_boundary": "Technical publication of reviewed aggregate scenario reports only; no confirmed service capability, observed capacity, operational feasibility, clinical guidance, raw source payload, or policy recommendation is published.",
-  "generated_at": "2026-07-28T16:09:52.892021+00:00",
+  "generated_at": "2026-07-28T16:33:06.560164+00:00",
   "hosting_tier": "free_static_space",
   "published_payload": "nine_precomputed_national_aggregate_reports",
   "report_names": ["scenario_summary", "optimisation_frontier", "uncertainty_analysis", "mcda_outputs", "voi_outputs", "distributional-equity", "capacity-cost-perspective", "resilience-sensitivity", "optimisation-comparison"],
   "schema_version": "1.0.0",
-  "source_revision": "7d7b45523aef34dac402b0c30d6de23b5a2fa6c1",
+  "source_revision": "abef8fc344fe72e277fc9ddef6dd09bd66de6f01",
   "space_identifier": "protected_environment_secret:HF_SPACE_ID",
-  "space_revision": "2546f4f10742d33b06de616dc8129db375ce1f9e",
+  "space_revision": "13c186324e1fec3adbaa2e798ad06a4e6a794d28",
   "status": "succeeded",
   "workflow": "Publish Hugging Face Space",
-  "workflow_run_id": 30376893058
+  "workflow_run_id": 30378744517
 }
