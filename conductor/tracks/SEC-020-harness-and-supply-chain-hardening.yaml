@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 track_id: SEC-020-harness-and-supply-chain-hardening
-status: active
+status: completed
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/110
 objective: Close local container, supply-chain, GitHub-policy, observability, and maintenance gaps in the sole-developer harness.
 dependencies: [CTW-002-maximal-handover]

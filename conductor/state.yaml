@@ -1,19 +1,17 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-27
+updated_at: 2026-07-29
 version: "0.2.0"
-active_track: SEC-020-harness-and-supply-chain-hardening
-phase: post_publication_completeness_planned
+active_track: CTW-100-publication-release-completion
+phase: post_scientific_product_completeness_planned
 software_status: upstream_compatibility_harness_verified
 model_status: national_aggregate_analysis_complete
 publication_status: published_free_static_space
 current_claim_boundary: >-
-  The reviewed five-report public aggregate analysis is published on a free static Space and tied to
+  The reviewed eight-report public aggregate analysis is published on a free static Space and tied to
   verified GitHub and Space revisions. Candidate locations remain plausible, observed capacity and
   operational feasibility remain unknown, and the site is not clinical guidance or a policy recommendation.
 next_tracks:
-  - CTW-080-national-scientific-completeness
-  - CTW-090-public-product-completeness
   - CTW-100-publication-release-completion
 external_dependencies:
   - protected credentials for future optional integrations and republication
@@ -26,11 +24,10 @@ verification_status:
   status: passed
   receipt: release/verification-receipt.json
   coverage: 89.56
-  tests: 170
+  tests: 175
   optional_not_run:
     - Docker container health check
     - Mojo canary
-    - Artifact-scoped container SBOM verification
 release_status:
   candidate_tag: not_created
   release_assurance_run: 30246144787
