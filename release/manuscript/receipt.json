@@ -1,0 +1,34 @@
+{
+  "author_controlled_actions": [
+    "funding_disclosure",
+    "conflict_disclosure",
+    "ai_disclosure",
+    "journal_submission"
+  ],
+  "claim_boundary": "Prepared package only; no journal submission, acceptance, endorsement, clinical guidance, or policy recommendation.",
+  "generated_at": "2026-07-28T16:19:14.711719+00:00",
+  "report_names": [
+    "scenario_summary",
+    "optimisation_frontier",
+    "uncertainty_analysis",
+    "mcda_outputs",
+    "voi_outputs",
+    "distributional-equity",
+    "capacity-cost-perspective",
+    "resilience-sensitivity",
+    "optimisation-comparison"
+  ],
+  "report_sha256": {
+    "capacity-cost-perspective": "d673b56f574cb201706de6564107037b2e953bce41cf120911f82a03a4851896",
+    "distributional-equity": "6299cb17fdcb12d3e422f85fb830a5a4f87a1afba5208166093fac8465656cff",
+    "mcda_outputs": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba",
+    "optimisation-comparison": "c5385be669117562795729b679c42243660a5b8967d8a4662850ef2c52f9605b",
+    "optimisation_frontier": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3",
+    "resilience-sensitivity": "861efb7c1161f3e4715bc0f8b81c2a8cd72bc7933206a382e95c0d2a01e25672",
+    "scenario_summary": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8",
+    "uncertainty_analysis": "803d66fa2b2264e8cf1cb1403680391502264fe3357e2a4ee316467b59792ccc",
+    "voi_outputs": "6c71eb329ba8634d97fbaf694266f4840fd142bcd25afc517c0519439cf6ebe2"
+  },
+  "schema_version": "1.0.0",
+  "status": "prepared_evidence_linked_aggregate_manuscript"
+}
