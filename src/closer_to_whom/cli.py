@@ -121,6 +121,31 @@ def assumptions_command(
     console.print(assumptions_fingerprint(files))
 
 
+@app.command("national-summary")
+def national_summary(
+    directory: Annotated[
+        Path, typer.Option(help="Directory containing reviewed national reports.")
+    ] = Path("reports/national-analysis"),
+) -> None:
+    """Print the reviewed national aggregate scenario summary as JSON."""
+    path = directory / "scenario_summary.json"
+    if not path.exists():
+        raise typer.BadParameter(f"National summary does not exist: {path}")
+    _print_json(json.loads(path.read_text(encoding="utf-8")))
+
+
+@app.command("space-provenance")
+def space_provenance(
+    path: Annotated[Path, typer.Option(help="Static Space provenance manifest.")] = Path(
+        "spaces/static/provenance.json"
+    ),
+) -> None:
+    """Print the static Space provenance manifest as JSON."""
+    if not path.exists():
+        raise typer.BadParameter(f"Space provenance manifest does not exist: {path}")
+    _print_json(json.loads(path.read_text(encoding="utf-8")))
+
+
 @app.command("mojo-canary")
 def mojo_canary(
     required: Annotated[
