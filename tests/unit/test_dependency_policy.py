@@ -1,5 +1,6 @@
-import yaml
 from pathlib import Path
+
+import yaml
 
 
 def test_dependabot_is_the_single_authoritative_update_system() -> None:
