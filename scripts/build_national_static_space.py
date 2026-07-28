@@ -34,10 +34,10 @@ TEMPLATE = r"""<!doctype html>
     .card{border:1px solid #bcccdc;border-radius:.5rem;padding:.75rem}.metric{font-size:1.5rem;font-weight:700}
     table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:.5rem;border-bottom:1px solid #d9e2ec;text-align:right}
     th:first-child,td:first-child{text-align:left}.bar{height:.8rem;background:#0b7285;border-radius:.2rem}
-    .muted{color:#52667a}code{overflow-wrap:anywhere}
+    .muted{color:#52667a}code{overflow-wrap:anywhere}:focus{outline:3px solid #005a9c;outline-offset:2px}
   </style>
 </head>
-<body>
+<body><a href="#main">Skip to main content</a><main id="main">
   <header>
     <h1>Closer to whom?</h1>
     <p class="warning"><strong>Boundary:</strong> Public aggregate planning scenarios - not confirmed anti-HER2 services, observed capacity, operational feasibility, clinical guidance, or a policy recommendation.</p>
@@ -60,7 +60,7 @@ TEMPLATE = r"""<!doctype html>
     const voi=DATA.voi_outputs;
     document.querySelector('#voi').textContent=`Under broad normative-weight uncertainty, ${voi.current_best_under_mean_weights} is best at mean weights. EVPI is ${fmt(voi.evpi_per_policy_decision,3)} unitless utility per policy decision. Next information priority: ${voi.next_information_priority}.`;
   </script>
-</body></html>
+</main></body></html>
 """
 
 
