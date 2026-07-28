@@ -1,0 +1,25 @@
+{
+  "aggregate_only": true,
+  "artifact": "static-space-summary",
+  "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
+  "generated_at": "2026-07-27T06:38:23+00:00",
+  "javascript_required": false,
+  "schema_version": "1.0.0",
+  "source_reports": {
+    "mcda_outputs.json": {
+      "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
+    },
+    "optimisation_frontier.json": {
+      "sha256": "4c717b4c1c055a365d340d4472f799dd61d8de297a889974988531f8cddfdbc3"
+    },
+    "scenario_summary.json": {
+      "sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8"
+    },
+    "uncertainty_analysis.json": {
+      "sha256": "803d66fa2b2264e8cf1cb1403680391502264fe3357e2a4ee316467b59792ccc"
+    },
+    "voi_outputs.json": {
+      "sha256": "6c71eb329ba8634d97fbaf694266f4840fd142bcd25afc517c0519439cf6ebe2"
+    }
+  }
+}
