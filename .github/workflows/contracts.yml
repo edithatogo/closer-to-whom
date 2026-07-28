@@ -13,6 +13,8 @@ on:
       - "scripts/publication_readiness.py"
       - "scripts/release_gate.py"
       - "scripts/fetch_stats_nz_population_chunks.py"
+      - "scripts/materialize_treatment_delivery_scenarios.py"
+      - "reports/national-analysis/**"
       - ".github/workflows/**"
       # Dependency manifests must trigger lockfile and schema compatibility checks.
       - "Dockerfile"
