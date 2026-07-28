@@ -1,7 +1,6 @@
+import importlib.util
 import json
 from pathlib import Path
-
-import importlib.util
 
 
 def _module():
