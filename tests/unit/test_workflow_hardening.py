@@ -19,4 +19,6 @@ def test_external_actions_require_full_commit_shas() -> None:
       - uses: ./local-action
     """
     failures = _action_reference_failures(text, "fixture.yml")
-    assert failures == ["fixture.yml: mutable or non-commit action reference: actions/setup-python@v4"]
+    assert failures == [
+        "fixture.yml: mutable or non-commit action reference: actions/setup-python@v4"
+    ]
