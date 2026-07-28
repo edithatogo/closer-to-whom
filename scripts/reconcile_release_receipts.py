@@ -61,14 +61,17 @@ def build(output: Path) -> dict[str, Any]:
         "current_payload_sha256": payload_hash,
         "historical_receipt_sha256": _sha(historical_path),
     }
+    matches = all(item["matches"] for item in (drift["source_revision"], drift["report_scope"]))
     receipt = {
         "schema_version": "1.0.0",
-        "status": "historical_space_receipt_stale"
-        if not all(item["matches"] for item in (drift["source_revision"], drift["report_scope"]))
-        else "historical_space_receipt_matches",
+        "status": "historical_space_receipt_matches"
+        if matches
+        else "historical_space_receipt_stale",
         "historical_receipt": "release/space-deployment-receipt.json",
         "drift": drift,
-        "required_next_evidence": [
+        "required_next_evidence": []
+        if matches
+        else [
             "fresh deployment receipt from the publish workflow",
             "live Space revision and content hash probe",
             "approved source revision matching current main",
