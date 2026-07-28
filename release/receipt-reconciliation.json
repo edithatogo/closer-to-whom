@@ -20,9 +20,10 @@
       "matches": true
     },
     "source_revision": {
-      "current": "be29c0d0fc0606626e7092267251c71f6b9f697f",
+      "current": "25d8a0807eba6a9f0a9bc59c93dcbd30d8d264a5",
       "historical": "be29c0d0fc0606626e7092267251c71f6b9f697f",
-      "matches": true
+      "matches": true,
+      "mode": "receipt_only_descendant"
     }
   },
   "historical_receipt": "release/space-deployment-receipt.json",

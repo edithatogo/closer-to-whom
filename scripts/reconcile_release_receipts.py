@@ -22,6 +22,13 @@ REPORT_NAMES = (
     "resilience-sensitivity",
     "optimisation-comparison",
 )
+RECEIPT_ONLY_PATHS = {
+    "conductor/state.yaml",
+    "release/receipt-reconciliation.json",
+    "release/recovery-drill-receipt.json",
+    "release/space-deployment-receipt.json",
+    "release/space-monitor-receipt.json",
+}
 
 
 def _sha(path: Path) -> str:
@@ -32,6 +39,27 @@ def _revision() -> str:
     return subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True
     ).stdout.strip()
+
+
+def _receipt_only_descendant(historical_revision: str, current_revision: str) -> bool:
+    """Allow receipt registration commits, but never source or report drift."""
+    if not historical_revision or historical_revision == current_revision:
+        return historical_revision == current_revision
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", historical_revision, current_revision],
+        cwd=ROOT,
+        check=False,
+    )
+    if ancestor.returncode != 0:
+        return False
+    changed = subprocess.run(
+        ["git", "diff", "--name-only", f"{historical_revision}..{current_revision}"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.splitlines()
+    return bool(changed) and set(changed).issubset(RECEIPT_ONLY_PATHS)
 
 
 def build(output: Path) -> dict[str, Any]:
@@ -46,11 +74,15 @@ def build(output: Path) -> dict[str, Any]:
         json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     ).hexdigest()
     historical_reports = str(historical.get("published_payload", ""))
+    current_revision = _revision()
+    historical_revision = str(historical.get("source_revision", ""))
+    source_matches = _receipt_only_descendant(historical_revision, current_revision)
     drift = {
         "source_revision": {
-            "historical": historical.get("source_revision"),
-            "current": _revision(),
-            "matches": historical.get("source_revision") == _revision(),
+            "historical": historical_revision,
+            "current": current_revision,
+            "matches": source_matches,
+            "mode": "exact" if historical_revision == current_revision else "receipt_only_descendant",
         },
         "report_scope": {
             "historical": historical_reports,
