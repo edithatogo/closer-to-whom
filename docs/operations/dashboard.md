@@ -23,8 +23,23 @@ The reviewed public product has read-only, machine-readable inspection commands:
 ```text
 closer-to-whom national-summary
 closer-to-whom space-provenance
+closer-to-whom national-validate --output release/national-validation.json
+closer-to-whom space-build --output spaces/static --revision <git-revision>
 ```
 
 `national-summary` reads the reviewed candidate-network report. `space-provenance`
-reads the static product provenance manifest. Neither command fetches live
-service data or changes a published artifact.
+reads the static product provenance manifest. `national-validate` runs the
+claim-bounded scientific-output validator and writes a machine-readable receipt.
+`space-build` regenerates the deterministic no-JavaScript static bundle from
+the reviewed reports; its revision argument is required so the generated page
+can be tied to a source commit. These commands do not fetch live service data.
+
+The supported workflow is:
+
+1. run `national-validate` from the repository root;
+2. inspect the receipt and source/licence boundaries;
+3. run `space-build` with the approved commit revision;
+4. run the release and publication gates before any hosted update.
+
+The CLI is read-only with respect to source data and does not publish or
+modify a hosted Space by itself.
