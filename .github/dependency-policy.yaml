@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+policy_id: SEC-020e
+authoritative_update_system: dependabot
+ecosystems:
+  python:
+    manifest: pyproject.toml
+    lockfile: uv.lock
+    owner: dependabot
+    schedule: weekly
+    grouping: python-runtime
+    automerge: false
+  github-actions:
+    manifest: .github/workflows
+    owner: dependabot
+    schedule: weekly
+    grouping: actions
+    automerge: false
+  docker:
+    manifest: Dockerfile
+    owner: dependabot
+    schedule: weekly
+    grouping: docker
+    automerge: false
+security_requirements:
+  - pip-audit remains a required hosted check
+  - Bandit remains a required hosted check
+  - immutable GitHub Action commit references remain mandatory
+  - every update must pass the protected Python 3.14 CI path
+boundaries:
+  - No second dependency-update bot is configured.
+  - Manual upgrades remain allowed when accompanied by lockfile and verification evidence.
