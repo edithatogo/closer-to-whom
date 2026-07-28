@@ -30,11 +30,11 @@ verification_status:
     - Mojo canary
 release_status:
   candidate_tag: not_created
-  release_assurance_run: 30384019176
-  release_artifact_id: 8698207376
-  space_deployment_run: 30384021808
-  space_artifact_id: 8698183681
-  space_revision: 778fa89070713084ad2b1a8c5222144a99e3e8fb
+  release_assurance_run: 30385608455
+  release_artifact_id: 8698835251
+  space_deployment_run: 30385610447
+  space_artifact_id: 8698814220
+  space_revision: 965540f9c0a910ce374ed03d7cb147fc79424384
   reason: >-
     The clean main revision passed all 27 required release gates and the reviewed aggregate payload
     is published on the free Static Space. No version tag was created because this completion records
