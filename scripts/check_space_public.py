@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-MARKERS = ("Closer to whom", "Research boundary", "aggregate")
+MARKERS = ("Closer to whom", "Boundary", "aggregate")
 
 
 def probe(url: str, timeout: int = 20) -> dict[str, object]:
