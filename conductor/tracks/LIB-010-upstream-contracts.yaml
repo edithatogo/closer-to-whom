@@ -22,7 +22,7 @@ acceptance_criteria:
   - Authenticated upstream metadata is recorded in a dated receipt without implying release, suitability, or endorsement.
 verification:
   status: passed
-  test_count: 175
+  test_count: 178
   commands:
     - make check
     - uv run python scripts/check_upstream_compatibility.py
