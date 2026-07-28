@@ -1,6 +1,6 @@
 {
-  "body_sha256": "51aa12d481dc3e4fde65f799041e91f5c590311a534702f83972d5f9666068b5",
-  "checked_at": "2026-07-28T16:33:45.161480+00:00",
+  "body_sha256": "f86c8745d98f969985486ab27dc91b3eb610900795c2224a305bf51ad02d6f08",
+  "checked_at": "2026-07-29T02:46:09.109686+10:00",
   "claim_boundary": "Availability and public-content smoke check only; not deployment, clinical, or policy validation.",
   "content_type": "text/plain; charset=utf-8",
   "http_status": 200,
@@ -8,5 +8,5 @@
   "schema_version": "1.0.0",
   "status": "passed",
   "url": "https://huggingface.co/spaces/edithatogo/closer-to-whom/raw/main/index.html",
-  "workflow_run_id": 30378811709
+  "workflow_run_id": 30379776788
 }
