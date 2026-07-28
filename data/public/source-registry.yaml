@@ -75,6 +75,17 @@ sources:
     status: captured_metadata_only
     receipt_path: data/public/receipts/input-freeze/candidate.pharmac-anti-her2.json
     notes: Funding-decision context only; eligibility, uptake, and local service capability remain separate evidence questions.
+  - source_id: candidate.tewhatuora-breastscreen-treatment
+    title: New breast cancer diagnoses and treatment report
+    publisher: Te Whatu Ora Health New Zealand - BreastScreen Aotearoa
+    url: https://www.tewhatuora.govt.nz/assets/Publications/Screening/New-breast-cancer-diagnoses-and-treatment-report.pdf
+    retrieved_on: 2026-07-29
+    licence_state: unknown
+    redistribution_allowed: false
+    evidence_grade: 2_public_subgroup_treatment_context
+    status: captured_metadata_only
+    receipt_path: data/public/receipts/input-freeze/candidate.tewhatuora-breastscreen-treatment.json
+    notes: Reports bounded BreastScreen subgroup anti-HER2 treatment proportions; does not establish national treatment mix, capability, capacity, eligibility, or travel.
   - source_id: candidate.medsafe-herceptin-iv
     title: Herceptin intravenous New Zealand data sheet
     publisher: Medsafe
