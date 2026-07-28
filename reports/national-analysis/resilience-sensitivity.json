@@ -1,0 +1,353 @@
+{
+  "analysis_population": "aggregate_expected_course_cells",
+  "claim_boundary": "This is a deterministic routing sensitivity for hypothetical candidate-site removal. It is not an observed outage, service-continuity result, resilience guarantee, capacity claim, or operational recommendation; candidate capability remains unknown.",
+  "generated_at": "derived_from_frozen_national_inputs",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "outage_scenario_type": "counterfactual_candidate_site_removal",
+  "rows": [
+    {
+      "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+      "change_in_weighted_mean_one_way_minutes": 100.6768132172154,
+      "configuration_id": "candidate_network_03",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.10579291824747972,
+      "post_removal_weighted_mean_one_way_minutes": 242.78017578900543,
+      "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+      "change_in_weighted_mean_one_way_minutes": 47.54062395657439,
+      "configuration_id": "candidate_network_03",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.17887733441754325,
+      "post_removal_weighted_mean_one_way_minutes": 189.64398652836442,
+      "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 142.10336257179003,
+      "change_in_weighted_mean_one_way_minutes": 159.96825771614166,
+      "configuration_id": "candidate_network_03",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.1467864815772767,
+      "post_removal_weighted_mean_one_way_minutes": 302.0716202879317,
+      "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+      "change_in_weighted_mean_one_way_minutes": 41.17441828871789,
+      "configuration_id": "candidate_network_05",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.24364488957252123,
+      "post_removal_weighted_mean_one_way_minutes": 120.90274514461782,
+      "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+      "change_in_weighted_mean_one_way_minutes": 42.28614093336431,
+      "configuration_id": "candidate_network_05",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.44138631046228727,
+      "post_removal_weighted_mean_one_way_minutes": 122.01446778926424,
+      "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+      "change_in_weighted_mean_one_way_minutes": 47.54062395657438,
+      "configuration_id": "candidate_network_05",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.5144707266323508,
+      "post_removal_weighted_mean_one_way_minutes": 127.26895081247432,
+      "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+      "change_in_weighted_mean_one_way_minutes": 21.20061742717222,
+      "configuration_id": "candidate_network_05",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.523405236884586,
+      "post_removal_weighted_mean_one_way_minutes": 100.92894428307216,
+      "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 79.72832685589994,
+      "change_in_weighted_mean_one_way_minutes": 17.129289111701695,
+      "configuration_id": "candidate_network_05",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.4823798737920842,
+      "post_removal_weighted_mean_one_way_minutes": 96.85761596760163,
+      "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 41.15293376012708,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.4571277042195979,
+      "post_removal_weighted_mean_one_way_minutes": 86.96619043821809,
+      "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 5.378631593820366,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7163405125532162,
+      "post_removal_weighted_mean_one_way_minutes": 51.19188827191138,
+      "removed_candidate_facility_id": "NZ-BOP-TAURANGA"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 33.59739300632014,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.654869125109364,
+      "post_removal_weighted_mean_one_way_minutes": 79.41064968441115,
+      "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 5.431016996669243,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7320985180412105,
+      "post_removal_weighted_mean_one_way_minutes": 51.24427367476026,
+      "removed_candidate_facility_id": "NZ-HKB-HASTINGS"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 5.192889109506105,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7279535412794276,
+      "post_removal_weighted_mean_one_way_minutes": 51.00614578759712,
+      "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 3.5455128781548453,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7434302411742645,
+      "post_removal_weighted_mean_one_way_minutes": 49.35876955624586,
+      "removed_candidate_facility_id": "NZ-NSN-NELSON"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 21.200617427172183,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7368880515316627,
+      "post_removal_weighted_mean_one_way_minutes": 67.0138741052632,
+      "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 4.43851891519396,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7433250573437794,
+      "post_removal_weighted_mean_one_way_minutes": 50.251775593284975,
+      "removed_candidate_facility_id": "NZ-TKI-NEW-PLYMOUTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 10.482229560045631,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.6753457261556229,
+      "post_removal_weighted_mean_one_way_minutes": 56.29548623813665,
+      "removed_candidate_facility_id": "NZ-WGN-WELLINGTON-REGIONAL"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 45.813256678091015,
+      "change_in_weighted_mean_one_way_minutes": 5.071266187463401,
+      "configuration_id": "candidate_network_10",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.699712905862027,
+      "post_removal_weighted_mean_one_way_minutes": 50.884522865554416,
+      "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 34.18150213544946,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.5554709165195946,
+      "post_removal_weighted_mean_one_way_minutes": 64.71032124448142,
+      "removed_candidate_facility_id": "NZ-AKL-TE-PURIRI"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 2.0466984557088317,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8360287040348702,
+      "post_removal_weighted_mean_one_way_minutes": 32.575517564740785,
+      "removed_candidate_facility_id": "NZ-BOP-TAURANGA"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 0.5783099289760649,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8549507859119859,
+      "post_removal_weighted_mean_one_way_minutes": 31.10712903800802,
+      "removed_candidate_facility_id": "NZ-BOP-WHAKATANE"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 17.580750609293613,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7532123374093604,
+      "post_removal_weighted_mean_one_way_minutes": 48.10956971832557,
+      "removed_candidate_facility_id": "NZ-CAN-CHRISTCHURCH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 4.116785504779042,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8304417303412069,
+      "post_removal_weighted_mean_one_way_minutes": 34.645604613810995,
+      "removed_candidate_facility_id": "NZ-HKB-HASTINGS"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 0.8584433132587641,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.846010160320769,
+      "post_removal_weighted_mean_one_way_minutes": 31.387262422290718,
+      "removed_candidate_facility_id": "NZ-LAK-ROTORUA"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 0.5190072785747972,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8553495060135915,
+      "post_removal_weighted_mean_one_way_minutes": 31.04782638760675,
+      "removed_candidate_facility_id": "NZ-LAK-TAUPO"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 2.8825805998928438,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8292027626635184,
+      "post_removal_weighted_mean_one_way_minutes": 33.4113997089248,
+      "removed_candidate_facility_id": "NZ-MWT-PALMERSTON-NORTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 3.545512878154856,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8417734534742608,
+      "post_removal_weighted_mean_one_way_minutes": 34.07433198718681,
+      "removed_candidate_facility_id": "NZ-NSN-NELSON"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 4.457586972050979,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.850966031031523,
+      "post_removal_weighted_mean_one_way_minutes": 34.98640608108293,
+      "removed_candidate_facility_id": "NZ-NTH-DARGAVILLE"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 5.591024290628756,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.835231263831659,
+      "post_removal_weighted_mean_one_way_minutes": 36.11984339966071,
+      "removed_candidate_facility_id": "NZ-OTA-DUNEDIN"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 2.0228587130886417,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8519041240313127,
+      "post_removal_weighted_mean_one_way_minutes": 32.551677822120595,
+      "removed_candidate_facility_id": "NZ-SCD-TIMARU"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 3.461054847118458,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8479218152864424,
+      "post_removal_weighted_mean_one_way_minutes": 33.98987395615041,
+      "removed_candidate_facility_id": "NZ-STL-INVERCARGILL"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 1.2850178456388335,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8531773376072986,
+      "post_removal_weighted_mean_one_way_minutes": 31.813836954670787,
+      "removed_candidate_facility_id": "NZ-TGI-GISBORNE"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 3.2296750051983985,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.841668269643776,
+      "post_removal_weighted_mean_one_way_minutes": 33.75849411423035,
+      "removed_candidate_facility_id": "NZ-TKI-NEW-PLYMOUTH"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 0.6507275660584639,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8522453599464905,
+      "post_removal_weighted_mean_one_way_minutes": 31.179546675090418,
+      "removed_candidate_facility_id": "NZ-WAI-MASTERTON"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 6.0019006428847455,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.7740362897097789,
+      "post_removal_weighted_mean_one_way_minutes": 36.5307197519167,
+      "removed_candidate_facility_id": "NZ-WGN-WELLINGTON-REGIONAL"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 0.19958017780647808,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8606270435547817,
+      "post_removal_weighted_mean_one_way_minutes": 30.72839928683843,
+      "removed_candidate_facility_id": "NZ-WKO-TE-KUITI"
+    },
+    {
+      "baseline_weighted_mean_one_way_minutes": 30.528819109031954,
+      "change_in_weighted_mean_one_way_minutes": 3.6286272122280643,
+      "configuration_id": "candidate_network_19",
+      "expected_courses": 322.1696699999999,
+      "post_removal_share_expected_courses_within_60_minutes": 0.8048881748723568,
+      "post_removal_weighted_mean_one_way_minutes": 34.15744632126002,
+      "removed_candidate_facility_id": "NZ-WKO-WAIKATO"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_inputs": {
+    "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/national-demand-cells.parquet",
+    "national_demand_cells_sha256": "e198e77eae3ec9d5d9afe94fd9c2bb829e2fc877aede36bc4a3101fb4a5e7785",
+    "route_matrix": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/data/derived/route-matrix.parquet",
+    "route_matrix_sha256": "9dcb9cba37de8d2e7c332d8799daefb61a641fc5437e98e3416e95c21282190b",
+    "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
+    "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8"
+  },
+  "status": "materialized_candidate_network_single_site_routing_sensitivity"
+}

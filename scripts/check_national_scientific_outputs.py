@@ -18,6 +18,7 @@ REPORTS = (
     "voi_outputs",
     "distributional-equity",
     "capacity-cost-perspective",
+    "resilience-sensitivity",
 )
 
 
@@ -52,6 +53,11 @@ def validate() -> dict[str, Any]:
         raise ValueError("Capacity report must keep observed capacity and staffing unknown")
     if capacity.get("operational_recommendation") is not False:
         raise ValueError("Capacity report crosses the operational recommendation boundary")
+    resilience = reports["resilience-sensitivity"]
+    if resilience.get("outage_scenario_type") != "counterfactual_candidate_site_removal":
+        raise ValueError("Resilience report must declare its counterfactual scenario type")
+    if "hypothetical" not in str(resilience.get("claim_boundary", "")).lower():
+        raise ValueError("Resilience report lacks its hypothetical claim boundary")
     summary_ids = {row["configuration_id"] for row in reports["scenario_summary"]["configurations"]}
     frontier_ids = {row["configuration_id"] for row in reports["optimisation_frontier"]["points"]}
     if summary_ids != frontier_ids:
