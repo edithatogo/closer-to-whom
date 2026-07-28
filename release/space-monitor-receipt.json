@@ -1,0 +1,12 @@
+{
+  "body_sha256": "b9f1d212d629c95d267ec0e6844f773306aa3b0344673e6be1a4c273feed43cd",
+  "checked_at": "2026-07-28T16:10:38.298736+00:00",
+  "claim_boundary": "Availability and public-content smoke check only; not deployment, clinical, or policy validation.",
+  "content_type": "text/plain; charset=utf-8",
+  "http_status": 200,
+  "markers": ["Closer to whom", "Boundary", "aggregate"],
+  "schema_version": "1.0.0",
+  "status": "passed",
+  "url": "https://huggingface.co/spaces/edithatogo/closer-to-whom/raw/main/index.html",
+  "workflow_run_id": 30376965759
+}
