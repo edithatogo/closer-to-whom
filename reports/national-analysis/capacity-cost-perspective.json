@@ -1,0 +1,68 @@
+{
+  "analysis_population": "aggregate_expected_course_cells",
+  "capacity_status": "not_estimable_observed_capacity_and_staffing_unknown",
+  "claim_boundary": "Expected courses are aggregate model cells, not patients or observed workload. Per-site values are arithmetic workload envelopes, not staffing requirements or capacity. Vehicle costs are a source-backed private-vehicle resource scenario; omitted cost components remain unpriced and no operational or policy recommendation is made.",
+  "configurations": [
+    {
+      "candidate_site_count": 1,
+      "configuration_id": "candidate_network_01",
+      "expected_annual_courses": 322.1696699999999,
+      "expected_annual_round_trip_km": 270694.5423690633,
+      "expected_courses_per_candidate_site": 322.1696699999999,
+      "vehicle_resource_cost_nzd": 100156.98067655342
+    },
+    {
+      "candidate_site_count": 3,
+      "configuration_id": "candidate_network_03",
+      "expected_annual_courses": 322.1696699999999,
+      "expected_annual_round_trip_km": 95352.00030071873,
+      "expected_courses_per_candidate_site": 107.38988999999997,
+      "vehicle_resource_cost_nzd": 35280.24011126593
+    },
+    {
+      "candidate_site_count": 5,
+      "configuration_id": "candidate_network_05",
+      "expected_annual_courses": 322.1696699999999,
+      "expected_annual_round_trip_km": 56327.19005558126,
+      "expected_courses_per_candidate_site": 64.43393399999998,
+      "vehicle_resource_cost_nzd": 20841.060320565066
+    },
+    {
+      "candidate_site_count": 10,
+      "configuration_id": "candidate_network_10",
+      "expected_annual_courses": 322.1696699999999,
+      "expected_annual_round_trip_km": 30828.60366582433,
+      "expected_courses_per_candidate_site": 32.21696699999999,
+      "vehicle_resource_cost_nzd": 11406.583356355002
+    },
+    {
+      "candidate_site_count": 19,
+      "configuration_id": "candidate_network_19",
+      "expected_annual_courses": 322.1696699999999,
+      "expected_annual_round_trip_km": 19752.46228718199,
+      "expected_courses_per_candidate_site": 16.956298421052626,
+      "vehicle_resource_cost_nzd": 7308.411046257335
+    }
+  ],
+  "cost_scope": "private_vehicle_resource_cost_scenario_only",
+  "generated_at": "derived_from_frozen_national_inputs",
+  "observed_capacity": "unknown",
+  "operational_recommendation": false,
+  "schema_version": "1.0.0",
+  "source_inputs": {
+    "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-demand-cells.json",
+    "national_demand_cells_sha256": "2c3a76ed68ecf1d4228b7cad6a1b7fdf43be4445b114f030f9d56d659f5a3e0e",
+    "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
+    "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8",
+    "travel_cost_parameters": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/travel-cost-parameters.json",
+    "travel_cost_parameters_sha256": "eaf6b3c9bc0a5bd369c509727bc327ebefa6567e0a2622958bc5e83cc915560d"
+  },
+  "status": "materialized_implied_workload_and_partial_travel_resource_perspective",
+  "unpriced_cost_components": [
+    "treatment_drug_and_administration_cost",
+    "facility_overhead",
+    "provider_travel",
+    "public_transport_fares",
+    "parking"
+  ]
+}

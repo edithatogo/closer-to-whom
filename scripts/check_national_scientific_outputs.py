@@ -17,6 +17,7 @@ REPORTS = (
     "mcda_outputs",
     "voi_outputs",
     "distributional-equity",
+    "capacity-cost-perspective",
 )
 
 
@@ -46,6 +47,11 @@ def validate() -> dict[str, Any]:
         raise ValueError("Distributional report must retain explicit unknown groups")
     if "ecological" not in str(equity.get("claim_boundary", "")).lower():
         raise ValueError("Distributional report lacks its ecological claim boundary")
+    capacity = reports["capacity-cost-perspective"]
+    if capacity.get("capacity_status") != "not_estimable_observed_capacity_and_staffing_unknown":
+        raise ValueError("Capacity report must keep observed capacity and staffing unknown")
+    if capacity.get("operational_recommendation") is not False:
+        raise ValueError("Capacity report crosses the operational recommendation boundary")
     summary_ids = {row["configuration_id"] for row in reports["scenario_summary"]["configurations"]}
     frontier_ids = {row["configuration_id"] for row in reports["optimisation_frontier"]["points"]}
     if summary_ids != frontier_ids:
