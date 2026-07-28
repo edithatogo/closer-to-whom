@@ -69,7 +69,7 @@ jobs:
           git init --initial-branch=main
           git config user.name "closer-to-whom publisher"
           git config user.email "actions@users.noreply.github.com"
-          git add README.md index.html
+          git add README.md index.html aggregate-reports.json
           git commit -m "publish national aggregate dashboard ${GITHUB_SHA}"
           SPACE_REVISION="$(git rev-parse HEAD)"
           export SPACE_REVISION
@@ -113,5 +113,6 @@ jobs:
             space-deployment-receipt.json
             space-dist/README.md
             space-dist/index.html
+            space-dist/aggregate-reports.json
           if-no-files-found: error
           retention-days: 14
