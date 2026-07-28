@@ -15,6 +15,7 @@ nav:
   - Architecture: architecture.md
   - Methods:
       - Service census: methods/service-census.md
+      - Systematic service census: methods/systematic-service-census.md
       - Demand and geography: methods/demand-and-geography.md
       - Travel and costs: methods/travel-and-costs.md
       - Resilience and outages: methods/resilience.md
@@ -30,14 +31,36 @@ nav:
       - Release runbook: operations/release.md
       - Dashboard: operations/dashboard.md
       - GitHub project and assurance: operations/github-project.md
+      - Data refresh: operations/data-refresh.md
+      - National routing: operations/national-routing.md
       - National analysis receipts: operations/national-analysis-receipts.md
+      - Source receipts: operations/source-receipts.md
+      - Input freeze: operations/input-freeze.md
+      - Clinical review receipts: operations/clinical-review-receipts.md
+      - Governance review receipts: operations/governance-review-receipts.md
       - Microdata and VOI decision: operations/microdata-voi-decision.md
       - Publication gate: operations/publication-gate.md
+      - Reproducibility: operations/reproducibility.md
+      - Security: operations/security.md
+      - Dependency management: operations/dependency-management.md
       - Ecosystem drift: operations/ecosystem-drift.md
+      - Upstream compatibility receipts: operations/upstream-compatibility-receipts.md
+      - Incident response: operations/incident-response.md
+      - Independent review pack: operations/independent-review-pack.md
+      - Local handover: operations/local-handover.md
+      - Scorecard adjudication: operations/scorecard-adjudication.md
+  - Decisions:
+      - Arrow and Polars contracts: adr/0001-arrow-polars-contracts.md
+      - Public aggregate boundary: adr/0002-public-aggregate-only.md
+      - Optimisation and MCDA: adr/0003-optimisation-plus-mcda.md
+      - JAX and Mojo promotion: adr/0004-jax-and-mojo-promotion.md
+      - Precomputed dashboard: adr/0005-dashboard-precomputed-only.md
+  - Ecosystem: github-ecosystem.md
   - Publication:
       - Strategy: publication/strategy.md
       - NZMJ protocol: publication/nzmj-protocol.md
       - Assumptions appendix: publication/assumptions-appendix.md
+      - Manuscript freeze: publication/manuscript-freeze.md
   - API: reference/api.md
 plugins:
   - search
