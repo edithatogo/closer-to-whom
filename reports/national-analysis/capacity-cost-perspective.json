@@ -74,6 +74,13 @@
         "parking"
       ],
       "reason": "No national mode split or fare/parking receipt is available.",
+      "source_context": {
+        "boundary": "This source does not provide observed national uptake, mode split, fares, parking costs, or patient-level eligibility; no transport cost is calculated.",
+        "scope": "official National Travel Assistance reimbursement and eligibility metadata",
+        "source_ids": [
+          "candidate.healthnz-nta"
+        ]
+      },
       "status": "not_estimated"
     },
     "patient_vehicle_resource": {
@@ -109,6 +116,9 @@
     "national_demand_cells": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-demand-cells.json",
     "national_demand_cells_sha256": "2c3a76ed68ecf1d4228b7cad6a1b7fdf43be4445b114f030f9d56d659f5a3e0e",
     "pathway_source_id": "synthetic.clinical-fixture",
+    "patient_other_transport_context_source_ids": [
+      "candidate.healthnz-nta"
+    ],
     "scenario_summary": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/national-analysis/scenario_summary.json",
     "scenario_summary_sha256": "d2387152b897d70479c4e6b13f195156161ee7e47448ad4c18dd3a701027c3a8",
     "travel_cost_parameters": "C:/Users/60217257/OneDrive - Flinders/repos/closer-to-home/reports/travel-cost-parameters.json",

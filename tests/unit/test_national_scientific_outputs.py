@@ -35,3 +35,11 @@ def test_national_reports_form_a_claim_bounded_scientific_set() -> None:
         (_module().REPORT_DIR / "treatment-delivery-scenarios.json").read_text(encoding="utf-8")
     )
     assert all(row["formulation_evidence_source_ids"] for row in scenario_report["scenarios"])
+
+    capacity = json.loads(
+        (_module().REPORT_DIR / "capacity-cost-perspective.json").read_text(encoding="utf-8")
+    )
+    transport = capacity["cost_ledgers"]["patient_other_transport"]
+    assert transport["status"] == "not_estimated"
+    assert transport["source_context"]["source_ids"] == ["candidate.healthnz-nta"]
+    assert "uptake" in transport["source_context"]["boundary"]
