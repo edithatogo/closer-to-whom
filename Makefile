@@ -69,6 +69,7 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/materialize_distributional_equity.py --output reports/national-analysis/distributional-equity.json
 	$(UV) run python scripts/materialize_capacity_cost_perspective.py --output reports/national-analysis/capacity-cost-perspective.json
 	$(UV) run python scripts/materialize_resilience_sensitivity.py --output reports/national-analysis/resilience-sensitivity.json
+	$(UV) run python scripts/materialize_optimisation_comparison.py --output reports/national-analysis/optimisation-comparison.json
 	$(UV) run python scripts/check_microdata_voi_decision.py
 	$(UV) run python scripts/check_publication_gate.py
 	$(UV) run python scripts/check_upstream_compatibility.py

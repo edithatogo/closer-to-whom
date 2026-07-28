@@ -56,6 +56,11 @@ def _write_reports(path: Path, *, operational: bool = False) -> None:
             **common,
             "outage_scenario_type": "counterfactual_candidate_site_removal",
         },
+        "optimisation-comparison": {
+            **common,
+            "rows": [],
+            "solver_scope": "Exact deterministic enumeration for p=1,3,5",
+        },
     }
     path.mkdir()
     for name, payload in payloads.items():

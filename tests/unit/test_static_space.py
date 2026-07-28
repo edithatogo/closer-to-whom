@@ -22,4 +22,5 @@ def test_static_space_is_generated_and_no_javascript_is_required() -> None:
         "distributional-equity",
         "capacity-cost-perspective",
         "resilience-sensitivity",
+        "optimisation-comparison",
     }
