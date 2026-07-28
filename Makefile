@@ -65,6 +65,7 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_governance_review.py
 	$(UV) run python scripts/check_national_analysis_receipt.py
 	$(UV) run python scripts/check_national_scientific_outputs.py
+	$(UV) run python scripts/build_publication_licence_receipt.py
 	$(UV) run python scripts/materialize_treatment_delivery_scenarios.py --output reports/national-analysis/treatment-delivery-scenarios.json
 	$(UV) run python scripts/materialize_distributional_equity.py --output reports/national-analysis/distributional-equity.json
 	$(UV) run python scripts/materialize_capacity_cost_perspective.py --output reports/national-analysis/capacity-cost-perspective.json
