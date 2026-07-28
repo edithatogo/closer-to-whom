@@ -2,7 +2,7 @@
   "claim_boundary": "This is a reconciliation of repository and historical receipt metadata; it does not establish current Space availability or deployment.",
   "drift": {
     "current_payload_sha256": "05bde4aa724a75053a3514cf900fae1b29f1fdf46543e518c0a990d65fae3685",
-    "historical_receipt_sha256": "79d2e91cba8717c62bc025e4573f0bfccef5c3cc2255582a5a1139db303f6fbe",
+    "historical_receipt_sha256": "723a2dd290500a13d90e1f45c104e3bb2e388e3549601d1ac5028043565b53e8",
     "report_scope": {
       "current_report_count": 9,
       "current_report_names": [
@@ -20,10 +20,10 @@
       "matches": true
     },
     "source_revision": {
-      "current": "25d8a0807eba6a9f0a9bc59c93dcbd30d8d264a5",
-      "historical": "be29c0d0fc0606626e7092267251c71f6b9f697f",
+      "current": "c47c9228a3583dde240b16e230467009ca7cfaeb",
+      "historical": "c47c9228a3583dde240b16e230467009ca7cfaeb",
       "matches": true,
-      "mode": "receipt_only_descendant"
+      "mode": "exact"
     }
   },
   "historical_receipt": "release/space-deployment-receipt.json",
