@@ -31,7 +31,9 @@ jobs:
       - run: uv run python scripts/secret_scan.py
       - run: uv run python scripts/check_privacy_and_licences.py
       - run: uv run python scripts/check_workflows.py
-      - run: uv run python scripts/generate_sbom.py
+      - run: uv build --wheel --out-dir dist
+      - shell: bash
+        run: uv run python scripts/generate_sbom.py --artifact "$(find dist -name '*.whl' -print -quit)"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: sbom

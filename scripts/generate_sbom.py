@@ -4,12 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.metadata
 import json
 from pathlib import Path
+from typing import Any
 
 
-def build_sbom() -> dict[str, object]:
+def build_sbom(artifact: Path | None = None) -> dict[str, object]:
     """Return a deterministic CycloneDX-compatible software inventory."""
     components: list[dict[str, str]] = []
     distributions = sorted(
@@ -28,13 +30,21 @@ def build_sbom() -> dict[str, object]:
                 "purl": f"pkg:pypi/{name.lower()}@{distribution.version}",
             }
         )
+    metadata: dict[str, Any] = {
+        "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}
+    }
+    if artifact is not None:
+        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        metadata["artifact"] = {
+            "path": artifact.as_posix(),
+            "sha256": digest,
+            "type": "python-wheel",
+        }
     return {
         "bomFormat": "CycloneDX",
         "specVersion": "1.5",
         "version": 1,
-        "metadata": {
-            "component": {"type": "application", "name": "closer-to-whom", "version": "0.2.0"}
-        },
+        "metadata": metadata,
         "components": components,
     }
 
@@ -48,6 +58,11 @@ def parse_args() -> argparse.Namespace:
         default=Path("release/sbom.cdx.json"),
         help="Destination path for the generated CycloneDX JSON document.",
     )
+    parser.add_argument(
+        "--artifact",
+        type=Path,
+        help="Exact built artifact to bind into the SBOM metadata.",
+    )
     return parser.parse_args()
 
 
@@ -56,7 +71,7 @@ def main() -> None:
     args = parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
-        json.dumps(build_sbom(), indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        json.dumps(build_sbom(args.artifact), indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(args.output)
 
