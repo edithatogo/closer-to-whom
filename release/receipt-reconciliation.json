@@ -1,0 +1,36 @@
+{
+  "claim_boundary": "This is a reconciliation of repository and historical receipt metadata; it does not establish current Space availability or deployment.",
+  "drift": {
+    "current_payload_sha256": "42d34312f17fbbd3f696ab624d5f522b8da4c47e6b547c9a558db008f2aa48e6",
+    "historical_receipt_sha256": "27f712613078f608335b79fa2b6e14666956616f138f2bb3990e701aa8daf623",
+    "report_scope": {
+      "current_report_count": 9,
+      "current_report_names": [
+        "scenario_summary",
+        "optimisation_frontier",
+        "uncertainty_analysis",
+        "mcda_outputs",
+        "voi_outputs",
+        "distributional-equity",
+        "capacity-cost-perspective",
+        "resilience-sensitivity",
+        "optimisation-comparison"
+      ],
+      "historical": "five_precomputed_national_aggregate_reports",
+      "matches": false
+    },
+    "source_revision": {
+      "current": "1b17276aa7dbc5ef4f85ef666b7bb48f020d5ae2",
+      "historical": "5e23127a14ff27ecb6898ef78a6c5debeb16ec5b",
+      "matches": false
+    }
+  },
+  "historical_receipt": "release/space-deployment-receipt.json",
+  "required_next_evidence": [
+    "fresh deployment receipt from the publish workflow",
+    "live Space revision and content hash probe",
+    "approved source revision matching current main"
+  ],
+  "schema_version": "1.0.0",
+  "status": "historical_space_receipt_stale"
+}

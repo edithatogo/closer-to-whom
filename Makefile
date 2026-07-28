@@ -80,6 +80,9 @@ contracts: ## Validate schemas, assumptions, source registry, generated files, a
 	$(UV) run python scripts/check_workflows.py
 	$(UV) run python scripts/check_workflow_hardening.py
 
+release-receipt-audit: ## Reconcile the historical Space receipt against current main
+	$(UV) run python scripts/reconcile_release_receipts.py
+
 governance: ## Validate claim, privacy, licence, and publication boundaries
 	$(UV) run python scripts/check_claim_boundaries.py
 	$(UV) run python scripts/check_privacy_and_licences.py
