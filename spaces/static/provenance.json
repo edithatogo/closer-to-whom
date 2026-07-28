@@ -7,10 +7,10 @@
   "schema_version": "1.0.0",
   "source_reports": {
     "capacity-cost-perspective.json": {
-      "sha256": "15320131b5d24ee68aaedcc37422dcb53f6abe606297779ca2d4ba97b8f736d4"
+      "sha256": "d74dfaa75370a3e9e6e27c9140fd9d301b59770d1eb59ec86aaf9d5c53a56121"
     },
     "distributional-equity.json": {
-      "sha256": "4a01a49c7e50bfbbed6ec31f2ba81a521cb4bf03647acac42c70e15b45c9dcb8"
+      "sha256": "f1f21d80866ff6cbe0590b7621ed82165c59da5e1a7d8076f0e8f7f0d77f6531"
     },
     "mcda_outputs.json": {
       "sha256": "4b969db6b626ad7227b553c6a44371101a49c427506f432c0d0ab2f4a84825ba"
