@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import shutil
 import subprocess
@@ -144,6 +145,46 @@ def space_provenance(
     if not path.exists():
         raise typer.BadParameter(f"Space provenance manifest does not exist: {path}")
     _print_json(json.loads(path.read_text(encoding="utf-8")))
+
+
+@app.command("national-validate")
+def national_validate(
+    output: Annotated[Path | None, typer.Option(help="Optional JSON receipt path.")] = None,
+) -> None:
+    """Validate the canonical national scientific report set and print its receipt."""
+    script = Path("scripts/check_national_scientific_outputs.py")
+    if not script.exists():
+        raise typer.BadParameter("Run this command from the repository root")
+    spec = importlib.util.spec_from_file_location("check_national_scientific_outputs", script)
+    if spec is None or spec.loader is None:
+        raise typer.BadParameter(f"Unable to load validator: {script}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    payload = module.validate()
+    if output is not None:
+        write_json(output, payload)
+    _print_json(payload)
+
+
+@app.command("space-build")
+def space_build(
+    output: Annotated[Path, typer.Option(help="Static Space output directory.")],
+    revision: Annotated[str, typer.Option(help="Approved source revision embedded in the build.")],
+    analysis: Annotated[
+        Path, typer.Option(help="Directory containing canonical national reports.")
+    ] = Path("reports/national-analysis"),
+) -> None:
+    """Build the static national Space from precomputed reports."""
+    script = Path("scripts/build_national_static_space.py")
+    if not script.exists():
+        raise typer.BadParameter("Run this command from the repository root")
+    spec = importlib.util.spec_from_file_location("build_national_static_space", script)
+    if spec is None or spec.loader is None:
+        raise typer.BadParameter(f"Unable to load builder: {script}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    built = module.build(analysis, output, revision=revision)
+    _print_json({"status": "built", "output": str(built), "revision": revision})
 
 
 @app.command("mojo-canary")
