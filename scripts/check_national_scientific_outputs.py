@@ -16,6 +16,7 @@ REPORTS = (
     "uncertainty_analysis",
     "mcda_outputs",
     "voi_outputs",
+    "distributional-equity",
 )
 
 
@@ -38,6 +39,13 @@ def validate() -> dict[str, Any]:
             raise ValueError(f"{name} lacks a claim boundary")
         if payload.get("analysis_population") != "aggregate_expected_course_cells":
             raise ValueError(f"{name} lacks the aggregate analysis population contract")
+    equity = reports["distributional-equity"]
+    if set(equity.get("dimensions", [])) != {"deprivation_quintile", "rurality"}:
+        raise ValueError("Distributional report must cover deprivation and rurality")
+    if "unknown" not in {row.get("group") for row in equity.get("rows", [])}:
+        raise ValueError("Distributional report must retain explicit unknown groups")
+    if "ecological" not in str(equity.get("claim_boundary", "")).lower():
+        raise ValueError("Distributional report lacks its ecological claim boundary")
     summary_ids = {row["configuration_id"] for row in reports["scenario_summary"]["configurations"]}
     frontier_ids = {row["configuration_id"] for row in reports["optimisation_frontier"]["points"]}
     if summary_ids != frontier_ids:
