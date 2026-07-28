@@ -8,6 +8,8 @@ on:
       - "upstream/**"
       - "data/public/**"
       - "conductor/**"
+      - "docs/**"
+      - "mkdocs.yml"
       - "docs/publication/**"
       - "docs/operations/dashboard.md"
       - "docs/reference/api.md"
