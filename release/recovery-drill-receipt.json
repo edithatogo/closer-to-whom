@@ -1,0 +1,37 @@
+{
+  "claim_boundary": "Local Git archive reconstruction only; it does not prove independent durable storage, signed release authorization, or external recovery availability.",
+  "critical_files": {
+    "release/publication-licence-receipt.json": {
+      "matches": true,
+      "reconstructed_sha256": "d5a804ca73a03db9dbadf175681e56e96a166da98176196369d98a9e87befdcf",
+      "source_sha256": "d5a804ca73a03db9dbadf175681e56e96a166da98176196369d98a9e87befdcf"
+    },
+    "release/space-deployment-receipt.json": {
+      "matches": true,
+      "reconstructed_sha256": "ed67f19e211ad15a1a6ebec2c2ddc675b34b63f1c92b2ffe87188561cf95ebcf",
+      "source_sha256": "ed67f19e211ad15a1a6ebec2c2ddc675b34b63f1c92b2ffe87188561cf95ebcf"
+    },
+    "release/space-monitor-receipt.json": {
+      "matches": true,
+      "reconstructed_sha256": "1b9d316f7fe07c1e79ab1779e238b75285d8440fe7632067db55a813274b07b9",
+      "source_sha256": "1b9d316f7fe07c1e79ab1779e238b75285d8440fe7632067db55a813274b07b9"
+    },
+    "spaces/static/aggregate-reports.json": {
+      "matches": true,
+      "reconstructed_sha256": "a8b4481ab76172d6eeffe59bb119b0014b4ebe25dd6f5da9e7b9d9943b375d73",
+      "source_sha256": "a8b4481ab76172d6eeffe59bb119b0014b4ebe25dd6f5da9e7b9d9943b375d73"
+    },
+    "spaces/static/index.html": {
+      "matches": true,
+      "reconstructed_sha256": "549b78049251b5b8b0a3c7212bfdf4c7cf038494d0e2167aa7448a39b8600e0c",
+      "source_sha256": "549b78049251b5b8b0a3c7212bfdf4c7cf038494d0e2167aa7448a39b8600e0c"
+    }
+  },
+  "elapsed_seconds": 1.051,
+  "independent_storage": "not_claimed_by_local_drill",
+  "rpo": "latest merged main commit",
+  "rto_seconds": 300,
+  "schema_version": "1.0.0",
+  "source_revision": "825632db133831ac5bdf3acaec1fde99f812e403",
+  "status": "passed"
+}
