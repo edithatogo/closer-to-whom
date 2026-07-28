@@ -1,7 +1,6 @@
 {
   "artifact": "reviewed-national-aggregate-reports",
   "claim_boundary": "Candidate-network travel burdens use modelled aggregate expected courses and verified OSRM routes. Sites are plausible public-source locations, not confirmed anti-HER2 services; results do not establish eligibility, capacity, feasibility, or policy.",
-  "generated_at": "2026-07-27T06:38:23+00:00",
   "reports": {
     "capacity-cost-perspective": {
       "analysis_population": "aggregate_expected_course_cells",
@@ -56,6 +55,55 @@
           "vehicle_resource_cost_nzd": 7308.411046257335
         }
       ],
+      "cost_ledgers": {
+        "facility": {
+          "components": [
+            "facility_overhead",
+            "chair_capacity"
+          ],
+          "reason": "Observed capacity and facility cost data are unavailable.",
+          "status": "not_estimated"
+        },
+        "patient_direct": {
+          "components": [
+            "treatment_drug_and_administration_cost",
+            "patient_out_of_pocket_cost"
+          ],
+          "reason": "No national treatment mix or tariff receipt is available in the frozen public inputs.",
+          "status": "not_estimated"
+        },
+        "patient_other_transport": {
+          "components": [
+            "public_transport_fares",
+            "parking"
+          ],
+          "reason": "No national mode split or fare/parking receipt is available.",
+          "status": "not_estimated"
+        },
+        "patient_vehicle_resource": {
+          "basis": "travel_cost_parameters.json",
+          "components": [
+            "private_vehicle_distance_resource_cost"
+          ],
+          "status": "source_backed_scenario"
+        },
+        "provider": {
+          "components": [
+            "provider_travel",
+            "provider_time"
+          ],
+          "reason": "Provider capability, staffing, and travel are unknown.",
+          "status": "not_estimated"
+        },
+        "whanau_time": {
+          "components": [
+            "whanau_travel_time",
+            "caregiving_time"
+          ],
+          "reason": "No source-backed national time valuation has been selected.",
+          "status": "not_estimated"
+        }
+      },
       "cost_scope": "private_vehicle_resource_cost_scenario_only",
       "generated_at": "derived_from_frozen_national_inputs",
       "observed_capacity": "unknown",
@@ -5730,5 +5778,6 @@
       "value_unit": "normalised_normative_utility"
     }
   },
-  "schema_version": "1.0.0"
+  "schema_version": "1.0.0",
+  "source_revision": "d8dc11962e52df068f2c85c856b856d0079a38ef"
 }
