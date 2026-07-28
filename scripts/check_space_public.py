@@ -17,7 +17,7 @@ MARKERS = ("Closer to whom", "Research boundary", "aggregate")
 def probe(url: str, timeout: int = 20) -> dict[str, object]:
     request = Request(url, headers={"User-Agent": "closer-to-whom-space-monitor/1.0"})
     try:
-        with urlopen(request, timeout=timeout) as response:  # noqa: S310
+        with urlopen(request, timeout=timeout) as response:
             body = response.read()
             status = int(response.status)
             content_type = response.headers.get("Content-Type", "")
