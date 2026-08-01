@@ -235,3 +235,42 @@ decisions:
       analytical equity from out-of-scope governance approval, and create executable acceptance contracts for
       delivery scenarios, equity, capacity, optimisation, uncertainty, dashboard, manuscripts, release
       provenance, containers, supply chain, monitoring, and maintenance.
+  - id: DEC-028
+    date: 2026-08-01
+    status: accepted
+    decision: >-
+      Treat v0.2.0 as a release candidate rather than a supported production release until the
+      action-time signing and independent archive gates are completed.
+    rationale: >-
+      The clean main revision and hosted release gates pass, but the evidence boundary excludes
+      operational capability and the candidate has not yet been signed or independently archived.
+  - id: DEC-029
+    date: 2026-08-01
+    status: accepted
+    decision: >-
+      Use Zenodo or OSF as the preferred independent archive, with the GitHub Release as a secondary
+      mirror, and archive only the exact receipt-current release bundle.
+    rationale: >-
+      An external preservation service provides stronger independence and versioned durability than
+      a Git-only copy while retaining a convenient public mirror. The archive must contain manifests,
+      reports, SBOMs, attestations, receipts, and the static Space bundle, not restricted raw inputs.
+  - id: DEC-030
+    date: 2026-08-01
+    status: accepted
+    decision: >-
+      Use a documented sole-developer NVDA accessibility review as the human accessibility path,
+      supplemented by Playwright browser evidence, without claiming WCAG conformance.
+    rationale: >-
+      This is proportionate to the sole-developer harness and produces a reproducible assistive-
+      technology record while preserving the distinction between a review and formal conformance.
+  - id: DEC-031
+    date: 2026-08-01
+    status: accepted
+    decision: >-
+      Apply a tiered national-evidence policy: official NZ sources for promoted parameters, peer-
+      reviewed or institutional literature for bounded ranges, and OIA/FYI material only for scoped
+      corroboration; synthetic or expert-derived values remain sensitivity scenarios only.
+    rationale: >-
+      The hierarchy maximises national authority without converting subgroup, historical, incomplete,
+      or synthetic material into unsupported current operational estimates. Every promoted value still
+      requires scope, retrieval, licence, hash, and evidence-grade metadata.
