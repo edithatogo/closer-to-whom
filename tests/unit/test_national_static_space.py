@@ -77,6 +77,9 @@ def test_national_space_embeds_only_bounded_precomputed_reports(tmp_path: Path) 
     assert "candidate_network_01" in html
     assert "No-JavaScript summary" in html
     assert "Additional reviewed outputs" in html
+    assert html.count("<caption>") == 2
+    assert html.count('scope="col"') == 10
+    assert html.count("scope='row'") == 1
 
 
 def test_national_space_rejects_operational_claim(tmp_path: Path) -> None:
