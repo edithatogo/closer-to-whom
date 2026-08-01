@@ -29,6 +29,7 @@ nav:
   - Operations:
       - Testing: operations/testing.md
       - Accessibility review: operations/accessibility-review.md
+      - Release candidate archive: operations/release-candidate-archive.md
       - Release runbook: operations/release.md
       - Dashboard: operations/dashboard.md
       - GitHub project and assurance: operations/github-project.md
