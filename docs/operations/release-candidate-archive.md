@@ -1,8 +1,10 @@
 # Release-candidate signing and archive handoff
 
-This runbook is intentionally fail-closed. It prepares the exact actions but does not create a
-signature, publish a release, or claim independent durability without the required user-controlled
-credentials and destination.
+This runbook is intentionally fail-closed. This is a single-person repository: the owner is the
+sole human authority for release, signing, archive, publication, and governance decisions. Agents
+may provide panel advice with options, rationale, risks, contingencies, and a recommendation, but
+agent output is not approval. The runbook does not create a signature, publish a release, or claim
+independent durability without the owner's action-time decision, credentials, and destination.
 
 ## Preconditions
 

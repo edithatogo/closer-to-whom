@@ -70,6 +70,15 @@ The demo writes only synthetic Arrow/Parquet/JSON outputs. See [`HANDOVER.md`](H
 
 ## Repository operating model
 
+This is a **single-person repository**. The owner is the sole human decision authority for
+approvals, releases, publication, credentials, clinical attestations, and governance choices. There
+is no second-reviewer, Code Owner, team-approval, or mandatory human-review dependency.
+
+Agents may be delegated advisory work. Panel outputs must present the evidence, options, rationale,
+risks, contingencies, and a recommendation for the owner to accept, reject, or modify. Agent advice
+is not approval, authorship, clinical endorsement, or release authorization; the owner's explicit
+decision remains the controlling record.
+
 Humans and agents should read, in order:
 
 1. [`AGENTS.md`](AGENTS.md)
