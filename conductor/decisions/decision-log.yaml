@@ -274,3 +274,16 @@ decisions:
       The hierarchy maximises national authority without converting subgroup, historical, incomplete,
       or synthetic material into unsupported current operational estimates. Every promoted value still
       requires scope, retrieval, licence, hash, and evidence-grade metadata.
+  - id: DEC-032
+    date: 2026-08-03
+    status: accepted
+    decision: >-
+      Keep v0.2.0 as an explicitly untagged release candidate until an approved signing mechanism
+      and an approved Zenodo or OSF archive destination are supplied. Retain the hosted candidate
+      artifact, checksums, receipts, and handoff record, but do not create an unsigned tag, publish
+      an external archive, or claim independent recovery.
+    rationale: >-
+      Automated verification and free Space publication are complete. A signing identity and archive
+      destination are action-time authorization inputs, not facts that can be inferred from available
+      tokens or prior publication. This contingency preserves reproducibility while preventing an
+      unsigned or misdirected release from being represented as final.

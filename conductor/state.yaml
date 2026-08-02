@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-07-29
+updated_at: 2026-08-03
 version: "0.2.0"
 active_track: CTW-100-publication-release-completion
 phase: post_scientific_product_completeness_planned
@@ -35,6 +35,14 @@ release_status:
   space_deployment_run: 30385610447
   space_artifact_id: 8698814220
   space_revision: 965540f9c0a910ce374ed03d7cb147fc79424384
+  current_main_revision: 5fb940e8f14782422aee32601b99160b4374492e
+  current_release_assurance_run: 30745736759
+  current_release_artifact_id: 8832819668
+  current_space_publish_run: 30751051500
+  current_space_artifact_id: 8834451658
+  signing_key_status: absent
+  archive_destination_status: not_selected
+  archive_publication_status: not_started
   reason: >-
     The clean main revision passed all 27 required release gates and the reviewed aggregate payload
     is published on the free Static Space. No version tag was created because this completion records
