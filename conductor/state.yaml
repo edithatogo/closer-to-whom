@@ -11,6 +11,13 @@ current_claim_boundary: >-
   The reviewed nine-report public aggregate analysis is published on a free static Space and tied to
   verified GitHub and Space revisions. Candidate locations remain plausible, observed capacity and
   operational feasibility remain unknown, and the site is not clinical guidance or a policy recommendation.
+operating_model:
+  type: single_person_repository
+  human_authority: owner_only
+  required_second_reviewer: false
+  required_code_owner_approval: false
+  agent_panel_role: advisory_options_rationale_contingencies_recommendation
+  agent_output_is_approval: false
 next_tracks:
   - CTW-100-publication-release-completion
 external_dependencies:
