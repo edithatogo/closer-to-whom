@@ -34,6 +34,15 @@ work_packages:
       - Publish signed, attested distributions and artifact-scoped SBOMs from a receipt-current commit.
       - Preserve permitted release and publication bundles in durable independent storage.
       - Define RTO and RPO and verify reconstruction of source, package, and static-site hashes in a restoration drill.
+  - id: CTW-100e
+    title: Blocker-resolution handoff and contingency path
+    acceptance:
+      - Record the receipt-current revision, hosted release artifact, Space deployment artifact, and SHA256 manifest.
+      - Keep the candidate explicitly untagged and unpublished while signing-key and archive-destination inputs are absent.
+      - Provide an action-time handoff requesting an approved signing mechanism and approved Zenodo/OSF project with draft-versus-public status.
+      - If signing remains unavailable, retain the hosted release-candidate artifact and do not create an unsigned tag.
+      - If independent archival remains unavailable, preserve the local and GitHub artifact handoff while keeping CTW-100d open.
 verification_contract:
   - Manuscript and release artifacts are tied to exact code, inputs, reports, tools, and receipts.
   - External publication or tag creation requires its own explicit authorization at action time.
+  - Missing signing or archive inputs are blockers, not inferred approvals; contingency evidence must not be promoted to a final release.
