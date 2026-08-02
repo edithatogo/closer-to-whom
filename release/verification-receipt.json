@@ -2,30 +2,30 @@
   "claim_boundary": "Repository and synthetic harness verification only; no validation of actual service capability, patient-level access, operational capacity, or clinical outcomes.",
   "digests": {
     "assumptions_sha256": "d454975d00a6d2d379becb6bc9ef6f7cd66cfb0e784ed4f224799bcb933e7e08",
-    "pyproject_sha256": "317b7c1504e4261c96dbf1832ba78a862b6f980bb8e9e693cbbe477455d2e462",
+    "pyproject_sha256": "11de44b52b59bcd8bff95f5364ab085e2c49ae211cecd5c27c8c0297cc5be219",
     "scenario_catalogue_sha256": "f0ed4d766d13ffab40fdda4bb10c7cfe4383cb3c993b311fe8fce43faac7d7df",
-    "source_registry_sha256": "81d3191cbdd9b89b17253766aa738dfd2db48bad48ffa7d5cdfc5849178c948e",
-    "uv_lock_sha256": "d0e2f2294803669626c9407b8ac087c25005db326fa9c43167fc08cf4fa4b446"
+    "source_registry_sha256": "1820c7e5249d69c2f89cbf4e0815ae032903fc6cdeb0e30dd08dae47a4d3c76d",
+    "uv_lock_sha256": "d4487fd6731651a3612f175fe6be4adfe3a34da185135616c9500f4d40cca8a2"
   },
   "environment": {
-    "machine": "x86_64",
-    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
-    "processor": "x86_64",
-    "python": "3.14.6 (main, Jun 10 2026, 14:29:35) [GCC 13.3.0]"
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "python": "3.14.6 (main, Jun 11 2026, 04:05:02) [MSC v.1944 64 bit (AMD64)]"
   },
-  "generated_at": "2026-07-27T07:27:23.398608+00:00",
+  "generated_at": "2026-08-01T12:29:50.019265+00:00",
   "git": {
-    "branch": "main",
-    "describe": "1d88061",
+    "branch": "codex/refresh-release-receipts",
+    "describe": "codex-handover-2026-07-12-127-g492a18c",
     "dirty": false,
-    "revision": "1d88061e31f00afeb3e3deb5487b7592b0ad1635"
+    "revision": "492a18cddf278547dfac423490ff5657b383e153"
   },
   "profile": "local",
   "project": "closer-to-whom",
   "results": [
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "-m",
@@ -36,7 +36,7 @@
         "tests"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.278,
+      "elapsed_seconds": 7.008,
       "log_path": "release/receipts/logs/compile.log",
       "name": "compile",
       "required": true,
@@ -45,13 +45,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_generated_files.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 1.449,
+      "elapsed_seconds": 11.963,
       "log_path": "release/receipts/logs/generated-files.log",
       "name": "generated-files",
       "required": true,
@@ -60,13 +60,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_lockfile_portability.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.103,
+      "elapsed_seconds": 0.297,
       "log_path": "release/receipts/logs/lockfile-portability.log",
       "name": "lockfile-portability",
       "required": true,
@@ -75,13 +75,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_machine_readability.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.512,
+      "elapsed_seconds": 6.135,
       "log_path": "release/receipts/logs/machine-readability.log",
       "name": "machine-readability",
       "required": true,
@@ -90,13 +90,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_contracts.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.284,
+      "elapsed_seconds": 0.764,
       "log_path": "release/receipts/logs/model-contracts.log",
       "name": "model-contracts",
       "required": true,
@@ -105,13 +105,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_assumption_coverage.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.088,
+      "elapsed_seconds": 0.322,
       "log_path": "release/receipts/logs/assumption-contract.log",
       "name": "assumption-contract",
       "required": true,
@@ -120,13 +120,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_source_registry.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.114,
+      "elapsed_seconds": 0.308,
       "log_path": "release/receipts/logs/source-registry.log",
       "name": "source-registry",
       "required": true,
@@ -135,13 +135,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_protocol.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.085,
+      "elapsed_seconds": 0.292,
       "log_path": "release/receipts/logs/protocol-consistency.log",
       "name": "protocol-consistency",
       "required": true,
@@ -150,13 +150,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_claim_boundaries.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.057,
+      "elapsed_seconds": 1.149,
       "log_path": "release/receipts/logs/claim-boundaries.log",
       "name": "claim-boundaries",
       "required": true,
@@ -165,13 +165,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_privacy_and_licences.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.154,
+      "elapsed_seconds": 1.339,
       "log_path": "release/receipts/logs/privacy-and-licences.log",
       "name": "privacy-and-licences",
       "required": true,
@@ -180,13 +180,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_repository_hygiene.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.058,
+      "elapsed_seconds": 0.333,
       "log_path": "release/receipts/logs/repository-hygiene.log",
       "name": "repository-hygiene",
       "required": true,
@@ -195,13 +195,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_workflows.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.124,
+      "elapsed_seconds": 0.363,
       "log_path": "release/receipts/logs/workflow-structure.log",
       "name": "workflow-structure",
       "required": true,
@@ -210,13 +210,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_workflow_hardening.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.125,
+      "elapsed_seconds": 0.35,
       "log_path": "release/receipts/logs/workflow-hardening.log",
       "name": "workflow-hardening",
       "required": true,
@@ -225,13 +225,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_version_consistency.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.065,
+      "elapsed_seconds": 0.316,
       "log_path": "release/receipts/logs/version-consistency.log",
       "name": "version-consistency",
       "required": true,
@@ -240,14 +240,14 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "ruff",
         "check",
         "."
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.056,
+      "elapsed_seconds": 0.2,
       "log_path": "release/receipts/logs/ruff.log",
       "name": "ruff",
       "required": true,
@@ -256,7 +256,7 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "ruff",
         "format",
@@ -264,7 +264,7 @@
         "."
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.044,
+      "elapsed_seconds": 0.198,
       "log_path": "release/receipts/logs/ruff-format.log",
       "name": "ruff-format",
       "required": true,
@@ -273,12 +273,12 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "pytest"
       ],
       "detail": "completed",
-      "elapsed_seconds": 16.878,
+      "elapsed_seconds": 95.705,
       "log_path": "release/receipts/logs/tests-coverage.log",
       "name": "tests-coverage",
       "required": true,
@@ -287,13 +287,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "mypy",
         "src/closer_to_whom"
       ],
       "detail": "completed",
-      "elapsed_seconds": 4.049,
+      "elapsed_seconds": 16.349,
       "log_path": "release/receipts/logs/mypy.log",
       "name": "mypy",
       "required": true,
@@ -302,12 +302,12 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "pyright"
       ],
       "detail": "completed",
-      "elapsed_seconds": 11.519,
+      "elapsed_seconds": 13.722,
       "log_path": "release/receipts/logs/pyright.log",
       "name": "pyright",
       "required": true,
@@ -316,7 +316,7 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "codespell",
         "src",
@@ -330,7 +330,7 @@
         "schemas"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.278,
+      "elapsed_seconds": 1.229,
       "log_path": "release/receipts/logs/codespell.log",
       "name": "codespell",
       "required": true,
@@ -339,14 +339,14 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "mkdocs",
         "build",
         "--strict"
       ],
       "detail": "completed",
-      "elapsed_seconds": 2.288,
+      "elapsed_seconds": 10.509,
       "log_path": "release/receipts/logs/docs.log",
       "name": "docs",
       "required": true,
@@ -355,14 +355,14 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "-m",
         "build"
       ],
       "detail": "completed",
-      "elapsed_seconds": 3.968,
+      "elapsed_seconds": 27.042,
       "log_path": "release/receipts/logs/package-build.log",
       "name": "package-build",
       "required": true,
@@ -371,13 +371,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/smoke_install.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 2.718,
+      "elapsed_seconds": 9.626,
       "log_path": "release/receipts/logs/package-smoke.log",
       "name": "package-smoke",
       "required": true,
@@ -386,13 +386,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/check_reproducibility.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.797,
+      "elapsed_seconds": 2.758,
       "log_path": "release/receipts/logs/deterministic-demo.log",
       "name": "deterministic-demo",
       "required": true,
@@ -401,13 +401,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/publication_readiness.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.164,
+      "elapsed_seconds": 0.356,
       "log_path": "release/receipts/logs/publication-readiness.log",
       "name": "publication-readiness",
       "required": true,
@@ -416,13 +416,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/secret_scan.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.175,
+      "elapsed_seconds": 0.611,
       "log_path": "release/receipts/logs/secret-scan.log",
       "name": "secret-scan",
       "required": true,
@@ -431,13 +431,13 @@
     },
     {
       "command": [
-        "/opt/hostedtoolcache/uv/0.11.32/x86_64/uv",
+        "C:\\Users\\60217257\\.local\\bin\\uv.EXE",
         "run",
         "python",
         "scripts/jax_differential.py"
       ],
       "detail": "completed",
-      "elapsed_seconds": 0.752,
+      "elapsed_seconds": 2.713,
       "log_path": "release/receipts/logs/jax-differential.log",
       "name": "jax-differential",
       "required": false,
