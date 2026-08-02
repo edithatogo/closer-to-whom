@@ -287,16 +287,3 @@ decisions:
       destination are action-time authorization inputs, not facts that can be inferred from available
       tokens or prior publication. This contingency preserves reproducibility while preventing an
       unsigned or misdirected release from being represented as final.
-  - id: DEC-033
-    date: 2026-08-03
-    status: accepted
-    decision: >-
-      Define closer-to-whom as a single-person repository. The owner is the sole human authority for
-      approvals, credentials, releases, publication, clinical attestations, and governance decisions;
-      no second reviewer, Code Owner, team approval, or mandatory human-review dependency is required.
-      Delegated agent panels are advisory only and must present evidence, options, rationale, risks,
-      contingencies, and a recommendation for the owner.
-    rationale: >-
-      The repository is operated as a sole-developer harness. This makes the authority boundary
-      explicit without removing deterministic tests, security gates, evidence receipts, or the
-      owner's action-time control over consequential decisions.
