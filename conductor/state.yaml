@@ -36,8 +36,8 @@ release_status:
   space_artifact_id: 8698814220
   space_revision: 965540f9c0a910ce374ed03d7cb147fc79424384
   current_main_revision: e0e39746305aef0918d0ee4865b08686993e18f4
-  current_release_assurance_run: 30745736759
-  current_release_artifact_id: 8832819668
+  current_release_assurance_run: 30752114770
+  current_release_artifact_id: 8834778275
   current_space_publish_run: 30751051500
   current_space_artifact_id: 8834451658
   signing_key_status: absent
