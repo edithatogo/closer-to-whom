@@ -300,3 +300,14 @@ decisions:
       The repository is operated as a sole-developer harness. This makes the authority boundary
       explicit without removing deterministic tests, security gates, evidence receipts, or the
       owner's action-time control over consequential decisions.
+  - id: DEC-034
+    date: 2026-08-03
+    status: accepted
+    decision: >-
+      The owner accepts the CTW-100d recommendation to maintain the verified, untagged, unpublished
+      release candidate (Option C) until a signing mechanism and approved archive destination are
+      separately selected. No signed tag, external archive publication, DOI, or independent-recovery
+      claim is authorized by this decision.
+    rationale: >-
+      This preserves the passing automated and hosted evidence while keeping consequential release
+      actions explicitly owner-controlled and fail-closed.

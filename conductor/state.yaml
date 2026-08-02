@@ -50,6 +50,8 @@ release_status:
   signing_key_status: absent
   archive_destination_status: not_selected
   archive_publication_status: not_started
+  owner_decision: option_c_maintain_verified_candidate
+  owner_decision_status: accepted
   reason: >-
     The clean main revision passed all 27 required release gates and the reviewed aggregate payload
     is published on the free Static Space. No version tag was created because this completion records
