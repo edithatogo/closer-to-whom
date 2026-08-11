@@ -24,3 +24,22 @@ def test_static_space_is_generated_and_no_javascript_is_required() -> None:
         "resilience-sensitivity",
         "optimisation-comparison",
     }
+
+
+def test_static_space_has_the_automatable_accessibility_contract() -> None:
+    root = Path(__file__).parents[2]
+    page = (root / "spaces/static/index.html").read_text(encoding="utf-8")
+
+    # These checks cover structural guarantees only. Manual keyboard, zoom, and
+    # screen-reader review remains a separate human evidence gate.
+    assert page.startswith("<!doctype html>")
+    assert '<html lang="en-NZ">' in page
+    assert '<meta name="viewport"' in page
+    assert "<title>Closer to whom?" in page
+    assert '<a href="#main">Skip to main content</a>' in page
+    assert '<main id="main">' in page
+    assert ":focus" in page
+    assert "<caption>" in page
+    assert 'scope="col"' in page
+    assert "scope='row'" in page
+    assert "<script" not in page.lower()
