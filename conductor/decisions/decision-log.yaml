@@ -311,3 +311,15 @@ decisions:
     rationale: >-
       This preserves the passing automated and hosted evidence while keeping consequential release
       actions explicitly owner-controlled and fail-closed.
+  - id: DEC-035
+    date: 2026-08-11
+    status: accepted
+    decision: >-
+      Execute Option A using the owner-confirmed SSH signing key fingerprint
+      SHA256:LOVQZi1WzD8QYvSjfgf9CkAQVeMCXnqZv6Mgn8J6T54 and a new public Zenodo record because
+      no prior closer-to-whom public release was found. Publish only the permitted release bundle,
+      verify its downloaded checksums and recovery, and retain the research-software claim boundary.
+    rationale: >-
+      The owner confirmed the signing key and authorized a new public record only if no prior release
+      existed. Zenodo and GitHub searches found no existing release; the signed tag, GitHub Release,
+      Zenodo DOI, and independent recovery receipt now provide the required Option A evidence.
