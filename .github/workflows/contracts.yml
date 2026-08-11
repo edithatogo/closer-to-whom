@@ -26,6 +26,7 @@ on:
       - "scripts/generate_sbom.py"
       - "tests/unit/test_sbom.py"
       - "tests/unit/test_static_space.py"
+      - "tests/unit/test_optimisation.py"
       - "tests/unit/test_national_static_space.py"
       - ".github/workflows/**"
       # Dependency manifests must trigger lockfile and schema compatibility checks.
