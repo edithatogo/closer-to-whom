@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "CTW-100-publication-release-completion",
+  "work_package": "CTW-100d",
+  "status": "completed",
+  "candidate_tag": "v0.2.0-rc.1",
+  "source_revision": "2c520cc3cb57b3dba8a86f077aca053c57e86774",
+  "signing": {"format": "ssh", "fingerprint": "SHA256:LOVQZi1WzD8QYvSjfgf9CkAQVeMCXnqZv6Mgn8J6T54", "verification": "passed"},
+  "github_release": {"url": "https://github.com/edithatogo/closer-to-whom/releases/tag/v0.2.0-rc.1", "workflow_run": 31475127003, "artifact_id": 9094927430, "status": "published"},
+  "zenodo": {"record_id": 21886278, "doi": "10.5281/zenodo.21886278", "url": "https://doi.org/10.5281/zenodo.21886278", "status": "published", "archive_sha256": "3e23a821f815c0c402c7766d9a8804e37e16c5e7e7e878989808f26e0611b6ac"},
+  "recovery": {"status": "passed", "files_verified": 19, "method": "downloaded_zenodo_bundle_extracted_and_sha256_compared"},
+  "claim_boundary": "Signed research-software release and independent archive of permitted release assets; not clinical guidance, operational capacity evidence, or a policy recommendation.",
+  "generated_at": "2026-08-11T09:05:00Z"
+}
