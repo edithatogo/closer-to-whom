@@ -1,6 +1,18 @@
 schema_version: "1.0.0"
 track_id: CTW-100-publication-release-completion
 status: active
+completed_work_packages:
+  - CTW-100d
+remaining_work_packages:
+  - CTW-100a
+  - CTW-100b
+  - CTW-100c
+  - CTW-100e
+reconciliation_note: >-
+  CTW-100d is evidenced by the signed GitHub release, Zenodo archive, and passed recovery receipt.
+  The remaining work packages stay open until their own acceptance evidence is recorded; this track is
+  not promoted to complete solely because the public release is complete.
+
 github_issue: https://github.com/edithatogo/closer-to-whom/issues/128
 objective: Reconcile publication evidence, complete manuscript packages, and create durable release and recovery evidence.
 dependencies: [CTW-080-national-scientific-completeness, CTW-090-public-product-completeness]
