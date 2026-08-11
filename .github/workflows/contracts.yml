@@ -29,6 +29,7 @@ on:
       - ".github/workflows/**"
       # Dependency manifests must trigger lockfile and schema compatibility checks.
       - "Dockerfile"
+      - "containers/**"
       - "pyproject.toml"
       - "uv.lock"
   workflow_dispatch:
