@@ -36,23 +36,25 @@ verification_status:
     - Docker container health check
     - Mojo canary
 release_status:
-  candidate_tag: not_created
+  candidate_tag: v0.2.0-rc.1
   release_assurance_run: 30385608455
   release_artifact_id: 8698835251
   space_deployment_run: 30385610447
   space_artifact_id: 8698814220
   space_revision: 965540f9c0a910ce374ed03d7cb147fc79424384
-  current_main_revision: e0e39746305aef0918d0ee4865b08686993e18f4
-  current_release_assurance_run: 30752114770
-  current_release_artifact_id: 8834778275
+  current_main_revision: 2c520cc3cb57b3dba8a86f077aca053c57e86774
+  current_release_assurance_run: 31475127003
+  current_release_artifact_id: 9094927430
   current_space_publish_run: 30751051500
   current_space_artifact_id: 8834451658
-  signing_key_status: absent
-  archive_destination_status: not_selected
-  archive_publication_status: not_started
-  owner_decision: option_c_maintain_verified_candidate
+  signing_key_status: ssh_verified
+  archive_destination_status: zenodo_21886278
+  archive_publication_status: published
+  archive_doi: 10.5281/zenodo.21886278
+  recovery_status: passed
+  owner_decision: option_a_signed_public_release
   owner_decision_status: accepted
   reason: >-
-    The clean main revision passed all 27 required release gates and the reviewed aggregate payload
-    is published on the free Static Space. No version tag was created because this completion records
-    a deployment and release-candidate artifact rather than authorising a new semantic version.
+    The clean main revision passed all 27 required release gates; the signed release candidate is
+    published to GitHub and Zenodo, and independent recovery verification passed. The claim boundary
+    remains research-software-only and does not establish clinical or operational authority.
