@@ -1,7 +1,7 @@
 [tools]
 python = "3.14"
 uv = "latest"
-rust = "stable"
+rust = "1.99.0"
 
 [tasks.check]
 run = "make check"
