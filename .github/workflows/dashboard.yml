@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: "3.14"
-      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
         with:
           enable-cache: true
       - run: uv sync --locked --all-extras
@@ -39,7 +39,7 @@ jobs:
           docker run --rm --entrypoint sh closer-to-whom-space:${{ github.sha }} -c \
             'test ! -e /app/data/raw && test ! -e /app/data/licensed && test ! -e /app/data/private'
       - name: Generate image SBOM
-        uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610
+        uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c
         with:
           image: closer-to-whom-space:${{ github.sha }}
           format: cyclonedx-json

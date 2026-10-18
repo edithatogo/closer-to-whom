@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.14"
           cache: pip
-      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
         with:
           enable-cache: true
       - name: Require publication credentials
@@ -120,7 +120,7 @@ jobs:
               json.dumps(payload, indent=2, sort_keys=True) + "\n"
           )
           PY
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: space-deployment-${{ github.sha }}
           path: |
