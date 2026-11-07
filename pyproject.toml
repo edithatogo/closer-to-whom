@@ -7,7 +7,7 @@ name = "closer-to-whom"
 version = "0.2.0"
 description = "Public-data geospatial policy simulation of anti-HER2 cancer treatment access in Aotearoa New Zealand"
 readme = "README.md"
-requires-python = "==3.14.*"
+requires-python = "==3.15.*"
 license = { text = "MIT" }
 authors = [{ name = "Dylan" }]
 keywords = ["health-services", "geospatial", "equity", "cancer", "Aotearoa-New-Zealand", "simulation", "value-of-information"]
