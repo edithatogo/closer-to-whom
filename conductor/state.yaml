@@ -1,6 +1,6 @@
 schema_version: "1.0.0"
 project_id: closer-to-whom
-updated_at: 2026-08-03
+updated_at: 2026-11-12
 version: "0.2.0"
 active_track: CTW-100-publication-release-completion
 phase: post_scientific_product_completeness_planned
@@ -28,13 +28,14 @@ external_dependencies:
   - author disclosures and authenticated journal submission remain human-controlled publication actions
 verification_status:
   profile: local
-  status: passed
-  receipt: release/verification-receipt.json
+  status: blocked
+  receipt: conductor/receipts/SEC-021-dependency-audit-repair.json
   coverage: 89.43
-  tests: 179
+  tests: 180
   optional_not_run:
     - Docker container health check
     - Mojo canary
+    - Full national-data regeneration requires the frozen aggregate inputs
 release_status:
   candidate_tag: v0.2.0-rc.1
   release_assurance_run: 30385608455
