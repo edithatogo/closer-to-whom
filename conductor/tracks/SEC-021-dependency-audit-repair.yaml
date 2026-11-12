@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+track_id: SEC-021-dependency-audit-repair
+status: blocked
+objective: Resolve the shared dependency audit failure across the pending security updates.
+dependencies: [SEC-020-harness-and-supply-chain-hardening]
+claim_boundary: >-
+  This maintenance update qualifies the locked software environment. It makes no new
+  clinical, capacity, source-licence, publication, or operational claim.
+failure_evidence:
+  url: https://github.com/edithatogo/closer-to-whom/actions/runs/43304367181/job/131483604868
+  observed_on: 2026-11-12
+  findings: 39
+  affected_packages: [certifi, filelock, mkdocs-material, msgpack, pip, setuptools, urllib3, virtualenv, werkzeug]
+related_pull_requests: [222, 233, 243, 244, 245, 246, 247, 248, 249, 250]
+acceptance:
+  - Regenerate uv.lock with compatible patched versions for every affected package.
+  - Preserve the Python 3.14 contract and the existing scientific runtime dependencies.
+  - Retain hash-verified installation for the patched container uv tool.
+  - Pass the locked all-extras environment dependency audit with zero known findings.
+  - Pass make check, the documentation build, and package build without test or security waivers.
+  - Record the input revision, changed-file hashes, tool versions, and observed validation outcomes.
+verification_contract:
+  - Local validation is recorded independently from hosted pull-request checks.
+  - The hosted checks must pass before integration.
+  - Existing security pull requests remain available until their changes are preserved by a verified integration.
+remaining_blocker:
+  command: make check
+  stage: scripts/materialize_treatment_delivery_scenarios.py
+  missing_input: data/derived/national-demand-cells.parquet
+  disposition: >-
+    The complete national-data regeneration gate needs the frozen aggregate inputs.
+    The dependency audit, complete test suite, coverage, docs, package build, and
+    available offline contract checks have separate validation evidence.

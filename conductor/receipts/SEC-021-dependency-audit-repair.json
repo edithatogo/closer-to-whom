@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0.0",
+  "track_id": "SEC-021-dependency-audit-repair",
+  "observed_on": "2026-11-12",
+  "status": "blocked",
+  "source_revision": "a08efa5be74f86c5808feb39fdc601bb28330e7c",
+  "scope": "Locked security dependencies and verification metadata; scientific runtime versions and model inputs unchanged.",
+  "tool_versions": {
+    "python": "3.14.10",
+    "uv": "0.13.4"
+  },
+  "validation": {
+    "locked_all_extras_install": {
+      "status": "passed"
+    },
+    "dependency_audit": {
+      "status": "passed",
+      "audited_third_party_packages": 143,
+      "known_vulnerabilities": 0,
+      "local_project_skip": "closer-to-whom is not published on PyPI; static scans and tests cover the local source"
+    },
+    "pytest": {
+      "status": "passed",
+      "tests": 180,
+      "coverage_percent": 89.43,
+      "required_coverage_percent": 89
+    },
+    "lint_and_typecheck": {
+      "status": "passed",
+      "tools": [
+        "ruff",
+        "codespell",
+        "mypy",
+        "pyright"
+      ]
+    },
+    "docs": {
+      "status": "passed",
+      "command": "make docs"
+    },
+    "package_build": {
+      "status": "passed",
+      "artifacts": [
+        "wheel",
+        "sdist"
+      ]
+    },
+    "source_security": {
+      "status": "passed",
+      "checks": [
+        "secret_scan",
+        "bandit"
+      ]
+    },
+    "remaining_offline_checks": [
+      {
+        "script": "check_microdata_voi_decision.py",
+        "exit_code": 0,
+        "stdout": "Validated microdata VOI decision; microdata remains outside the build dependency graph.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_publication_gate.py",
+        "exit_code": 0,
+        "stdout": "Validated publication gate; release remains bounded by declared evidence status.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_upstream_compatibility.py",
+        "exit_code": 0,
+        "stdout": "Validated nine optional upstream contracts, fixtures, receipts, and local fallbacks.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_generated_files.py",
+        "exit_code": 0,
+        "stdout": "/tmp/ctw-generated-9vh8x8b2/arrow/demand.schema.arrow\n/tmp/ctw-generated-9vh8x8b2/arrow/demand.schema.json\n/tmp/ctw-generated-9vh8x8b2/arrow/facility.schema.arrow\n/tmp/ctw-generated-9vh8x8b2/arrow/facility.schema.json\n/tmp/ctw-generated-9vh8x8b2/arrow/result.schema.arrow\n/tmp/ctw-generated-9vh8x8b2/arrow/result.schema.json\n/tmp/ctw-generated-9vh8x8b2/arrow/index.json\n/tmp/ctw-generated-9vh8x8b2/assumptions-appendix.md\nGenerated files are current.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_lockfile_portability.py",
+        "exit_code": 0,
+        "stdout": "Portable uv.lock passed: 145 package records, public PyPI endpoints only, no embedded credentials.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_version_consistency.py",
+        "exit_code": 0,
+        "stdout": "Release metadata is consistent at version 0.2.0.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_workflows.py",
+        "exit_code": 0,
+        "stdout": "Workflow policy checks passed.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_workflow_hardening.py",
+        "exit_code": 0,
+        "stdout": "Workflow hardening checks passed.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_claim_boundaries.py",
+        "exit_code": 0,
+        "stdout": "Claim-boundary scan passed.\n",
+        "stderr": ""
+      },
+      {
+        "script": "check_privacy_and_licences.py",
+        "exit_code": 0,
+        "stdout": "Privacy and licence checks passed.\n",
+        "stderr": ""
+      },
+      {
+        "script": "publication_readiness.py",
+        "exit_code": 0,
+        "stdout": "/workspace/scratch/1697c042543b/closer-security-repair/release/publication-readiness.json\n",
+        "stderr": ""
+      }
+    ],
+    "make_check": {
+      "status": "blocked",
+      "missing_input": "data/derived/national-demand-cells.parquet",
+      "failed_stage": "scripts/materialize_treatment_delivery_scenarios.py",
+      "explanation": "The checkout does not contain the frozen aggregate data required to regenerate national scenarios; this gate remains unresolved."
+    },
+    "hosted_ci": {
+      "status": "not_yet_run"
+    }
+  },
+  "test_count_reconciliation": {
+    "previous_recorded_count": 179,
+    "current_collected_and_passed_count": 180,
+    "test_source_changes": false
+  },
+  "sha256": {
+    "uv.lock": "791521ffc0c7a451a7ba659d1d609fd7a27a89c8155f00731998335abef9b153",
+    "containers/uv-requirements.txt": "1ac7f4f3aeebb1a2d8c6ef2c6e3595f5c8f88528fb941432321023a7ea60ec1c",
+    "conductor/state.yaml": "16e3408878f9ad0d4f0e38efeb2980c998a00814adef737bac8bae836d93b9a4",
+    "conductor/task-graph.json": "baa865c3f0313c84822f640f1622779191571ee1db41b160d36bb680e4fe4a52",
+    "conductor/tracks/SEC-021-dependency-audit-repair.yaml": "e9e663e71543debfeb026d86d3ba0e25f5b8133e418508977c7617664b92d436"
+  },
+  "validation_log_sha256": {
+    "closer-sync.log": "672227a32d8890d3a52f59293ae38c585fc9947f55b22aa549708a1d2951c5ee",
+    "closer-pip-audit.json": "2c594ec22170deab118b581909ef34beaf21a3d43023d377e5bac308601b5f0a",
+    "closer-validation.log": "5e904257f19f1164b7d5d756fea251ae6e01670dbceadbea263a952dfb4483e6",
+    "closer-additional-validation.log": "e81b76b2586697699324f3b2552777114c2413eb16b7f4ae58515a7fcd1062b0",
+    "closer-remaining-checks.json": "425285f8125cdfa3a10a6ba3ab844c07e5ea73900b21f59d898f9beeb9c775d1"
+  }
+}
