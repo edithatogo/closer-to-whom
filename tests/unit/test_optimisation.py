@@ -52,3 +52,21 @@ def test_pareto_frontier() -> None:
     assert pareto_frontier((), minimise=()) == ()
     with pytest.raises(ValueError):
         pareto_frontier(points, minimise=(True,))
+
+
+def test_location_objectives_are_invariant_to_demand_row_permutation() -> None:
+    row_order = np.array([2, 0, 1])
+
+    original_median = solve_location_allocation(COSTS, WEIGHTS, site_count=2, objective="p_median")
+    permuted_median = solve_location_allocation(
+        COSTS[row_order], WEIGHTS[row_order], site_count=2, objective="p_median"
+    )
+    original_coverage = maximal_coverage(COSTS, WEIGHTS, site_count=1, threshold=5.0)
+    permuted_coverage = maximal_coverage(
+        COSTS[row_order], WEIGHTS[row_order], site_count=1, threshold=5.0
+    )
+
+    assert permuted_median.selected_indices == original_median.selected_indices
+    assert permuted_median.objective_value == pytest.approx(original_median.objective_value)
+    assert permuted_coverage.selected_indices == original_coverage.selected_indices
+    assert permuted_coverage.objective_value == pytest.approx(original_coverage.objective_value)
