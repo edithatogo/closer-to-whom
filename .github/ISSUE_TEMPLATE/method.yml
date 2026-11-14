@@ -1,5 +1,5 @@
 name: Method or scenario proposal
-about: Propose a new method, assumption, scenario, or decision criterion
+description: Propose a new method, assumption, scenario, or decision criterion
 title: "method: "
 labels: [methodology]
 body:

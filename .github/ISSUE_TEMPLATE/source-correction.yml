@@ -1,5 +1,5 @@
 name: Source or service-registry correction
-about: Propose a correction to public evidence or facility classification
+description: Propose a correction to public evidence or facility classification
 title: "source: "
 labels: [evidence, needs-adjudication]
 body:

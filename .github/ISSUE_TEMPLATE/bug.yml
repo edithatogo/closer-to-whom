@@ -1,5 +1,5 @@
 name: Software defect
-about: Report a reproducible model or tooling defect
+description: Report a reproducible model or tooling defect
 title: "bug: "
 labels: [bug]
 body:
